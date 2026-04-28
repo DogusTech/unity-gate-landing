@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title data-i18n="metaTitle">Hakkımızda | Unity Gate</title>
-    <meta name="description" data-i18n="[content]metaDescription" content="Aeternexus A.Ş. tarafından kurulan Unity Gate'in vizyonu, misyonu ve hikayesi.">
+    <title data-i18n="metaTitleAbout">Hakkımızda | Unity Gate</title>
+    <meta name="description" data-i18n="[content]metaDescAbout" content="Aeternexus A.Ş. tarafından kurulan Unity Gate'in vizyonu, misyonu ve hikayesi.">
     
     <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/about" />
     <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/hakkimizda" />
@@ -19,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- i18next & Http Backend (JSON dosyalarını Vercel'den çeker) -->
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
 
     <style>
         :root {
@@ -124,7 +126,7 @@
                 Unity Gate
             </a>
             <nav class="nav-links">
-                <a href="/ucla-test" data-i18n="navTest">UCLA Testi</a>
+                <a href="/ucla-test" data-i18n="navUcla">UCLA Testi</a>
                 <a href="/insights" data-i18n="navInsights">İçgörüler</a>
                 <a href="/about" class="active" data-i18n="navAbout">Hakkımızda</a>
             </nav>
@@ -133,8 +135,8 @@
 
     <main>
         <section class="hero">
-            <h1 data-i18n="heroTitle">Yalnızlığa Karşı <span class="highlight">Bilimsel Bir Köprü</span></h1>
-            <p data-i18n="heroSubtitle">Aeternexus A.Ş. olarak, dijital çağın en büyük krizini çözmek için teknolojiyi empati ve bilimle birleştiriyoruz.</p>
+            <h1 data-i18n="heroTitleAbout">Yalnızlığa Karşı <span class="highlight">Bilimsel Bir Köprü</span></h1>
+            <p data-i18n="heroSubtitleAbout">Aeternexus A.Ş. olarak, dijital çağın en büyük krizini çözmek için teknolojiyi empati ve bilimle birleştiriyoruz.</p>
         </section>
 
         <section class="container">
@@ -152,7 +154,7 @@
 
             <div class="content-grid" style="direction: rtl;">
                 <div class="text-box" style="direction: ltr;">
-                    <h2 data-i18n="visionTitle">Global Vizyonumuz</h2>
+                    <h2 data-i18n="visionTitleGlobal">Global Vizyonumuz</h2>
                     <p data-i18n="visionText1">Aeternexus A.Ş. bünyesinde geliştirilen Unity Gate, sadece bir uygulama değil, global bir HealthTech (Sağlık Teknolojisi) hareketidir.</p>
                     <p data-i18n="visionText2">Uzman psikologlar, arabulucular ve finansal danışmanları tek bir güvenli çatı altında toplayarak, psikolojik desteği herkes için erişilebilir, güvenli ve şeffaf hale getirmeyi hedefliyoruz.</p>
                 </div>
@@ -196,62 +198,26 @@
     </main>
 
     <script>
-        const resources = {
-            tr: {
-                translation: {
-                    metaTitle: "Hakkımızda | Unity Gate",
-                    metaDescription: "Aeternexus A.Ş. tarafından kurulan Unity Gate'in vizyonu, misyonu ve hikayesi.",
-                    navTest: "UCLA Testi", navInsights: "İçgörüler", navAbout: "Hakkımızda",
-                    heroTitle: "Yalnızlığa Karşı <span class='highlight'>Bilimsel Bir Köprü</span>",
-                    heroSubtitle: "Aeternexus A.Ş. olarak, dijital çağın en büyük krizini çözmek için teknolojiyi empati ve bilimle birleştiriyoruz.",
-                    missionTitle: "Misyonumuz",
-                    missionText1: "Günümüzde sürekli çevrimiçi olmamıza rağmen, tarihte hiç olmadığı kadar kopuk ve yalnız hissediyoruz. Birlik Kapısı (Unity Gate), bu paradoksu kırmak için doğdu.",
-                    missionText2: "Amacımız; yüzeysel kaydırmalar veya anlık mesajlaşmalar yerine, klinik psikoloji ve yapay zeka algoritmalarını kullanarak insanların gerçekten anlaşılacağı bağlar kurmasını sağlamaktır.",
-                    visionTitle: "Global Vizyonumuz",
-                    visionText1: "Aeternexus A.Ş. bünyesinde geliştirilen Unity Gate, sadece bir uygulama değil, global bir HealthTech (Sağlık Teknolojisi) hareketidir.",
-                    visionText2: "Uzman psikologlar, arabulucular ve finansal danışmanları tek bir güvenli çatı altında toplayarak, psikolojik desteği herkes için erişilebilir, güvenli ve şeffaf hale getirmeyi hedefliyoruz.",
-                    valuesTitle: "Temel Değerlerimiz",
-                    val1Title: "Bilimsel Temel", val1Desc: "UCLA Yalnızlık Ölçeği gibi klinik olarak kanıtlanmış metotlarla hareket ederiz.",
-                    val2Title: "Askeri Düzey Gizlilik", val2Desc: "Tüm görüşmeleriniz ve verileriniz uçtan uca şifreleme (E2EE) ile korunur.",
-                    val3Title: "Gerçek İnsan Bağı", val3Desc: "Algoritmalarımız bizi ekrana bağlamak için değil, insanlara bağlamak için çalışır."
-                }
-            },
-            en: {
-                translation: {
-                    metaTitle: "About Us | Unity Gate",
-                    metaDescription: "The vision, mission, and story of Unity Gate, founded by Aeternexus Inc.",
-                    navTest: "UCLA Test", navInsights: "Insights", navAbout: "About Us",
-                    heroTitle: "A Scientific Bridge Against <span class='highlight'>Loneliness</span>",
-                    heroSubtitle: "As Aeternexus Inc., we combine technology with empathy and science to solve the greatest crisis of the digital age.",
-                    missionTitle: "Our Mission",
-                    missionText1: "Although we are constantly online today, we feel more disconnected and lonely than ever in history. Unity Gate was born to break this paradox.",
-                    missionText2: "Our goal is to enable people to form bonds where they are truly understood, using clinical psychology and AI, rather than superficial swiping or instant messaging.",
-                    visionTitle: "Our Global Vision",
-                    visionText1: "Developed under Aeternexus Inc., Unity Gate is not just an app, but a global HealthTech movement.",
-                    visionText2: "By bringing expert psychologists, mediators, and financial advisors under one secure roof, we aim to make psychological support accessible, safe, and transparent for everyone.",
-                    valuesTitle: "Core Values",
-                    val1Title: "Scientific Foundation", val1Desc: "We act with clinically proven methods such as the UCLA Loneliness Scale.",
-                    val2Title: "Military-Grade Privacy", val2Desc: "All your calls and data are protected with end-to-end encryption (E2EE).",
-                    val3Title: "Genuine Connection", val3Desc: "Our algorithms work to connect us to people, not to screens."
-                }
-            }
-            // DE, FR, ES, JA dilleri translation.json dosyalarına eklenecek.
-        };
-
         const pathSegments = window.location.pathname.split('/');
         let urlLang = pathSegments[1]; 
         if(!['en', 'tr', 'de', 'fr', 'es', 'ja'].includes(urlLang)) {
-            urlLang = 'tr'; // Varsayılanı Türkçe yaptık
+            urlLang = 'tr'; 
         }
 
-        i18next.init({
-            lng: urlLang,
-            fallbackLng: 'en',
-            resources: resources
-        }).then(function() {
-            updateContent();
-            document.getElementById('html-tag').setAttribute('lang', i18next.language);
-        });
+        i18next
+            .use(i18nextHttpBackend)
+            .init({
+                lng: urlLang,
+                fallbackLng: 'en',
+                backend: {
+                    loadPath: './locales/{{lng}}/translation.json' 
+                }
+            }).then(function() {
+                updateContent();
+                document.getElementById('html-tag').setAttribute('lang', i18next.language);
+            }).catch(function(error) {
+                console.error("i18next yüklenirken hata oluştu: ", error);
+            });
 
         function updateContent() {
             document.querySelectorAll('[data-i18n]').forEach(element => {

@@ -33,5 +33,66 @@
   "footerInvestors": "Inversores",
   "footerPrivacy": "Privacidad",
   "footerTerms": "Términos",
-  "footerCopyright": "© 2026 Aeternexus Inc. Todos los derechos reservados."
+  "footerCopyright": "© 2026 Aeternexus Inc. Todos los derechos reservados.",
+  "metaTitleInsights": "Perspectivas | Unity Gate",
+  "metaDescInsights": "Análisis en profundidad sobre salud mental y recuperación científica.",
+  "insightsTitle": "Perspectivas",
+  "insightsSubtitle": "Análisis en profundidad sobre salud mental y recuperación científica.",
+  "articlesSection": "Últimos Artículos",
+  "minRead": "min de lectura",
+  "articles": [
+    { "title": "Escala de soledad UCLA: Medir el aislamiento", "slug": "digital-isolation", "cat": "PSICOLOGÍA", "time": 4, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" },
+    { "title": "Matchmaking moderno: Conexiones reales", "slug": "modern-matchmaking", "cat": "RELACIONES", "time": 6, "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" },
+    { "title": "Estrés financiero y salud mental", "slug": "financial-stress", "cat": "FINANZAS", "time": 5, "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800" },
+    { "title": "Terapia en línea segura", "slug": "secure-online-therapy", "cat": "TERAPIA", "time": 7, "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" }
+  ],
+  "btnBack": "Volver",
+  "latestArticlesTitle": "Últimos Artículos",
+  "articleDetails": {
+    "digital-isolation": {
+      "title": "Escala de soledad UCLA: Medir el aislamiento",
+      "cat": "PSICOLOGÍA",
+      "time": 4,
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+      "body": "<p>Estar hiperconectados pero sentirnos aislados es la gran paradoja de nuestra era.</p><h2>El coste de lo superficial</h2><p>Cientos de seguidores no reemplazan a un amigo en crisis.</p><blockquote>\"La mayor soledad es no ser comprendido entre la multitud.\"</blockquote>"
+    },
+    "modern-matchmaking": {
+      "title": "Matchmaking moderno: Conexiones reales",
+      "cat": "RELACIONES",
+      "time": 6,
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      "body": "<p>Es hora de forjar vínculos basados en la compatibilidad psicológica profunda.</p>"
+    },
+    "financial-stress": {
+      "title": "Estrés financiero y salud mental",
+      "cat": "FINANZAS",
+      "time": 5,
+      "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200",
+      "body": "<p>La ansiedad económica daña a la familia. Nuestros asesores te ayudarán.</p>"
+    },
+    "secure-online-therapy": {
+      "title": "Terapia en línea segura",
+      "cat": "TERAPIA",
+      "time": 7,
+      "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200",
+      "body": "<p>Terapia clínica con cifrado militar para tu total seguridad y privacidad.</p>"
+    }
+  },
+  "metaTitleAbout": "Sobre Nosotros | Unity Gate",
+  "metaDescAbout": "La visión, misión e historia de Unity Gate, fundada por Aeternexus Inc.",
+  "heroTitleAbout": "Un puente científico contra la <span class='highlight'>soledad</span>",
+  "heroSubtitleAbout": "En Aeternexus Inc., combinamos tecnología, empatía y ciencia para resolver la mayor crisis de la era digital.",
+  "missionTitle": "Nuestra Misión",
+  "missionText1": "Aunque estamos constantemente conectados, nos sentimos más solos que nunca. Unity Gate nació para romper esta paradoja.",
+  "missionText2": "Nuestro objetivo es permitir vínculos donde las personas se sientan comprendidas, usando psicología clínica e IA.",
+  "visionTitleGlobal": "Nuestra Visión Global",
+  "visionText1": "Desarrollada por Aeternexus Inc., Unity Gate es un movimiento global de HealthTech.",
+  "visionText2": "Al reunir a expertos bajo un mismo techo seguro, hacemos que el apoyo psicológico sea accesible y transparente.",
+  "valuesTitle": "Valores Fundamentales",
+  "val1Title": "Base Científica",
+  "val1Desc": "Actuamos con métodos probados clínicamente como la Escala de Soledad de UCLA.",
+  "val2Title": "Privacidad Militar",
+  "val2Desc": "Tus datos están protegidos con cifrado de extremo a extremo (E2EE).",
+  "val3Title": "Conexión Genuina",
+  "val3Desc": "Nuestros algoritmos te conectan con personas, no con pantallas."
 }

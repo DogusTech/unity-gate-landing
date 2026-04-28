@@ -33,5 +33,66 @@
   "footerInvestors": "Investoren",
   "footerPrivacy": "Datenschutz",
   "footerTerms": "Bedingungen",
-  "footerCopyright": "© 2026 Aeternexus Inc. Alle Rechte vorbehalten."
+  "footerCopyright": "© 2026 Aeternexus Inc. Alle Rechte vorbehalten.",
+  "metaTitleInsights": "Einblicke | Unity Gate",
+  "metaDescInsights": "Tiefgehende Analysen zu psychischer Gesundheit und wissenschaftlicher Genesung.",
+  "insightsTitle": "Einblicke",
+  "insightsSubtitle": "Tiefgehende Analysen zu psychischer Gesundheit und wissenschaftlicher Genesung.",
+  "articlesSection": "Neueste Artikel",
+  "minRead": "Min. Lesezeit",
+  "articles": [
+    { "title": "UCLA-Einsamkeitsskala: Isolation messen", "slug": "digital-isolation", "cat": "PSYCHOLOGIE", "time": 4, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" },
+    { "title": "Modernes Matchmaking: Echte Verbindungen", "slug": "modern-matchmaking", "cat": "BEZIEHUNGEN", "time": 6, "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" },
+    { "title": "Finanzieller Stress & Psyche", "slug": "financial-stress", "cat": "FINANZEN", "time": 5, "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800" },
+    { "title": "Sichere Online-Therapie", "slug": "secure-online-therapy", "cat": "THERAPIE", "time": 7, "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" }
+  ],
+  "btnBack": "Zurück",
+  "latestArticlesTitle": "Neueste Artikel",
+  "articleDetails": {
+    "digital-isolation": {
+      "title": "UCLA-Einsamkeitsskala: Isolation messen",
+      "cat": "PSYCHOLOGIE",
+      "time": 4,
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+      "body": "<p>In einer Welt ständiger Vernetzung ist die zunehmende Isolation das größte Paradoxon unserer Zeit.</p><h2>Kosten oberflächlicher Kontakte</h2><p>Hunderte Follower ersetzen keinen echten Freund in der Krise.</p><blockquote>\"Die größte Einsamkeit ist es, in der Menge unverstanden zu sein.\"</blockquote>"
+    },
+    "modern-matchmaking": {
+      "title": "Modernes Matchmaking: Echte Verbindungen",
+      "cat": "BEZIEHUNGEN",
+      "time": 6,
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      "body": "<p>Zeit für tiefe psychologische Kompatibilität statt oberflächlichem Swipen.</p>"
+    },
+    "financial-stress": {
+      "title": "Finanzieller Stress & Psyche",
+      "cat": "FINANZEN",
+      "time": 5,
+      "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200",
+      "body": "<p>Finanzielle Ängste zerstören familiäre Bindungen. Unsere Berater helfen bei der Stressbewältigung.</p>"
+    },
+    "secure-online-therapy": {
+      "title": "Sichere Online-Therapie",
+      "cat": "THERAPIE",
+      "time": 7,
+      "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200",
+      "body": "<p>Militärisch verschlüsselte, klinisch erprobte Online-Therapie für Ihre Sicherheit.</p>"
+    }
+  },
+  "metaTitleAbout": "Über uns | Unity Gate",
+  "metaDescAbout": "Vision, Mission und Geschichte von Unity Gate, gegründet von Aeternexus Inc.",
+  "heroTitleAbout": "Eine wissenschaftliche Brücke gegen <span class='highlight'>Einsamkeit</span>",
+  "heroSubtitleAbout": "Als Aeternexus Inc. verbinden wir Technologie mit Empathie und Wissenschaft, um die größte Krise des digitalen Zeitalters zu lösen.",
+  "missionTitle": "Unsere Mission",
+  "missionText1": "Obwohl wir heute ständig online sind, fühlen wir uns isolierter denn je. Unity Gate wurde geboren, um dieses Paradoxon zu durchbrechen.",
+  "missionText2": "Unser Ziel ist es, Menschen zu ermöglichen, Verbindungen zu knüpfen, in denen sie wirklich verstanden werden – mit klinischer Psychologie und KI statt oberflächlichem Wischen.",
+  "visionTitleGlobal": "Unsere globale Vision",
+  "visionText1": "Unity Gate ist mehr als eine App; es ist eine globale HealthTech-Bewegung.",
+  "visionText2": "Indem wir Experten unter einem sicheren Dach vereinen, machen wir psychologische Unterstützung für alle zugänglich, sicher und transparent.",
+  "valuesTitle": "Grundwerte",
+  "val1Title": "Wissenschaftliche Basis",
+  "val1Desc": "Wir arbeiten mit klinisch erprobten Methoden wie der UCLA-Einsamkeitsskala.",
+  "val2Title": "Militärische Privatsphäre",
+  "val2Desc": "Alle Ihre Daten sind durch Ende-zu-Ende-Verschlüsselung (E2EE) geschützt.",
+  "val3Title": "Echte Verbindungen",
+  "val3Desc": "Unsere Algorithmen verbinden Sie mit Menschen, nicht mit Bildschirmen."
 }

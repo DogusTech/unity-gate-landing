@@ -33,5 +33,66 @@
   "footerInvestors": "Yatırımcılar",
   "footerPrivacy": "Gizlilik",
   "footerTerms": "Şartlar",
-  "footerCopyright": "© 2026 Aeternexus A.Ş. Tüm hakları saklıdır."
+  "footerCopyright": "© 2026 Aeternexus A.Ş. Tüm hakları saklıdır.",
+  "metaTitleInsights": "İçgörüler | Unity Gate",
+  "metaDescInsights": "Ruh sağlığı, modern yalnızlık ve bilimsel iyileşme üzerine derinlemesine analizler.",
+  "insightsTitle": "İçgörüler",
+  "insightsSubtitle": "Ruh sağlığı ve bilimsel iyileşme üzerine derinlemesine analizler.",
+  "articlesSection": "Son Makaleler",
+  "minRead": "dk okuma",
+  "articles": [
+    { "title": "UCLA Yalnızlık Testi: İzolasyonu Ölçmek", "slug": "dijital-izolasyon", "cat": "PSİKOLOJİ", "time": 4, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" },
+    { "title": "Modern Matchmaking: Gerçek Bağlar", "slug": "modern-matchmaking", "cat": "İLİŞKİLER", "time": 6, "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" },
+    { "title": "Finansal Stres ve Ruh Sağlığı", "slug": "finansal-stres", "cat": "FİNANS", "time": 5, "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800" },
+    { "title": "Güvenli Online Terapi", "slug": "guvenli-online-terapi", "cat": "TERAPİ", "time": 7, "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" }
+  ],
+  "btnBack": "Geri Dön",
+  "latestArticlesTitle": "Son Makaleler",
+  "articleDetails": {
+    "dijital-izolasyon": {
+      "title": "UCLA Yalnızlık Testi: İzolasyonu Ölçmek",
+      "cat": "PSİKOLOJİ",
+      "time": 4,
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+      "body": "<p>Sürekli çevrimiçi olduğumuz bir dünyada, tarihte hiç olmadığı kadar kopuk hissetmemiz modern çağın en büyük paradokslarından biridir.</p><h2>Yüzeysel Bağlantıların Maliyeti</h2><p>Sosyal medya algoritmaları bizi bir illüzyonun içine hapsediyor. Yüzlerce 'arkadaş', gerçek bir kriz anında yanımızda olacak bir dostun yerini tutamaz.</p><blockquote>\"En büyük yalnızlık, kalabalıklar içinde anlaşılamamaktır.\"</blockquote><h3>Birlik Kapısı Yaklaşımı</h3><ul><li>Algoritmik değil, psikolojik uyuma dayalı eşleştirmeler.</li><li>Uzman moderatörlüğünde güvenli alanlar.</li></ul>"
+    },
+    "modern-matchmaking": {
+      "title": "Modern Matchmaking: Gerçek Bağlar",
+      "cat": "İLİŞKİLER",
+      "time": 6,
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      "body": "<p>Modern dünyada yüzeysel kaydırmalar yerine, derin psikolojik uyuma dayanan gerçek insan bağları kurmanın zamanı geldi. Sistemimiz klinik eşleştirme algoritmaları kullanır.</p>"
+    },
+    "finansal-stres": {
+      "title": "Finansal Stres ve Ruh Sağlığı",
+      "cat": "FİNANS",
+      "time": 5,
+      "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200",
+      "body": "<p>Maddi kaygıların psikolojimiz ve aile bağlarımız üzerindeki yıkıcı etkisi bilinen bir gerçektir. Finansal danışmanlarımız bu stresi yönetmenize yardımcı olur.</p>"
+    },
+    "guvenli-online-terapi": {
+      "title": "Güvenli Online Terapi",
+      "cat": "TERAPİ",
+      "time": 7,
+      "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200",
+      "body": "<p>Askeri düzeyde şifrelenmiş, klinik olarak kanıtlanmış online terapi deneyimi. Verilerinizin ve ruh sağlığınızın güvende olduğu o özel alan.</p>"
+    }
+  },
+  "metaTitleAbout": "Hakkımızda | Unity Gate",
+  "metaDescAbout": "Aeternexus A.Ş. tarafından kurulan Unity Gate'in vizyonu, misyonu ve hikayesi.",
+  "heroTitleAbout": "Yalnızlığa Karşı <span class='highlight'>Bilimsel Bir Köprü</span>",
+  "heroSubtitleAbout": "Aeternexus A.Ş. olarak, dijital çağın en büyük krizini çözmek için teknolojiyi empati ve bilimle birleştiriyoruz.",
+  "missionTitle": "Misyonumuz",
+  "missionText1": "Günümüzde sürekli çevrimiçi olmamıza rağmen, tarihte hiç olmadığı kadar kopuk ve yalnız hissediyoruz. Birlik Kapısı (Unity Gate), bu paradoksu kırmak için doğdu.",
+  "missionText2": "Amacımız; yüzeysel kaydırmalar veya anlık mesajlaşmalar yerine, klinik psikoloji ve yapay zeka algoritmalarını kullanarak insanların gerçekten anlaşılacağı bağlar kurmasını sağlamaktır.",
+  "visionTitleGlobal": "Global Vizyonumuz",
+  "visionText1": "Aeternexus A.Ş. bünyesinde geliştirilen Unity Gate, sadece bir uygulama değil, global bir HealthTech (Sağlık Teknolojisi) hareketidir.",
+  "visionText2": "Uzman psikologlar, arabulucular ve finansal danışmanları tek bir güvenli çatı altında toplayarak, psikolojik desteği herkes için erişilebilir, güvenli ve şeffaf hale getirmeyi hedefliyoruz.",
+  "valuesTitle": "Temel Değerlerimiz",
+  "val1Title": "Bilimsel Temel",
+  "val1Desc": "UCLA Yalnızlık Ölçeği gibi klinik olarak kanıtlanmış metotlarla hareket ederiz.",
+  "val2Title": "Askeri Düzey Gizlilik",
+  "val2Desc": "Tüm görüşmeleriniz ve verileriniz uçtan uca şifreleme (E2EE) ile korunur.",
+  "val3Title": "Gerçek İnsan Bağı",
+  "val3Desc": "Algoritmalarımız bizi ekrana bağlamak için değil, insanlara bağlamak için çalışır."
 }

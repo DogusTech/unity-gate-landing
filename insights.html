@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="tr" dir="ltr">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İçgörüler | Unity Gate - Online Terapi ve Matchmaking</title>
-    <meta name="description" content="Yalnızlık, psikoloji, modern ilişkiler ve finansal sağlık üzerine bilimsel makaleler ve uzman görüşleri.">
+    <title data-i18n="metaTitleInsights">İçgörüler | Unity Gate</title>
+    <meta name="description" data-i18n="[content]metaDescInsights" content="Yalnızlık, psikoloji ve modern ilişkiler üzerine analizler.">
     
+    <!-- Global SEO Hreflang Etiketleri -->
+    <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/insights" />
+    <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/insights" />
+    <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/insights" />
+    <link rel="alternate" hreflang="fr" href="https://unity-gate.com/fr/insights" />
+    <link rel="alternate" hreflang="es" href="https://unity-gate.com/es/insights" />
+    <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/insights" />
+    <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/insights" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- i18next Kütüphaneleri -->
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
 
     <style>
         :root {
@@ -18,7 +31,6 @@
             --blue: #0284C7;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
-            --gradient-primary: linear-gradient(135deg, var(--cyan), var(--blue));
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,66 +41,39 @@
             line-height: 1.6;
         }
 
-        /* Navbar */
+        /* Navbar - Landing Page ile Aynı Standart */
         header {
-            padding: 16px 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 17, 33, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 16px 80px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(11, 17, 33, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000;
         }
-
-        .brand { font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-left { display: flex; align-items: center; gap: 40px; }
+        .brand { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; color: white; text-decoration: none;}
+        .nav-links { display: flex; gap: 24px; font-weight: 600; font-size: 14px; color: var(--text-muted); }
+        .nav-links a { color: inherit; text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
         
         /* Hero Section */
-        .hero {
-            padding: 80px 15%;
-            text-align: left;
-            position: relative;
-        }
-
+        .hero { padding: 140px 15% 80px 15%; text-align: left; position: relative; }
         .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
         .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin-bottom: 32px; }
 
         .btn-ucla {
-            background: #2563EB;
-            color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
+            background: #2563EB; color: white; padding: 16px 32px; border-radius: 8px;
+            font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s;
         }
-
         .btn-ucla:hover { background: #1D4ED8; transform: translateY(-2px); }
 
         /* Article Grid */
         .container { padding: 0 15% 80px 15%; }
         .section-title { font-size: 24px; color: var(--text-muted); border-bottom: 1px solid var(--bg-card); padding-bottom: 12px; margin-bottom: 40px; }
 
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 30px;
-        }
-
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
         .article-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
+            background: rgba(30, 41, 59, 0.5); border: 1px solid var(--bg-card); border-radius: 12px;
+            overflow: hidden; transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit;
         }
-
         .article-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
         .article-card img { width: 100%; height: 220px; object-fit: cover; }
         .article-content { padding: 24px; }
@@ -98,14 +83,14 @@
         .article-card h3 { font-size: 20px; font-weight: 700; color: white; line-height: 1.3; }
 
         /* Wave Effect */
-        .wave-container { width: 100%; height: 100px; overflow: hidden; line-height: 0; }
-        .wave-container svg { height: 100%; width: 200%; animation: moveWave 15s linear infinite; }
+        .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; overflow: hidden; line-height: 0; z-index: -1; opacity: 0.5;}
+        .wave-container svg { height: 100%; width: 200%; animation: moveWave 15s linear infinite; fill: var(--cyan); }
         @keyframes moveWave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Mobile */
         @media (max-width: 800px) {
             header { padding: 16px 24px; }
-            .hero { padding: 60px 24px; }
+            .nav-links { display: none; }
+            .hero { padding: 120px 24px 60px 24px; }
             .hero h1 { font-size: 32px; }
             .container { padding: 0 24px 60px 24px; }
             .article-grid { grid-template-columns: 1fr; }
@@ -115,85 +100,105 @@
 <body>
 
 <header>
-    <a href="/" class="brand">Unity Gate</a>
-    <div id="language-switcher">
-        </div>
+    <div class="nav-left">
+        <a href="/" class="brand">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Unity Gate
+        </a>
+        <nav class="nav-links">
+            <a href="/ucla-test" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/insights" class="active" data-i18n="navInsights">İçgörüler</a>
+            <a href="/about" data-i18n="navAbout">Hakkımızda</a>
+        </nav>
+    </div>
 </header>
 
 <section class="hero">
-    <h1 id="page-title">İçgörüler</h1>
-    <p id="page-subtitle">Ruh sağlığı, modern yalnızlık ve bilimsel iyileşme üzerine derinlemesine analizler.</p>
-    <a href="/ucla-test/start" class="btn-ucla" id="cta-btn">Yalnızlık Testini Başlat</a>
+    <h1 data-i18n="insightsTitle">İçgörüler</h1>
+    <p data-i18n="insightsSubtitle">Ruh sağlığı, modern yalnızlık ve bilimsel iyileşme üzerine derinlemesine analizler.</p>
+    <a href="/ucla-test/start" class="btn-ucla" data-i18n="btnStartTest">Yalnızlık Testini Başlat</a>
+    
+    <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" />
+        </svg>
+    </div>
 </section>
 
 <div class="container">
-    <h2 class="section-title" id="section-header">Makaleler</h2>
+    <h2 class="section-title" data-i18n="articlesSection">Son Makaleler</h2>
     <div class="article-grid" id="article-container">
-        </div>
+        <!-- Makaleler JavaScript ile buraya i18next üzerinden dinamik basılacak -->
+    </div>
 </div>
 
 <script>
-    const translations = {
-        'tr': {
-            title: 'İçgörüler',
-            subtitle: 'Ruh sağlığı ve bilimsel iyileşme üzerine derinlemesine analizler.',
-            btn: 'Yalnızlık Testini Başlat',
-            section: 'Son Makaleler',
-            min: 'dk okuma',
-            articles: [
-                { title: 'UCLA Yalnızlık Testi: İzolasyonu Ölçmek', cat: 'PSİKOLOJİ', time: 4, img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800' },
-                { title: 'Modern Matchmaking: Gerçek Bağlar', cat: 'İLİŞKİLER', time: 6, img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800' },
-                { title: 'Finansal Stres ve Ruh Sağlığı', cat: 'FİNANS', time: 5, img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800' },
-                { title: 'Güvenli Online Terapi', cat: 'TERAPİ', time: 7, img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800' }
-            ]
-        },
-        'en': {
-            title: 'Insights',
-            subtitle: 'In-depth analysis on mental health and scientific recovery.',
-            btn: 'Start Loneliness Test',
-            section: 'Latest Articles',
-            min: 'min read',
-            articles: [
-                { title: 'UCLA Loneliness Scale: Measuring Isolation', cat: 'PSYCHOLOGY', time: 4, img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800' },
-                { title: 'Modern Matchmaking: Real Connections', cat: 'RELATIONSHIPS', time: 6, img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800' },
-                { title: 'Financial Stress & Mental Health', cat: 'FINANCE', time: 5, img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800' },
-                { title: 'Secure Online Therapy', cat: 'THERAPY', time: 7, img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800' }
-            ]
-        }
-        // DE, JA, FR, ES dilleri benzer şekilde eklenebilir...
-    };
+    const pathSegments = window.location.pathname.split('/');
+    let urlLang = pathSegments[1]; 
+    if(!['en', 'tr', 'de', 'fr', 'es', 'ja'].includes(urlLang)) {
+        urlLang = 'tr'; 
+    }
 
-    function loadArticles(lang) {
-        const data = translations[lang] || translations['en'];
-        document.getElementById('page-title').innerText = data.title;
-        document.getElementById('page-subtitle').innerText = data.subtitle;
-        document.getElementById('cta-btn').innerText = data.btn;
-        document.getElementById('section-header').innerText = data.section;
+    i18next
+        .use(i18nextHttpBackend)
+        .init({
+            lng: urlLang,
+            fallbackLng: 'en',
+            backend: {
+                loadPath: './locales/{{lng}}/translation.json' 
+            }
+        }).then(function() {
+            // 1. Statik Metinleri Çevir
+            updateStaticContent();
+            document.getElementById('html-tag').setAttribute('lang', i18next.language);
+            
+            // 2. Makaleleri Array (Dizi) olarak Çek ve Render Et
+            renderArticles();
+        }).catch(function(error) {
+            console.error("i18next yüklenirken bir hata oluştu: ", error);
+        });
 
-        const container = document.getElementById('article-container');
-        container.innerHTML = '';
-
-        data.articles.forEach(art => {
-            const card = `
-                <a href="/insights/${art.title.toLowerCase().replace(/ /g, '-')}" class="article-card">
-                    <img src="${art.img}" alt="${art.title}" loading="lazy">
-                    <div class="article-content">
-                        <div class="meta">
-                            <span class="category">${art.cat}</span>
-                            <span class="read-time">${art.time} ${data.min}</span>
-                        </div>
-                        <h3>${art.title}</h3>
-                    </div>
-                </a>
-            `;
-            container.innerHTML += card;
+    function updateStaticContent() {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (key.startsWith('[content]')) {
+                element.setAttribute('content', i18next.t(key.replace('[content]', '')));
+            } else {
+                element.innerHTML = i18next.t(key);
+            }
         });
     }
 
-    // Tarayıcı dilini algıla
-    const userLang = navigator.language.split('-')[0];
-    loadArticles(userLang);
+    function renderArticles() {
+        // Çeviri dosyasından 'articles' dizisini obje olarak alıyoruz
+        const articles = i18next.t('articles', { returnObjects: true });
+        const minReadTxt = i18next.t('minRead'); // "dk okuma" vb.
+        
+        const container = document.getElementById('article-container');
+        container.innerHTML = '';
+
+        if (Array.isArray(articles)) {
+            articles.forEach(art => {
+                // Tıklanan makale için slug'ı ve dili URL'e paslıyoruz
+                const targetUrl = `/article-detail.html?slug=${art.slug}&lang=${i18next.language}`;
+                
+                const card = `
+                    <a href="${targetUrl}" class="article-card">
+                        <img src="${art.img}" alt="${art.title}" loading="lazy">
+                        <div class="article-content">
+                            <div class="meta">
+                                <span class="category">${art.cat}</span>
+                                <span class="read-time">${art.time} ${minReadTxt}</span>
+                            </div>
+                            <h3>${art.title}</h3>
+                        </div>
+                    </a>
+                `;
+                container.innerHTML += card;
+            });
+        }
+    }
 </script>
 
-</body>
+</body> 
 </html>

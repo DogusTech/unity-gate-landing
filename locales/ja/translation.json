@@ -33,5 +33,66 @@
   "footerInvestors": "投資家情報",
   "footerPrivacy": "プライバシー",
   "footerTerms": "利用規約",
-  "footerCopyright": "© 2026 Aeternexus Inc. 無断複写・転載を禁じます。"
+  "footerCopyright": "© 2026 Aeternexus Inc. 無断複写・転載を禁じます。",
+  "metaTitleInsights": "洞察 | Unity Gate",
+  "metaDescInsights": "メンタルヘルスと科学的回復に関する詳細な分析。",
+  "insightsTitle": "洞察",
+  "insightsSubtitle": "メンタルヘルスと科学的回復に関する詳細な分析。",
+  "articlesSection": "最新の記事",
+  "minRead": "分で読める",
+  "articles": [
+    { "title": "UCLA孤独感尺度：孤立の測定", "slug": "digital-isolation", "cat": "心理学", "time": 4, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" },
+    { "title": "モダンマッチメイキング：本当の繋がり", "slug": "modern-matchmaking", "cat": "人間関係", "time": 6, "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" },
+    { "title": "経済的ストレスとメンタルヘルス", "slug": "financial-stress", "cat": "金融", "time": 5, "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800" },
+    { "title": "安全なオンラインセラピー", "slug": "secure-online-therapy", "cat": "セラピー", "time": 7, "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" }
+  ],
+  "btnBack": "戻る",
+  "latestArticlesTitle": "最新の記事",
+  "articleDetails": {
+    "digital-isolation": {
+      "title": "UCLA孤独感尺度：孤立の測定",
+      "cat": "心理学",
+      "time": 4,
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+      "body": "<p>常にオンラインである一方で、歴史上かつてないほど孤立を感じているのは現代の最大のパラドックスです。</p><h2>表面的なつながりの代償</h2><p>何百人ものフォロワーは、危機の際の真の友人の代わりにはなりません。</p><blockquote>「最大の孤独は、群衆の中で理解されないことである。」</blockquote>"
+    },
+    "modern-matchmaking": {
+      "title": "モダンマッチメイキング：本当の繋がり",
+      "cat": "人間関係",
+      "time": 6,
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      "body": "<p>表面的なスワイプではなく、深い心理的適合性に基づく真の人間関係を築く時が来ました。</p>"
+    },
+    "financial-stress": {
+      "title": "経済的ストレスとメンタルヘルス",
+      "cat": "金融",
+      "time": 5,
+      "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200",
+      "body": "<p>経済的不安が心理や家族の絆に与える破壊的な影響は周知の事実です。</p>"
+    },
+    "secure-online-therapy": {
+      "title": "安全なオンラインセラピー",
+      "cat": "セラピー",
+      "time": 7,
+      "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200",
+      "body": "<p>軍事レベルの暗号化された、臨床的に証明されたオンラインセラピー体験。</p>"
+    }
+  },
+  "metaTitleAbout": "私たちについて | Unity Gate",
+  "metaDescAbout": "Aeternexus Inc.によって設立されたUnity Gateのビジョン、ミッション、ストーリー。",
+  "heroTitleAbout": "孤独に対する<span class='highlight'>科学的な架け橋</span>",
+  "heroSubtitleAbout": "Aeternexus Inc.として、テクノロジー、共感、科学を組み合わせてデジタル時代の最大の危機を解決します。",
+  "missionTitle": "私たちのミッション",
+  "missionText1": "常にオンラインである一方で、歴史上かつてないほど孤立を感じています。Unity Gateはこのパラドックスを打破するために生まれました。",
+  "missionText2": "臨床心理学とAIを用いて、表面的なスワイプではなく、真に理解される絆を形成することを目指しています。",
+  "visionTitleGlobal": "私たちのグローバルビジョン",
+  "visionText1": "Unity Gateは単なるアプリではなく、グローバルなHealthTechムーブメントです。",
+  "visionText2": "専門家を安全な一つの屋根の下に集めることで、心理的サポートを誰もが利用しやすく、安全で透明なものにします。",
+  "valuesTitle": "コアバリュー",
+  "val1Title": "科学的根拠",
+  "val1Desc": "UCLA孤独感尺度など、臨床的に証明された方法に基づいて行動します。",
+  "val2Title": "軍事レベルのプライバシー",
+  "val2Desc": "すべてのデータはエンドツーエンド暗号化（E2EE）で保護されます。",
+  "val3Title": "真のつながり",
+  "val3Desc": "私たちのアルゴリズムは、画面ではなく人とつながるために機能します。"
 }

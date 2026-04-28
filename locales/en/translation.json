@@ -33,5 +33,66 @@
   "footerInvestors": "Investors",
   "footerPrivacy": "Privacy",
   "footerTerms": "Terms",
-  "footerCopyright": "© 2026 Aeternexus Inc. All rights reserved."
+  "footerCopyright": "© 2026 Aeternexus Inc. All rights reserved.",
+  "metaTitleInsights": "Insights | Unity Gate",
+  "metaDescInsights": "In-depth analysis on mental health, modern loneliness, and scientific recovery.",
+  "insightsTitle": "Insights",
+  "insightsSubtitle": "In-depth analysis on mental health and scientific recovery.",
+  "articlesSection": "Latest Articles",
+  "minRead": "min read",
+  "articles": [
+    { "title": "UCLA Loneliness Scale: Measuring Isolation", "slug": "digital-isolation", "cat": "PSYCHOLOGY", "time": 4, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" },
+    { "title": "Modern Matchmaking: Real Connections", "slug": "modern-matchmaking", "cat": "RELATIONSHIPS", "time": 6, "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" },
+    { "title": "Financial Stress & Mental Health", "slug": "financial-stress", "cat": "FINANCE", "time": 5, "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800" },
+    { "title": "Secure Online Therapy", "slug": "secure-online-therapy", "cat": "THERAPY", "time": 7, "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" }
+  ],
+  "btnBack": "Go Back",
+  "latestArticlesTitle": "Latest Insights",
+  "articleDetails": {
+    "digital-isolation": {
+      "title": "UCLA Loneliness Scale: Measuring Isolation",
+      "cat": "PSYCHOLOGY",
+      "time": 4,
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+      "body": "<p>In a world where we are constantly online, feeling more disconnected than ever is the greatest paradox of the modern age.</p><h2>The Cost of Superficial Connections</h2><p>Hundreds of 'friends' cannot replace one true companion during a real crisis.</p><blockquote>\"The greatest loneliness is not being understood in a crowd.\"</blockquote><h3>The Unity Gate Approach</h3><ul><li>Matches based on psychological compatibility.</li><li>Secure areas with expert moderation.</li></ul>"
+    },
+    "modern-matchmaking": {
+      "title": "Modern Matchmaking: Real Connections",
+      "cat": "RELATIONSHIPS",
+      "time": 6,
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      "body": "<p>It's time to build genuine human connections based on deep psychological compatibility rather than superficial swiping.</p>"
+    },
+    "financial-stress": {
+      "title": "Financial Stress & Mental Health",
+      "cat": "FINANCE",
+      "time": 5,
+      "img": "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200",
+      "body": "<p>The devastating effect of financial anxiety on our psychology and family bonds is a known fact. Our financial advisors help you manage this stress.</p>"
+    },
+    "secure-online-therapy": {
+      "title": "Secure Online Therapy",
+      "cat": "THERAPY",
+      "time": 7,
+      "img": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200",
+      "body": "<p>Military-grade encrypted, clinically proven online therapy experience. The special safe space for your data and mental health.</p>"
+    }
+  },
+  "metaTitleAbout": "About Us | Unity Gate",
+  "metaDescAbout": "The vision, mission, and story of Unity Gate, founded by Aeternexus Inc.",
+  "heroTitleAbout": "A Scientific Bridge Against <span class='highlight'>Loneliness</span>",
+  "heroSubtitleAbout": "As Aeternexus Inc., we combine technology with empathy and science to solve the greatest crisis of the digital age.",
+  "missionTitle": "Our Mission",
+  "missionText1": "Although we are constantly online today, we feel more disconnected and lonely than ever in history. Unity Gate was born to break this paradox.",
+  "missionText2": "Our goal is to enable people to form bonds where they are truly understood, using clinical psychology and AI, rather than superficial swiping or instant messaging.",
+  "visionTitleGlobal": "Our Global Vision",
+  "visionText1": "Developed under Aeternexus Inc., Unity Gate is not just an app, but a global HealthTech movement.",
+  "visionText2": "By bringing expert psychologists, mediators, and financial advisors under one secure roof, we aim to make psychological support accessible, safe, and transparent for everyone.",
+  "valuesTitle": "Core Values",
+  "val1Title": "Scientific Foundation",
+  "val1Desc": "We act with clinically proven methods such as the UCLA Loneliness Scale.",
+  "val2Title": "Military-Grade Privacy",
+  "val2Desc": "All your calls and data are protected with end-to-end encryption (E2EE).",
+  "val3Title": "Genuine Connection",
+  "val3Desc": "Our algorithms work to connect us to people, not to screens."
 }

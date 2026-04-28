@@ -21,7 +21,6 @@
     
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
 
     <style>
         :root {
@@ -74,17 +73,6 @@
         .header-text { text-align: center; margin-bottom: 48px; }
         .header-text h1 { font-size: 32px; font-weight: 900; margin: 0 0 12px 0; letter-spacing: -1px; }
         .header-text p { color: rgba(255,255,255,0.6); font-size: 15px; margin: 0; }
-
-        /* Fotoğraf Yükleme Alanı */
-        .photo-upload { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
-        .photo-circle {
-            width: 100px; height: 100px; border-radius: 50%; background: var(--bg-dark);
-            border: 2px solid rgba(0, 229, 255, 0.3); display: flex; justify-content: center; align-items: center;
-            position: relative; cursor: pointer; transition: 0.3s;
-        }
-        .photo-circle:hover { border-color: var(--cyan); }
-        .photo-circle svg { width: 40px; height: 40px; color: rgba(0, 229, 255, 0.5); }
-        .photo-upload span { margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 600; }
 
         /* Form Elemanları */
         .section-title { color: rgba(0, 229, 255, 0.8); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
@@ -159,14 +147,6 @@
 
         <form id="expert-form" onsubmit="handleNextStep(event)">
             
-            <div class="photo-upload">
-                <div class="photo-circle" onclick="document.getElementById('file-upload').click()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </div>
-                <input type="file" id="file-upload" accept="image/*" style="display: none;">
-                <span data-i18n="uploadPhoto">Profil Fotoğrafı Yükle</span>
-            </div>
-
             <div class="section-title" data-i18n="sectionPersonal">KİŞİSEL BİLGİLER</div>
             
             <div class="input-group">
@@ -234,71 +214,33 @@
     </div>
 
     <script>
-        // Veritabanı (İleride bunu locale JSON dosyalarına bölebilirsin)
-        const resources = {
-            en: {
-                translation: {
-                    metaTitle: "Expert Registration | Unity Gate", metaDescription: "Join Unity Gate as an expert.",
-                    back: "Back", title: "Expert Registration", subtitle: "Join our platform as a licensed expert.",
-                    uploadPhoto: "Upload Photo", sectionPersonal: "PERSONAL INFO",
-                    fullName: "Full Name", email: "Email Address", password: "Password", confirmPassword: "Confirm Password",
-                    country: "Country", selectCountry: "Select a Country",
-                    sectionExpertise: "EXPERTISE", mainCategory: "Main Category", selectMainCat: "Select Category",
-                    catTherapy: "Therapy", catMediation: "Mediation", catFinance: "Financial Consulting",
-                    subCategory: "Sub-specialties (Select multiple)",
-                    sectionTerms: "TERMS & PRIVACY", termsText: "By joining as an expert, you agree to adhere to international ethical guidelines...",
-                    agreeTerms: "I have read and agree to the expert terms and privacy policy.",
-                    btnContinue: "Continue to Document Upload",
-                    // Subcategories
-                    sub_therapy: ["Depression", "Anxiety", "Trauma", "Boundaries"],
-                    sub_mediation: ["Family Estrangement", "Couples", "Workplace Conflict"],
-                    sub_finance: ["Debt Control", "Bankruptcy", "Wealth Management"]
-                }
-            },
-            tr: {
-                translation: {
-                    metaTitle: "Uzman Kayıt | Unity Gate", metaDescription: "Unity Gate'e uzman olarak katılın.",
-                    back: "Geri", title: "Uzman Kayıt Formu", subtitle: "Lisanslı bir uzman olarak platformumuza katılın.",
-                    uploadPhoto: "Fotoğraf Yükle", sectionPersonal: "KİŞİSEL BİLGİLER",
-                    fullName: "Ad Soyad", email: "E-posta Adresi", password: "Şifre", confirmPassword: "Şifre Tekrar",
-                    country: "Ülke", selectCountry: "Ülke Seçiniz",
-                    sectionExpertise: "UZMANLIK ALANI", mainCategory: "Ana Kategori", selectMainCat: "Kategori Seçiniz",
-                    catTherapy: "Terapi", catMediation: "Arabuluculuk", catFinance: "Finansal Danışmanlık",
-                    subCategory: "Alt Uzmanlık (Birden fazla seçebilirsiniz)",
-                    sectionTerms: "GİZLİLİK VE ŞARTLAR", termsText: "Uzman olarak platforma katıldığınızda uluslararası psikolojik danışmanlık etik kurallarına uyacağınızı kabul edersiniz...",
-                    agreeTerms: "Uzmanlık şartlarını ve gizlilik sözleşmesini okudum, kabul ediyorum.",
-                    btnContinue: "Belge Yüklemeye Devam Et",
-                    // Subcategories
-                    sub_therapy: ["Depresyon", "Anksiyete", "Travma", "Sınır Çizme"],
-                    sub_mediation: ["Aile Kopukluğu", "Çift İletişimi", "İş Yeri Çatışması"],
-                    sub_finance: ["Borç Kontrolü", "İflas", "Varlık Yönetimi"]
-                }
-            }
-            // DE, FR, ES, JA dillerini buraya benzer şekilde ekleyeceksin.
-        };
-
         // URL'den dili algılama (örn: /tr/expert-registration)
         const pathSegments = window.location.pathname.split('/');
-        let urlLang = pathSegments[1]; // İlk segment genelde dil kodudur
+        let urlLang = pathSegments[1]; 
         if(!['en', 'tr', 'de', 'fr', 'es', 'ja'].includes(urlLang)) {
-            urlLang = 'en'; // Desteklenmeyen dilde İngilizce
+            urlLang = 'tr'; 
         }
 
-        i18next.init({
-            lng: urlLang, // URL'den gelen dili kullan
-            fallbackLng: 'en',
-            resources: resources
-        }).then(function() {
-            // Çevirileri HTML'e uygula
-            updateContent();
-            document.getElementById('html-tag').setAttribute('lang', i18next.language);
-        });
+        i18next
+            .use(i18nextHttpBackend)
+            .init({
+                lng: urlLang,
+                fallbackLng: 'en',
+                backend: {
+                    // Göreli dosya yolu ile Vercel'deki JSON dosyalarını çekiyoruz
+                    loadPath: './locales/{{lng}}/translation.json' 
+                }
+            }).then(function() {
+                updateContent();
+                document.getElementById('html-tag').setAttribute('lang', i18next.language);
+            }).catch(function(error) {
+                console.error("i18next yüklenirken hata oluştu: ", error);
+            });
 
         function updateContent() {
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (key.startsWith('[content]')) {
-                    // Meta tagler gibi özellikleri çevirmek için (örnek: data-i18n="[content]metaDescription")
                     element.setAttribute('content', i18next.t(key.replace('[content]', '')));
                 } else {
                     element.innerHTML = i18next.t(key);
@@ -306,7 +248,7 @@
             });
         }
 
-        // Kategori - Alt Kategori Mantığı (Seçilen dile göre)
+        // Kategori - Alt Kategori Mantığı
         const selectedSubcats = new Set();
         
         function updateSubcategories() {
@@ -320,21 +262,23 @@
 
             if(mainCat) {
                 group.style.display = 'block';
-                // i18next veritabanından doğru dildeki alt kategorileri çek
+                // JSON'dan alt kategorileri array olarak alıyoruz
                 const subCats = i18next.t('sub_' + mainCat, { returnObjects: true });
                 
-                subCats.forEach(cat => {
-                    const tag = document.createElement('div');
-                    tag.className = 'tag';
-                    tag.innerText = cat;
-                    tag.onclick = function() {
-                        this.classList.toggle('active');
-                        if(selectedSubcats.has(cat)) selectedSubcats.delete(cat);
-                        else selectedSubcats.add(cat);
-                        document.getElementById('selected_subcats').value = Array.from(selectedSubcats).join(',');
-                    };
-                    container.appendChild(tag);
-                });
+                if (Array.isArray(subCats)) {
+                    subCats.forEach(cat => {
+                        const tag = document.createElement('div');
+                        tag.className = 'tag';
+                        tag.innerText = cat;
+                        tag.onclick = function() {
+                            this.classList.toggle('active');
+                            if(selectedSubcats.has(cat)) selectedSubcats.delete(cat);
+                            else selectedSubcats.add(cat);
+                            document.getElementById('selected_subcats').value = Array.from(selectedSubcats).join(',');
+                        };
+                        container.appendChild(tag);
+                    });
+                }
             } else {
                 group.style.display = 'none';
             }
@@ -343,32 +287,33 @@
         function handleNextStep(e) {
             e.preventDefault();
             
-            // 1. Formdaki verileri çek
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const country = document.getElementById('country').value;
             const mainCat = document.getElementById('main_category').value;
             const subCats = document.getElementById('selected_subcats').value;
             const rawPassword = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
 
-            // 2. Güvenlik Önlemi: Şifreyi düz metin göndermemek için Base64 ile maskeliyoruz.
-            // Not: Bu tam bir kriptolama değildir, ancak omuz sörfüne ve basit loglara karşı korur.
+            if (rawPassword !== confirmPassword) {
+                alert(i18next.t('errPasswordMismatch') || "Şifreler eşleşmiyor!");
+                return;
+            }
+
+            // Güvenlik Önlemi: Şifreyi maskeleme
             const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
 
-            // 3. URL Parametrelerini (Query String) profesyonelce oluştur
             const params = new URLSearchParams({
                 name: name,
                 email: email,
                 country: country,
                 mainCat: mainCat,
                 subCats: subCats,
-                token: maskedPassword // Şifreyi token adıyla gizliyoruz
+                token: maskedPassword 
             });
 
-            // 4. Flutter uygulamasına (app.unity-gate.com) yönlendir
+            // Flutter uygulamasına yönlendirme (app.unity-gate.com)
             const targetUrl = `https://app.unity-gate.com/expert/finalize?${params.toString()}`;
-            
-            // Kullanıcıyı o linke gönder
             window.location.href = targetUrl;
         }
     </script>
