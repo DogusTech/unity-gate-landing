@@ -76,13 +76,13 @@
       font-size: 14px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: inherit; /* Tarayıcı fontunu ezer */
+      font-family: inherit;
       text-align: center;
     }
     .btn-outline { 
       border: 1px solid rgba(255,255,255,0.2); 
       color: var(--text-main); 
-      background: transparent; /* Gri arka planı ezer */
+      background: transparent; 
     }
     .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); }
     .btn-primary { 
@@ -93,23 +93,26 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
 
+    /* HATA ÇÖZÜMÜ: Hero Padding ve Z-Index Optimizasyonu */
     .hero { 
       position: relative; 
-      padding: 180px 15% 250px 15%; 
+      padding: 140px 15% 120px 15%; /* Üst ve alt boşluklar dengelendi */
       text-align: center; 
       min-height: 100vh; 
       display: flex; 
       flex-direction: column; 
       justify-content: center; 
-      align-items: center; /* HATA ÇÖZÜMÜ: Butonun sündürülmesini engeller */
+      align-items: center; 
     }
     .hero h1 { 
-      font-size: 64px; /* 80px çok büyüktü, 64px ideal okunabilirlik sağlar */
+      font-size: 64px; 
       font-weight: 900; 
       line-height: 1.1; 
       letter-spacing: -2px; 
       margin-bottom: 24px; 
       text-shadow: 0 4px 40px rgba(0, 229, 255, 0.3); 
+      position: relative;
+      z-index: 2; /* Dalganın üstünde kalması için */
     }
     .hero p { 
       font-size: 18px; 
@@ -118,14 +121,19 @@
       max-width: 700px; 
       margin: 0 auto 40px auto; 
       line-height: 1.6;
+      position: relative;
+      z-index: 2;
     }
     .hero-btn { 
       padding: 18px 40px; 
       font-size: 16px; 
+      position: relative;
+      z-index: 2;
     }
     
-    .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: -1; }
-    .wave-container svg { position: relative; display: block; width: calc(100% + 1.3px); height: 300px; }
+    /* HATA ÇÖZÜMÜ: Dalga Boyutu Küçültüldü */
+    .wave-container { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 0; }
+    .wave-container svg { position: relative; display: block; width: calc(100% + 1.3px); height: 140px; } /* Yükseklik 300px'den 140px'e çekildi */
     .wave-layer { animation: moveWave linear infinite; }
     .wave-1 { animation-duration: 20s; fill: rgba(2, 132, 199, 0.15); }
     .wave-2 { animation-duration: 15s; fill: rgba(0, 229, 255, 0.25); animation-direction: reverse; }
@@ -167,7 +175,7 @@
       header { padding: 16px 24px; }
       .nav-links, .nav-right { display: none; }
       .hero { padding: 120px 24px 150px 24px; }
-      .hero h1 { font-size: 40px; letter-spacing: -1.5px; } /* Mobilde daha da küçültüldü */
+      .hero h1 { font-size: 40px; letter-spacing: -1.5px; } 
       .section-padding { padding: 40px 24px; }
       .vision-card { padding: 40px 24px; }
       .vision-content p { max-width: 100%; font-size: 18px; }
