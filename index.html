@@ -42,7 +42,12 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
+      /* Native App Hissi: Scrollbar'ı güzelleştir veya gizle */
+      scrollbar-width: none; 
+      -ms-overflow-style: none;
     }
+    
+    body::-webkit-scrollbar { display: none; }
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; height: auto; display: block; }
@@ -55,10 +60,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(11, 17, 33, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(11, 17, 33, 0.7); /* Daha fazla blur, daha az opaklık */
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
       z-index: 1000;
       transition: all 0.3s ease;
     }
@@ -76,7 +81,7 @@
       font-weight: 700;
       font-size: 14px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Native yaylanma efekti */
       font-family: inherit;
       text-align: center;
     }
@@ -85,35 +90,36 @@
       color: var(--text-main); 
       background: transparent; 
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); transform: scale(1.05); }
     .btn-primary { 
       background: var(--gradient-primary); 
       color: #000; 
       border: none; 
       box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
+    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
 
-    /* HATA ÇÖZÜMÜ: Hero ve Dalga Konumlandırması (Kusursuz Oran) */
+    /* HATA ÇÖZÜMÜ: Hero ve Organik Dalga Optimizasyonu */
     .hero { 
       position: relative; 
-      padding: 160px 5% 100px 5%; /* Boşluklar normalize edildi */
+      padding: 180px 5% 200px 5%; /* Alt boşluk dalgaya yer açmak için artırıldı */
       text-align: center; 
       min-height: 100vh; 
       display: flex; 
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
+      overflow: hidden; /* Dalganın dışarı taşmasını engeller */
     }
     
     .hero-content-wrapper {
-      max-width: 900px; /* Yazıların çok yayılmasını engeller */
-      z-index: 2; /* Kesinlikle dalganın önünde durur */
+      max-width: 900px; 
+      z-index: 2; 
       position: relative;
     }
 
     .hero h1 { 
-      font-size: clamp(40px, 5vw, 72px); /* Ekrana göre otomatik büyüyüp küçülür */
+      font-size: clamp(40px, 6vw, 72px); 
       font-weight: 900; 
       line-height: 1.1; 
       letter-spacing: -2px; 
@@ -131,77 +137,91 @@
     }
     
     .hero-btn { 
-      padding: 18px 40px; 
+      padding: 18px 48px; 
       font-size: 16px; 
     }
     
-    /* Dalga (Wave) Optimizasyonu */
+    /* Dalga (Wave) Optimizasyonu - Doğal ve Akıcı */
     .wave-container { 
       position: absolute; 
-      bottom: -1px; /* Beyaz/Siyah çizgi kalmasını engeller */
+      bottom: 0; 
       left: 0; 
       width: 100%; 
       line-height: 0; 
-      z-index: 0; /* İçeriğin kesinlikle arkasında */
+      z-index: 0; 
+      transform: translateY(2px); /* Ekranın altında ince beyaz çizgi kalmasını engeller */
     }
     .wave-container svg { 
       position: relative; 
       display: block; 
-      width: calc(100% + 1.3px); 
-      height: 200px; /* Orijinal tasarımdaki görkemli boyuta geri getirildi */
+      width: 100%; /* Sündürmeyi engeller, doğal en-boy oranını korur */
+      height: auto; /* Yüksekliği genişliğe göre otomatik ayarlar */
+      min-height: 150px; /* Çok dar ekranlarda bile belli bir yükseklik verir */
+      max-height: 350px; /* Çok geniş ekranlarda devasa olmasını engeller */
     }
-    .wave-layer { animation: moveWave linear infinite; }
-    .wave-1 { animation-duration: 20s; fill: rgba(2, 132, 199, 0.15); }
-    .wave-2 { animation-duration: 15s; fill: rgba(0, 229, 255, 0.25); animation-direction: reverse; }
-    .wave-3 { animation-duration: 10s; fill: rgba(0, 229, 255, 0.5); }
-    @keyframes moveWave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .wave-layer { animation: moveWave linear infinite; transform-origin: bottom; }
+    .wave-1 { animation-duration: 25s; fill: rgba(2, 132, 199, 0.15); }
+    .wave-2 { animation-duration: 20s; fill: rgba(0, 229, 255, 0.25); animation-direction: reverse; }
+    .wave-3 { animation-duration: 15s; fill: rgba(0, 229, 255, 0.5); }
+    
+    /* Native tarzı pürüzsüz kaydırma animasyonu */
+    @keyframes moveWave { 
+      0% { transform: translateX(0) scaleY(1); } 
+      50% { transform: translateX(-25%) scaleY(1.05); } /* Hafif nefes alma efekti */
+      100% { transform: translateX(-50%) scaleY(1); } 
+    }
     
     /* Diğer Bölümler */
-    .section-padding { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-padding { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
     
-    .vision-card { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); min-height: 400px; display: flex; align-items: center; padding: 80px 40px; }
-    .vision-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; filter: blur(8px) brightness(0.3); z-index: -1; transform: scale(1.05); }
+    .vision-card { position: relative; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); min-height: 400px; display: flex; align-items: center; padding: 80px 40px; transition: transform 0.3s ease; }
+    .vision-card:hover { transform: translateY(-5px); }
+    .vision-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; filter: blur(8px) brightness(0.3); z-index: -1; transform: scale(1.05); transition: filter 0.5s ease;}
+    .vision-card:hover .vision-bg { filter: blur(4px) brightness(0.4); }
     .vision-content h2 { color: var(--cyan); font-size: 16px; letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase; }
-    .vision-content p { font-size: 22px; font-weight: 600; max-width: 65%; }
+    .vision-content p { font-size: 24px; font-weight: 600; max-width: 75%; line-height: 1.5; }
     
     .bento-section h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
     .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .bento-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; }
-    .bento-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-    .bento-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(11,17,33,1) 10%, rgba(11,17,33,0.3) 100%); }
-    .bento-large { grid-column: 1 / -1; min-height: 350px; border-color: rgba(0, 229, 255, 0.3); }
-    .bento-large .bento-overlay { background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.25), rgba(11,17,33,0.95) 70%); }
+    .bento-card { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 320px; transition: transform 0.3s ease; }
+    .bento-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.2); }
+    .bento-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 0.5s ease; }
+    .bento-card:hover img { transform: scale(1.05); }
+    .bento-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(11,17,33,1) 10%, rgba(11,17,33,0.2) 100%); }
+    .bento-large { grid-column: 1 / -1; min-height: 380px; border-color: rgba(0, 229, 255, 0.2); }
+    .bento-large .bento-overlay { background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.2), rgba(11,17,33,0.95) 70%); }
     .bento-card h3 { font-size: 24px; font-weight: 800; margin: 16px 0 8px 0; }
-    .bento-card p { color: var(--text-muted); font-size: 15px; }
+    .bento-card p { color: var(--text-muted); font-size: 16px; }
     
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .process-card { background: var(--bg-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
+    .process-card { background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: transform 0.3s ease; }
+    .process-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.2); }
     .process-card img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
     .process-body { padding: 24px; }
     .process-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
     .process-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
     
-    footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 5%; margin-top: 80px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 48px; max-width: 1200px; margin-left: auto; margin-right: auto;}
-    .footer-col h4 { font-size: 16px; font-weight: bold; margin-bottom: 16px; }
-    .footer-col a { display: block; color: rgba(255,255,255,0.7); margin-bottom: 12px; font-size: 13px; }
-    .footer-col a:hover { color: var(--cyan); }
-    .footer-bottom { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 13px; color: rgba(255,255,255,0.5); max-width: 1200px; margin-left: auto; margin-right: auto;}
+    footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 5% 40px 5%; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto;}
+    .footer-col h4 { font-size: 16px; font-weight: bold; margin-bottom: 20px; color: white; }
+    .footer-col a { display: block; color: var(--text-muted); margin-bottom: 12px; font-size: 14px; transition: 0.3s; }
+    .footer-col a:hover { color: var(--cyan); transform: translateX(4px); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 32px; font-size: 13px; color: rgba(255,255,255,0.5); max-width: 1200px; margin-left: auto; margin-right: auto;}
     .footer-bottom-links { display: flex; gap: 24px; }
     
     /* Mobil Düzenlemeleri */
     @media (max-width: 900px) {
       header { padding: 16px 24px; }
       .nav-links, .nav-right { display: none; }
-      .hero { padding: 120px 24px 100px 24px; min-height: 80vh;}
-      .section-padding { padding: 40px 24px; }
-      .vision-card { padding: 40px 24px; }
-      .vision-content p { max-width: 100%; font-size: 18px; }
-      .vision-bg { filter: brightness(0.4); }
+      .hero { padding: 140px 24px 120px 24px; min-height: 85vh;}
+      .hero h1 { font-size: 44px; letter-spacing: -1.5px; } 
+      .section-padding { padding: 60px 24px; }
+      .vision-card { padding: 40px 24px; border-radius: 24px; }
+      .vision-content p { max-width: 100%; font-size: 20px; }
       .bento-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; }
-      footer { padding: 40px 24px; }
-      .footer-bottom { flex-direction: column; gap: 16px; }
+      footer { padding: 60px 24px 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -235,7 +255,8 @@
       </div>
 
       <div class="wave-container">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <!-- preserveAspectRatio="none" kaldırıldı, dalga kendi doğal oranını koruyacak -->
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice">
           <path class="wave-layer wave-1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" />
           <path class="wave-layer wave-2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" />
           <path class="wave-layer wave-3" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" />
@@ -369,7 +390,7 @@
             document.getElementById('html-tag').setAttribute('lang', i18next.language);
             
             const langNames = { 'tr': 'Türkçe', 'en': 'English', 'de': 'Deutsch', 'fr': 'Français', 'es': 'Español', 'ja': '日本語' };
-            document.getElementById('current-language-display').innerHTML = `<svg width="14" height="14" style="vertical-align: middle; margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg> ${langNames[i18next.language]}`;
+            document.getElementById('current-language-display').innerHTML = `<svg width="14" height="14" style="vertical-align: middle; margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> ${langNames[i18next.language]}`;
         }).catch(function(error) {
             console.error("i18next yüklenirken bir hata oluştu: ", error);
         });
