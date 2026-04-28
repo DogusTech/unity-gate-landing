@@ -65,26 +65,65 @@
     .nav-left { display: flex; align-items: center; gap: 40px; }
     .brand { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px;}
     .nav-links { display: flex; gap: 24px; font-weight: 600; font-size: 14px; color: var(--text-muted); }
-    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a { transition: 0.3s; }
+    .nav-links a:hover { color: var(--cyan); }
     
     .nav-right { display: flex; gap: 16px; }
     .btn {
-      padding: 10px 24px;
+      padding: 12px 28px;
       border-radius: 100px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: inherit; /* Tarayıcı fontunu ezer */
+      text-align: center;
     }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); }
-    .btn-primary { background: var(--gradient-primary); color: #000; border: none; box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); }
-    .btn-primary:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
+    .btn-outline { 
+      border: 1px solid rgba(255,255,255,0.2); 
+      color: var(--text-main); 
+      background: transparent; /* Gri arka planı ezer */
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); }
+    .btn-primary { 
+      background: var(--gradient-primary); 
+      color: #000; 
+      border: none; 
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
 
-    .hero { position: relative; padding: 180px 15% 250px 15%; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    .hero h1 { font-size: 80px; font-weight: 900; line-height: 1.15; letter-spacing: -3px; margin-bottom: 24px; text-shadow: 0 4px 40px rgba(0, 229, 255, 0.3); }
-    .hero p { font-size: 18px; color: #E2E8F0; font-weight: 500; max-width: 800px; margin: 0 auto 40px auto; }
-    .hero-btn { padding: 20px 48px; font-size: 18px; border-radius: 100px; display: inline-block; }
+    .hero { 
+      position: relative; 
+      padding: 180px 15% 250px 15%; 
+      text-align: center; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; /* HATA ÇÖZÜMÜ: Butonun sündürülmesini engeller */
+    }
+    .hero h1 { 
+      font-size: 64px; /* 80px çok büyüktü, 64px ideal okunabilirlik sağlar */
+      font-weight: 900; 
+      line-height: 1.1; 
+      letter-spacing: -2px; 
+      margin-bottom: 24px; 
+      text-shadow: 0 4px 40px rgba(0, 229, 255, 0.3); 
+    }
+    .hero p { 
+      font-size: 18px; 
+      color: var(--text-muted); 
+      font-weight: 500; 
+      max-width: 700px; 
+      margin: 0 auto 40px auto; 
+      line-height: 1.6;
+    }
+    .hero-btn { 
+      padding: 18px 40px; 
+      font-size: 16px; 
+    }
+    
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: -1; }
     .wave-container svg { position: relative; display: block; width: calc(100% + 1.3px); height: 300px; }
     .wave-layer { animation: moveWave linear infinite; }
@@ -92,11 +131,13 @@
     .wave-2 { animation-duration: 15s; fill: rgba(0, 229, 255, 0.25); animation-direction: reverse; }
     .wave-3 { animation-duration: 10s; fill: rgba(0, 229, 255, 0.5); }
     @keyframes moveWave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    
     .section-padding { padding: 80px; }
     .vision-card { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); min-height: 400px; display: flex; align-items: center; padding: 80px 40px; }
     .vision-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; filter: blur(8px) brightness(0.3); z-index: -1; transform: scale(1.05); }
     .vision-content h2 { color: var(--cyan); font-size: 16px; letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase; }
     .vision-content p { font-size: 22px; font-weight: 600; max-width: 65%; }
+    
     .bento-section h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
     .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .bento-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; }
@@ -106,12 +147,14 @@
     .bento-large .bento-overlay { background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.25), rgba(11,17,33,0.95) 70%); }
     .bento-card h3 { font-size: 24px; font-weight: 800; margin: 16px 0 8px 0; }
     .bento-card p { color: var(--text-muted); font-size: 15px; }
+    
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .process-card { background: var(--bg-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
     .process-card img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
     .process-body { padding: 24px; }
     .process-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
     .process-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+    
     footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 80px; margin-top: 80px; }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 48px; }
     .footer-col h4 { font-size: 16px; font-weight: bold; margin-bottom: 16px; }
@@ -119,11 +162,12 @@
     .footer-col a:hover { color: var(--cyan); }
     .footer-bottom { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 13px; color: rgba(255,255,255,0.5); }
     .footer-bottom-links { display: flex; gap: 24px; }
+    
     @media (max-width: 900px) {
       header { padding: 16px 24px; }
       .nav-links, .nav-right { display: none; }
       .hero { padding: 120px 24px 150px 24px; }
-      .hero h1 { font-size: 48px; letter-spacing: -1.5px; }
+      .hero h1 { font-size: 40px; letter-spacing: -1.5px; } /* Mobilde daha da küçültüldü */
       .section-padding { padding: 40px 24px; }
       .vision-card { padding: 40px 24px; }
       .vision-content p { max-width: 100%; font-size: 18px; }
