@@ -42,7 +42,6 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
-      /* Native App Hissi: Scrollbar'ı güzelleştir veya gizle */
       scrollbar-width: none; 
       -ms-overflow-style: none;
     }
@@ -74,7 +73,56 @@
     .nav-links a { transition: 0.3s; }
     .nav-links a:hover { color: var(--cyan); }
     
-    .nav-right { display: flex; gap: 16px; }
+    .nav-right { display: flex; gap: 16px; align-items: center;}
+    
+    /* Native Dropdown Menü (Giriş/Kayıt İçin) */
+    .dropdown-wrapper { position: relative; display: inline-block; }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 130%; 
+      right: 0;
+      background: rgba(22, 32, 50, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 8px;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+    }
+    
+    .dropdown-wrapper:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    
+    .dropdown-item:hover { 
+      background: rgba(0, 229, 255, 0.1); 
+      color: var(--cyan); 
+    }
+
     .btn {
       padding: 12px 28px;
       border-radius: 100px;
@@ -99,7 +147,7 @@
     }
     .btn-primary:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
 
-    /* HATA ÇÖZÜMÜ: Hero ve Organik Dalga Optimizasyonu */
+    /* Hero Alanı */
     .hero { 
       position: relative; 
       padding: 180px 5% 200px 5%; 
@@ -142,47 +190,47 @@
       font-size: 16px; 
     }
     
-    /* YENİ NESİL "NATIVE" DALGA ANİMASYONU (Flutter Kodunun CSS/SVG Muadili) */
+    /* GÜNCELLENMİŞ KUSURSUZ DALGA TASARIMI (image_300371 referanslı) */
     .wave-container { 
       position: absolute; 
-      bottom: -2px; /* Çizgi kalmaması için hafifçe aşağı itildi */
+      bottom: -1px; 
       left: 0; 
       width: 100%; 
-      height: 250px; /* Flutter'daki height parametresinin karşılığı */
+      height: 250px; 
       overflow: hidden; 
       z-index: 0; 
-      pointer-events: none; /* Dalganın tıklamaları engellememesi için */
+      pointer-events: none; 
     }
     
     .wave-container svg { 
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 200%; /* Animasyon için ekstra genişlik */
+      width: 200%; 
       height: 100%;
     }
 
-    /* Farklı genlik, frekans ve hız değerleri ile organik his */
     .wave-layer { 
       animation-name: flutterWave;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
+      transform-origin: bottom;
     }
     
-    /* Flutter: amplitude 40, color 0xFF0284C7 (alpha 0.2) */
+    /* Arkadaki en açık katman */
     .wave-1 { 
       animation-duration: 25s; 
       fill: rgba(2, 132, 199, 0.2); 
     }
     
-    /* Flutter: amplitude 60, color 0xFF00E5FF (alpha 0.4) */
+    /* Ortadaki kavisli katman */
     .wave-2 { 
       animation-duration: 20s; 
-      animation-direction: reverse; /* Ters yöne akış ile karmaşıklık hissi */
+      animation-direction: reverse;
       fill: rgba(0, 229, 255, 0.3); 
     }
     
-    /* Flutter: amplitude 50, color 0xFF00E5FF (alpha 0.8) - En öndeki ana dalga */
+    /* Öndeki vurgulu ana katman */
     .wave-3 { 
       animation-duration: 15s; 
       fill: rgba(0, 229, 255, 0.8); 
@@ -231,13 +279,12 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 32px; font-size: 13px; color: rgba(255,255,255,0.5); max-width: 1200px; margin-left: auto; margin-right: auto;}
     .footer-bottom-links { display: flex; gap: 24px; }
     
-    /* Mobil Düzenlemeleri */
     @media (max-width: 900px) {
       header { padding: 16px 24px; }
       .nav-links, .nav-right { display: none; }
       .hero { padding: 140px 24px 140px 24px; min-height: 85vh;}
       .hero h1 { font-size: 44px; letter-spacing: -1.5px; } 
-      .wave-container { height: 150px; } /* Mobilde dalga yüksekliği azaltıldı */
+      .wave-container { height: 150px; } 
       .section-padding { padding: 60px 24px; }
       .vision-card { padding: 40px 24px; border-radius: 24px; }
       .vision-content p { max-width: 100%; font-size: 20px; }
@@ -252,19 +299,40 @@
 
   <header>
     <div class="nav-left">
+      <!-- 1. HATA ÇÖZÜMÜ: Logo Entegrasyonu -->
       <a href="/" class="brand">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <img src="assets/logo.png" alt="Unity Gate Logo" style="height: 32px; width: auto; object-fit: contain;">
         Unity Gate
       </a>
       <nav class="nav-links">
-        <a href="/ucla-test" data-i18n="navUcla">UCLA Testi</a>
-        <a href="/insights" data-i18n="navInsights">İçgörüler</a>
-        <a href="/about" data-i18n="navAbout">Hakkımızda</a>
+        <!-- 2. HATA ÇÖZÜMÜ: Vercel 404 Hataları için .html eklendi -->
+        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
       </nav>
     </div>
     <div class="nav-right">
-      <button class="btn btn-outline" onclick="window.location.href='https://app.unity-gate.com/login'" data-i18n="btnSignIn">Giriş Yap</button>
-      <button class="btn btn-primary" onclick="window.location.href='https://app.unity-gate.com/register'" data-i18n="btnSignUp">Kayıt Ol</button>
+      
+      <!-- 3. HATA ÇÖZÜMÜ: Native Feel Dropdown Menüler (Giriş Yap) -->
+      <div class="dropdown-wrapper">
+        <button class="btn btn-outline" data-i18n="btnSignIn">Giriş Yap</button>
+        <div class="dropdown-menu">
+          <!-- Bağlantılar ileride app.unity-gate.com çalıştığında hazır olacak -->
+          <a href="#" class="dropdown-item">👤 Kullanıcı Girişi</a>
+          <a href="#" class="dropdown-item">🎓 Uzman Girişi</a>
+        </div>
+      </div>
+
+      <!-- Native Feel Dropdown Menüler (Kayıt Ol) -->
+      <div class="dropdown-wrapper">
+        <button class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</button>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">👤 Kullanıcı Kaydı</a>
+          <!-- Uzman kaydı için oluşturduğumuz html dosyasına yönlendirildi -->
+          <a href="/expert-registration.html" class="dropdown-item">🎓 Uzman Kaydı</a>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -274,17 +342,21 @@
       <div class="hero-content-wrapper">
         <h1 data-i18n="heroTitle">Bilimsel Verilerle<br>Kendinizi Keşfedin</h1>
         <p data-i18n="heroSubtitle">Modern çağın görünmez krizine karşı bilimsel verilerle kendinizi keşfedin. Neden yalnız hissettiğinizi anlayın, yapay zeka ile size en uygun uzmanla eşleşin ve iyileşme rotanızı bugün çizin.</p>
-        <a href="/ucla-test/start" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
+        <!-- Test URL'si de güncellendi -->
+        <a href="/ucla-test.html" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
       </div>
 
+      <!-- 4. HATA ÇÖZÜMÜ: Kusursuz Pürüzsüz SVG Wave (image_300371 referanslı) -->
       <div class="wave-container">
         <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path class="wave-layer wave-1" d="M0,192L48,208C96,224,192,256,288,250.7C384,245,480,203,576,192C672,181,768,203,864,224C960,245,1056,267,1152,256C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-          <path class="wave-layer wave-2" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,192C1248,192,1344,224,1392,240L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-          <path class="wave-layer wave-3" d="M0,256L48,261.3C96,267,192,277,288,261.3C384,245,480,203,576,197.3C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-          <path class="wave-layer wave-1" d="M1440,192L1488,208C1536,224,1632,256,1728,250.7C1824,245,1920,203,2016,192C2112,181,2208,203,2304,224C2400,245,2496,267,2592,256C2688,245,2784,203,2832,181.3L2880,160L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
-          <path class="wave-layer wave-2" d="M1440,224L1488,213.3C1536,203,1632,181,1728,181.3C1824,181,1920,203,2016,218.7C2112,235,2208,245,2304,234.7C2400,224,2496,192,2592,192C2688,192,2784,224,2832,240L2880,256L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
-          <path class="wave-layer wave-3" d="M1440,256L1488,261.3C1536,267,1632,277,1728,261.3C1824,245,1920,203,2016,197.3C2112,192,2208,224,2304,240C2400,256,2496,256,2592,240C2688,224,2784,192,2832,176L2880,160L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
+          <path class="wave-layer wave-1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,181.3C672,181,768,203,864,224C960,245,1056,267,1152,261.3C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,277,576,277.3C672,277,768,245,864,213.3C960,181,1056,149,1152,138.7C1248,128,1344,139,1392,144L1440,149.3L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          
+          <!-- Ekstra Genişlik İçin Çoğaltılmış Yollar -->
+          <path class="wave-layer wave-1" d="M1440,128L1488,144C1536,160,1632,192,1728,197.3C1824,203,1920,181,2016,181.3C2112,181,2208,203,2304,224C2400,245,2496,267,2592,261.3C2688,256,2784,224,2832,208L2880,192L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M1440,256L1488,245.3C1536,235,1632,213,1728,186.7C1824,160,1920,128,2016,133.3C2112,139,2208,181,2304,197.3C2400,213,2496,203,2592,181.3C2688,160,2784,128,2832,112L2880,96L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M1440,192L1488,197.3C1536,203,1632,213,1728,229.3C1824,245,1920,277,2016,277.3C2112,277,2208,245,2304,213.3C2400,181,2496,149,2592,138.7C2688,128,2784,139,2832,144L2880,149.3L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
         </svg>
       </div>
     </section>
@@ -375,21 +447,22 @@
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Unity Gate</h4>
-        <a href="/ucla-test" data-i18n="navUcla">UCLA Testi</a>
-        <a href="/insights" data-i18n="navInsights">İçgörüler</a>
-        <a href="/about" data-i18n="navAbout">Hakkımızda</a>
+        <!-- Footer Linklerindeki 404 Hatası Çözümü -->
+        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footerCompany">Şirket</h4>
-        <a href="/careers" data-i18n="footerCareers">Kariyer</a>
-        <a href="/investors" data-i18n="footerInvestors">Yatırımcılar</a>
+        <a href="/careers.html" data-i18n="footerCareers">Kariyer</a>
+        <a href="/investors.html" data-i18n="footerInvestors">Yatırımcılar</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-links">
         <span id="current-language-display"><svg width="14" height="14" style="vertical-align: middle; margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Global</span>
-        <a href="/privacy" class="hide-mobile" data-i18n="footerPrivacy">Gizlilik</a>
-        <a href="/terms" class="hide-mobile" data-i18n="footerTerms">Şartlar</a>
+        <a href="/privacy.html" class="hide-mobile" data-i18n="footerPrivacy">Gizlilik</a>
+        <a href="/terms.html" class="hide-mobile" data-i18n="footerTerms">Şartlar</a>
       </div>
       <div data-i18n="footerCopyright">© 2026 Aeternexus A.Ş. Tüm hakları saklıdır.</div>
     </div>
