@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İçgörüler | Unity Gate - Online Terapi ve Matchmaking</title>
+    <meta name="description" content="Yalnızlık, psikoloji, modern ilişkiler ve finansal sağlık üzerine bilimsel makaleler ve uzman görüşleri.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0B1121;
+            --bg-card: #162032;
+            --cyan: #00E5FF;
+            --blue: #0284C7;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --gradient-primary: linear-gradient(135deg, var(--cyan), var(--blue));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            padding: 16px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 17, 33, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand { font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 15%;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin-bottom: 32px; }
+
+        .btn-ucla {
+            background: #2563EB;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-ucla:hover { background: #1D4ED8; transform: translateY(-2px); }
+
+        /* Article Grid */
+        .container { padding: 0 15% 80px 15%; }
+        .section-title { font-size: 24px; color: var(--text-muted); border-bottom: 1px solid var(--bg-card); padding-bottom: 12px; margin-bottom: 40px; }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
+        .article-card img { width: 100%; height: 220px; object-fit: cover; }
+        .article-content { padding: 24px; }
+        .meta { display: flex; gap: 12px; font-size: 12px; font-weight: bold; margin-bottom: 12px; }
+        .category { color: var(--cyan); letter-spacing: 1px; }
+        .read-time { color: var(--text-muted); }
+        .article-card h3 { font-size: 20px; font-weight: 700; color: white; line-height: 1.3; }
+
+        /* Wave Effect */
+        .wave-container { width: 100%; height: 100px; overflow: hidden; line-height: 0; }
+        .wave-container svg { height: 100%; width: 200%; animation: moveWave 15s linear infinite; }
+        @keyframes moveWave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            header { padding: 16px 24px; }
+            .hero { padding: 60px 24px; }
+            .hero h1 { font-size: 32px; }
+            .container { padding: 0 24px 60px 24px; }
+            .article-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/" class="brand">Unity Gate</a>
+    <div id="language-switcher">
+        </div>
+</header>
+
+<section class="hero">
+    <h1 id="page-title">İçgörüler</h1>
+    <p id="page-subtitle">Ruh sağlığı, modern yalnızlık ve bilimsel iyileşme üzerine derinlemesine analizler.</p>
+    <a href="/ucla-test/start" class="btn-ucla" id="cta-btn">Yalnızlık Testini Başlat</a>
+</section>
+
+<div class="container">
+    <h2 class="section-title" id="section-header">Makaleler</h2>
+    <div class="article-grid" id="article-container">
+        </div>
+</div>
+
+<script>
+    const translations = {
+        'tr': {
+            title: 'İçgörüler',
+            subtitle: 'Ruh sağlığı ve bilimsel iyileşme üzerine derinlemesine analizler.',
+            btn: 'Yalnızlık Testini Başlat',
+            section: 'Son Makaleler',
+            min: 'dk okuma',
+            articles: [
+                { title: 'UCLA Yalnızlık Testi: İzolasyonu Ölçmek', cat: 'PSİKOLOJİ', time: 4, img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800' },
+                { title: 'Modern Matchmaking: Gerçek Bağlar', cat: 'İLİŞKİLER', time: 6, img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800' },
+                { title: 'Finansal Stres ve Ruh Sağlığı', cat: 'FİNANS', time: 5, img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800' },
+                { title: 'Güvenli Online Terapi', cat: 'TERAPİ', time: 7, img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800' }
+            ]
+        },
+        'en': {
+            title: 'Insights',
+            subtitle: 'In-depth analysis on mental health and scientific recovery.',
+            btn: 'Start Loneliness Test',
+            section: 'Latest Articles',
+            min: 'min read',
+            articles: [
+                { title: 'UCLA Loneliness Scale: Measuring Isolation', cat: 'PSYCHOLOGY', time: 4, img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800' },
+                { title: 'Modern Matchmaking: Real Connections', cat: 'RELATIONSHIPS', time: 6, img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800' },
+                { title: 'Financial Stress & Mental Health', cat: 'FINANCE', time: 5, img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800' },
+                { title: 'Secure Online Therapy', cat: 'THERAPY', time: 7, img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800' }
+            ]
+        }
+        // DE, JA, FR, ES dilleri benzer şekilde eklenebilir...
+    };
+
+    function loadArticles(lang) {
+        const data = translations[lang] || translations['en'];
+        document.getElementById('page-title').innerText = data.title;
+        document.getElementById('page-subtitle').innerText = data.subtitle;
+        document.getElementById('cta-btn').innerText = data.btn;
+        document.getElementById('section-header').innerText = data.section;
+
+        const container = document.getElementById('article-container');
+        container.innerHTML = '';
+
+        data.articles.forEach(art => {
+            const card = `
+                <a href="/insights/${art.title.toLowerCase().replace(/ /g, '-')}" class="article-card">
+                    <img src="${art.img}" alt="${art.title}" loading="lazy">
+                    <div class="article-content">
+                        <div class="meta">
+                            <span class="category">${art.cat}</span>
+                            <span class="read-time">${art.time} ${data.min}</span>
+                        </div>
+                        <h3>${art.title}</h3>
+                    </div>
+                </a>
+            `;
+            container.innerHTML += card;
+        });
+    }
+
+    // Tarayıcı dilini algıla
+    const userLang = navigator.language.split('-')[0];
+    loadArticles(userLang);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="meta-title">Makale | Unity Gate</title>
+    <meta name="description" content="Unity Gate İçgörüler - Ruh sağlığı ve modern yaşam üzerine derinlemesine analizler.">
+    <meta name="theme-color" content="#0B1121">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0B1121;
+            --bg-card: #1E293B;
+            --cyan: #00E5FF;
+            --text-main: #F8FAFC;
+            --text-muted: rgba(255, 255, 255, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navbar & Akıllı Geri Butonu */
+        header {
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+            padding: 24px 5%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-btn {
+            background: rgba(11, 17, 33, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { background: rgba(0, 229, 255, 0.2); border-color: var(--cyan); }
+
+        /* Hero Görseli */
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background-color: var(--bg-card);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, var(--bg-dark) 100%);
+        }
+
+        /* İçerik Alanı */
+        .article-container {
+            max-width: 900px;
+            margin: -100px auto 0; /* Görselin üstüne bindirme */
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .meta-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            color: var(--cyan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .read-time { color: rgba(255, 255, 255, 0.54); font-size: 14px; }
+
+        h1#article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+
+        .divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 40px 0; }
+
+        /* Markdown Stilleri (Flutter MarkdownBody Muadili) */
+        .markdown-body h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 26px;
+            margin: 40px 0 20px 0;
+        }
+        
+        .markdown-body h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            color: var(--cyan);
+            margin: 30px 0 15px 0;
+        }
+
+        .markdown-body p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 24px;
+        }
+
+        .markdown-body blockquote {
+            border-left: 4px solid var(--cyan);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-muted);
+            background: rgba(0, 229, 255, 0.03);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .markdown-body ul { margin-left: 24px; margin-bottom: 24px; color: rgba(255, 255, 255, 0.85); font-size: 18px; }
+        .markdown-body li::marker { color: var(--cyan); }
+
+        /* Son Makaleler (Latest Insights) */
+        .latest-insights { margin-top: 80px; padding-bottom: 80px; }
+        .latest-insights h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; margin-bottom: 24px; }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--cyan) var(--bg-card);
+        }
+
+        .carousel::-webkit-scrollbar { height: 6px; }
+        .carousel::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 10px; }
+
+        .insight-card {
+            min-width: 300px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .insight-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
+        .insight-card img { width: 100%; height: 160px; object-fit: cover; }
+        .insight-content { padding: 20px; }
+        .insight-meta { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 12px; }
+        .insight-meta .cat { color: var(--cyan); font-weight: bold; letter-spacing: 1px; }
+        .insight-meta .time { color: rgba(255,255,255,0.54); }
+        .insight-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: white; line-height: 1.4; }
+
+        @media (max-width: 800px) {
+            .hero-image { height: 350px; }
+            .article-container { padding: 0 24px; margin-top: -60px; }
+            h1#article-title { font-size: 32px; }
+            .markdown-body p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/insights" class="back-btn" id="back-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            <span id="back-text">Geri Dön</span>
+        </a>
+    </header>
+
+    <div class="hero-image" id="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&q=80&w=1200');"></div>
+
+    <main class="article-container">
+        <div class="meta-info">
+            <span class="tag" id="article-category">ARAŞTIRMA</span>
+            <span class="read-time" id="article-time">6 dk okuma</span>
+        </div>
+        
+        <h1 id="article-title">Yükleniyor...</h1>
+        
+        <div class="divider"></div>
+        
+        <article class="markdown-body" id="article-content">
+            </article>
+
+        <div class="divider"></div>
+
+        <section class="latest-insights">
+            <h2 id="latest-title">Son Makaleler</h2>
+            <div class="carousel" id="latest-carousel">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // --- GLOBAL İÇERİK VERİTABANI (SEO Optimizasyonlu Yarı-Statik Yapı) ---
+        const db = {
+            'tr': {
+                ui: { back: 'Geri Dön', minRead: 'dk okuma', latest: 'Son Makaleler' },
+                articles: {
+                    'dijital-izolasyon': {
+                        title: 'Dijital Çağda İzolasyon: Yalnızlığın Anatomisi',
+                        cat: 'Araştırma', time: 6,
+                        img: 'https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=1200',
+                        body: `
+                            <p>Sürekli çevrimiçi olduğumuz bir dünyada, tarihte hiç olmadığı kadar kopuk hissetmemiz modern çağın en büyük paradokslarından biridir. Ekran sürelerimiz artarken, derin ve anlamlı insan bağları kurma yeteneğimiz köreliyor.</p>
+                            <h2>Yüzeysel Bağlantıların Maliyeti</h2>
+                            <p>Sosyal medya algoritmaları bizi bir illüzyonun içine hapsediyor. Yüzlerce "arkadaş" veya "takipçi", gerçek bir kriz anında yanımızda olacak bir dostun yerini tutamaz.</p>
+                            <blockquote>"En büyük yalnızlık, kalabalıklar içinde anlaşılamamaktır." - Modern Psikoloji</blockquote>
+                            <h3>Birlik Kapısı Yaklaşımı</h3>
+                            <ul>
+                                <li>Algoritmik değil, <strong>psikolojik uyuma</strong> dayalı eşleştirmeler.</li>
+                                <li>Yüzeysel kaydırmalar yerine derinlemesine analiz.</li>
+                                <li>Uzman moderatörlüğünde güvenli topluluk alanları.</li>
+                            </ul>
+                            <p>İyileşme, yalnız olduğunuzu kabul etmekle başlar. Sistemimiz bu farkındalığı bilimsel bir aksiyona dönüştürmek için tasarlandı.</p>
+                        `
+                    },
+                    'stoaci-felsefe': { title: 'Stoacı Felsefe ve Modern Terapinin Kesişimi', cat: 'Felsefe & Psikoloji', time: 4, img: 'https://images.unsplash.com/photo-1505664159854-232618df3612?w=1200' },
+                    'finansal-stres': { title: 'Finansal Stresin Aile Bağlarına Etkisi', cat: 'Vaka Analizi', time: 7, img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200' }
+                }
+            },
+            'en': {
+                ui: { back: 'Go Back', minRead: 'min read', latest: 'Latest Insights' },
+                articles: {
+                    'digital-isolation': {
+                        title: 'Isolation in the Digital Age: The Anatomy of Loneliness',
+                        cat: 'Research', time: 6,
+                        img: 'https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=1200',
+                        body: `
+                            <p>In a world where we are constantly online, feeling more disconnected than ever in history is one of the greatest paradoxes of the modern age.</p>
+                            <h2>The Cost of Superficial Connections</h2>
+                            <p>Social media algorithms trap us in an illusion. Hundreds of "friends" cannot replace one true companion during a real crisis.</p>
+                            <blockquote>"The greatest loneliness is not being understood in a crowd."</blockquote>
+                            <h3>The Unity Gate Approach</h3>
+                            <ul>
+                                <li>Matches based on <strong>psychological compatibility</strong>, not just algorithms.</li>
+                                <li>In-depth analysis instead of superficial swiping.</li>
+                            </ul>
+                        `
+                    },
+                    'stoic-philosophy': { title: 'Intersection of Stoic Philosophy and Modern Therapy', cat: 'Philosophy', time: 4, img: 'https://images.unsplash.com/photo-1505664159854-232618df3612?w=1200' },
+                    'financial-stress': { title: 'Impact of Financial Stress on Family Bonds', cat: 'Case Study', time: 7, img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200' }
+                }
+            },
+            'de': { ui: { back: 'Zurück', minRead: 'Min. Lesezeit', latest: 'Neueste Artikel' }, articles: { /* DE Articles */ } },
+            'fr': { ui: { back: 'Retour', minRead: 'min de lecture', latest: 'Derniers articles' }, articles: { /* FR Articles */ } },
+            'es': { ui: { back: 'Volver', minRead: 'min de lectura', latest: 'Últimos artículos' }, articles: { /* ES Articles */ } },
+            'ja': { ui: { back: '戻る', minRead: '分で読める', latest: '最新の記事' }, articles: { /* JA Articles */ } }
+        };
+
+        // URL'den makale slug'ını ve dili alma (Örn: article-detail.html?slug=dijital-izolasyon&lang=tr)
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentLang = urlParams.get('lang') || navigator.language.split('-')[0];
+        if (!db[currentLang]) currentLang = 'en'; // Desteklenmeyen dilse İngilizce yap
+        
+        const slug = urlParams.get('slug') || (currentLang === 'tr' ? 'dijital-izolasyon' : 'digital-isolation'); // Default makale
+
+        // İçeriği Render Etme Fonksiyonu
+        function renderArticle() {
+            const langData = db[currentLang];
+            const articleData = langData.articles[slug] || langData.articles[Object.keys(langData.articles)[0]]; // Bulunamazsa ilkini aç
+
+            // Meta ve UI güncellemeleri
+            document.getElementById('meta-title').innerText = `${articleData.title} | Unity Gate`;
+            document.getElementById('back-text').innerText = langData.ui.back;
+            document.getElementById('latest-title').innerText = langData.ui.latest;
+
+            // Ana Makale Doldurma
+            document.getElementById('hero-bg').style.backgroundImage = `url('${articleData.img}')`;
+            document.getElementById('article-category').innerText = articleData.cat.toUpperCase();
+            document.getElementById('article-time').innerText = `${articleData.time} ${langData.ui.minRead}`;
+            document.getElementById('article-title').innerText = articleData.title;
+            document.getElementById('article-content').innerHTML = articleData.body || '<p>İçerik hazırlanıyor...</p>';
+
+            // Son Makaleler (Carousel) Doldurma
+            const carousel = document.getElementById('latest-carousel');
+            carousel.innerHTML = '';
+            Object.keys(langData.articles).forEach(key => {
+                if(key !== slug) { // Mevcut makaleyi altta gösterme
+                    const item = langData.articles[key];
+                    carousel.innerHTML += `
+                        <a href="?slug=${key}&lang=${currentLang}" class="insight-card">
+                            <img src="${item.img}" alt="${item.title}" loading="lazy">
+                            <div class="insight-content">
+                                <div class="insight-meta">
+                                    <span class="cat">${item.cat.toUpperCase()}</span>
+                                    <span class="time">${item.time} ${langData.ui.minRead}</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                            </div>
+                        </a>
+                    `;
+                }
+            });
+        }
+
+        // Akıllı Geri Butonu Mantığı (Tarayıcı geçmişine bakar)
+        document.getElementById('back-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (window.history.length > 2) {
+                window.history.back();
+            } else {
+                window.location.href = '/insights';
+            }
+        });
+
+        // Sayfa yüklendiğinde render et
+        renderArticle();
+    </script>
+</body>
+</html>
