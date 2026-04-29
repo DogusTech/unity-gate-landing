@@ -8,7 +8,6 @@
   <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate ile güvenli online terapi, uzman destekli matchmaking ve arabuluculuk hizmetlerine ulaşın.">
   <meta name="theme-color" content="#0B1121">
   
-  <!-- SEO & Yönlendirmeler -->
   <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/" />
   <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/" />
   <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/" />
@@ -17,15 +16,13 @@
   <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/" />
   <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/" />
 
-  <!-- Fontlar -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Harici CSS Dosyamız -->
+  <!-- Dışarıdan bağladığımız CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- i18next -->
   <script src="https://unpkg.com/i18next/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
 </head>
@@ -46,7 +43,7 @@
     </div>
     
     <div class="nav-right">
-      <!-- Giriş Yap Menüsü (App'e yönlendirir) -->
+      <!-- Giriş Yap Menüsü -->
       <div class="dropdown-wrapper">
         <button class="btn btn-outline" data-i18n="btnSignIn">Giriş Yap</button>
         <div class="dropdown-menu">
@@ -90,19 +87,16 @@
         <a href="https://app.unity-gate.com/ucla-test/start" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
       </div>
 
-      <!-- Native Flutter Dalga Algoritmasının Birebir SVG Aktarımı -->
+      <!-- Native Flutter Dalga Animasyonu SVG Aktarımı -->
       <div class="wave-container">
-        <svg viewBox="0 0 1200 250" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="rgba(0, 229, 255, 0.4)" />
-              <stop offset="100%" stop-color="rgba(2, 132, 199, 0.1)" />
-            </linearGradient>
-          </defs>
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path class="wave-layer wave-1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,181.3C672,181,768,203,864,224C960,245,1056,267,1152,261.3C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,277,576,277.3C672,277,768,245,864,213.3C960,181,1056,149,1152,138.7C1248,128,1344,139,1392,144L1440,149.3L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           
-          <path class="wave-layer wave-1" fill="rgba(2, 132, 199, 0.2)" d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,250 L0,250 Z" />
-          <path class="wave-layer wave-2" fill="url(#wave2Grad)" d="M0,160 C150,80 450,220 600,160 C750,100 1050,220 1200,160 L1200,250 L0,250 Z" />
-          <path class="wave-layer wave-3" fill="rgba(0, 229, 255, 0.8)" d="M0,180 C300,120 300,220 600,180 C900,140 900,220 1200,180 L1200,250 L0,250 Z" />
+          <path class="wave-layer wave-1" d="M1440,128L1488,144C1536,160,1632,192,1728,197.3C1824,203,1920,181,2016,181.3C2112,181,2208,203,2304,224C2400,245,2496,267,2592,261.3C2688,256,2784,224,2832,208L2880,192L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M1440,256L1488,245.3C1536,235,1632,213,1728,186.7C1824,160,1920,128,2016,133.3C2112,139,2208,181,2304,197.3C2400,213,2496,203,2592,181.3C2688,160,2784,128,2832,112L2880,96L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M1440,192L1488,197.3C1536,203,1632,213,1728,229.3C1824,245,1920,277,2016,277.3C2112,277,2208,245,2304,213.3C2400,181,2496,149,2592,138.7C2688,128,2784,139,2832,144L2880,149.3L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
         </svg>
       </div>
     </section>
@@ -123,25 +117,28 @@
         <article class="bento-card bento-large">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="UCLA Yalnızlık Analizi" loading="lazy">
           <div class="bento-overlay"></div>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2"><path d="M10 3v4a1 1 0 0 1-1 1H5m9-4v4a1 1 0 0 0 1 1h4M3 15h18M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
           <h3 data-i18n="bento1Title">Kök Neden: Yalnızlık Analizi</h3>
           <p data-i18n="bento1Desc">Bilimsel veriler ışığında yalnızlık seviyenizi ölçün. Size en uygun danışmanlık rotasını klinik doğrulukla AI destekli algoritmamız çizsin.</p>
         </article>
         <article class="bento-card">
           <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Klinik Destek" loading="lazy">
           <div class="bento-overlay"></div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           <h3 data-i18n="bento2Title">Lisanslı Uzmanlardan Destek</h3>
-          <p data-i18n="bento2Desc">Ruh sağlığınızı uluslararası klinik standartlarla koruyoruz.</p>
+          <p data-i18n="bento2Desc">Ruh sağlığınızı uluslararası klinik standartlarla koruyoruz. Güvenli ve bilimsel temelli bir yaklaşım.</p>
         </article>
         <article class="bento-card">
           <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" alt="Askeri Düzeyde Şifreleme" loading="lazy">
           <div class="bento-overlay"></div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <h3 data-i18n="bento3Title">Askeri Düzeyde Şifreleme</h3>
-          <p data-i18n="bento3Desc">Tüm görüşmeleriniz uçtan uca şifrelidir.</p>
+          <p data-i18n="bento3Desc">Tüm görüşmeleriniz uçtan uca şifrelidir ve gizlilik esasına dayanır. Verileriniz daima güvende.</p>
         </article>
       </div>
     </section>
 
-    <!-- HATA ÇÖZÜMÜ: SİLİNEN 4'LÜ KART (PROCESS GRID) BÖLÜMÜ GERİ GELDİ -->
+    <!-- GERİ GETİRİLEN VE CSS İLE BAĞLANAN 4'LÜ KUTUCUK (PROCESS GRID) BÖLÜMÜ -->
     <section class="section-padding bento-section">
       <h2 data-i18n="processTitle">Birlikte Daha Güçlüyüz</h2>
       <div class="process-grid">
@@ -208,7 +205,7 @@
     </div>
   </footer>
 
-  <!-- Harici JS Dosyamız -->
+  <!-- Dışarıdan bağladığımız JS -->
   <script src="js/main.js"></script>
 
 </body>

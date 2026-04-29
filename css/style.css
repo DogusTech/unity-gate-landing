@@ -99,6 +99,7 @@ header {
 .vision-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; filter: blur(8px) brightness(0.3); z-index: -1; transform: scale(1.05); }
 .vision-content h2 { color: var(--cyan); font-size: 16px; letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase; }
 .vision-content p { font-size: 24px; font-weight: 600; max-width: 75%; line-height: 1.5; }
+
 .bento-section h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .bento-card { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 320px; transition: transform 0.3s ease; }
@@ -108,6 +109,15 @@ header {
 .bento-large { grid-column: 1 / -1; min-height: 380px; border-color: rgba(0, 229, 255, 0.2); }
 .bento-card h3 { font-size: 24px; font-weight: 800; margin: 16px 0 8px 0; }
 .bento-card p { color: var(--text-muted); font-size: 16px; }
+
+/* KAYBOLAN 4'LÜ KUTUCUK (PROCESS GRID) CSS'İ BURADA */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.process-card { background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: transform 0.3s ease; }
+.process-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.2); box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1); }
+.process-card img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
+.process-body { padding: 24px; }
+.process-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: white; }
+.process-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
 
 footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 5% 40px 5%; margin-top: 80px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto;}
@@ -122,10 +132,14 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05
   header { padding: 12px 5%; }
   .nav-links { display: none; }
   .hamburger-btn { display: block; }
-  .btn { padding: 10px 16px; font-size: 13px; } /* Mobilde butonlar ezilmesin diye küçültüldü */
+  .btn { padding: 10px 16px; font-size: 13px; } 
   .hero { padding: 140px 5% 100px 5%; min-height: 85vh;}
   .wave-container { height: 120px; } 
   .bento-grid { grid-template-columns: 1fr; }
+  
+  /* Mobilde 4'lü kutucuğun alt alta şık bir şekilde listelenmesini sağlar */
+  .process-grid { grid-template-columns: 1fr; }
+  
   .vision-content p { max-width: 100%; font-size: 18px; }
   .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; }
 }
