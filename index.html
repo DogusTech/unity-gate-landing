@@ -8,6 +8,7 @@
   <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate ile güvenli online terapi, uzman destekli matchmaking ve arabuluculuk hizmetlerine ulaşın.">
   <meta name="theme-color" content="#0B1121">
   
+  <!-- SEO & Yönlendirmeler -->
   <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/" />
   <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/" />
   <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/" />
@@ -16,351 +17,103 @@
   <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/" />
   <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/" />
 
+  <!-- Fontlar -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Harici CSS Dosyamız -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- i18next -->
   <script src="https://unpkg.com/i18next/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
-
-  <style>
-    :root {
-      --bg-dark: #0B1121;
-      --bg-card: #162032;
-      --cyan: #00E5FF;
-      --blue: #0284C7;
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --gradient-primary: linear-gradient(135deg, var(--cyan), var(--blue));
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      scrollbar-width: none; 
-      -ms-overflow-style: none;
-    }
-    
-    body::-webkit-scrollbar { display: none; }
-
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* Navbar */
-    header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      padding: 16px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(11, 17, 33, 0.7); 
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .nav-left { display: flex; align-items: center; gap: 40px; }
-    .brand { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px;}
-    .nav-links { display: flex; gap: 24px; font-weight: 600; font-size: 14px; color: var(--text-muted); }
-    .nav-links a { transition: 0.3s; }
-    .nav-links a:hover { color: var(--cyan); }
-    
-    .nav-right { display: flex; gap: 16px; align-items: center;}
-    
-    /* Native Dropdown Menü (Giriş/Kayıt İçin) */
-    .dropdown-wrapper { position: relative; display: inline-block; }
-    
-    .dropdown-menu {
-      position: absolute;
-      top: 130%; 
-      right: 0;
-      background: rgba(22, 32, 50, 0.95);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 8px;
-      min-width: 180px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      z-index: 1001;
-    }
-    
-    .dropdown-wrapper:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    
-    .dropdown-item {
-      padding: 12px 16px;
-      color: var(--text-main);
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 12px;
-      transition: 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-    
-    .dropdown-item:hover { 
-      background: rgba(0, 229, 255, 0.1); 
-      color: var(--cyan); 
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-      font-family: inherit;
-      text-align: center;
-    }
-    .btn-outline { 
-      border: 1px solid rgba(255,255,255,0.2); 
-      color: var(--text-main); 
-      background: transparent; 
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); transform: scale(1.05); }
-    .btn-primary { 
-      background: var(--gradient-primary); 
-      color: #000; 
-      border: none; 
-      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
-    }
-    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4); }
-
-    /* Hero Alanı */
-    .hero { 
-      position: relative; 
-      padding: 180px 5% 200px 5%; 
-      text-align: center; 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      overflow: hidden; 
-      background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(11, 17, 33, 0.8) 100%);
-    }
-    
-    .hero-content-wrapper {
-      max-width: 900px; 
-      z-index: 2; 
-      position: relative;
-    }
-
-    .hero h1 { 
-      font-size: clamp(40px, 6vw, 72px); 
-      font-weight: 900; 
-      line-height: 1.1; 
-      letter-spacing: -2px; 
-      margin-bottom: 24px; 
-      text-shadow: 0 4px 40px rgba(0, 229, 255, 0.3); 
-    }
-    
-    .hero p { 
-      font-size: 18px; 
-      color: var(--text-muted); 
-      font-weight: 500; 
-      max-width: 700px; 
-      margin: 0 auto 40px auto; 
-      line-height: 1.6;
-    }
-    
-    .hero-btn { 
-      padding: 18px 48px; 
-      font-size: 16px; 
-    }
-    
-    /* GÜNCELLENMİŞ KUSURSUZ DALGA TASARIMI (image_300371 referanslı) */
-    .wave-container { 
-      position: absolute; 
-      bottom: -1px; 
-      left: 0; 
-      width: 100%; 
-      height: 250px; 
-      overflow: hidden; 
-      z-index: 0; 
-      pointer-events: none; 
-    }
-    
-    .wave-container svg { 
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%; 
-      height: 100%;
-    }
-
-    .wave-layer { 
-      animation-name: flutterWave;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      transform-origin: bottom;
-    }
-    
-    /* Arkadaki en açık katman */
-    .wave-1 { 
-      animation-duration: 25s; 
-      fill: rgba(2, 132, 199, 0.2); 
-    }
-    
-    /* Ortadaki kavisli katman */
-    .wave-2 { 
-      animation-duration: 20s; 
-      animation-direction: reverse;
-      fill: rgba(0, 229, 255, 0.3); 
-    }
-    
-    /* Öndeki vurgulu ana katman */
-    .wave-3 { 
-      animation-duration: 15s; 
-      fill: rgba(0, 229, 255, 0.8); 
-    }
-    
-    @keyframes flutterWave { 
-      0% { transform: translateX(0); } 
-      100% { transform: translateX(-50%); } 
-    }
-    
-    /* Diğer Bölümler */
-    .section-padding { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-    
-    .vision-card { position: relative; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); min-height: 400px; display: flex; align-items: center; padding: 80px 40px; transition: transform 0.3s ease; }
-    .vision-card:hover { transform: translateY(-5px); }
-    .vision-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; filter: blur(8px) brightness(0.3); z-index: -1; transform: scale(1.05); transition: filter 0.5s ease;}
-    .vision-card:hover .vision-bg { filter: blur(4px) brightness(0.4); }
-    .vision-content h2 { color: var(--cyan); font-size: 16px; letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase; }
-    .vision-content p { font-size: 24px; font-weight: 600; max-width: 75%; line-height: 1.5; }
-    
-    .bento-section h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
-    .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .bento-card { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 320px; transition: transform 0.3s ease; }
-    .bento-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.2); }
-    .bento-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 0.5s ease; }
-    .bento-card:hover img { transform: scale(1.05); }
-    .bento-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(11,17,33,1) 10%, rgba(11,17,33,0.2) 100%); }
-    .bento-large { grid-column: 1 / -1; min-height: 380px; border-color: rgba(0, 229, 255, 0.2); }
-    .bento-large .bento-overlay { background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.2), rgba(11,17,33,0.95) 70%); }
-    .bento-card h3 { font-size: 24px; font-weight: 800; margin: 16px 0 8px 0; }
-    .bento-card p { color: var(--text-muted); font-size: 16px; }
-    
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .process-card { background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: transform 0.3s ease; }
-    .process-card:hover { transform: translateY(-5px); border-color: rgba(0, 229, 255, 0.2); }
-    .process-card img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
-    .process-body { padding: 24px; }
-    .process-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-    .process-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
-    
-    footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 5% 40px 5%; margin-top: 80px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto;}
-    .footer-col h4 { font-size: 16px; font-weight: bold; margin-bottom: 20px; color: white; }
-    .footer-col a { display: block; color: var(--text-muted); margin-bottom: 12px; font-size: 14px; transition: 0.3s; }
-    .footer-col a:hover { color: var(--cyan); transform: translateX(4px); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 32px; font-size: 13px; color: rgba(255,255,255,0.5); max-width: 1200px; margin-left: auto; margin-right: auto;}
-    .footer-bottom-links { display: flex; gap: 24px; }
-    
-    @media (max-width: 900px) {
-      header { padding: 16px 24px; }
-      .nav-links, .nav-right { display: none; }
-      .hero { padding: 140px 24px 140px 24px; min-height: 85vh;}
-      .hero h1 { font-size: 44px; letter-spacing: -1.5px; } 
-      .wave-container { height: 150px; } 
-      .section-padding { padding: 60px 24px; }
-      .vision-card { padding: 40px 24px; border-radius: 24px; }
-      .vision-content p { max-width: 100%; font-size: 20px; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr; }
-      footer { padding: 60px 24px 40px 24px; }
-      .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; }
-    }
-  </style>
 </head>
 <body>
 
+  <!-- Navbar -->
   <header>
     <div class="nav-left">
-      <!-- 1. HATA ÇÖZÜMÜ: Logo Entegrasyonu -->
       <a href="/" class="brand">
         <img src="assets/logo.png" alt="Unity Gate Logo" style="height: 32px; width: auto; object-fit: contain;">
         Unity Gate
       </a>
       <nav class="nav-links">
-        <!-- 2. HATA ÇÖZÜMÜ: Vercel 404 Hataları için .html eklendi -->
         <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
         <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
         <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
       </nav>
     </div>
+    
     <div class="nav-right">
-      
-      <!-- 3. HATA ÇÖZÜMÜ: Native Feel Dropdown Menüler (Giriş Yap) -->
+      <!-- Giriş Yap Menüsü (App'e yönlendirir) -->
       <div class="dropdown-wrapper">
         <button class="btn btn-outline" data-i18n="btnSignIn">Giriş Yap</button>
         <div class="dropdown-menu">
-          <!-- Bağlantılar ileride app.unity-gate.com çalıştığında hazır olacak -->
-          <a href="#" class="dropdown-item">👤 Kullanıcı Girişi</a>
-          <a href="#" class="dropdown-item">🎓 Uzman Girişi</a>
+          <a href="https://app.unity-gate.com/login" class="dropdown-item">👤 Kullanıcı Girişi</a>
+          <a href="https://app.unity-gate.com/expert-login" class="dropdown-item">🎓 Uzman Girişi</a>
         </div>
       </div>
 
-      <!-- Native Feel Dropdown Menüler (Kayıt Ol) -->
+      <!-- Kayıt Ol Menüsü -->
       <div class="dropdown-wrapper">
         <button class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</button>
         <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">👤 Kullanıcı Kaydı</a>
-          <!-- Uzman kaydı için oluşturduğumuz html dosyasına yönlendirildi -->
+          <a href="https://app.unity-gate.com/register" class="dropdown-item">👤 Kullanıcı Kaydı</a>
           <a href="/expert-registration.html" class="dropdown-item">🎓 Uzman Kaydı</a>
         </div>
       </div>
 
+      <!-- Mobil Hamburger İkonu -->
+      <button class="hamburger-btn" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </header>
 
+  <!-- Mobil Açılır Menü -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+    <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+    <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+  </div>
+
   <main>
     <section class="hero">
-      
       <div class="hero-content-wrapper">
         <h1 data-i18n="heroTitle">Bilimsel Verilerle<br>Kendinizi Keşfedin</h1>
         <p data-i18n="heroSubtitle">Modern çağın görünmez krizine karşı bilimsel verilerle kendinizi keşfedin. Neden yalnız hissettiğinizi anlayın, yapay zeka ile size en uygun uzmanla eşleşin ve iyileşme rotanızı bugün çizin.</p>
-        <!-- Test URL'si de güncellendi -->
-        <a href="/ucla-test.html" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
+        <a href="https://app.unity-gate.com/ucla-test/start" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
       </div>
 
-      <!-- 4. HATA ÇÖZÜMÜ: Kusursuz Pürüzsüz SVG Wave (image_300371 referanslı) -->
+      <!-- Native Flutter Dalga Algoritmasının Birebir SVG Aktarımı -->
       <div class="wave-container">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path class="wave-layer wave-1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,181.3C672,181,768,203,864,224C960,245,1056,267,1152,261.3C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.3"></path>
-          <path class="wave-layer wave-2" d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.5"></path>
-          <path class="wave-layer wave-3" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,277,576,277.3C672,277,768,245,864,213.3C960,181,1056,149,1152,138.7C1248,128,1344,139,1392,144L1440,149.3L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <svg viewBox="0 0 1200 250" preserveAspectRatio="none">
+          <defs>
+            <!-- Flutter: Color(0xFF00E5FF).withValues(alpha: 0.4) to Color(0xFF0284C7).withValues(alpha: 0.1) -->
+            <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(0, 229, 255, 0.4)" />
+              <stop offset="100%" stop-color="rgba(2, 132, 199, 0.1)" />
+            </linearGradient>
+          </defs>
           
-          <!-- Ekstra Genişlik İçin Çoğaltılmış Yollar -->
-          <path class="wave-layer wave-1" d="M1440,128L1488,144C1536,160,1632,192,1728,197.3C1824,203,1920,181,2016,181.3C2112,181,2208,203,2304,224C2400,245,2496,267,2592,261.3C2688,256,2784,224,2832,208L2880,192L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.3"></path>
-          <path class="wave-layer wave-2" d="M1440,256L1488,245.3C1536,235,1632,213,1728,186.7C1824,160,1920,128,2016,133.3C2112,139,2208,181,2304,197.3C2400,213,2496,203,2592,181.3C2688,160,2784,128,2832,112L2880,96L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.5"></path>
-          <path class="wave-layer wave-3" d="M1440,192L1488,197.3C1536,203,1632,213,1728,229.3C1824,245,1920,277,2016,277.3C2112,277,2208,245,2304,213.3C2400,181,2496,149,2592,138.7C2688,128,2784,139,2832,144L2880,149.3L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
+          <!-- Dalga 1: Arkada, yavaş ve alçak genlik -->
+          <path class="wave-layer wave-1" fill="rgba(2, 132, 199, 0.2)" d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,250 L0,250 Z" />
+          
+          <!-- Dalga 2: Ortada, orta hız ve yüksek genlik (Gradiant Renkli) -->
+          <path class="wave-layer wave-2" fill="url(#wave2Grad)" d="M0,160 C150,80 450,220 600,160 C750,100 1050,220 1200,160 L1200,250 L0,250 Z" />
+          
+          <!-- Dalga 3: Önde, hızlı ve ana genlik (Solid Turkuaz) -->
+          <path class="wave-layer wave-3" fill="rgba(0, 229, 255, 0.8)" d="M0,180 C300,120 300,220 600,180 C900,140 900,220 1200,180 L1200,250 L0,250 Z" />
         </svg>
       </div>
     </section>
 
+    <!-- Kalan Section Bölümleri Birebir Aynı -->
     <section class="section-padding">
       <div class="vision-card">
         <div class="vision-bg"></div>
@@ -374,71 +127,24 @@
     <section class="section-padding bento-section">
       <h2 data-i18n="howItWorks">Nasıl Çalışır?</h2>
       <div class="bento-grid">
-        
         <article class="bento-card bento-large">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="UCLA Yalnızlık Analizi" loading="lazy">
           <div class="bento-overlay"></div>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2"><path d="M10 3v4a1 1 0 0 1-1 1H5m9-4v4a1 1 0 0 0 1 1h4M3 15h18M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
           <h3 data-i18n="bento1Title">Kök Neden: Yalnızlık Analizi</h3>
           <p data-i18n="bento1Desc">Bilimsel veriler ışığında yalnızlık seviyenizi ölçün. Size en uygun danışmanlık rotasını klinik doğrulukla AI destekli algoritmamız çizsin.</p>
         </article>
-
         <article class="bento-card">
           <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Klinik Destek" loading="lazy">
           <div class="bento-overlay"></div>
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           <h3 data-i18n="bento2Title">Lisanslı Uzmanlardan Destek</h3>
-          <p data-i18n="bento2Desc">Ruh sağlığınızı uluslararası klinik standartlarla koruyoruz. Güvenli ve bilimsel temelli bir yaklaşım.</p>
+          <p data-i18n="bento2Desc">Ruh sağlığınızı uluslararası klinik standartlarla koruyoruz.</p>
         </article>
-
         <article class="bento-card">
           <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" alt="Askeri Düzeyde Şifreleme" loading="lazy">
           <div class="bento-overlay"></div>
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <h3 data-i18n="bento3Title">Askeri Düzeyde Şifreleme</h3>
-          <p data-i18n="bento3Desc">Tüm görüşmeleriniz uçtan uca şifrelidir ve gizlilik esasına dayanır. Verileriniz daima güvende.</p>
+          <p data-i18n="bento3Desc">Tüm görüşmeleriniz uçtan uca şifrelidir.</p>
         </article>
-
-      </div>
-    </section>
-
-    <section class="section-padding bento-section">
-      <h2 data-i18n="processTitle">Birlikte Daha Güçlüyüz</h2>
-      <div class="process-grid">
-        
-        <article class="process-card">
-          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop" alt="Bağ Kurma" loading="lazy">
-          <div class="process-body">
-            <h3 data-i18n="process1Title">Gerçek Bağlar Kurun</h3>
-            <p data-i18n="process1Desc">İlgi odalarında sizinle aynı vizyona sahip insanlarla tanışın.</p>
-          </div>
-        </article>
-
-        <article class="process-card">
-          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop" alt="Güvenli İletişim" loading="lazy">
-          <div class="process-body">
-            <h3 data-i18n="process2Title">Güvenli İletişim</h3>
-            <p data-i18n="process2Desc">Uzman eşliğinde, askeri düzeyde şifrelenmiş gruplarda sosyalleşin.</p>
-          </div>
-        </article>
-
-        <article class="process-card">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop" alt="Toplulukla İyileşme" loading="lazy">
-          <div class="process-body">
-            <h3 data-i18n="process3Title">Toplulukla İyileşin</h3>
-            <p data-i18n="process3Desc">Yalnızlık hissini kolektif bilinç ve empati ile yenin.</p>
-          </div>
-        </article>
-
-        <article class="process-card">
-          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="Mobil Uygulama" loading="lazy">
-          <div class="process-body">
-            <h3 data-i18n="process4Title">Mobil Uygulama</h3>
-            <p data-i18n="process4Desc">Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.</p>
-            <button class="btn btn-primary" style="width: 100%; margin-top:16px;" onclick="alert('Mobil uygulamamız çok yakında yayında!')" data-i18n="btnDownload">Uygulamayı İndir</button>
-          </div>
-        </article>
-
       </div>
     </section>
   </main>
@@ -447,7 +153,6 @@
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Unity Gate</h4>
-        <!-- Footer Linklerindeki 404 Hatası Çözümü -->
         <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
         <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
         <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
@@ -460,7 +165,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-links">
-        <span id="current-language-display"><svg width="14" height="14" style="vertical-align: middle; margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Global</span>
+        <span id="current-language-display">Global</span>
         <a href="/privacy.html" class="hide-mobile" data-i18n="footerPrivacy">Gizlilik</a>
         <a href="/terms.html" class="hide-mobile" data-i18n="footerTerms">Şartlar</a>
       </div>
@@ -468,42 +173,8 @@
     </div>
   </footer>
 
-  <script>
-    const pathSegments = window.location.pathname.split('/');
-    let urlLang = pathSegments[1]; 
-    if(!['en', 'tr', 'de', 'fr', 'es', 'ja'].includes(urlLang)) {
-        urlLang = 'tr'; 
-    }
-
-    i18next
-        .use(i18nextHttpBackend) 
-        .init({
-            lng: urlLang,
-            fallbackLng: 'en',
-            backend: {
-                loadPath: './locales/{{lng}}/translation.json' 
-            }
-        }).then(function() {
-            updateContent();
-            document.getElementById('html-tag').setAttribute('lang', i18next.language);
-            
-            const langNames = { 'tr': 'Türkçe', 'en': 'English', 'de': 'Deutsch', 'fr': 'Français', 'es': 'Español', 'ja': '日本語' };
-            document.getElementById('current-language-display').innerHTML = `<svg width="14" height="14" style="vertical-align: middle; margin-right:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> ${langNames[i18next.language]}`;
-        }).catch(function(error) {
-            console.error("i18next yüklenirken bir hata oluştu: ", error);
-        });
-
-    function updateContent() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (key.startsWith('[content]')) {
-                element.setAttribute('content', i18next.t(key.replace('[content]', '')));
-            } else {
-                element.innerHTML = i18next.t(key);
-            }
-        });
-    }
-  </script>
+  <!-- Harici JS Dosyamız -->
+  <script src="js/main.js"></script>
 
 </body>
 </html>
