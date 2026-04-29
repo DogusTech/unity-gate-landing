@@ -131,5 +131,15 @@
   "errPasswordMismatch": "Passwörter stimmen nicht überein!",
   "sub_therapy": ["Einzeltherapie", "Familienberatung", "Kinder & Jugendliche", "Verhaltenstherapie", "EMDR"],
   "sub_mediation": ["Familienmediation", "Wirtschaftsmediation", "Arbeitsrechtliche Mediation"],
-  "sub_finance": ["Budgetverwaltung", "Anlageberatung", "Schuldenrestrukturierung"]
+  "sub_finance": ["Budgetverwaltung", "Anlageberatung", "Schuldenrestrukturierung"],
+  "userRegTitle": "Benutzer-Registrierung",
+  "userRegSubtitle": "Machen Sie den ersten Schritt auf Ihrer Heilungsreise.",
+  "userGoal": "Ihr Hauptziel bei Unity Gate",
+  "selectGoal": "Wählen Sie Ihr Ziel",
+  "goalSocial": "Digitale & physische Kontakte in Interessenräumen",
+  "goalTherapy": "Professionelle Unterstützung von Experten",
+  "goalDiscover": "Meine innere Welt entdecken",
+  "userTermsText": "Mit dem Beitritt zu Unity Gate erklären Sie sich bereit, Teil einer sicheren, anonymen und unterstützenden Gemeinschaft zu sein.",
+  "userAgreeTerms": "Ich habe die Nutzungsbedingungen und die Datenschutzrichtlinie gelesen und stimme zu.",
+  "btnUserRegister": "Konto erstellen & starten"
 }

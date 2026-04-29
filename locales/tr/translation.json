@@ -131,5 +131,15 @@
   "errPasswordMismatch": "Şifreler eşleşmiyor!",
   "sub_therapy": ["Bireysel Terapi", "Aile Danışmanlığı", "Çocuk ve Ergen", "Bilişsel Davranışçı Terapi", "EMDR"],
   "sub_mediation": ["Aile Arabuluculuğu", "Ticari Arabuluculuk", "İş Hukuku Arabuluculuğu"],
-  "sub_finance": ["Bütçe Yönetimi", "Yatırım Danışmanlığı", "Borç Yapılandırma"]
+  "sub_finance": ["Bütçe Yönetimi", "Yatırım Danışmanlığı", "Borç Yapılandırma"],
+  "userRegTitle": "Kullanıcı Kayıt Formu",
+  "userRegSubtitle": "İyileşme yolculuğunuza ilk adımı atın ve topluluğumuza katılın.",
+  "userGoal": "Birlik Kapısı'ndaki Öncelikli Hedefiniz",
+  "selectGoal": "Hedefinizi Seçiniz",
+  "goalSocial": "İlgi Odalarında Dijital ve Fiziksel Sosyalleşme",
+  "goalTherapy": "Uzmanlardan Profesyonel Destek Almak",
+  "goalDiscover": "Kendi İç Dünyamı Keşfetmek",
+  "userTermsText": "Birlik Kapısı'na katılarak, güvenli, anonim ve destekleyici bir topluluğun parçası olmayı kabul ediyorsunuz. Verileriniz KVKK ve uluslararası sağlık standartları kapsamında uçtan uca şifrelenerek korunmaktadır.",
+  "userAgreeTerms": "Kullanıcı sözleşmesini ve gizlilik politikasını okudum, kabul ediyorum.",
+  "btnUserRegister": "Hesabımı Oluştur ve Başla"
 }

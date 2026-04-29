@@ -131,5 +131,15 @@
   "errPasswordMismatch": "パスワードが一致しません！",
   "sub_therapy": ["個人セラピー", "家族カウンセリング", "児童・思春期", "認知行動療法", "EMDR"],
   "sub_mediation": ["家族調停", "商事調停", "労働法調停"],
-  "sub_finance": ["家計管理", "投資アドバイザリー", "債務整理"]
+  "sub_finance": ["家計管理", "投資アドバイザリー", "債務整理"],
+  "userRegTitle": "ユーザー登録",
+  "userRegSubtitle": "癒しの旅の第一歩を踏み出し、私たちのコミュニティに参加しましょう。",
+  "userGoal": "Unity Gateでの主な目的",
+  "selectGoal": "目的を選択してください",
+  "goalSocial": "趣味の部屋でのデジタルおよび物理的な交流",
+  "goalTherapy": "専門家からの専門的なサポートを受ける",
+  "goalDiscover": "自分の内面を発見する",
+  "userTermsText": "Unity Gateに参加することで、安全で匿名性が高く、支え合うコミュニティの一員となることに同意します。",
+  "userAgreeTerms": "利用規約とプライバシーポリシーを読み、これに同意します。",
+  "btnUserRegister": "アカウントを作成して開始"
 }
