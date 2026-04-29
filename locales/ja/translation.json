@@ -141,5 +141,12 @@
   "goalDiscover": "自分の内面を発見する",
   "userTermsText": "Unity Gateに参加することで、安全で匿名性が高く、支え合うコミュニティの一員となることに同意します。",
   "userAgreeTerms": "利用規約とプライバシーポリシーを読み、これに同意します。",
-  "btnUserRegister": "アカウントを作成して開始"
+  "btnUserRegister": "アカウントを作成して開始",
+  "loginTitle": "ユーザーログイン",
+  "loginSubtitle": "安全な場所へおかえりなさい。癒しの旅の続きを始めましょう。",
+  "rememberMe": "ログイン状態を保持する",
+  "forgotPassword": "パスワードをお忘れですか？",
+  "noAccount": "Unity Gateは初めてですか？",
+  "signUpNow": "今すぐ登録",
+  "btnLogin": "ログイン"
 }

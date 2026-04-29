@@ -141,5 +141,12 @@
   "goalDiscover": "Découvrir mon monde intérieur",
   "userTermsText": "En rejoignant Unity Gate, vous acceptez de faire partie d'une communauté sûre, anonyme et solidaire.",
   "userAgreeTerms": "J'ai lu et j'accepte les conditions d'utilisation et la politique de confidentialité.",
-  "btnUserRegister": "Créer mon compte et commencer"
+  "btnUserRegister": "Créer mon compte et commencer",
+  "loginTitle": "Connexion Utilisateur",
+  "loginSubtitle": "Bienvenue dans votre espace sécurisé. Reprenez votre parcours de guérison.",
+  "rememberMe": "Se souvenir de moi",
+  "forgotPassword": "Mot de passe oublié ?",
+  "noAccount": "Pas encore sur Unity Gate ?",
+  "signUpNow": "Inscrivez-vous maintenant",
+  "btnLogin": "Se connecter"
 }

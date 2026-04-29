@@ -141,5 +141,12 @@
   "goalDiscover": "Kendi İç Dünyamı Keşfetmek",
   "userTermsText": "Birlik Kapısı'na katılarak, güvenli, anonim ve destekleyici bir topluluğun parçası olmayı kabul ediyorsunuz. Verileriniz KVKK ve uluslararası sağlık standartları kapsamında uçtan uca şifrelenerek korunmaktadır.",
   "userAgreeTerms": "Kullanıcı sözleşmesini ve gizlilik politikasını okudum, kabul ediyorum.",
-  "btnUserRegister": "Hesabımı Oluştur ve Başla"
+  "btnUserRegister": "Hesabımı Oluştur ve Başla",
+  "loginTitle": "Kullanıcı Girişi",
+  "loginSubtitle": "Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza kaldığınız yerden devam edin.",
+  "rememberMe": "Beni Hatırla",
+  "forgotPassword": "Şifremi Unuttum",
+  "noAccount": "Henüz Birlik Kapısı'nda değil misiniz?",
+  "signUpNow": "Hemen Kayıt Olun",
+  "btnLogin": "Giriş Yap"
 }

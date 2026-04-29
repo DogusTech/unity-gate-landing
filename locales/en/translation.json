@@ -141,5 +141,12 @@
   "goalDiscover": "Discovering My Inner Self",
   "userTermsText": "By joining Unity Gate, you agree to be part of a safe, anonymous, and supportive community. Your data is end-to-end encrypted and protected under international health standards.",
   "userAgreeTerms": "I have read and agree to the user terms and privacy policy.",
-  "btnUserRegister": "Create My Account & Start"
+  "btnUserRegister": "Create My Account & Start",
+  "loginTitle": "User Login",
+  "loginSubtitle": "Welcome back to your safe space. Continue your healing journey.",
+  "rememberMe": "Remember Me",
+  "forgotPassword": "Forgot Password?",
+  "noAccount": "Not in Unity Gate yet?",
+  "signUpNow": "Sign Up Now",
+  "btnLogin": "Sign In"
 }
