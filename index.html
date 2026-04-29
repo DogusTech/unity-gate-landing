@@ -94,26 +94,19 @@
       <div class="wave-container">
         <svg viewBox="0 0 1200 250" preserveAspectRatio="none">
           <defs>
-            <!-- Flutter: Color(0xFF00E5FF).withValues(alpha: 0.4) to Color(0xFF0284C7).withValues(alpha: 0.1) -->
             <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stop-color="rgba(0, 229, 255, 0.4)" />
               <stop offset="100%" stop-color="rgba(2, 132, 199, 0.1)" />
             </linearGradient>
           </defs>
           
-          <!-- Dalga 1: Arkada, yavaş ve alçak genlik -->
           <path class="wave-layer wave-1" fill="rgba(2, 132, 199, 0.2)" d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,250 L0,250 Z" />
-          
-          <!-- Dalga 2: Ortada, orta hız ve yüksek genlik (Gradiant Renkli) -->
           <path class="wave-layer wave-2" fill="url(#wave2Grad)" d="M0,160 C150,80 450,220 600,160 C750,100 1050,220 1200,160 L1200,250 L0,250 Z" />
-          
-          <!-- Dalga 3: Önde, hızlı ve ana genlik (Solid Turkuaz) -->
           <path class="wave-layer wave-3" fill="rgba(0, 229, 255, 0.8)" d="M0,180 C300,120 300,220 600,180 C900,140 900,220 1200,180 L1200,250 L0,250 Z" />
         </svg>
       </div>
     </section>
 
-    <!-- Kalan Section Bölümleri Birebir Aynı -->
     <section class="section-padding">
       <div class="vision-card">
         <div class="vision-bg"></div>
@@ -147,6 +140,48 @@
         </article>
       </div>
     </section>
+
+    <!-- HATA ÇÖZÜMÜ: SİLİNEN 4'LÜ KART (PROCESS GRID) BÖLÜMÜ GERİ GELDİ -->
+    <section class="section-padding bento-section">
+      <h2 data-i18n="processTitle">Birlikte Daha Güçlüyüz</h2>
+      <div class="process-grid">
+        
+        <article class="process-card">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop" alt="Bağ Kurma" loading="lazy">
+          <div class="process-body">
+            <h3 data-i18n="process1Title">Gerçek Bağlar Kurun</h3>
+            <p data-i18n="process1Desc">İlgi odalarında sizinle aynı vizyona sahip insanlarla tanışın.</p>
+          </div>
+        </article>
+
+        <article class="process-card">
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop" alt="Güvenli İletişim" loading="lazy">
+          <div class="process-body">
+            <h3 data-i18n="process2Title">Güvenli İletişim</h3>
+            <p data-i18n="process2Desc">Uzman eşliğinde, askeri düzeyde şifrelenmiş gruplarda sosyalleşin.</p>
+          </div>
+        </article>
+
+        <article class="process-card">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop" alt="Toplulukla İyileşme" loading="lazy">
+          <div class="process-body">
+            <h3 data-i18n="process3Title">Toplulukla İyileşin</h3>
+            <p data-i18n="process3Desc">Yalnızlık hissini kolektif bilinç ve empati ile yenin.</p>
+          </div>
+        </article>
+
+        <article class="process-card">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="Mobil Uygulama" loading="lazy">
+          <div class="process-body">
+            <h3 data-i18n="process4Title">Mobil Uygulama</h3>
+            <p data-i18n="process4Desc">Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.</p>
+            <button class="btn btn-primary" style="width: 100%; margin-top:16px;" onclick="alert('Mobil uygulamamız çok yakında yayında!')" data-i18n="btnDownload">Uygulamayı İndir</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
   </main>
 
   <footer>
