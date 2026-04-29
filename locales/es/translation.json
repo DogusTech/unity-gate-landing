@@ -148,5 +148,9 @@
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "noAccount": "¿Aún no estás en Unity Gate?",
   "signUpNow": "Regístrate Ahora",
-  "btnLogin": "Iniciar Sesión"
+  "btnLogin": "Iniciar Sesión",
+  "expertLoginTitle": "Inicio de Sesión para Expertos",
+  "expertLoginSubtitle": "Bienvenido a tu red profesional. Continúa guiando a tus clientes.",
+  "expertNoAccount": "¿Aún no te has unido a nuestra red de expertos?",
+  "expertSignUpNow": "Regístrate como Experto"
 }

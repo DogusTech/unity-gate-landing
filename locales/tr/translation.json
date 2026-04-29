@@ -148,5 +148,9 @@
   "forgotPassword": "Şifremi Unuttum",
   "noAccount": "Henüz Birlik Kapısı'nda değil misiniz?",
   "signUpNow": "Hemen Kayıt Olun",
-  "btnLogin": "Giriş Yap"
+  "btnLogin": "Giriş Yap",
+  "expertLoginTitle": "Uzman Girişi",
+  "expertLoginSubtitle": "Profesyonel ağınıza hoş geldiniz. Danışanlarınıza rehberlik etmeye kaldığınız yerden devam edin.",
+  "expertNoAccount": "Henüz uzman ağımıza katılmadınız mı?",
+  "expertSignUpNow": "Uzman Olarak Kayıt Olun"
 }

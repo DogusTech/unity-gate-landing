@@ -148,5 +148,9 @@
   "forgotPassword": "パスワードをお忘れですか？",
   "noAccount": "Unity Gateは初めてですか？",
   "signUpNow": "今すぐ登録",
-  "btnLogin": "ログイン"
+  "btnLogin": "ログイン",
+  "expertLoginTitle": "専門家ログイン",
+  "expertLoginSubtitle": "プロフェッショナルネットワークへようこそ。クライアントの導きを続けましょう。",
+  "expertNoAccount": "まだ専門家ネットワークに参加していませんか？",
+  "expertSignUpNow": "専門家として登録する"
 }
