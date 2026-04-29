@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" id="html-tag">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title data-i18n="metaTitleUcla">UCLA Yalnızlık Testi | Unity Gate</title>
+  <meta name="description" data-i18n="[content]metaDescUcla" content="Klinik olarak kanıtlanmış UCLA testi ile yalnızlık seviyenizi ölçün.">
+  <meta name="theme-color" content="#0B1121">
+  
+  <!-- SEO Hreflang Etiketleri -->
+  <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/ucla-test.html" />
+  <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/ucla-test.html" />
+  <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/ucla-test.html" />
+  <link rel="alternate" hreflang="fr" href="https://unity-gate.com/fr/ucla-test.html" />
+  <link rel="alternate" hreflang="es" href="https://unity-gate.com/es/ucla-test.html" />
+  <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/ucla-test.html" />
+  <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/ucla-test.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Merkezi CSS Dosyamız -->
+  <link rel="stylesheet" href="css/style.css?v=2.1">
+
+  <!-- i18next -->
+  <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar (Standart, diğer sayfalarla aynı) -->
+  <header>
+    <div class="nav-left">
+      <a href="/" class="brand">
+        <img src="assets/logo.png" alt="Unity Gate Logo" style="height: 32px; width: auto; object-fit: contain;">
+        Unity Gate
+      </a>
+      <nav class="nav-links">
+        <a href="/ucla-test.html" class="active" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+      </nav>
+    </div>
+    
+    <div class="nav-right">
+      <div class="dropdown-wrapper">
+        <button class="btn btn-outline" data-i18n="btnSignIn">Giriş Yap</button>
+        <div class="dropdown-menu">
+          <a href="https://app.unity-gate.com/login" class="dropdown-item">👤 Kullanıcı Girişi</a>
+          <a href="https://app.unity-gate.com/expert-login" class="dropdown-item">🎓 Uzman Girişi</a>
+        </div>
+      </div>
+      <div class="dropdown-wrapper">
+        <button class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</button>
+        <div class="dropdown-menu">
+          <a href="https://app.unity-gate.com/register" class="dropdown-item">👤 Kullanıcı Kaydı</a>
+          <a href="/expert-registration.html" class="dropdown-item">🎓 Uzman Kaydı</a>
+        </div>
+      </div>
+      <button class="hamburger-btn" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobil Menü -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+    <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+    <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+  </div>
+
+  <main>
+    <!-- UCLA Hero Bölümü -->
+    <section class="hero">
+      <div class="hero-content-wrapper">
+        <h1 data-i18n="uclaHeroTitle">UCLA Yalnızlık Testi</h1>
+        <p data-i18n="uclaHeroSubtitle">Dünya çapında kabul görmüş klinik bir ölçekle sosyal ve duygusal izolasyon seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.</p>
+        <!-- Testi Başlat Butonu Direkt Firebase App'e Gider -->
+        <a href="https://app.unity-gate.com/ucla-test/start" class="btn btn-primary hero-btn" data-i18n="btnStartTest">Testi Hemen Başlat</a>
+      </div>
+
+      <!-- Native Flutter Dalga Animasyonu -->
+      <div class="wave-container">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(0, 229, 255, 0.4)" />
+              <stop offset="100%" stop-color="rgba(2, 132, 199, 0.1)" />
+            </linearGradient>
+          </defs>
+          <path class="wave-layer wave-1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,181.3C672,181,768,203,864,224C960,245,1056,267,1152,261.3C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,277,576,277.3C672,277,768,245,864,213.3C960,181,1056,149,1152,138.7C1248,128,1344,139,1392,144L1440,149.3L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          <path class="wave-layer wave-1" d="M1440,128L1488,144C1536,160,1632,192,1728,197.3C1824,203,1920,181,2016,181.3C2112,181,2208,203,2304,224C2400,245,2496,267,2592,261.3C2688,256,2784,224,2832,208L2880,192L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.3"></path>
+          <path class="wave-layer wave-2" d="M1440,256L1488,245.3C1536,235,1632,213,1728,186.7C1824,160,1920,128,2016,133.3C2112,139,2208,181,2304,197.3C2400,213,2496,203,2592,181.3C2688,160,2784,128,2832,112L2880,96L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z" opacity="0.5"></path>
+          <path class="wave-layer wave-3" d="M1440,192L1488,197.3C1536,203,1632,213,1728,229.3C1824,245,1920,277,2016,277.3C2112,277,2208,245,2304,213.3C2400,181,2496,149,2592,138.7C2688,128,2784,139,2832,144L2880,149.3L2880,320L2832,320C2784,320,2688,320,2592,320C2496,320,2400,320,2304,320C2208,320,2112,320,2016,320C1920,320,1824,320,1728,320C1632,320,1536,320,1488,320L1440,320Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- UCLA Hakkında Bilgi Alanı -->
+    <section class="section-padding">
+      <div class="vision-card" style="min-height: auto; padding: 60px 40px; background: rgba(30, 41, 59, 0.4);">
+        <div class="vision-content" style="max-width: 100%;">
+          <h2 data-i18n="uclaInfoTitle" style="margin-bottom: 16px;">Neden UCLA Testi?</h2>
+          <p data-i18n="uclaInfoDesc" style="font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.8); max-width: 100%;">1978 yılında Kaliforniya Üniversitesi araştırmacıları tarafından geliştirilen bu test, psikoloji dünyasında yalnızlığı ölçmek için altın standart kabul edilir. Unity Gate yapay zekası, verdiğiniz cevapları analiz ederek size en uygun klinik terapi veya sosyalleşme rotasını çıkarır.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Özellikleri (Grid) -->
+    <section class="section-padding bento-section" style="padding-top: 0;">
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        
+        <article class="bento-card" style="min-height: 200px; justify-content: flex-start; padding: 32px; background: var(--bg-card);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" style="margin-bottom: 20px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h3 data-i18n="uclaFeature1Title" style="font-size: 20px;">Bilimsel ve Kanıtlanmış</h3>
+          <p data-i18n="uclaFeature1Desc">Global akademik araştırmalarda en çok güvenilen ve referans alınan psikolojik ölçüm aracıdır.</p>
+        </article>
+
+        <article class="bento-card" style="min-height: 200px; justify-content: flex-start; padding: 32px; background: var(--bg-card);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" style="margin-bottom: 20px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <h3 data-i18n="uclaFeature2Title" style="font-size: 20px;">Sadece 3 Dakika</h3>
+          <p data-i18n="uclaFeature2Desc">20 kısa soruyu yanıtlayarak duygu durumunuzun anlık ve derinlemesine bir haritasını çıkarın.</p>
+        </article>
+
+        <article class="bento-card" style="min-height: 200px; justify-content: flex-start; padding: 32px; background: var(--bg-card);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" style="margin-bottom: 20px;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-8.21l-3.23 3.23"/></svg>
+          <h3 data-i18n="uclaFeature3Title" style="font-size: 20px;">Kişiselleştirilmiş Rota</h3>
+          <p data-i18n="uclaFeature3Desc">Sonuçlarınıza göre uzman psikolog, arabulucu veya doğru ilgi odalarına yönlendirilirsiniz.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (Standart) -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Unity Gate</h4>
+        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footerCompany">Şirket</h4>
+        <a href="/careers.html" data-i18n="footerCareers">Kariyer</a>
+        <a href="/investors.html" data-i18n="footerInvestors">Yatırımcılar</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
+        <span id="current-language-display">Global</span>
+        <a href="/privacy.html" class="hide-mobile" data-i18n="footerPrivacy">Gizlilik</a>
+        <a href="/terms.html" class="hide-mobile" data-i18n="footerTerms">Şartlar</a>
+      </div>
+      <div data-i18n="footerCopyright">© 2026 Aeternexus A.Ş. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <!-- Dışarıdan bağladığımız JS -->
+  <script src="js/main.js?v=2.1"></script>
+
+</body>
+</html>
