@@ -12,7 +12,6 @@
   "btnSignUp": "Registrarse",
   "btnSignUpUser": "Registro de Usuario",
   "btnSignUpExpert": "Solicitud de Experto",
-  "btnStartTest": "Iniciar Análisis Científico",
   "btnDownload": "Descargar App",
   "back": "Volver al Inicio",
   
@@ -74,6 +73,13 @@
   "errPasswordMismatch": "¡Las contraseñas no coinciden!",
   "errPasswordLength": "Su contraseña debe tener al menos 8 caracteres.",
   "errSubCategory": "Seleccione al menos una subespecialidad.",
+  "expertLoginTitle": "Inicio de Sesión para Expertos",
+  "expertLoginSubtitle": "Bienvenido de nuevo a tu red profesional. Continúa guiando a tus clientes.",
+  "rememberMe": "Recuérdame",
+  "forgotPassword": "¿Olvidaste tu contraseña?",
+  "btnLogin": "Inicio de Sesión Seguro",
+  "expertNoAccount": "¿Aún no te has unido a nuestra red de expertos?",
+  "expertSignUpNow": "Postularse como Experto",
   
   "footerTagline": "Diseñado para una sociedad más conectada bajo estándares clínicos.",
   "footerCompany": "Compañía",
@@ -113,12 +119,15 @@
       "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
       "cat": "Dinámicas Sociales",
       "time": "4",
-      "title": "Sanación colectiva: El poder terapéutico de los espacios seguros",
-      "metaTitleUcla": "Escala de Soledad UCLA | Unity Gate",
+      "title": "Sanación colectiva: El poder terapéutico de los espacios seguros"
+    }
+  ],
+  "metaTitleUcla": "Escala de Soledad UCLA | Unity Gate",
   "metaDescUcla": "Mide tu nivel de soledad con la escala clínica de UCLA. Tu viaje de sanación comienza con la conciencia.",
   "uclaHeroTitle": "Escala de Soledad UCLA",
   "uclaHeroSubtitle": "Mide tu nivel de aislamiento social y emocional con una escala clínica mundialmente reconocida. Tu viaje de sanación comienza con la conciencia.",
   "btnStartTest": "Comenzar la Prueba",
+  "btnExpert": "Convertirse en experto",
   "uclaInfoTitle": "¿POR QUÉ LA PRUEBA UCLA?",
   "uclaInfoDesc": "Desarrollada en 1978 por investigadores de la Universidad de California, esta prueba se considera el estándar de oro para medir la soledad en el mundo de la psicología. La IA de Unity Gate analiza tus respuestas para trazar la ruta de terapia o socialización más adecuada para ti.",
   "uclaFeature1Title": "Científico y Probado",
@@ -126,7 +135,30 @@
   "uclaFeature2Title": "Solo 3 Minutos",
   "uclaFeature2Desc": "Responde 20 preguntas cortas para obtener un mapa instantáneo y profundo de tu estado emocional.",
   "uclaFeature3Title": "Ruta Personalizada",
-  "uclaFeature3Desc": "Según tus resultados, serás dirigido a psicólogos expertos, mediadores o las salas de interés adecuadas."
+  "uclaFeature3Desc": "Según tus resultados, serás dirigido a psicólogos expertos, mediadores o las salas de interés adecuadas.",
+  "btnBack": "Volver",
+  "latestArticlesTitle": "Últimos Artículos",
+  "articleDetails": {
+    "anatomy-of-loneliness": {
+      "title": "La anatomía de la soledad: ¿Por qué nos sentimos cada vez más desconectados?",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Psicología Clínica",
+      "time": "5",
+      "body": "<p>El mayor paradigma de la era moderna es que, a pesar de estar constantemente 'conectados' y 'en línea', nunca nos habíamos sentido tan aislados internamente.</p><h2>La soledad no es solo física</h2><p>La soledad clínica no consiste en estar físicamente solo, sino en el sentimiento de no ser comprendido y de no poder formar conexiones profundas. El cerebro humano procesa el aislamiento social a través de las mismas redes neuronales que el dolor físico.</p><blockquote>'La soledad no surge de no tener personas alrededor, sino de la incapacidad de comunicar las cosas que uno considera importantes.' – Carl Jung</blockquote><h3>¿Dónde comienza la solución?</h3><p>Construir conexiones reales requiere el valor de ser vulnerable. La verdadera sanación comienza cuando nos quitamos las máscaras y encontramos el apoyo clínico y los círculos sociales adecuados.</p>"
+    },
+    "digital-illusion": {
+      "title": "Ilusión digital: Por qué socializar en una pantalla no nos sana",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Vida Moderna",
+      "time": "7",
+      "body": "<p>Las horas detrás de una pantalla proporcionan gratificación instantánea a través de la dopamina, pero no brindan plenitud espiritual.</p><h2>La falacia de la conexión</h2><p>Recibir cientos de me gusta o comentarios no puede imitar la liberación de oxitocina que se produce al tocar el hombro de un amigo o hacer contacto visual. El mundo digital nos da la sensación de 'soledad en la multitud'.</p><ul><li>Toma descansos tecnológicos conscientes.</li><li>Regresa a los espacios de interacción física (como las salas de interés).</li></ul>"
+    },
+    "collective-healing": {
+      "title": "Sanación colectiva: El poder terapéutico de los espacios seguros",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Dinámicas Sociales",
+      "time": "4",
+      "body": "<p>La terapia de grupo y los espacios de socialización seguros son algunas de las formas más efectivas de superar el aislamiento. Las personas son heridas en un grupo y solo pueden sanar dentro del grupo correcto.</p><h2>El poder del dolor compartido</h2><p>Las habitaciones seguras y sin juicios donde se reúnen personas que experimentan problemas similares rompen la ilusión de 'soy el único que está pasando por esto'.</p><blockquote>'Aquellos que comparten el mismo dolor se entienden sin palabras.'</blockquote>"
     }
-  ]
+  }
 }

@@ -12,7 +12,6 @@
   "btnSignUp": "Sign Up",
   "btnSignUpUser": "User Registration",
   "btnSignUpExpert": "Expert Application",
-  "btnStartTest": "Start Scientific Analysis",
   "btnDownload": "Download App",
   "back": "Back to Home",
   
@@ -70,6 +69,7 @@
   "termsText": "By joining the Unity Gate platform as an expert, you agree in advance to fully comply with international psychological counseling ethics, strictly uphold client confidentiality under all circumstances, and act in accordance with GDPR/KVKK norms. All sessions are end-to-end encrypted; behaviors violating platform rules will result in permanent removal.",
   "agreeTerms": "I have read and fully authorize the international expertise terms and privacy protocol.",
   "btnContinue": "Complete Secure Application",
+  "btnExpert": "Become an Expert",
   
   "errPasswordMismatch": "Passwords do not match! Please check.",
   "errPasswordLength": "Your password must be at least 8 characters.",
@@ -120,8 +120,10 @@
       "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
       "cat": "Social Dynamics",
       "time": "4",
-      "title": "Collective Healing: The Therapeutic Power of Safe Spaces",
-      "metaTitleUcla": "UCLA Loneliness Scale | Unity Gate",
+      "title": "Collective Healing: The Therapeutic Power of Safe Spaces"
+    }
+  ],
+  "metaTitleUcla": "UCLA Loneliness Scale | Unity Gate",
   "metaDescUcla": "Measure your loneliness level with the clinically proven UCLA scale. Your healing journey begins with awareness.",
   "uclaHeroTitle": "UCLA Loneliness Scale",
   "uclaHeroSubtitle": "Measure your social and emotional isolation level with a globally recognized clinical scale. Your healing journey begins with awareness.",
@@ -133,7 +135,30 @@
   "uclaFeature2Title": "Only 3 Minutes",
   "uclaFeature2Desc": "Answer 20 short questions to create an instant, in-depth map of your emotional state.",
   "uclaFeature3Title": "Personalized Route",
-  "uclaFeature3Desc": "Based on your results, you will be directed to expert psychologists, mediators, or the right interest rooms."
+  "uclaFeature3Desc": "Based on your results, you will be directed to expert psychologists, mediators, or the right interest rooms.",
+  "btnBack": "Go Back",
+  "latestArticlesTitle": "Latest Articles",
+  "articleDetails": {
+    "anatomy-of-loneliness": {
+      "title": "The Anatomy of Loneliness: Why Are We Feeling Increasingly Disconnected?",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Clinical Psychology",
+      "time": "5",
+      "body": "<p>The greatest paradox of the modern era is that despite being constantly 'online' and 'connected', we have never felt so internally isolated.</p><h2>Loneliness is Not Just Physical</h2><p>Clinical loneliness is not about being physically alone; it is the feeling of not being understood and failing to form deep connections. The human brain processes social isolation through the same neural networks as physical pain.</p><blockquote>'Loneliness does not come from having no people about one, but from being unable to communicate the things that seem important to oneself.' – Carl Jung</blockquote><h3>Where Does the Solution Begin?</h3><p>Building real connections requires the courage to be vulnerable. True healing begins when we take off our masks and meet with clinical support and the right social circles.</p>"
+    },
+    "digital-illusion": {
+      "title": "Digital Illusion: Why Socializing on a Screen Doesn't Heal Us",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modern Life",
+      "time": "7",
+      "body": "<p>Hours spent behind screens provide instant gratification by releasing dopamine, but they do not provide spiritual fulfillment.</p><h2>The Connection Fallacy</h2><p>Getting hundreds of likes or comments cannot mimic the oxytocin release of touching a friend's shoulder or making eye contact. The digital world gives us the feeling of 'loneliness in a crowd'.</p><ul><li>Take conscious technology breaks.</li><li>Return to physical interaction spaces (like interest rooms).</li></ul>"
+    },
+    "collective-healing": {
+      "title": "Collective Healing: The Therapeutic Power of Safe Spaces",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Social Dynamics",
+      "time": "4",
+      "body": "<p>Group therapy and safe socialization spaces are among the most effective ways to overcome isolation. People are wounded in a group and can only heal within the right group.</p><h2>The Power of Shared Pain</h2><p>Non-judgmental, safe rooms where people experiencing similar problems come together break the illusion of 'I am the only one going through this'.</p><blockquote>'Those who share the same pain understand each other without words.'</blockquote>"
     }
-  ]
+  }
 }

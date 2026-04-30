@@ -12,7 +12,6 @@
   "btnSignUp": "Registrieren",
   "btnSignUpUser": "Klientenregistrierung",
   "btnSignUpExpert": "Expertenbewerbung",
-  "btnStartTest": "Wissenschaftliche Analyse starten",
   "btnDownload": "App herunterladen",
   "back": "Zurück zur Startseite",
   
@@ -74,6 +73,13 @@
   "errPasswordMismatch": "Passwörter stimmen nicht überein!",
   "errPasswordLength": "Ihr Passwort muss mindestens 8 Zeichen lang sein.",
   "errSubCategory": "Bitte wählen Sie mindestens ein Spezialgebiet aus.",
+  "expertLoginTitle": "Experten-Login",
+  "expertLoginSubtitle": "Willkommen zurück in Ihrem professionellen Netzwerk. Begleiten Sie Ihre Klienten weiter.",
+  "rememberMe": "Angemeldet bleiben",
+  "forgotPassword": "Passwort vergessen?",
+  "btnLogin": "Sicherer Login",
+  "expertNoAccount": "Noch nicht Teil unseres Expertennetzwerks?",
+  "expertSignUpNow": "Als Experte bewerben",
   
   "footerTagline": "Entwickelt für eine sicherere Gesellschaft nach klinischen Standards.",
   "footerCompany": "Unternehmen",
@@ -113,12 +119,15 @@
       "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
       "cat": "Soziale Dynamik",
       "time": "4",
-      "title": "Kollektive Heilung: Die therapeutische Kraft sicherer Räume",
-      "metaTitleUcla": "UCLA-Einsamkeitsskala | Unity Gate",
+      "title": "Kollektive Heilung: Die therapeutische Kraft sicherer Räume"
+    }
+  ],
+  "metaTitleUcla": "UCLA-Einsamkeitsskala | Unity Gate",
   "metaDescUcla": "Messen Sie Ihre Einsamkeit mit der klinisch erprobten UCLA-Skala. Ihr Heilungsweg beginnt mit Bewusstsein.",
   "uclaHeroTitle": "UCLA-Einsamkeitsskala",
   "uclaHeroSubtitle": "Messen Sie Ihr Maß an sozialer und emotionaler Isolation mit einer weltweit anerkannten klinischen Skala. Ihr Heilungsweg beginnt mit Bewusstsein.",
   "btnStartTest": "Test Jetzt Starten",
+  "btnExpert": "Experte werden",
   "uclaInfoTitle": "WARUM DER UCLA-TEST?",
   "uclaInfoDesc": "Dieser 1978 von Forschern der University of California entwickelte Test gilt in der Psychologie als Goldstandard zur Messung von Einsamkeit. Die Unity Gate KI analysiert Ihre Antworten, um die für Sie am besten geeignete klinische Therapie oder Sozialisierungsroute zu ermitteln.",
   "uclaFeature1Title": "Wissenschaftlich & Erprobt",
@@ -126,7 +135,30 @@
   "uclaFeature2Title": "Nur 3 Minuten",
   "uclaFeature2Desc": "Beantworten Sie 20 kurze Fragen, um eine sofortige und tiefgehende Karte Ihres emotionalen Zustands zu erstellen.",
   "uclaFeature3Title": "Personalisierte Route",
-  "uclaFeature3Desc": "Basierend auf Ihren Ergebnissen werden Sie an erfahrene Psychologen, Mediatoren oder die richtigen Interessensräume weitergeleitet."
+  "uclaFeature3Desc": "Basierend auf Ihren Ergebnissen werden Sie an erfahrene Psychologen, Mediatoren oder die richtigen Interessensräume weitergeleitet.",
+  "btnBack": "Zurück",
+  "latestArticlesTitle": "Neueste Artikel",
+  "articleDetails": {
+    "anatomy-of-loneliness": {
+      "title": "Die Anatomie der Einsamkeit: Warum fühlen wir uns zunehmend getrennt?",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Klinische Psychologie",
+      "time": "5",
+      "body": "<p>Das größte Paradoxon der Moderne ist, dass wir uns, obwohl wir ständig 'online' und 'verbunden' sind, innerlich noch nie so isoliert gefühlt haben.</p><h2>Einsamkeit ist nicht nur physisch</h2><p>Klinische Einsamkeit bedeutet nicht, körperlich allein zu sein, sondern das Gefühl, nicht verstanden zu werden und keine tiefen Verbindungen aufzubauen. Das menschliche Gehirn verarbeitet soziale Isolation über dieselben neuronalen Netze wie physischen Schmerz.</p><blockquote>'Einsamkeit entsteht nicht dadurch, dass man keine Menschen um sich hat, sondern dadurch, dass man die Dinge, die einem wichtig erscheinen, nicht mitteilen kann.' – Carl Jung</blockquote><h3>Wo beginnt die Lösung?</h3><p>Der Aufbau echter Verbindungen erfordert den Mut, verletzlich zu sein. Wahre Heilung beginnt, wenn wir unsere Masken ablegen und klinische Unterstützung in den richtigen sozialen Kreisen finden.</p>"
+    },
+    "digital-illusion": {
+      "title": "Digitale Illusion: Warum uns die Sozialisierung über Bildschirme nicht heilt",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modernes Leben",
+      "time": "7",
+      "body": "<p>Stunden hinter Bildschirmen bieten sofortige Befriedigung durch die Ausschüttung von Dopamin, aber keine seelische Erfüllung.</p><h2>Der Verbindungsirrtum</h2><p>Hunderte von Likes oder Kommentaren können die Oxytocin-Ausschüttung durch die Berührung eines Freundes oder Augenkontakt nicht nachahmen. Die digitale Welt vermittelt uns das Gefühl der 'Einsamkeit in der Menge'.</p><ul><li>Machen Sie bewusste Technologiepausen.</li><li>Kehren Sie zu physischen Interaktionsräumen (wie Interessenräumen) zurück.</li></ul>"
+    },
+    "collective-healing": {
+      "title": "Kollektive Heilung: Die therapeutische Kraft sicherer Räume",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Soziale Dynamik",
+      "time": "4",
+      "body": "<p>Gruppentherapie und sichere Räume zur Sozialisierung sind die effektivsten Wege, um Isolation zu überwinden. Menschen werden in Gruppen verletzt und können nur innerhalb der richtigen Gruppe heilen.</p><h2>Die Macht des geteilten Schmerzes</h2><p>Vorurteilsfreie, sichere Räume, in denen Menschen mit ähnlichen Problemen zusammenkommen, durchbrechen die Illusion 'Ich bin der Einzige, der das durchmacht'.</p><blockquote>'Wer den gleichen Schmerz teilt, versteht sich auch ohne Worte.'</blockquote>"
     }
-  ]
+  }
 }

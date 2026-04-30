@@ -12,7 +12,6 @@
   "btnSignUp": "Kayıt Ol",
   "btnSignUpUser": "Danışan Kaydı",
   "btnSignUpExpert": "Uzman Kayıt Başvurusu",
-  "btnStartTest": "Bilimsel Analize Başla",
   "btnDownload": "Uygulamayı İndir",
   "back": "Ana Sayfaya Dön",
   
@@ -120,12 +119,15 @@
       "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
       "cat": "Sosyal Dinamikler",
       "time": "4",
-      "title": "Ortak İyileşme: Güvenli Alanlarda Konuşmanın Terapötik Gücü",
-      "metaTitleUcla": "UCLA Yalnızlık Testi | Unity Gate",
+      "title": "Ortak İyileşme: Güvenli Alanlarda Konuşmanın Terapötik Gücü"
+    }
+  ],
+  "metaTitleUcla": "UCLA Yalnızlık Testi | Unity Gate",
   "metaDescUcla": "Klinik olarak kanıtlanmış UCLA testi ile yalnızlık seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.",
   "uclaHeroTitle": "UCLA Yalnızlık Testi",
   "uclaHeroSubtitle": "Dünya çapında kabul görmüş klinik bir ölçekle sosyal ve duygusal izolasyon seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.",
   "btnStartTest": "Testi Hemen Başlat",
+  "btnExpert": "Uzman Ol",
   "uclaInfoTitle": "NEDEN UCLA TESTİ?",
   "uclaInfoDesc": "1978 yılında Kaliforniya Üniversitesi araştırmacıları tarafından geliştirilen bu test, psikoloji dünyasında yalnızlığı ölçmek için altın standart kabul edilir. Unity Gate yapay zekası, verdiğiniz cevapları analiz ederek size en uygun klinik terapi veya sosyalleşme rotasını çıkarır.",
   "uclaFeature1Title": "Bilimsel ve Kanıtlanmış",
@@ -133,7 +135,30 @@
   "uclaFeature2Title": "Sadece 3 Dakika",
   "uclaFeature2Desc": "20 kısa soruyu yanıtlayarak duygu durumunuzun anlık ve derinlemesine bir haritasını çıkarın.",
   "uclaFeature3Title": "Kişiselleştirilmiş Rota",
-  "uclaFeature3Desc": "Sonuçlarınıza göre uzman psikolog, arabulucu veya doğru ilgi odalarına yönlendirilirsiniz."
+  "uclaFeature3Desc": "Sonuçlarınıza göre uzman psikolog, arabulucu veya doğru ilgi odalarına yönlendirilirsiniz.",
+  "btnBack": "Geri Dön",
+  "latestArticlesTitle": "Son Makaleler",
+  "articleDetails": {
+    "anatomy-of-loneliness": {
+      "title": "Yalnızlığın Anatomisi: Neden Giderek Daha Kopuk Hissediyoruz?",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Klinik Psikoloji",
+      "time": "5",
+      "body": "<p>Modern çağın en büyük paradoksu, hepimizin sürekli 'çevrimiçi' ve 'bağlantıda' olmasına rağmen, içsel olarak hiç bu kadar izole hissetmemiş olmamızdır.</p><h2>Yalnızlık Sadece Fiziksel Değildir</h2><p>Klinik yalnızlık, fiziksel olarak tek başına olmak değil, anlaşılamama ve derin bağlar kuramama hissidir. İnsan beyni, fiziksel acı ile sosyal izolasyonu aynı nöral ağlar üzerinden işler.</p><blockquote>'Yalnızlık, kimsenin etrafınızda olmaması değil, sizin için önemli olan şeyleri kimseyle paylaşamamaktır.' – Carl Jung</blockquote><h3>Çözüm Nerede Başlıyor?</h3><p>Gerçek bağlar kurmak, savunmasız olabilme cesareti gerektirir. Maskelerimizi indirip klinik destek ve doğru sosyal çevrelerle buluştuğumuzda gerçek iyileşme başlar.</p>"
+    },
+    "digital-illusion": {
+      "title": "Dijital İllüzyon: Ekranda Sosyalleşmek Neden Bizi İyileştirmez?",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modern Yaşam",
+      "time": "7",
+      "body": "<p>Ekranlar arkasında geçirilen saatler, dopamin salgılatarak bizi anlık tatmin eder ancak ruhsal bir doyum sağlamaz.</p><h2>Bağlantı Yanılgısı</h2><p>Yüzlerce beğeni veya yorum almak, bir dostun omzuna dokunmanın veya göz teması kurmanın verdiği oksitosin salgısını taklit edemez. Dijital dünya bize 'kalabalık içinde yalnızlık' hissini yaşatır.</p><ul><li>Bilinçli teknoloji molaları verin.</li><li>Fiziksel etkileşim alanlarınıza (ilgi odaları gibi) geri dönün.</li></ul>"
+    },
+    "collective-healing": {
+      "title": "Ortak İyileşme: Güvenli Alanlarda Konuşmanın Terapötik Gücü",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Sosyal Dinamikler",
+      "time": "4",
+      "body": "<p>Grup terapisi ve güvenli sosyalleşme alanları, izolasyonu yenmenin en etkili yollarından biridir. İnsanlar grup içinde yara alır ve ancak doğru bir grup içinde iyileşebilir.</p><h2>Paylaşılan Acının Gücü</h2><p>Benzer sorunlar yaşayan insanların bir araya geldiği, yargısız ve güvenli odalar, kişinin 'bunu yaşayan tek kişi benim' yanılgısını kırar.</p><blockquote>'Aynı acıyı paylaşanlar birbirlerini kelimesiz de anlar.'</blockquote>"
     }
-  ]
+  }
 }

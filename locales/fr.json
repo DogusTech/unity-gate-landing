@@ -12,7 +12,6 @@
   "btnSignUp": "S'inscrire",
   "btnSignUpUser": "Inscription Patient",
   "btnSignUpExpert": "Candidature Expert",
-  "btnStartTest": "Commencer l'Analyse",
   "btnDownload": "Télécharger l'App",
   "back": "Retour à l'accueil",
   
@@ -74,6 +73,13 @@
   "errPasswordMismatch": "Les mots de passe ne correspondent pas !",
   "errPasswordLength": "Votre mot de passe doit comporter au moins 8 caractères.",
   "errSubCategory": "Veuillez sélectionner au moins une sous-spécialité.",
+  "expertLoginTitle": "Connexion Expert",
+  "expertLoginSubtitle": "Bienvenue dans votre réseau professionnel. Continuez à guider vos clients.",
+  "rememberMe": "Se souvenir de moi",
+  "forgotPassword": "Mot de passe oublié ?",
+  "btnLogin": "Connexion sécurisée",
+  "expertNoAccount": "Vous n'avez pas encore rejoint notre réseau d'experts ?",
+  "expertSignUpNow": "Postuler en tant qu'expert",
   
   "footerTagline": "Conçu pour une société plus sûre et connectée aux normes cliniques.",
   "footerCompany": "Entreprise",
@@ -113,12 +119,15 @@
       "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
       "cat": "Dynamiques Sociales",
       "time": "4",
-      "title": "Guérison collective : Le pouvoir thérapeutique des espaces sécurisés",
-      "metaTitleUcla": "Échelle de Solitude UCLA | Unity Gate",
+      "title": "Guérison collective : Le pouvoir thérapeutique des espaces sécurisés"
+    }
+  ],
+  "metaTitleUcla": "Échelle de Solitude UCLA | Unity Gate",
   "metaDescUcla": "Mesurez votre niveau de solitude avec l'échelle clinique UCLA éprouvée. Votre parcours de guérison commence par la prise de conscience.",
   "uclaHeroTitle": "Échelle de Solitude UCLA",
   "uclaHeroSubtitle": "Mesurez votre niveau d'isolement social et émotionnel avec une échelle clinique mondialement reconnue. Votre parcours de guérison commence par la prise de conscience.",
   "btnStartTest": "Commencer le Test",
+  "btnExpert": "Devenir expert",
   "uclaInfoTitle": "POURQUOI LE TEST UCLA ?",
   "uclaInfoDesc": "Développé en 1978 par des chercheurs de l'Université de Californie, ce test est considéré comme la référence absolue en psychologie pour mesurer la solitude. L'IA de Unity Gate analyse vos réponses pour définir le parcours clinique ou social le plus adapté pour vous.",
   "uclaFeature1Title": "Scientifique et Prouvé",
@@ -126,7 +135,30 @@
   "uclaFeature2Title": "Seulement 3 Minutes",
   "uclaFeature2Desc": "Répondez à 20 courtes questions pour créer une cartographie instantanée et approfondie de votre état émotionnel.",
   "uclaFeature3Title": "Parcours Personnalisé",
-  "uclaFeature3Desc": "En fonction de vos résultats, vous serez orienté vers des psychologues experts, des médiateurs ou des salles d'intérêt adaptées."
+  "uclaFeature3Desc": "En fonction de vos résultats, vous serez orienté vers des psychologues experts, des médiateurs ou des salles d'intérêt adaptées.",
+  "btnBack": "Retour",
+  "latestArticlesTitle": "Derniers Articles",
+  "articleDetails": {
+    "anatomy-of-loneliness": {
+      "title": "L'anatomie de la solitude : Pourquoi nous sentons-nous de plus en plus déconnectés ?",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Psychologie Clinique",
+      "time": "5",
+      "body": "<p>Le plus grand paradoxe de l'ère moderne est que bien que nous soyons constamment 'en ligne' et 'connectés', nous ne nous sommes jamais sentis aussi isolés intérieurement.</p><h2>La solitude n'est pas que physique</h2><p>La solitude clinique n'est pas le fait d'être physiquement seul, mais le sentiment de ne pas être compris et de ne pas pouvoir former de liens profonds. Le cerveau humain traite l'isolement social via les mêmes réseaux neuronaux que la douleur physique.</p><blockquote>'La solitude ne vient pas du fait de n'avoir personne autour de soi, mais d'être incapable de communiquer les choses qui semblent importantes.' – Carl Jung</blockquote><h3>Où commence la solution ?</h3><p>Créer de véritables liens nécessite le courage d'être vulnérable. La véritable guérison commence lorsque nous enlevons nos masques pour trouver un soutien clinique et les bons cercles sociaux.</p>"
+    },
+    "digital-illusion": {
+      "title": "Illusion numérique : Pourquoi socialiser sur un écran ne nous guérit pas",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Vie Moderne",
+      "time": "7",
+      "body": "<p>Les heures passées derrière les écrans procurent une gratification instantanée grâce à la dopamine, mais n'apportent aucun épanouissement spirituel.</p><h2>L'erreur de connexion</h2><p>Obtenir des centaines de likes ou de commentaires ne peut imiter la libération d'ocytocine due au contact visuel avec un ami ou à une tape sur l'épaule. Le monde numérique nous donne le sentiment d'être 'seul dans la foule'.</p><ul><li>Faites des pauses technologiques conscientes.</li><li>Retournez aux espaces d'interaction physique (comme les salles d'intérêt).</li></ul>"
+    },
+    "collective-healing": {
+      "title": "Guérison collective : Le pouvoir thérapeutique des espaces sécurisés",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Dynamiques Sociales",
+      "time": "4",
+      "body": "<p>La thérapie de groupe et les espaces de socialisation sécurisés sont parmi les moyens les plus efficaces pour vaincre l'isolement. Les gens sont blessés en groupe et ne peuvent guérir qu'au sein du bon groupe.</p><h2>Le pouvoir de la douleur partagée</h2><p>Des salles sûres et sans jugement où des personnes rencontrent des problèmes similaires se rassemblent brisent l'illusion que 'je suis le seul à traverser cela'.</p><blockquote>'Ceux qui partagent la même douleur se comprennent sans mots.'</blockquote>"
     }
-  ]
+  }
 }
