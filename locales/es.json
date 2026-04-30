@@ -86,5 +86,47 @@
 
   "sub_therapy": ["Terapia individual", "Terapia de pareja", "EMDR", "TCC", "Terapia para adolescentes", "Terapia familiar"],
   "sub_mediation": ["Mediación familiar", "Mediación comercial", "Derecho laboral", "Disputas de consumo"],
-  "sub_finance": ["Asesoría de inversiones", "Gestión de deudas", "Finanzas corporativas", "Pensión privada"]
+  "sub_finance": ["Asesoría de inversiones", "Gestión de deudas", "Finanzas corporativas", "Pensión privada"],
+  "metaTitleInsights": "Perspectivas | Unity Gate",
+  "metaDescInsights": "Análisis científicos en profundidad sobre la soledad, la psicología y las relaciones modernas.",
+  "insightsTitle": "Perspectivas Clínicas",
+  "insightsSubtitle": "Una biblioteca de análisis profundos sobre salud mental y las crisis modernas de soledad.",
+  "articlesSection": "Últimas Publicaciones",
+  "minRead": "min de lectura",
+  "articles": [
+    {
+      "slug": "anatomy-of-loneliness",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Psicología Clínica",
+      "time": "5",
+      "title": "La anatomía de la soledad: ¿Por qué nos sentimos cada vez más desconectados?"
+    },
+    {
+      "slug": "digital-illusion",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Vida Moderna",
+      "time": "7",
+      "title": "Ilusión digital: Por qué socializar en una pantalla no nos sana"
+    },
+    {
+      "slug": "collective-healing",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Dinámicas Sociales",
+      "time": "4",
+      "title": "Sanación colectiva: El poder terapéutico de los espacios seguros",
+      "metaTitleUcla": "Escala de Soledad UCLA | Unity Gate",
+  "metaDescUcla": "Mide tu nivel de soledad con la escala clínica de UCLA. Tu viaje de sanación comienza con la conciencia.",
+  "uclaHeroTitle": "Escala de Soledad UCLA",
+  "uclaHeroSubtitle": "Mide tu nivel de aislamiento social y emocional con una escala clínica mundialmente reconocida. Tu viaje de sanación comienza con la conciencia.",
+  "btnStartTest": "Comenzar la Prueba",
+  "uclaInfoTitle": "¿POR QUÉ LA PRUEBA UCLA?",
+  "uclaInfoDesc": "Desarrollada en 1978 por investigadores de la Universidad de California, esta prueba se considera el estándar de oro para medir la soledad en el mundo de la psicología. La IA de Unity Gate analiza tus respuestas para trazar la ruta de terapia o socialización más adecuada para ti.",
+  "uclaFeature1Title": "Científico y Probado",
+  "uclaFeature1Desc": "Es la herramienta de medición psicológica más confiable y referenciada en la investigación académica mundial.",
+  "uclaFeature2Title": "Solo 3 Minutos",
+  "uclaFeature2Desc": "Responde 20 preguntas cortas para obtener un mapa instantáneo y profundo de tu estado emocional.",
+  "uclaFeature3Title": "Ruta Personalizada",
+  "uclaFeature3Desc": "Según tus resultados, serás dirigido a psicólogos expertos, mediadores o las salas de interés adecuadas."
+    }
+  ]
 }

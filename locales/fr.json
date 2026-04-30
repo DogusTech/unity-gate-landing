@@ -86,5 +86,47 @@
 
   "sub_therapy": ["Thérapie individuelle", "Thérapie de couple", "EMDR", "TCC", "Thérapie pour adolescents", "Thérapie familiale"],
   "sub_mediation": ["Médiation familiale", "Médiation commerciale", "Droit du travail", "Litiges de consommation"],
-  "sub_finance": ["Conseil en investissement", "Gestion de la dette", "Finance d'entreprise", "Retraite privée"]
+  "sub_finance": ["Conseil en investissement", "Gestion de la dette", "Finance d'entreprise", "Retraite privée"],
+  "metaTitleInsights": "Aperçus | Unity Gate",
+  "metaDescInsights": "Analyses scientifiques approfondies sur la solitude, la psychologie et les relations modernes.",
+  "insightsTitle": "Aperçus Cliniques",
+  "insightsSubtitle": "Une bibliothèque d'analyses approfondies sur la santé mentale et les crises de solitude modernes.",
+  "articlesSection": "Dernières Publications",
+  "minRead": "min de lecture",
+  "articles": [
+    {
+      "slug": "anatomy-of-loneliness",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Psychologie Clinique",
+      "time": "5",
+      "title": "L'anatomie de la solitude : Pourquoi nous sentons-nous de plus en plus déconnectés ?"
+    },
+    {
+      "slug": "digital-illusion",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Vie Moderne",
+      "time": "7",
+      "title": "Illusion numérique : Pourquoi socialiser sur un écran ne nous guérit pas"
+    },
+    {
+      "slug": "collective-healing",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Dynamiques Sociales",
+      "time": "4",
+      "title": "Guérison collective : Le pouvoir thérapeutique des espaces sécurisés",
+      "metaTitleUcla": "Échelle de Solitude UCLA | Unity Gate",
+  "metaDescUcla": "Mesurez votre niveau de solitude avec l'échelle clinique UCLA éprouvée. Votre parcours de guérison commence par la prise de conscience.",
+  "uclaHeroTitle": "Échelle de Solitude UCLA",
+  "uclaHeroSubtitle": "Mesurez votre niveau d'isolement social et émotionnel avec une échelle clinique mondialement reconnue. Votre parcours de guérison commence par la prise de conscience.",
+  "btnStartTest": "Commencer le Test",
+  "uclaInfoTitle": "POURQUOI LE TEST UCLA ?",
+  "uclaInfoDesc": "Développé en 1978 par des chercheurs de l'Université de Californie, ce test est considéré comme la référence absolue en psychologie pour mesurer la solitude. L'IA de Unity Gate analyse vos réponses pour définir le parcours clinique ou social le plus adapté pour vous.",
+  "uclaFeature1Title": "Scientifique et Prouvé",
+  "uclaFeature1Desc": "C'est l'outil de mesure psychologique le plus fiable et référencé dans la recherche académique mondiale.",
+  "uclaFeature2Title": "Seulement 3 Minutes",
+  "uclaFeature2Desc": "Répondez à 20 courtes questions pour créer une cartographie instantanée et approfondie de votre état émotionnel.",
+  "uclaFeature3Title": "Parcours Personnalisé",
+  "uclaFeature3Desc": "En fonction de vos résultats, vous serez orienté vers des psychologues experts, des médiateurs ou des salles d'intérêt adaptées."
+    }
+  ]
 }

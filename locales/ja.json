@@ -86,5 +86,47 @@
 
   "sub_therapy": ["個人療法", "カップルセラピー", "EMDR", "認知行動療法 (CBT)", "思春期セラピー", "家族療法"],
   "sub_mediation": ["家族調停", "商業調停", "労働法", "消費者紛争"],
-  "sub_finance": ["投資コンサルティング", "債務管理", "企業財務", "個人年金"]
+  "sub_finance": ["投資コンサルティング", "債務管理", "企業財務", "個人年金"],
+  "metaTitleInsights": "インサイト | Unity Gate",
+  "metaDescInsights": "孤独、心理学、現代の人間関係に関する詳細な科学的分析。",
+  "insightsTitle": "臨床インサイト",
+  "insightsSubtitle": "メンタルヘルス、現代の孤独の危機、そして科学的な回復に関する詳細な分析のライブラリ。",
+  "articlesSection": "最新の出版物",
+  "minRead": "分で読める",
+  "articles": [
+    {
+      "slug": "anatomy-of-loneliness",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "臨床心理学",
+      "time": "5",
+      "title": "孤独の解剖学：なぜ私たちはますますつながりを失っていると感じるのか？"
+    },
+    {
+      "slug": "digital-illusion",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "現代の生活",
+      "time": "7",
+      "title": "デジタルの錯覚：画面上で交流しても癒されない理由"
+    },
+    {
+      "slug": "collective-healing",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "社会力学",
+      "time": "4",
+      "title": "集団的な癒し：安全な空間の治療的力",
+      "metaTitleUcla": "UCLA孤独感尺度 | Unity Gate",
+  "metaDescUcla": "臨床的に証明されたUCLA尺度で孤独レベルを測定します。癒しの旅は気づきから始まります。",
+  "uclaHeroTitle": "UCLA孤独感尺度",
+  "uclaHeroSubtitle": "世界的に認められた臨床的尺度で、社会的・感情的孤立度を測定します。あなたの癒しの旅は、気づきから始まります。",
+  "btnStartTest": "今すぐテストを開始",
+  "uclaInfoTitle": "なぜUCLAテストなのか？",
+  "uclaInfoDesc": "1978年にカリフォルニア大学の研究者によって開発されたこのテストは、心理学の世界で孤独を測定するための絶対的基準（ゴールドスタンダード）とされています。Unity GateのAIが回答を分析し、あなたに最適な臨床セラピーや交流ルートを導き出します。",
+  "uclaFeature1Title": "科学的かつ証明済み",
+  "uclaFeature1Desc": "世界中の学術研究で最も信頼され、参照されている心理測定ツールです。",
+  "uclaFeature2Title": "たったの3分",
+  "uclaFeature2Desc": "20の短い質問に答えることで、あなたの感情状態の瞬時かつ詳細なマップを作成します。",
+  "uclaFeature3Title": "パーソナライズされたルート",
+  "uclaFeature3Desc": "テスト結果に基づいて、専門の心理学者、メディエーター、または適切なインタレストルームへ案内されます。"
+    }
+  ]
 }

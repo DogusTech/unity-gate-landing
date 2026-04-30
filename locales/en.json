@@ -93,5 +93,47 @@
   "forgotPassword": "Forgot Password?",
   "btnLogin": "Secure Login",
   "expertNoAccount": "Haven't joined our expert network yet?",
-  "expertSignUpNow": "Apply as an Expert"
+  "expertSignUpNow": "Apply as an Expert",
+  "metaTitleInsights": "Insights | Unity Gate",
+  "metaDescInsights": "In-depth scientific analyses on loneliness, psychology, and modern relationships.",
+  "insightsTitle": "Clinical Insights",
+  "insightsSubtitle": "A library of deep analyses on mental health, modern loneliness crises, and scientific recovery.",
+  "articlesSection": "Latest Publications",
+  "minRead": "min read",
+  "articles": [
+    {
+      "slug": "anatomy-of-loneliness",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Clinical Psychology",
+      "time": "5",
+      "title": "The Anatomy of Loneliness: Why Are We Feeling Increasingly Disconnected?"
+    },
+    {
+      "slug": "digital-illusion",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modern Life",
+      "time": "7",
+      "title": "Digital Illusion: Why Socializing on a Screen Doesn't Heal Us"
+    },
+    {
+      "slug": "collective-healing",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Social Dynamics",
+      "time": "4",
+      "title": "Collective Healing: The Therapeutic Power of Safe Spaces",
+      "metaTitleUcla": "UCLA Loneliness Scale | Unity Gate",
+  "metaDescUcla": "Measure your loneliness level with the clinically proven UCLA scale. Your healing journey begins with awareness.",
+  "uclaHeroTitle": "UCLA Loneliness Scale",
+  "uclaHeroSubtitle": "Measure your social and emotional isolation level with a globally recognized clinical scale. Your healing journey begins with awareness.",
+  "btnStartTest": "Start Test Now",
+  "uclaInfoTitle": "WHY THE UCLA TEST?",
+  "uclaInfoDesc": "Developed by researchers at the University of California in 1978, this test is considered the gold standard for measuring loneliness in the world of psychology. Unity Gate AI analyzes your answers to map out the most suitable clinical therapy or socialization route for you.",
+  "uclaFeature1Title": "Scientific & Proven",
+  "uclaFeature1Desc": "It is the most trusted and referenced psychological measurement tool in global academic research.",
+  "uclaFeature2Title": "Only 3 Minutes",
+  "uclaFeature2Desc": "Answer 20 short questions to create an instant, in-depth map of your emotional state.",
+  "uclaFeature3Title": "Personalized Route",
+  "uclaFeature3Desc": "Based on your results, you will be directed to expert psychologists, mediators, or the right interest rooms."
+    }
+  ]
 }

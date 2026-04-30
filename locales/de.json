@@ -86,5 +86,47 @@
 
   "sub_therapy": ["Einzeltherapie", "Paartherapie", "EMDR", "KVT", "Jugendtherapie", "Familientherapie"],
   "sub_mediation": ["Familienmediation", "Wirtschaftsmediation", "Arbeitsrecht", "Verbraucherstreitigkeiten"],
-  "sub_finance": ["Anlageberatung", "Schuldenmanagement", "Unternehmensfinanzierung", "Private Altersvorsorge"]
+  "sub_finance": ["Anlageberatung", "Schuldenmanagement", "Unternehmensfinanzierung", "Private Altersvorsorge"],
+  "metaTitleInsights": "Einblicke | Unity Gate",
+  "metaDescInsights": "Tiefgehende wissenschaftliche Analysen zu Einsamkeit, Psychologie und modernen Beziehungen.",
+  "insightsTitle": "Klinische Einblicke",
+  "insightsSubtitle": "Eine Bibliothek für tiefgehende Analysen über psychische Gesundheit und moderne Einsamkeitskrisen.",
+  "articlesSection": "Neueste Publikationen",
+  "minRead": "Min. Lesezeit",
+  "articles": [
+    {
+      "slug": "anatomy-of-loneliness",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Klinische Psychologie",
+      "time": "5",
+      "title": "Die Anatomie der Einsamkeit: Warum fühlen wir uns zunehmend getrennt?"
+    },
+    {
+      "slug": "digital-illusion",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modernes Leben",
+      "time": "7",
+      "title": "Digitale Illusion: Warum uns die Sozialisierung über Bildschirme nicht heilt"
+    },
+    {
+      "slug": "collective-healing",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Soziale Dynamik",
+      "time": "4",
+      "title": "Kollektive Heilung: Die therapeutische Kraft sicherer Räume",
+      "metaTitleUcla": "UCLA-Einsamkeitsskala | Unity Gate",
+  "metaDescUcla": "Messen Sie Ihre Einsamkeit mit der klinisch erprobten UCLA-Skala. Ihr Heilungsweg beginnt mit Bewusstsein.",
+  "uclaHeroTitle": "UCLA-Einsamkeitsskala",
+  "uclaHeroSubtitle": "Messen Sie Ihr Maß an sozialer und emotionaler Isolation mit einer weltweit anerkannten klinischen Skala. Ihr Heilungsweg beginnt mit Bewusstsein.",
+  "btnStartTest": "Test Jetzt Starten",
+  "uclaInfoTitle": "WARUM DER UCLA-TEST?",
+  "uclaInfoDesc": "Dieser 1978 von Forschern der University of California entwickelte Test gilt in der Psychologie als Goldstandard zur Messung von Einsamkeit. Die Unity Gate KI analysiert Ihre Antworten, um die für Sie am besten geeignete klinische Therapie oder Sozialisierungsroute zu ermitteln.",
+  "uclaFeature1Title": "Wissenschaftlich & Erprobt",
+  "uclaFeature1Desc": "Es ist das am meisten vertraute und referenzierte psychologische Messinstrument in der weltweiten akademischen Forschung.",
+  "uclaFeature2Title": "Nur 3 Minuten",
+  "uclaFeature2Desc": "Beantworten Sie 20 kurze Fragen, um eine sofortige und tiefgehende Karte Ihres emotionalen Zustands zu erstellen.",
+  "uclaFeature3Title": "Personalisierte Route",
+  "uclaFeature3Desc": "Basierend auf Ihren Ergebnissen werden Sie an erfahrene Psychologen, Mediatoren oder die richtigen Interessensräume weitergeleitet."
+    }
+  ]
 }

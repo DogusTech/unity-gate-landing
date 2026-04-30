@@ -93,5 +93,47 @@
   "forgotPassword": "Şifremi Unuttum",
   "btnLogin": "Güvenli Giriş Yap",
   "expertNoAccount": "Henüz uzman ağımıza katılmadınız mı?",
-  "expertSignUpNow": "Uzman Olarak Başvurun"
+  "expertSignUpNow": "Uzman Olarak Başvurun",
+  "metaTitleInsights": "İçgörüler | Unity Gate",
+  "metaDescInsights": "Yalnızlık, psikoloji ve modern ilişkiler üzerine derinlemesine bilimsel analizler.",
+  "insightsTitle": "Klinik İçgörüler",
+  "insightsSubtitle": "Ruh sağlığı, modern yalnızlık krizleri ve bilimsel iyileşme üzerine derinlemesine analizler kütüphanesi.",
+  "articlesSection": "Son Yayınlar",
+  "minRead": "dk okuma",
+  "articles": [
+    {
+      "slug": "yalnizligin-anatomisi",
+      "img": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop",
+      "cat": "Klinik Psikoloji",
+      "time": "5",
+      "title": "Yalnızlığın Anatomisi: Neden Giderek Daha Kopuk Hissediyoruz?"
+    },
+    {
+      "slug": "dijital-illuzyon",
+      "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop",
+      "cat": "Modern Yaşam",
+      "time": "7",
+      "title": "Dijital İllüzyon: Ekranda Sosyalleşmek Neden Bizi İyileştirmez?"
+    },
+    {
+      "slug": "ortak-iyilesme",
+      "img": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
+      "cat": "Sosyal Dinamikler",
+      "time": "4",
+      "title": "Ortak İyileşme: Güvenli Alanlarda Konuşmanın Terapötik Gücü",
+      "metaTitleUcla": "UCLA Yalnızlık Testi | Unity Gate",
+  "metaDescUcla": "Klinik olarak kanıtlanmış UCLA testi ile yalnızlık seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.",
+  "uclaHeroTitle": "UCLA Yalnızlık Testi",
+  "uclaHeroSubtitle": "Dünya çapında kabul görmüş klinik bir ölçekle sosyal ve duygusal izolasyon seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.",
+  "btnStartTest": "Testi Hemen Başlat",
+  "uclaInfoTitle": "NEDEN UCLA TESTİ?",
+  "uclaInfoDesc": "1978 yılında Kaliforniya Üniversitesi araştırmacıları tarafından geliştirilen bu test, psikoloji dünyasında yalnızlığı ölçmek için altın standart kabul edilir. Unity Gate yapay zekası, verdiğiniz cevapları analiz ederek size en uygun klinik terapi veya sosyalleşme rotasını çıkarır.",
+  "uclaFeature1Title": "Bilimsel ve Kanıtlanmış",
+  "uclaFeature1Desc": "Global akademik araştırmalarda en çok güvenilen ve referans alınan psikolojik ölçüm aracıdır.",
+  "uclaFeature2Title": "Sadece 3 Dakika",
+  "uclaFeature2Desc": "20 kısa soruyu yanıtlayarak duygu durumunuzun anlık ve derinlemesine bir haritasını çıkarın.",
+  "uclaFeature3Title": "Kişiselleştirilmiş Rota",
+  "uclaFeature3Desc": "Sonuçlarınıza göre uzman psikolog, arabulucu veya doğru ilgi odalarına yönlendirilirsiniz."
+    }
+  ]
 }
