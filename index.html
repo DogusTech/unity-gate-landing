@@ -111,26 +111,49 @@
 <main>
 
 <!-- ================= HERO ================= -->
-<section class="hero" aria-label="Hero Section">
-  <div class="hero-content">
-    <div class="badge-premium fade-in-up" data-i18n="badgePremium">Clinical Standard HealthTech Ecosystem</div>
-    <h1 class="fade-in-up" data-i18n="heroTitle">
-      Scientific, Secure Expert<br>Matching Against Loneliness
+<section class="hero" aria-label="Hero Section" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+    
+    <!-- Rozet Düzeltildi: Sadece içeriği kadar yer kaplayacak -->
+    <div class="badge-premium fade-in-up" data-i18n="badgePremium" style="display: inline-block; width: fit-content; margin: 0 auto 1.5rem;">
+      Clinical Standard HealthTech Ecosystem
+    </div>
+    
+    <!-- Başlık Düzeltildi: Maksimum genişlik verildi, doğal olarak alt satıra inecek -->
+    <h1 class="fade-in-up" data-i18n="heroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;">
+      Scientific, Secure Expert Matching Against Loneliness
     </h1>
-    <p class="fade-in-up" data-i18n="heroSubtitle" style="animation-delay: 0.1s;">
+    
+    <!-- Alt Başlık Düzeltildi: Okunabilirliği artırmak için daraltıldı -->
+    <p class="fade-in-up" data-i18n="heroSubtitle" style="animation-delay: 0.1s; max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
       Unity Gate is a military-grade encrypted psychology platform that enables intent-driven matching and secure relationships under the supervision of licensed experts.
     </p>
 
-    <div class="hero-actions fade-in-up" style="animation-delay: 0.2s;">
-      <a href="/ucla-test.html" class="btn btn-primary" data-i18n="btnStartTest">
+    <div class="hero-actions fade-in-up" style="animation-delay: 0.2s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/ucla-test.html" class="btn btn-primary btn-lg" data-i18n="btnStartTest">
         Start Scientific Analysis
       </a>
-      <a href="/expert-registration.html" class="btn btn-glass" data-i18n="btnExpert">
+      <a href="/expert-registration.html" class="btn btn-glass btn-lg" data-i18n="btnExpert">
         Become an Expert
       </a>
     </div>
   </div>
 
+  <!-- AÇIK RENKLİ OKYANUS DALGALARI -->
+  <div class="ocean-frame" aria-hidden="true">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+        <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="wave-parallax">
+        <use xlink:href="#deep-wave" x="48" y="0" class="wave-layer l1" />
+        <use xlink:href="#deep-wave" x="48" y="3" class="wave-layer l2" />
+        <use xlink:href="#deep-wave" x="48" y="5" class="wave-layer l3" />
+        <use xlink:href="#deep-wave" x="48" y="7" class="wave-layer l4" />
+      </g>
+    </svg>
+  </div>
+</section>
   <!-- LIGHT OCEAN WAVES -->
   <div class="ocean-frame" aria-hidden="true">
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
