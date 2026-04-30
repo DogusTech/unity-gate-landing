@@ -1,228 +1,278 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <title data-i18n="metaTitle">User Registration | Unity Gate</title>
     <meta name="description" data-i18n="[content]metaDescription" content="Join Unity Gate for a better social and psychological wellbeing.">
-    <meta name="theme-color" content="#0B1121">
+    <meta name="theme-color" content="#030712">
     
-    <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/register.html" />
-    <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/register.html" />
-    <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/register.html" />
-    <link rel="alternate" hreflang="fr" href="https://unity-gate.com/fr/register.html" />
-    <link rel="alternate" hreflang="es" href="https://unity-gate.com/es/register.html" />
-    <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/register.html" />
-    <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/register.html" />
+    <!-- 2026 SEO: Yapılandırılmış Veri (Kayıt Sayfası İçin) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Unity Gate - Kullanıcı Kayıt",
+      "url": "https://www.unity-gate.com/register.html",
+      "description": "Birlik Kapısı platformuna katılarak güvenli online terapi ve uzman destekli sosyalleşme ağına adım atın.",
+      "potentialAction": {
+        "@type": "RegisterAction",
+        "target": "https://www.unity-gate.com/register.html"
+      }
+    }
+    </script>
+
+    <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/register.html" />
+    <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/register.html" />
+    <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/register.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/register.html" />
+    <link rel="alternate" hreflang="es" href="https://www.unity-gate.com/es/register.html" />
+    <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/register.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/register.html" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Merkezi CSS Bağlantımız -->
-    <link rel="stylesheet" href="css/style.css?v=2.1">
+    <!-- Ana CSS Bağlantısı (v6.0 ile Senkronize) -->
+    <link rel="stylesheet" href="css/style.css?v=6.0">
     
-    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+    <script src="js/main.js?v=6.0" defer></script>
 
     <style>
-        /* Form sayfasına özel UI/UX dokunuşları */
-        body {
+        /* ==========================================
+           KAYIT SAYFASI ÖZEL PREMIUM UI/UX TASARIMI
+           (Ana style.css değişkenlerini kullanır)
+           ========================================== */
+        
+        .auth-layout {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             position: relative;
+            padding: 120px 5% 60px 5%; /* Navbar arkasında kalmaması için */
+            background: radial-gradient(circle at top, rgba(15,23,42,0.8) 0%, var(--bg-black) 80%);
+            overflow: hidden;
         }
 
-        .glow-1, .glow-2 { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; }
-        .glow-1 { top: -100px; left: -100px; width: 400px; height: 400px; background: rgba(0, 229, 255, 0.15); }
-        .glow-2 { bottom: -150px; right: -150px; width: 500px; height: 500px; background: rgba(2, 132, 199, 0.15); }
-
-        .back-btn {
-            position: absolute; top: 100px; left: 5%; z-index: 10;
-            color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
-            background: rgba(11, 17, 33, 0.6); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 100px;
-            transition: 0.3s;
+        /* Derinlik katan arka plan ambiyansı */
+        .ambient-glow-1, .ambient-glow-2 { 
+            position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none;
         }
-        .back-btn:hover { background: rgba(0, 229, 255, 0.2); border-color: var(--cyan); }
+        .ambient-glow-1 { top: 10%; left: -10%; width: 50vw; height: 50vw; background: rgba(34, 211, 238, 0.08); }
+        .ambient-glow-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: rgba(14, 165, 233, 0.08); }
 
-        .form-wrapper {
-            position: relative; z-index: 2; width: 100%; max-width: 550px;
-            background: rgba(22, 32, 50, 0.65); backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 32px;
-            padding: 56px 48px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            margin: 140px 20px 80px 20px;
+        .back-nav {
+            position: absolute; top: 120px; left: 5%; z-index: 10;
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); font-weight: 600; font-size: 0.95rem;
+            background: var(--nav-glass); backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass); padding: 10px 24px; border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .back-nav:hover { color: #fff; background: rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.3); transform: translateX(-4px); }
+
+        .auth-glass-panel {
+            position: relative; z-index: 2; width: 100%; max-width: 600px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass); 
+            border-radius: 32px;
+            padding: 3.5rem 4rem; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            animation: formFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .header-text { text-align: center; margin-bottom: 40px; }
-        .header-text h1 { font-size: 32px; font-weight: 900; margin: 0 0 12px 0; letter-spacing: -1px; }
-        .header-text p { color: rgba(255,255,255,0.6); font-size: 15px; margin: 0; line-height: 1.5; }
+        @keyframes formFadeIn {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
 
-        .input-group { margin-bottom: 24px; }
-        .input-row { display: flex; gap: 16px; margin-bottom: 24px; }
+        .auth-header { text-align: center; margin-bottom: 2.5rem; }
+        .auth-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; color: #fff; }
+        .auth-header p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
         .input-row .input-group { flex: 1; margin-bottom: 0; }
 
-        label { display: block; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 8px; }
+        .input-label { display: block; font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;}
         
-        input, select {
-            width: 100%; padding: 16px; background: rgba(11, 17, 33, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
-            color: white; font-size: 15px; font-family: 'Inter', sans-serif; transition: 0.3s;
+        /* Premium Input Tasarımı */
+        .premium-input, .premium-select {
+            width: 100%; padding: 1rem 1.25rem; 
+            background: rgba(2, 6, 23, 0.5);
+            border: 1px solid var(--border-glass); border-radius: 16px;
+            color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; 
+            transition: all 0.3s ease;
+            appearance: none; /* Select okunu gizleyip native hale getirmek için */
         }
-        input:focus, select:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.1); }
-        select option { background: var(--bg-dark); color: white; }
+        
+        .premium-select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        .premium-input:focus, .premium-select:focus { 
+            outline: none; border-color: var(--accent-primary); 
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1); 
+            background: rgba(2, 6, 23, 0.8);
+        }
+        
+        .premium-select option { background: var(--bg-surface); color: #fff; }
 
         .terms-box {
-            background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;
-            padding: 16px; height: 90px; overflow-y: auto; font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 16px;
-            line-height: 1.5;
+            background: rgba(2, 6, 23, 0.4); border: 1px solid var(--border-glass); border-radius: 16px;
+            padding: 1.25rem; height: 100px; overflow-y: auto; font-size: 0.85rem; 
+            color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;
         }
+        /* Scrollbar Gizleme/İnceltme */
+        .terms-box::-webkit-scrollbar { width: 4px; }
+        .terms-box::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 4px; }
         
-        .checkbox-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 40px; }
-        .checkbox-row input { width: 22px; height: 22px; margin: 0; accent-color: var(--cyan); cursor: pointer; flex-shrink: 0; }
-        .checkbox-row label { font-size: 14px; margin: 0; line-height: 1.4; cursor: pointer; color: rgba(255,255,255,0.8); }
+        .checkbox-container { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 2.5rem; }
+        .checkbox-custom { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent-primary); cursor: pointer; flex-shrink: 0; }
+        .checkbox-label { font-size: 0.9rem; line-height: 1.5; cursor: pointer; color: var(--text-primary); font-weight: 500;}
 
-        .btn-submit {
-            width: 100%; padding: 18px; background: var(--gradient-primary); color: #000;
-            border: none; border-radius: 16px; font-size: 16px; font-weight: 800; cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2); transition: 0.3s;
-        }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4); }
-
-        @media (max-width: 600px) {
-            .form-wrapper { padding: 40px 24px; margin: 100px 0 0 0; border-radius: 32px 32px 0 0; border-bottom: none; }
-            .input-row { flex-direction: column; gap: 24px; }
-            .back-btn { top: 80px; }
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .auth-glass-panel { padding: 2.5rem 2rem; border-radius: 24px; margin: 0 1rem; border: none; background: transparent; box-shadow: none;}
+            .input-row { flex-direction: column; gap: 1.5rem; }
+            .back-nav { top: 90px; padding: 8px 16px; }
+            .auth-layout { align-items: flex-start; padding-top: 150px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Merkezi Navbar -->
-    <header>
+    <!-- ================= ANA NAVBAR (index.html ile Birebir Aynı) ================= -->
+    <header class="navbar" id="main-nav">
         <div class="nav-left">
             <a href="/" class="brand">
-                <img src="assets/logo.png" alt="Unity Gate Logo" style="height: 32px; width: auto; object-fit: contain;">
-                Unity Gate
+                <img src="assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
+                <span class="brand-text">Unity Gate</span>
             </a>
-            <nav class="nav-links">
+            <nav class="nav-links hide-mobile">
                 <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
                 <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
                 <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
             </nav>
         </div>
+        
         <div class="nav-right">
-            <div class="dropdown-wrapper">
-                <button class="btn btn-outline" data-i18n="btnSignIn">Giriş Yap</button>
+            <div class="dropdown-wrapper hide-mobile">
+                <button class="btn btn-glass" data-i18n="btnSignIn">Giriş Yap</button>
                 <div class="dropdown-menu">
-                    <a href="https://app.unity-gate.com/login" class="dropdown-item">👤 Kullanıcı Girişi</a>
-                    <a href="https://app.unity-gate.com/expert-login" class="dropdown-item">🎓 Uzman Girişi</a>
+                    <a href="/login.html" class="dropdown-item">👤 Kullanıcı Girişi</a>
+                    <a href="/expert-login.html" class="dropdown-item">🎓 Uzman Girişi</a>
                 </div>
             </div>
-            <div class="dropdown-wrapper">
-                <button class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</button>
-                <div class="dropdown-menu">
-                    <a href="/register.html" class="dropdown-item">👤 Kullanıcı Kaydı</a>
-                    <a href="/expert-registration.html" class="dropdown-item">🎓 Uzman Kaydı</a>
-                </div>
-            </div>
-            <button class="hamburger-btn" id="mobile-menu-toggle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <a href="/register.html" class="btn btn-primary hide-mobile" data-i18n="btnSignUp">Kayıt Ol</a>
+            
+            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
+                <div class="bar"></div>
+                <div class="bar"></div>
             </button>
         </div>
     </header>
 
-    <!-- Mobil Açılır Menü -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
-        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
-    </div>
-
-    <!-- Ambiyans -->
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
-
-    <a href="/" class="back-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        <span data-i18n="back">Geri</span>
-    </a>
-
-    <div class="form-wrapper">
-        <div class="header-text">
-            <h1 data-i18n="userRegTitle">Kullanıcı Kayıt Formu</h1>
-            <p data-i18n="userRegSubtitle">İyileşme yolculuğunuza ilk adımı atın ve topluluğumuza katılın.</p>
+    <!-- ================= MOBİL MENÜ ================= -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="mobile-nav-content">
+            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+            <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+            <hr class="mobile-divider">
+            <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
+            <a href="/register.html" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
         </div>
+    </nav>
 
-        <form id="user-form" onsubmit="handleUserRegistration(event)">
-            
-            <div class="input-group">
-                <label data-i18n="fullName">Ad Soyad</label>
-                <input type="text" id="name" required>
-            </div>
-            
-            <div class="input-group">
-                <label data-i18n="email">E-posta Adresi</label>
-                <input type="email" id="email" required>
+    <!-- ================= KAYIT FORMU ALANI ================= -->
+    <div class="auth-layout">
+        <div class="ambient-glow-1"></div>
+        <div class="ambient-glow-2"></div>
+
+        <a href="/" class="back-nav">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            <span data-i18n="back">Geri</span>
+        </a>
+
+        <div class="auth-glass-panel">
+            <div class="auth-header">
+                <h1 data-i18n="userRegTitle">Kullanıcı Kayıt Formu</h1>
+                <p data-i18n="userRegSubtitle">İyileşme yolculuğunuza ilk adımı atın ve topluluğumuza katılın.</p>
             </div>
 
-            <div class="input-row">
+            <form id="user-form" onsubmit="handleUserRegistration(event)">
+                
                 <div class="input-group">
-                    <label data-i18n="password">Şifre</label>
-                    <input type="password" id="password" required>
+                    <label class="input-label" data-i18n="fullName">Ad Soyad</label>
+                    <input type="text" id="name" class="premium-input" placeholder="Adınız ve Soyadınız" required>
                 </div>
+                
                 <div class="input-group">
-                    <label data-i18n="confirmPassword">Şifre Tekrar</label>
-                    <input type="password" id="confirm_password" required>
+                    <label class="input-label" data-i18n="email">E-posta Adresi</label>
+                    <input type="email" id="email" class="premium-input" placeholder="ornek@mail.com" required>
                 </div>
-            </div>
 
-            <div class="input-row">
-                <div class="input-group">
-                    <label data-i18n="country">Ülke</label>
-                    <select id="country" required>
-                        <option value="" disabled selected data-i18n="selectCountry">Ülke Seçiniz</option>
-                        <option value="TR">Turkey</option>
-                        <option value="US">United States</option>
-                        <option value="DE">Germany</option>
-                        <option value="FR">France</option>
-                        <option value="ES">Spain</option>
-                        <option value="JP">Japan</option>
-                    </select>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="password">Şifre</label>
+                        <input type="password" id="password" class="premium-input" placeholder="••••••••" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="confirmPassword">Şifre Tekrar</label>
+                        <input type="password" id="confirm_password" class="premium-input" placeholder="••••••••" required>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <!-- UX Dokunuşu: Kullanıcının niyetini anlama -->
-                    <label data-i18n="userGoal">Hedefiniz</label>
-                    <select id="user_goal" required>
-                        <option value="" disabled selected data-i18n="selectGoal">Hedefinizi Seçiniz</option>
-                        <option value="social" data-i18n="goalSocial">İlgi Odalarında Sosyalleşme</option>
-                        <option value="therapy" data-i18n="goalTherapy">Profesyonel Destek</option>
-                        <option value="self_discovery" data-i18n="goalDiscover">Kendimi Keşfetmek</option>
-                    </select>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="country">Ülke</label>
+                        <select id="country" class="premium-select" required>
+                            <option value="" disabled selected data-i18n="selectCountry">Ülke Seçiniz</option>
+                            <option value="TR">Türkiye (Turkey)</option>
+                            <option value="US">United States</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="ES">Spain</option>
+                            <option value="JP">Japan</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="userGoal">Ana Hedefiniz</label>
+                        <select id="user_goal" class="premium-select" required>
+                            <option value="" disabled selected data-i18n="selectGoal">Hedefinizi Seçiniz</option>
+                            <option value="social" data-i18n="goalSocial">İlgi Odalarında Sosyalleşme</option>
+                            <option value="therapy" data-i18n="goalTherapy">Profesyonel Destek Almak</option>
+                            <option value="self_discovery" data-i18n="goalDiscover">Kendimi Keşfetmek</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="terms-box" data-i18n="userTermsText">
-                Birlik Kapısı'na katılarak, güvenli, anonim ve destekleyici bir topluluğun parçası olmayı kabul ediyorsunuz. Verileriniz KVKK ve uluslararası sağlık standartları kapsamında korunmaktadır.
-            </div>
-            
-            <div class="checkbox-row">
-                <input type="checkbox" id="agree_terms" required>
-                <label for="agree_terms" data-i18n="userAgreeTerms">Kullanıcı sözleşmesini ve gizlilik politikasını okudum, kabul ediyorum.</label>
-            </div>
+                <div class="terms-box" data-i18n="userTermsText">
+                    Birlik Kapısı'na katılarak, güvenli, anonim ve destekleyici bir topluluğun parçası olmayı kabul ediyorsunuz. Tüm kişisel verileriniz KVKK standartları ve uluslararası sağlık protokolleri kapsamında askeri düzeyde şifrelemeyle korunmaktadır. Verileriniz hiçbir şekilde üçüncü şahıslarla paylaşılmaz.
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agree_terms" class="checkbox-custom" required>
+                    <label for="agree_terms" class="checkbox-label" data-i18n="userAgreeTerms">Kullanıcı sözleşmesini ve gizlilik politikasını okudum, kabul ediyorum.</label>
+                </div>
 
-            <button type="submit" class="btn-submit" data-i18n="btnUserRegister">Hesabımı Oluştur ve Başla</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.25rem; font-size: 1rem;" data-i18n="btnUserRegister">Hesabımı Oluştur ve Başla</button>
 
-        </form>
+            </form>
+        </div>
     </div>
 
-    <!-- Merkezi JS (i18n ve Menü çalışması için) -->
-    <script src="js/main.js?v=2.1"></script>
-
-    <!-- Kayıt İşlemleri JS -->
+    <!-- ================= KAYIT İŞLEMLERİ (NATIVE JAVASCRIPT) ================= -->
     <script>
         function handleUserRegistration(e) {
             e.preventDefault();
@@ -234,11 +284,13 @@
             const rawPassword = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm_password').value;
 
+            // Şifre Doğrulama
             if (rawPassword !== confirmPassword) {
-                alert(i18next.t('errPasswordMismatch') || "Şifreler eşleşmiyor!");
+                alert(i18next.t('errPasswordMismatch') || "Güvenlik İhlali: Şifreler eşleşmiyor, lütfen kontrol edin.");
                 return;
             }
 
+            // Parola Maskeleme
             const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
 
             const params = new URLSearchParams({

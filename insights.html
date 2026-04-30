@@ -1,204 +1,244 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="metaTitleInsights">İçgörüler | Unity Gate</title>
-    <meta name="description" data-i18n="[content]metaDescInsights" content="Yalnızlık, psikoloji ve modern ilişkiler üzerine analizler.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <title data-i18n="metaTitleInsights">İçgörüler | Unity Gate</title>
+  <meta name="description" data-i18n="[content]metaDescInsights" content="Yalnızlık, psikoloji ve modern ilişkiler üzerine derinlemesine bilimsel analizler.">
+  
+  <!-- SEO & Yönlendirmeler -->
+  <link rel="canonical" href="https://www.unity-gate.com/insights" />
+  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/insights" />
+  <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/insights" />
+  <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/insights" />
+  <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/insights" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- ANA CSS DOSYASI BAĞLANTISI (Versiyon 6.0) -->
+  <link rel="stylesheet" href="css/style.css?v=6.0">
+  
+  <!-- Bu sayfaya özel ekstra stiller (Kart Yapısı) -->
+  <style>
+    /* Hero bölümü yüksekliği içgörü sayfasına göre ayarlandı */
+    .hero.insights-hero { min-height: 60vh; padding-top: 100px; }
     
-    <!-- Global SEO Hreflang Etiketleri -->
-    <link rel="alternate" hreflang="en" href="https://unity-gate.com/en/insights" />
-    <link rel="alternate" hreflang="tr" href="https://unity-gate.com/tr/insights" />
-    <link rel="alternate" hreflang="de" href="https://unity-gate.com/de/insights" />
-    <link rel="alternate" hreflang="fr" href="https://unity-gate.com/fr/insights" />
-    <link rel="alternate" hreflang="es" href="https://unity-gate.com/es/insights" />
-    <link rel="alternate" hreflang="ja" href="https://unity-gate.com/ja/insights" />
-    <link rel="alternate" hreflang="x-default" href="https://unity-gate.com/en/insights" />
+    .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    
+    /* Bento Tarzı Ferah Makale Kartları */
+    .article-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      text-decoration: none;
+      color: inherit;
+    }
+    .article-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(34, 211, 238, 0.1);
+    }
+    .article-image-wrapper {
+      position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .article-image-wrapper img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+    }
+    .article-card:hover .article-image-wrapper img { transform: scale(1.05); }
+    
+    .article-content { padding: 2rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .meta-data { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .meta-category { color: var(--accent-primary); }
+    .meta-time { color: var(--text-secondary); font-weight: 500; }
+    .article-content h3 { font-size: 1.5rem; font-weight: 800; line-height: 1.3; color: #fff; margin-bottom: 1rem; }
+  </style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- i18next Kütüphaneleri -->
-    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
-
-    <style>
-        :root {
-            --bg-dark: #0B1121;
-            --bg-card: #162032;
-            --cyan: #00E5FF;
-            --blue: #0284C7;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navbar - Landing Page ile Aynı Standart */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%;
-            padding: 16px 80px; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(11, 17, 33, 0.8); backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000;
-        }
-        .nav-left { display: flex; align-items: center; gap: 40px; }
-        .brand { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; color: white; text-decoration: none;}
-        .nav-links { display: flex; gap: 24px; font-weight: 600; font-size: 14px; color: var(--text-muted); }
-        .nav-links a { color: inherit; text-decoration: none; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
-        
-        /* Hero Section */
-        .hero { padding: 140px 15% 80px 15%; text-align: left; position: relative; }
-        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin-bottom: 32px; }
-
-        .btn-ucla {
-            background: #2563EB; color: white; padding: 16px 32px; border-radius: 8px;
-            font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s;
-        }
-        .btn-ucla:hover { background: #1D4ED8; transform: translateY(-2px); }
-
-        /* Article Grid */
-        .container { padding: 0 15% 80px 15%; }
-        .section-title { font-size: 24px; color: var(--text-muted); border-bottom: 1px solid var(--bg-card); padding-bottom: 12px; margin-bottom: 40px; }
-
-        .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .article-card {
-            background: rgba(30, 41, 59, 0.5); border: 1px solid var(--bg-card); border-radius: 12px;
-            overflow: hidden; transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit;
-        }
-        .article-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
-        .article-card img { width: 100%; height: 220px; object-fit: cover; }
-        .article-content { padding: 24px; }
-        .meta { display: flex; gap: 12px; font-size: 12px; font-weight: bold; margin-bottom: 12px; }
-        .category { color: var(--cyan); letter-spacing: 1px; }
-        .read-time { color: var(--text-muted); }
-        .article-card h3 { font-size: 20px; font-weight: 700; color: white; line-height: 1.3; }
-
-        /* Wave Effect */
-        .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; overflow: hidden; line-height: 0; z-index: -1; opacity: 0.5;}
-        .wave-container svg { height: 100%; width: 200%; animation: moveWave 15s linear infinite; fill: var(--cyan); }
-        @keyframes moveWave { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        @media (max-width: 800px) {
-            header { padding: 16px 24px; }
-            .nav-links { display: none; }
-            .hero { padding: 120px 24px 60px 24px; }
-            .hero h1 { font-size: 32px; }
-            .container { padding: 0 24px 60px 24px; }
-            .article-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+  <script src="js/main.js?v=6.0" defer></script>
 </head>
 <body>
 
-<header>
+  <!-- ================= HEADER ================= -->
+  <header class="navbar" id="main-nav">
     <div class="nav-left">
-        <a href="/" class="brand">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Unity Gate
-        </a>
-        <nav class="nav-links">
-            <a href="/ucla-test" data-i18n="navUcla">UCLA Testi</a>
-            <a href="/insights" class="active" data-i18n="navInsights">İçgörüler</a>
-            <a href="/about" data-i18n="navAbout">Hakkımızda</a>
-        </nav>
+      <a href="/" class="brand">
+        <img src="assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
+        <span class="brand-text">Unity Gate</span>
+      </a>
+      <nav class="nav-links hide-mobile">
+        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/insights.html" style="color: #fff;" data-i18n="navInsights">İçgörüler</a>
+        <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+      </nav>
     </div>
-</header>
-
-<section class="hero">
-    <h1 data-i18n="insightsTitle">İçgörüler</h1>
-    <p data-i18n="insightsSubtitle">Ruh sağlığı, modern yalnızlık ve bilimsel iyileşme üzerine derinlemesine analizler.</p>
-    <a href="/ucla-test/start" class="btn-ucla" data-i18n="btnStartTest">Yalnızlık Testini Başlat</a>
     
-    <div class="wave-container">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" />
+    <div class="nav-right">
+      <div class="dropdown-wrapper hide-mobile">
+        <button class="btn btn-glass" data-i18n="btnSignIn">Giriş Yap</button>
+        <div class="dropdown-menu">
+          <a href="/login.html" class="dropdown-item">👤 Kullanıcı Girişi</a>
+          <a href="/expert-login.html" class="dropdown-item">🎓 Uzman Girişi</a>
+        </div>
+      </div>
+      <a href="/register.html" class="btn btn-primary hide-mobile" data-i18n="btnSignUp">Kayıt Ol</a>
+      
+      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MOBİL MENÜ ================= -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-content">
+      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+      <a href="/insights.html" style="color: var(--accent-primary);" data-i18n="navInsights">İçgörüler</a>
+      <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+      <hr class="mobile-divider">
+      <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
+      <a href="/register.html" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= HERO BÖLÜMÜ ================= -->
+    <section class="hero insights-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content-wrapper" style="margin-top: -5vh;">
+        <h1 class="hero-title fade-in-up" data-i18n="insightsTitle">İçgörüler</h1>
+        <p class="hero-subtitle fade-in-up" data-i18n="insightsSubtitle">Ruh sağlığı, modern yalnızlık krizleri ve bilimsel iyileşme üzerine derinlemesine analizler kütüphanesi.</p>
+      </div>
+
+      <!-- ANA SAYFADAKİ DEV OKYANUS DALGALARI -->
+      <div class="ocean-frame">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+          <defs>
+            <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="wave-parallax">
+            <use xlink:href="#deep-wave" x="48" y="0" class="wave-layer l1" />
+            <use xlink:href="#deep-wave" x="48" y="3" class="wave-layer l2" />
+            <use xlink:href="#deep-wave" x="48" y="5" class="wave-layer l3" />
+            <use xlink:href="#deep-wave" x="48" y="7" class="wave-layer l4" />
+          </g>
         </svg>
-    </div>
-</section>
+      </div>
+    </section>
 
-<div class="container">
-    <h2 class="section-title" data-i18n="articlesSection">Son Makaleler</h2>
-    <div class="article-grid" id="article-container">
-        <!-- Makaleler JavaScript ile buraya i18next üzerinden dinamik basılacak -->
-    </div>
-</div>
-
-<script>
-    const pathSegments = window.location.pathname.split('/');
-    let urlLang = pathSegments[1]; 
-    if(!['en', 'tr', 'de', 'fr', 'es', 'ja'].includes(urlLang)) {
-        urlLang = 'tr'; 
-    }
-
-    i18next
-        .use(i18nextHttpBackend)
-        .init({
-            lng: urlLang,
-            fallbackLng: 'en',
-            backend: {
-                loadPath: './locales/{{lng}}/translation.json' 
-            }
-        }).then(function() {
-            // 1. Statik Metinleri Çevir
-            updateStaticContent();
-            document.getElementById('html-tag').setAttribute('lang', i18next.language);
-            
-            // 2. Makaleleri Array (Dizi) olarak Çek ve Render Et
-            renderArticles();
-        }).catch(function(error) {
-            console.error("i18next yüklenirken bir hata oluştu: ", error);
-        });
-
-    function updateStaticContent() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (key.startsWith('[content]')) {
-                element.setAttribute('content', i18next.t(key.replace('[content]', '')));
-            } else {
-                element.innerHTML = i18next.t(key);
-            }
-        });
-    }
-
-    function renderArticles() {
-        // Çeviri dosyasından 'articles' dizisini obje olarak alıyoruz
-        const articles = i18next.t('articles', { returnObjects: true });
-        const minReadTxt = i18next.t('minRead'); // "dk okuma" vb.
+    <!-- ================= MAKALELER KÜTÜPHANESİ ================= -->
+    <section class="section-padding" style="padding-top: 4rem; padding-bottom: 8rem; position: relative; z-index: 10;">
+      <div class="container">
+        <div class="section-header fade-in-up" style="text-align: left; border-bottom: 1px solid var(--border-glass); padding-bottom: 1rem; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-secondary);" data-i18n="articlesSection">Son Yayınlar</h2>
+        </div>
         
-        const container = document.getElementById('article-container');
-        container.innerHTML = '';
+        <!-- JavaScript ile Doldurulacak Kartlar -->
+        <div class="article-grid" id="article-container">
+          <!-- İskelet (Skeleton) Yükleme Görüntüsü -->
+          <div style="text-align: center; color: var(--text-secondary); width: 100%; grid-column: 1 / -1;">Makaleler yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        if (Array.isArray(articles)) {
-            articles.forEach(art => {
-                // Tıklanan makale için slug'ı ve dili URL'e paslıyoruz
-                const targetUrl = `/article-detail.html?slug=${art.slug}&lang=${i18next.language}`;
-                
-                const card = `
-                    <a href="${targetUrl}" class="article-card">
-                        <img src="${art.img}" alt="${art.title}" loading="lazy">
-                        <div class="article-content">
-                            <div class="meta">
-                                <span class="category">${art.cat}</span>
-                                <span class="read-time">${art.time} ${minReadTxt}</span>
+  <!-- ================= FOOTER BÖLÜMÜ ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <div class="brand">
+            <img src="assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+            Unity Gate
+          </div>
+          <p>Daha bağlı ve sağlıklı bir dünya için.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <h4 data-i18n="footerCompany">Şirket</h4>
+            <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+            <a href="/careers.html" data-i18n="footerCareers">Kariyer</a>
+            <a href="/investors.html" data-i18n="footerInvestors">Yatırımcılar</a>
+          </div>
+          <div class="footer-group">
+            <h4>Platform</h4>
+            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+            <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-i18n="footerCopyright">
+          © 2026 Aeternexus A.Ş. Tüm hakları saklıdır.
+        </div>
+        <div class="footer-legal">
+          <span id="current-language-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">Global</span>
+          <a href="/privacy.html" data-i18n="footerPrivacy">Gizlilik Politikası</a>
+          <span class="dot-separator">•</span>
+          <a href="/terms.html" data-i18n="footerTerms">Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MAKALELERİ ÇEKME SCRİPTİ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // i18next'in yüklenmesini bekle (main.js tarafından başlatılıyor)
+        let checkReady = setInterval(() => {
+            if (window.i18next && window.i18next.isInitialized) {
+                clearInterval(checkReady);
+                renderArticles();
+            }
+        }, 100);
+
+        function renderArticles() {
+            // Çeviri dosyasından 'articles' dizisini obje olarak al
+            const articles = i18next.t('articles', { returnObjects: true });
+            const minReadTxt = i18next.t('minRead') || 'dk okuma'; 
+            
+            const container = document.getElementById('article-container');
+            container.innerHTML = ''; // Loading yazısını sil
+
+            if (Array.isArray(articles)) {
+                articles.forEach((art, index) => {
+                    // Animasyon gecikmesi (merdiven efekti için)
+                    const delay = (index * 0.1).toFixed(1);
+                    const targetUrl = `/article-detail.html?slug=${art.slug}&lang=${i18next.language}`;
+                    
+                    const card = `
+                        <a href="${targetUrl}" class="article-card fade-in-up visible" style="animation-delay: ${delay}s;">
+                            <div class="article-image-wrapper">
+                                <img src="${art.img}" alt="${art.title}" loading="lazy">
                             </div>
-                            <h3>${art.title}</h3>
-                        </div>
-                    </a>
-                `;
-                container.innerHTML += card;
-            });
+                            <div class="article-content">
+                                <div class="meta-data">
+                                    <span class="meta-category">${art.cat}</span>
+                                    <span class="meta-time">${art.time} ${minReadTxt}</span>
+                                </div>
+                                <h3>${art.title}</h3>
+                            </div>
+                        </a>
+                    `;
+                    container.innerHTML += card;
+                });
+            } else {
+                container.innerHTML = `<div style="text-align: center; color: var(--text-secondary); width: 100%; grid-column: 1 / -1;">Makaleler bulunamadı veya henüz çevrilmedi.</div>`;
+            }
         }
-    }
-</script>
+    });
+  </script>
 
 </body> 
 </html>
