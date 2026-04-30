@@ -1,5 +1,9 @@
-/* 📂 css/style.css - Premium Native V5.0 */
+/* =========================================
+   UNITY GATE - PREMIUM NATIVE STYLE V5.0
+   ========================================= */
+
 :root {
+  /* Renk Paleti - Derin Okyanus & Gece */
   --bg-black: #020617;
   --bg-deep: #030712;
   --bg-surface: #0f172a;
@@ -7,104 +11,317 @@
   --accent-secondary: #0ea5e9;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --nav-glass: rgba(2, 6, 23, 0.8);
-  --border-glass: rgba(255, 255, 255, 0.08);
   
-  /* Deep Sea Palette */
-  --sea-deepest: #020617;
-  --sea-mid: rgba(15, 23, 42, 0.9);
-  --sea-surface: rgba(34, 211, 238, 0.15);
+  /* Glassmorphism Efektleri */
+  --nav-glass: rgba(2, 6, 23, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --card-hover-bg: rgba(255, 255, 255, 0.03);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- 1. RESET & TEMEL AYARLAR --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 body {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-black);
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-/* --- Premium Typography Fix --- */
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  background: linear-gradient(to bottom, #fff, var(--text-secondary));
-  -webkit-background-clip: text; /* Safari/Chrome */
-  background-clip: text;         /* Standard - Hata düzeltildi */
-  color: transparent;
-  margin-bottom: 1.5rem;
+a { 
+  text-decoration: none; 
+  color: inherit; 
 }
 
-/* --- Header & Glassmorphism --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- 2. NAVBAR (MENÜ) --- */
 .navbar {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
+  position: fixed; 
+  top: 0; left: 0; width: 100%; z-index: 1000;
   padding: 1.25rem 5%;
   background: var(--nav-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
   display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.3s ease;
 }
 
-/* --- Devasa Okyanus Dalgaları --- */
+.nav-left { display: flex; align-items: center; gap: 3rem; }
+
+.brand { 
+  display: flex; align-items: center; gap: 0.75rem; 
+  font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.5px;
+}
+.brand-logo { object-fit: contain; }
+
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { 
+  color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; 
+  transition: color 0.3s ease; 
+}
+.nav-links a:hover { color: #fff; }
+
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+/* Butonlar */
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-glass {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-glass);
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-secondary);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #020617;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.15);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(34, 211, 238, 0.3);
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* Dropdown Menü (Açılır Kutu) */
+.dropdown-wrapper { position: relative; }
+.dropdown-menu {
+  position: absolute; top: 120%; right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 0.5rem; min-width: 180px;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5); z-index: 1001;
+}
+.dropdown-wrapper:hover .dropdown-menu { 
+  opacity: 1; visibility: visible; transform: translateY(0); 
+}
+.dropdown-item { 
+  display: block; padding: 0.75rem 1rem; color: var(--text-primary); 
+  font-size: 0.9rem; font-weight: 500; border-radius: 12px; transition: 0.2s; 
+}
+.dropdown-item:hover { 
+  background: rgba(34, 211, 238, 0.1); color: var(--accent-primary); 
+}
+
+/* --- 3. HERO SECTION (ANA EKRAN) --- */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.8) 0%, var(--bg-black) 80%);
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+  opacity: 0.3; pointer-events: none;
+}
+
+.hero-content-wrapper {
+  position: relative; z-index: 10;
+  max-width: 800px; padding: 0 5%; margin-top: -10vh;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.badge-premium {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent-primary);
+  padding: 0.5rem 1rem; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
+  margin-bottom: 2rem; border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900; line-height: 1.1; letter-spacing: -0.04em;
+  background: linear-gradient(to bottom, #ffffff, #94a3b8);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 400; max-width: 600px;
+  margin-bottom: 3rem; line-height: 1.6;
+}
+
+/* --- 4. DEVASA OKYANUS DALGALARI --- */
 .ocean-frame {
-  position: absolute; bottom: 0; left: 0;
-  width: 100%; height: 45vh; /* Boyut artırıldı */
-  pointer-events: none;
-  overflow: hidden;
+  position: absolute; bottom: -2px; left: 0; width: 100%;
+  height: 35vh; min-height: 250px; pointer-events: none;
+  overflow: hidden; z-index: 1;
 }
 
-.waves {
-  width: 100%; height: 100%;
-}
+.waves { width: 100%; height: 100%; }
 
 .wave-parallax > use {
   animation: ocean-surge 20s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
-/* Daha koyu ve derin renkler */
-.wave-layer.l1 { fill: rgba(15, 23, 42, 0.3); animation-delay: -2s; animation-duration: 8s; }
-.wave-layer.l2 { fill: rgba(15, 23, 42, 0.5); animation-delay: -3s; animation-duration: 12s; }
-.wave-layer.l3 { fill: rgba(15, 23, 42, 0.8); animation-delay: -4s; animation-duration: 16s; }
-.wave-layer.l4 { fill: var(--bg-deep); animation-delay: -5s; animation-duration: 22s; }
+.wave-layer.l1 { fill: rgba(15, 23, 42, 0.4); animation-delay: -2s; animation-duration: 8s; }
+.wave-layer.l2 { fill: rgba(15, 23, 42, 0.6); animation-delay: -3s; animation-duration: 12s; }
+.wave-layer.l3 { fill: rgba(15, 23, 42, 0.9); animation-delay: -4s; animation-duration: 16s; }
+.wave-layer.l4 { fill: var(--bg-black); animation-delay: -5s; animation-duration: 22s; }
 
 @keyframes ocean-surge {
-  0% { transform: translate3d(-90px, 0, 0) scaleY(1); }
-  50% { transform: translate3d(0, 10px, 0) scaleY(1.1); } /* Denizdeki yükselme hissi */
-  100% { transform: translate3d(90px, 0, 0) scaleY(1); }
+  0% { transform: translate3d(-90px, 0, 0); }
+  100% { transform: translate3d(85px, 0, 0); }
 }
 
-/* --- Bento & Cards --- */
+/* --- 5. BENTO & MİMARİ BÖLÜMÜ --- */
+.bento-section {
+  padding: 8rem 0; position: relative; z-index: 10;
+  background: var(--bg-black);
+}
+
+.section-tag {
+  color: var(--accent-primary);
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
+  text-align: center; margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+  text-align: center; margin-bottom: 4rem; letter-spacing: -0.02em;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
 .bento-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-glass);
-  border-radius: 32px;
-  padding: 2.5rem;
+  border-radius: 24px; padding: 2.5rem;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  position: relative;
-  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
 }
 
 .bento-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  background: var(--card-hover-bg);
+  border-color: rgba(34, 211, 238, 0.3);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Native Fade-in Animasyonları */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.bento-card h3 {
+  font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;
 }
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
+.bento-card p {
+  color: var(--text-secondary); line-height: 1.6;
+}
+
+/* --- 6. FOOTER --- */
+.footer {
+  background: var(--bg-black);
+  border-top: 1px solid var(--border-glass);
+  padding: 5rem 0 2rem 0;
+}
+
+.footer-top {
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 3rem; margin-bottom: 4rem;
+}
+
+.footer-info .brand {
+  font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;
+}
+.footer-info p { color: var(--text-secondary); font-size: 0.95rem; }
+
+.footer-nav { display: flex; gap: 4rem; }
+.footer-group h4 { color: #fff; margin-bottom: 1.25rem; font-weight: 600; }
+.footer-group a { 
+  display: block; color: var(--text-secondary); 
+  margin-bottom: 0.75rem; transition: 0.3s; font-size: 0.95rem;
+}
+.footer-group a:hover { color: var(--accent-primary); transform: translateX(4px); }
+
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem; padding-top: 2rem;
+  border-top: 1px solid var(--border-glass);
+  color: var(--text-secondary); font-size: 0.85rem;
+}
+
+.footer-socials a { color: var(--text-secondary); transition: 0.3s; }
+.footer-socials a:hover { color: #fff; }
+
+/* --- 7. MOBİL MENÜ & ANİMASYONLAR --- */
+.hamburger-btn {
+  display: none; background: transparent; border: none; cursor: pointer;
+  flex-direction: column; gap: 6px; padding: 0.5rem; z-index: 1002;
+}
+.hamburger-btn .bar { width: 24px; height: 2px; background: #fff; transition: 0.3s; }
+
+.mobile-menu {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: rgba(2, 6, 23, 0.98); backdrop-filter: blur(20px);
+  z-index: 999; display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  opacity: 0; visibility: hidden; transition: 0.4s;
+}
+
+.mobile-menu.active { opacity: 1; visibility: visible; }
+.mobile-nav-content { display: flex; flex-direction: column; gap: 2rem; text-align: center; width: 100%; padding: 0 10%;}
+.mobile-nav-content a { font-size: 1.5rem; font-weight: 600; color: #fff; }
+.mobile-divider { width: 40px; border: 1px solid var(--border-glass); margin: 0 auto; }
+
+/* Scroll Animasyonları */
+.fade-in-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+/* --- 8. RESPONSIVE (MOBİL UYUM) --- */
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+  .hamburger-btn { display: flex; }
+  .hero-title { font-size: 2.5rem; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-nav { flex-direction: column; gap: 2rem; }
 }
