@@ -7,52 +7,34 @@
   <title data-i18n="metaExpertLoginTitle">Uzman Girişi | Unity Gate Klinik Platformu</title>
   <meta name="description" data-i18n="[content]metaExpertLoginDesc" content="Unity Gate HealthTech platformu uzman paneline güvenli giriş yapın.">
   <meta name="theme-color" content="#020617">
-  
-  <meta property="og:title" content="Unity Gate | Klinik Uzman Ağı Girişi">
-  <meta property="og:description" content="Klinik psikoloji odaklı güvenli terapi ekosistemine uzman girişi.">
-  <meta property="og:image" content="https://www.unity-gate.com/assets/og-expert.jpg">
-  <meta property="og:url" content="https://www.unity-gate.com/expert-login.html">
-  <meta property="og:type" content="website">
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Unity Gate Uzman Giriş Portalı",
-      "description": "Lisanslı uzmanlar için güvenli platform giriş sayfası.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Aeternexus Health Technologies"
-      }
-    }
-  </script>
 
   <link rel="canonical" href="https://www.unity-gate.com/expert-login.html" />
   <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/expert-login.html" />
   <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/expert-login.html" />
-  <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/expert-login.html" />
   <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/expert-login.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=13.0">
+  <!-- 🔥 ÖNEMLİ: Versiyon 14.0 ile tarayıcı cache'i kırılıyor -->
+  <link rel="stylesheet" href="css/style.css?v=14.0">
   
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-  <script src="js/main.js?v=13.0" defer></script>
+  <script src="js/main.js?v=14.0" defer></script>
 </head>
 <body>
 
+  <!-- ================= HEADER ================= -->
   <header class="navbar" id="main-nav">
     <div class="nav-left">
       <a href="/" class="brand" aria-label="Unity Gate Ana Sayfa">
         <img src="assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
         <span class="brand-text">Unity Gate</span>
       </a>
-      <nav class="nav-links hide-mobile" aria-label="Ana Menü">
-        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+      <nav class="nav-links hide-mobile">
+        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
         <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
         <a href="/about.html" data-i18n="navAbout">Misyonumuz</a>
       </nav>
@@ -81,9 +63,10 @@
     </div>
   </header>
 
+  <!-- ================= MOBİL MENÜ ================= -->
   <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-nav-content">
-      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
       <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
       <a href="/about.html" data-i18n="navAbout">Misyonumuz</a>
       <hr class="mobile-divider">
@@ -94,19 +77,15 @@
     </div>
   </nav>
 
+  <!-- ================= AUTH LAYOUT ================= -->
   <main class="auth-layout auth-layout-centered">
     <div class="ambient-glow glow-cyan" style="top: 0; right: 0;"></div>
     <div class="ambient-glow glow-blue" style="bottom: 0; left: 0;"></div>
 
     <section class="glass-form-card auth-card-narrow fade-in-up">
-      <a href="/" class="back-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        <span data-i18n="back">Ana Sayfaya Dön</span>
-      </a>
-
-      <div class="form-header" style="margin-bottom: 2rem;">
-        <h1 data-i18n="expertLoginTitle">Uzman Girişi</h1>
-        <p data-i18n="expertLoginSubtitle">Profesyonel ağınıza hoş geldiniz. Danışanlarınıza rehberlik etmeye devam edin.</p>
+      <div class="form-header" style="margin-bottom: 2rem; text-align: center;">
+        <h1 data-i18n="expertLoginTitle" style="font-size: 2rem; margin-bottom: 0.5rem; color: #fff;">Uzman Girişi</h1>
+        <p data-i18n="expertLoginSubtitle" style="color: var(--text-secondary); font-size: 0.95rem;">Profesyonel ağınıza hoş geldiniz. Danışanlarınıza rehberlik etmeye devam edin.</p>
       </div>
 
       <form id="expert-login-form" novalidate>
@@ -114,10 +93,10 @@
 
         <div class="input-group">
           <label for="email" data-i18n="email">Kurumsal E-posta Adresi</label>
-          <input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="iletisim@klinik.com">
+          <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
         </div>
 
-        <div class="input-group" style="margin-bottom: 1rem;">
+        <div class="input-group" style="margin-bottom: 1.5rem;">
           <label for="password" data-i18n="password">Şifre</label>
           <input type="password" id="password" name="password" class="form-control" required autocomplete="current-password">
         </div>
@@ -127,7 +106,7 @@
             <input type="checkbox" id="remember_me" name="remember_me">
             <label for="remember_me" data-i18n="rememberMe">Beni Hatırla</label>
           </div>
-          <a href="https://app.unity-gate.com/expert-forgot-password" class="forgot-password-link" data-i18n="forgotPassword">Şifremi Unuttum</a>
+          <a href="#" class="forgot-password-link" data-i18n="forgotPassword">Şifremi Unuttum?</a>
         </div>
 
         <button type="submit" class="btn btn-primary btn-submit-full" id="btn-login-expert">
@@ -137,46 +116,19 @@
 
         <div class="register-link-box">
           <span data-i18n="expertNoAccount">Henüz uzman ağımıza katılmadınız mı?</span>
-          <a href="/expert-registration.html" data-i18n="expertSignUpNow">Uzman Olarak Başvurun</a>
+          <br>
+          <a href="/expert-registration.html" data-i18n="expertSignUpNow" style="display: inline-block; margin-top: 0.5rem;">Uzman Olarak Başvurun</a>
         </div>
       </form>
     </section>
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-info">
-          <div class="brand">
-            <img src="assets/logo.png" alt="Unity Gate Footer Logo" width="28" height="28" class="brand-logo">
-            Unity Gate
-          </div>
-          <p data-i18n="footerTagline">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
-        </div>
-        <div class="footer-nav">
-          <div class="footer-group">
-            <h4 data-i18n="footerCompany">Kurumsal</h4>
-            <a href="/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
-            <a href="/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
-          </div>
-          <div class="footer-group">
-            <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
-            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
-            <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
-            <a href="/expert-registration.html" data-i18n="btnSignUpExpert">Uzman Kayıt (Başvuru)</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
+      <div class="footer-bottom" style="justify-content: center; border-top: none; padding-top: 0;">
         <div class="copyright" data-i18n="footerCopyright">
-          © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
-        </div>
-        <div class="footer-legal">
-          <span id="current-language-display" class="lang-display">TR</span>
-          <a href="/privacy.html" data-i18n="footerPrivacy">Gizlilik Politikası</a>
-          <span class="dot-separator">•</span>
-          <a href="/terms.html" data-i18n="footerTerms">Kullanım Şartları</a>
+          © 2026 Aeternexus Health Technologies.
         </div>
       </div>
     </div>

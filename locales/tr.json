@@ -86,5 +86,12 @@
 
   "sub_therapy": ["Bireysel Terapi", "Çift Terapisi", "EMDR", "BDT", "Ergen Terapisi", "Aile Terapisi"],
   "sub_mediation": ["Aile Arabuluculuğu", "Ticari Arabuluculuk", "İş Hukuku", "Tüketici Uyuşmazlıkları"],
-  "sub_finance": ["Yatırım Danışmanlığı", "Borç Yönetimi", "Kurumsal Finans", "Bireysel Emeklilik"]
+  "sub_finance": ["Yatırım Danışmanlığı", "Borç Yönetimi", "Kurumsal Finans", "Bireysel Emeklilik"],
+  "expertLoginTitle": "Uzman Girişi",
+  "expertLoginSubtitle": "Profesyonel ağınıza hoş geldiniz. Danışanlarınıza rehberlik etmeye devam edin.",
+  "rememberMe": "Beni Hatırla",
+  "forgotPassword": "Şifremi Unuttum",
+  "btnLogin": "Güvenli Giriş Yap",
+  "expertNoAccount": "Henüz uzman ağımıza katılmadınız mı?",
+  "expertSignUpNow": "Uzman Olarak Başvurun"
 }

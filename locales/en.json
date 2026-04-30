@@ -86,5 +86,12 @@
 
   "sub_therapy": ["Individual Therapy", "Couples Therapy", "EMDR", "CBT", "Adolescent Therapy", "Family Therapy"],
   "sub_mediation": ["Family Mediation", "Commercial Mediation", "Labor Law", "Consumer Disputes"],
-  "sub_finance": ["Investment Consulting", "Debt Management", "Corporate Finance", "Private Pension"]
+  "sub_finance": ["Investment Consulting", "Debt Management", "Corporate Finance", "Private Pension"],
+  "expertLoginTitle": "Expert Login",
+  "expertLoginSubtitle": "Welcome back to your professional network. Continue guiding your clients.",
+  "rememberMe": "Remember Me",
+  "forgotPassword": "Forgot Password?",
+  "btnLogin": "Secure Login",
+  "expertNoAccount": "Haven't joined our expert network yet?",
+  "expertSignUpNow": "Apply as an Expert"
 }
