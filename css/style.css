@@ -324,4 +324,69 @@ a {
   .bento-grid { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; gap: 2rem; }
   .footer-nav { flex-direction: column; gap: 2rem; }
+
+  /* --- VİZYON VE SÜREÇ BÖLÜMLERİ (PREMIUM 2026) --- */
+.section-padding { padding: 6rem 0; }
+
+.vision-card {
+  position: relative; border-radius: 32px; overflow: hidden; 
+  border: 1px solid var(--border-glass); 
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+  min-height: 400px; display: flex; align-items: center; 
+  padding: 5rem 4rem; transition: transform 0.5s ease;
+  background: var(--bg-surface);
+}
+.vision-card:hover { transform: scale(1.01); }
+
+.vision-bg { 
+  position: absolute; inset: 0; 
+  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; 
+  filter: blur(8px) brightness(0.2); z-index: 0; transform: scale(1.05); 
+}
+
+.vision-content { position: relative; z-index: 1; }
+.vision-content h2 { 
+  color: var(--accent-primary); font-size: 1rem; letter-spacing: 2px; 
+  margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 800;
+}
+.vision-content p { 
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; 
+  max-width: 85%; line-height: 1.5; color: #fff;
+}
+
+.process-grid { 
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; 
+}
+.process-card { 
+  background: var(--bg-surface); border-radius: 24px; 
+  border: 1px solid var(--border-glass); overflow: hidden; 
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1); 
+  display: flex; flex-direction: column; 
+}
+.process-card:hover { 
+  transform: translateY(-8px); border-color: rgba(34, 211, 238, 0.3); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+.process-card img { 
+  aspect-ratio: 16/9; object-fit: cover; width: 100%; 
+  border-bottom: 1px solid var(--border-glass); transition: transform 0.5s ease;
+}
+.process-card:hover img { transform: scale(1.05); }
+
+.process-body { 
+  padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; background: var(--bg-surface); position: relative; z-index: 2;
+}
+.process-body h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff; }
+.process-body p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+
+/* Mobil Uyumluluk Güncellemeleri */
+@media (max-width: 1024px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .vision-content p { max-width: 100%; }
+  .vision-card { padding: 4rem 2rem; }
+}
+@media (max-width: 768px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .vision-card { padding: 3rem 1.5rem; min-height: 300px;}
+}
 }
