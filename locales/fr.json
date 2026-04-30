@@ -1,0 +1,27 @@
+{
+  "metaHomeTitle": "Unity Gate | Plateforme HealthTech",
+  "metaHomeDesc": "Plateforme d'analyse clinique et de mise en relation sociale sécurisée.",
+
+  "navUcla": "Test UCLA",
+  "navInsights": "Analyses cliniques",
+  "navAbout": "Mission",
+
+  "btnSignIn": "Connexion",
+  "btnSignUp": "S'inscrire",
+  "btnStart": "Commencer",
+  "btnExpert": "Devenir expert",
+
+  "heroTitle": "Correspondance sociale scientifique contre la solitude",
+  "heroSubtitle": "Analyse clinique + plateforme de connexion sécurisée validée par des experts.",
+
+  "feat1Title": "Analyse scientifique",
+  "feat1Desc": "Évaluation clinique de la solitude et du comportement",
+
+  "feat2Title": "Correspondance experte",
+  "feat2Desc": "Système validé par des experts humains",
+
+  "feat3Title": "Espace social sécurisé",
+  "feat3Desc": "Connexions sociales sécurisées et éthiques",
+
+  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+}

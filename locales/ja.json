@@ -1,0 +1,27 @@
+{
+  "metaHomeTitle": "Unity Gate | ヘルステックプラットフォーム",
+  "metaHomeDesc": "臨床分析と安全なソーシャルマッチングプラットフォーム。",
+
+  "navUcla": "UCLAテスト",
+  "navInsights": "臨床インサイト",
+  "navAbout": "ミッション",
+
+  "btnSignIn": "ログイン",
+  "btnSignUp": "登録",
+  "btnStart": "分析開始",
+  "btnExpert": "専門家登録",
+
+  "heroTitle": "孤独に対抗する科学的ソーシャルマッチング",
+  "heroSubtitle": "臨床分析 + 専門家認証による安全な接続プラットフォーム",
+
+  "feat1Title": "科学的分析",
+  "feat1Desc": "臨床ベースの孤独と行動評価",
+
+  "feat2Title": "専門家マッチング",
+  "feat2Desc": "専門家による安全なマッチングシステム",
+
+  "feat3Title": "安全なソーシャル空間",
+  "feat3Desc": "安全で倫理的な接続環境",
+
+  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+}

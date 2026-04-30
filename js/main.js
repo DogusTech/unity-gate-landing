@@ -1,73 +1,184 @@
-// 📂 js/main.js - 2026 Native Engine
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. İleri Görüşlü i18n Motoru
-    const initI18n = async () => {
-        const urlLang = window.location.pathname.split('/')[1];
-        const lang = ['en', 'tr', 'ja'].includes(urlLang) ? urlLang : 'tr';
+(() => {
+  "use strict";
 
-        try {
-            await i18next
-                .use(i18nextHttpBackend)
-                .init({
-                    lng: lang,
-                    fallbackLng: 'en',
-                    backend: { loadPath: './locales/{{lng}}/translation.json' }
-                });
-            updateDOM();
-            document.documentElement.lang = i18next.language;
-        } catch (err) {
-            console.error("SEO-i18n Hatası:", err);
-        }
-    };
+  const SUPPORTED_LANGS = ["en", "tr", "ja", "fr", "de", "es"];
 
-    function updateDOM() {
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (key.startsWith('[content]')) {
-                el.setAttribute('content', i18next.t(key.replace('[content]', '')));
-            } else {
-                el.innerHTML = i18next.t(key);
-            }
+  const getLang = () => {
+    const path = window.location.pathname.split("/")[1];
+    return SUPPORTED_LANGS.includes(path) ? path : "en";
+  };
+
+  const LANG = getLang();
+
+  // ---------------------------
+  // 1. i18n (SEO SAFE INIT)
+  // ---------------------------
+  const initI18n = async () => {
+    if (!window.i18next) return;
+
+    try {
+      await i18next
+        .use(i18nextHttpBackend)
+        .init({
+          lng: LANG,
+          fallbackLng: "en",
+          backend: {
+            loadPath: "/locales/{{lng}}.json"
+          },
+          initImmediate: false
         });
+
+      document.documentElement.lang = LANG;
+
+      applyTranslations();
+
+    } catch (e) {
+      console.warn("i18n fallback mode active");
     }
+  };
 
-    // 2. Native Scroll Observer (Apple-style)
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Google botları için performansı korumak adına observer'ı durdur
-                fadeObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  const applyTranslations = () => {
+    const nodes = document.querySelectorAll("[data-i18n]");
 
-    document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el));
+    nodes.forEach((el) => {
+      const key = el.getAttribute("data-i18n");
 
-    // 3. Manyetik Buton Etkileşimi (Premium Feel)
-    const buttons = document.querySelectorAll('.btn-primary');
-    buttons.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-        });
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = `translate(0, 0)`;
-        });
+      if (!key) return;
+
+      const value = i18next.t(key);
+
+      // SEO SAFE TEXT UPDATE (NO INNERHTML)
+      if (key.startsWith("[content]")) {
+        el.setAttribute("content", value);
+      } else {
+        el.textContent = value;
+      }
+    });
+  };
+
+  // ---------------------------
+  // 2. PERFORMANCE OBSERVER
+  // ---------------------------
+  const initObservers = () => {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    document.querySelectorAll(".fade-in-up").forEach((el) => {
+      observer.observe(el);
+    });
+  };
+
+  // ---------------------------
+  // 3. MOBILE MENU (LIGHTWEIGHT)
+  // ---------------------------
+  const initMenu = () => {
+    const btn = document.getElementById("mobile-menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", () => {
+      const open = menu.classList.toggle("active");
+
+      btn.setAttribute("aria-expanded", open);
+      menu.setAttribute("aria-hidden", !open);
+
+      document.body.style.overflow = open ? "hidden" : "";
     });
 
-    // 4. Mobil Menü Native UX
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    
-    menuToggle?.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        menu.classList.remove("active");
+        document.body.style.overflow = "";
+      }
     });
+  };
 
-    initI18n();
-});
+  // ---------------------------
+  // 4. EXPERT FORM ENGINE
+  // ---------------------------
+  const initExpertForm = () => {
+    const form = document.getElementById("expert-registration-form");
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const error = document.getElementById("form-error-message");
+      const btn = document.getElementById("btn-submit-expert");
+
+      const data = {
+        name: form.expert_name.value.trim(),
+        email: form.expert_email.value.trim(),
+        password: form.expert_password.value,
+        confirm: form.expert_confirm_password.value,
+        country: form.expert_country.value,
+        main: form.expert_main_category.value,
+        sub: form.selected_subcats.value,
+        terms: form.agree_terms.checked
+      };
+
+      error.classList.add("hidden");
+
+      if (data.password !== data.confirm) {
+        return showError("Passwords do not match");
+      }
+
+      if (data.password.length < 8) {
+        return showError("Password too short");
+      }
+
+      if (!data.sub) {
+        return showError("Select at least one specialization");
+      }
+
+      btn.disabled = true;
+
+      try {
+        sessionStorage.setItem(
+          "expert_state",
+          JSON.stringify({
+            ...data,
+            ts: Date.now()
+          })
+        );
+
+        window.location.href = "/expert/finalize";
+      } catch (e) {
+        showError("Network error");
+        btn.disabled = false;
+      }
+
+      function showError(msg) {
+        error.textContent = i18next?.t(msg) || msg;
+        error.classList.remove("hidden");
+      }
+    });
+  };
+
+  // ---------------------------
+  // 5. BOOTSTRAP (SEO SAFE ORDER)
+  // ---------------------------
+  const bootstrap = async () => {
+    initMenu();
+    initObservers();
+    initExpertForm();
+
+    await initI18n();
+  };
+
+  // deterministic start
+  bootstrap();
+})();
