@@ -1,27 +1,90 @@
 {
-  "metaHomeTitle": "Unity Gate | Plataforma HealthTech",
-  "metaHomeDesc": "Plataforma de análisis clínico y conexión social segura.",
-
-  "navUcla": "Test UCLA",
-  "navInsights": "Insights clínicos",
-  "navAbout": "Misión",
-
-  "btnSignIn": "Iniciar sesión",
+  "metaTitle": "Unity Gate | Plataforma Clínica HealthTech y de Psicología",
+  "metaDescription": "Unity Gate es una plataforma HealthTech que proporciona terapia en línea estándar, emparejamiento de expertos y conexiones seguras.",
+  "metaExpertTitle": "Registro de Expertos | Unity Gate",
+  "metaExpertDesc": "Únase a la plataforma Unity Gate HealthTech como experto con licencia.",
+  
+  "navUcla": "Test de Soledad UCLA",
+  "navInsights": "Insights Clínicos",
+  "navAbout": "Nuestra Misión",
+  
+  "btnSignIn": "Iniciar Sesión",
   "btnSignUp": "Registrarse",
-  "btnStart": "Iniciar análisis",
-  "btnExpert": "Ser experto",
+  "btnSignUpUser": "Registro de Usuario",
+  "btnSignUpExpert": "Solicitud de Experto",
+  "btnStartTest": "Iniciar Análisis Científico",
+  "btnDownload": "Descargar App",
+  "back": "Volver al Inicio",
+  
+  "badgePremium": "Ecosistema HealthTech de Estándar Clínico",
+  "heroTitle": "Emparejamiento Científico y Seguro<br>Contra la Soledad",
+  "heroSubtitle": "Unity Gate es una plataforma de psicología encriptada de grado militar que permite relaciones seguras bajo la supervisión de expertos.",
+  
+  "tagArchitecture": "ARQUITECTURA",
+  "howItWorks": "El ecosistema de salud del futuro",
+  "bento1Title": "Análisis de Causa Raíz",
+  "bento1Desc": "Mapeamos su soledad utilizando datos científicos de UCLA.",
+  "bento2Title": "Expertos Licenciados",
+  "bento2Desc": "Soporte confiable con un equipo profesional global.",
+  "bento3Title": "Seguridad Nativa",
+  "bento3Desc": "Privacidad total con cifrado de grado militar de extremo a extremo.",
+  
+  "visionTitle": "¿QUIÉNES SOMOS? NUESTRA VISIÓN",
+  "visionDesc": "Unity Gate se erige como una fortaleza inquebrantable de confianza y profesionalismo en el emparejamiento digital y la consultoría.",
+  
+  "tagProcess": "PROCESO SEGURO",
+  "processTitle": "Juntos Somos Más Fuertes",
+  "process1Title": "Crea Conexiones Reales",
+  "process1Desc": "Conoce a personas que comparten tu visión en salas de interés.",
+  "process2Title": "Comunicación Segura",
+  "process2Desc": "Socializa en grupos con cifrado militar bajo supervisión de expertos.",
+  "process3Title": "Sanar Con la Comunidad",
+  "process3Desc": "Supera el sentimiento de soledad a través de la conciencia colectiva.",
+  "process4Title": "Aplicación Móvil",
+  "process4Desc": "Unity Gate siempre contigo. Próximamente en la App Store y Google Play.",
+  
+  "expertAuthTitle": "Únase a la Red Clínica",
+  "expertAuthSubtitle": "Unity Gate es un ecosistema HealthTech altamente seguro que acepta exclusivamente a expertos con licencia.",
+  "trustManual": "Todos los expertos se verifican manualmente",
+  "trustVideo": "La entrevista por video es obligatoria",
+  "trustEthical": "Se aplican normas éticas internacionales",
+  
+  "formTitle": "Solicitud de Registro de Experto",
+  "formSubtitle": "Ingrese su información preliminar para unirse a nuestra red.",
+  "sectionPersonal": "INFORMACIÓN PERSONAL Y CORPORATIVA",
+  "fullName": "Nombre Completo y Título",
+  "email": "Correo Electrónico Corporativo",
+  "password": "Contraseña Segura",
+  "passwordHint": "Al menos 8 caracteres, incluyendo una letra mayúscula y un número.",
+  "confirmPassword": "Confirmar Contraseña",
+  "country": "País de Servicio",
+  "selectCountry": "Seleccione un País",
+  "sectionExpertise": "EXPERIENCIA CLÍNICA",
+  "mainCategory": "Categoría Principal",
+  "selectMainCat": "Seleccionar Categoría",
+  "catTherapy": "Terapia Clínica y Psicología",
+  "catMediation": "Mediación Legal",
+  "catFinance": "Consultoría Financiera",
+  "subCategory": "Etiquetas de Subespecialidad",
+  "sectionTerms": "PRIVACIDAD Y PROTOCOLOS",
+  "termsText": "Al unirse a Unity Gate, acepta cumplir plenamente con la ética de asesoramiento psicológico internacional y el RGPD.",
+  "agreeTerms": "He leído y autorizo los términos internacionales y el protocolo de privacidad.",
+  "btnContinue": "Completar Solicitud Segura",
+  
+  "errPasswordMismatch": "¡Las contraseñas no coinciden!",
+  "errPasswordLength": "Su contraseña debe tener al menos 8 caracteres.",
+  "errSubCategory": "Seleccione al menos una subespecialidad.",
+  
+  "footerTagline": "Diseñado para una sociedad más conectada bajo estándares clínicos.",
+  "footerCompany": "Compañía",
+  "footerCareers": "Carreras",
+  "footerInvestors": "Inversores",
+  "footerPlatform": "Plataforma",
+  "footerCopyright": "© 2026 Aeternexus Health Technologies. Todos los derechos reservados.",
+  "footerPrivacy": "Política de Privacidad",
+  "footerTerms": "Términos de Servicio",
 
-  "heroTitle": "Sistema científico de emparejamiento social contra la soledad",
-  "heroSubtitle": "Análisis clínico + plataforma segura validada por expertos.",
-
-  "feat1Title": "Análisis científico",
-  "feat1Desc": "Evaluación clínica de la soledad y comportamiento",
-
-  "feat2Title": "Emparejamiento experto",
-  "feat2Desc": "Sistema validado por expertos humanos",
-
-  "feat3Title": "Espacio social seguro",
-  "feat3Desc": "Conexiones sociales seguras y éticas",
-
-  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+  "sub_therapy": ["Terapia individual", "Terapia de pareja", "EMDR", "TCC", "Terapia para adolescentes", "Terapia familiar"],
+  "sub_mediation": ["Mediación familiar", "Mediación comercial", "Derecho laboral", "Disputas de consumo"],
+  "sub_finance": ["Asesoría de inversiones", "Gestión de deudas", "Finanzas corporativas", "Pensión privada"]
 }

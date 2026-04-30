@@ -1,27 +1,90 @@
 {
-  "metaHomeTitle": "Unity Gate | HealthTech Plattform",
-  "metaHomeDesc": "Klinische Analyse- und sichere soziale Matching-Plattform.",
-
-  "navUcla": "UCLA Test",
+  "metaTitle": "Unity Gate | Klinische HealthTech & Psychologie-Plattform",
+  "metaDescription": "Unity Gate ist eine HealthTech-Plattform, die Online-Therapie nach klinischen Standards, Experten-Matching und sicheres Matchmaking gegen die Einsamkeitskrise bietet.",
+  "metaExpertTitle": "Expertenregistrierung | Unity Gate Klinische Plattform",
+  "metaExpertDesc": "Treten Sie der Unity Gate HealthTech-Plattform als lizenzierter Experte bei.",
+  
+  "navUcla": "UCLA-Einsamkeitstest",
   "navInsights": "Klinische Einblicke",
-  "navAbout": "Mission",
-
+  "navAbout": "Unsere Mission",
+  
   "btnSignIn": "Anmelden",
   "btnSignUp": "Registrieren",
-  "btnStart": "Analyse starten",
-  "btnExpert": "Experte werden",
+  "btnSignUpUser": "Klientenregistrierung",
+  "btnSignUpExpert": "Expertenbewerbung",
+  "btnStartTest": "Wissenschaftliche Analyse starten",
+  "btnDownload": "App herunterladen",
+  "back": "Zurück zur Startseite",
+  
+  "badgePremium": "HealthTech-Ökosystem nach klinischen Standards",
+  "heroTitle": "Wissenschaftliches, sicheres<br>Experten-Matching gegen Einsamkeit",
+  "heroSubtitle": "Unity Gate ist eine militärisch verschlüsselte Psychologie-Plattform, die absichtsorientiertes Matching und sichere Beziehungen unter Aufsicht lizenzierter Experten ermöglicht.",
+  
+  "tagArchitecture": "ARCHITEKTUR",
+  "howItWorks": "Das Gesundheitsökosystem der Zukunft",
+  "bento1Title": "Ursachenanalyse",
+  "bento1Desc": "Wir kartieren Ihre Einsamkeit mit wissenschaftlichen UCLA-Daten.",
+  "bento2Title": "Lizenzierte Experten",
+  "bento2Desc": "Zuverlässige Unterstützung durch ein nach globalen Standards geprüftes Fachpersonal.",
+  "bento3Title": "Native Sicherheit",
+  "bento3Desc": "Vollständige Privatsphäre mit durchgehenden, militärischen Verschlüsselungsprotokollen.",
+  
+  "visionTitle": "WER SIND WIR? UNSERE VISION",
+  "visionDesc": "Unity Gate steht als unerschütterliche Festung des Vertrauens und der Professionalität im digitalen Matching und in der Beratung.",
+  
+  "tagProcess": "SICHERER PROZESS",
+  "processTitle": "Gemeinsam Sind Wir Stärker",
+  "process1Title": "Echte Verbindungen Aufbauen",
+  "process1Desc": "Treffen Sie Menschen mit Ihrer Vision in speziellen Interessenräumen.",
+  "process2Title": "Sichere Kommunikation",
+  "process2Desc": "Vernetzen Sie sich in militärisch verschlüsselten Gruppen unter fachkundiger Aufsicht.",
+  "process3Title": "Heilung Mit Der Gemeinschaft",
+  "process3Desc": "Überwinden Sie das Gefühl der Einsamkeit durch kollektives Bewusstsein.",
+  "process4Title": "Mobile App",
+  "process4Desc": "Unity Gate ist immer bei Ihnen. Bald im App Store und bei Google Play verfügbar.",
+  
+  "expertAuthTitle": "Treten Sie dem klinischen Netzwerk bei",
+  "expertAuthSubtitle": "Unity Gate ist ein hochsicheres HealthTech-Ökosystem, das ausschließlich lizenzierte Experten akzeptiert.",
+  "trustManual": "Alle Experten werden manuell verifiziert",
+  "trustVideo": "Video-Screening ist obligatorisch",
+  "trustEthical": "Es gelten internationale Ethikrichtlinien",
+  
+  "formTitle": "Bewerbung als Experte",
+  "formSubtitle": "Bitte geben Sie Ihre vorläufigen Daten ein, um unserem Netzwerk beizutreten.",
+  "sectionPersonal": "PERSÖNLICHE & UNTERNEHMENSINFORMATIONEN",
+  "fullName": "Vollständiger Name & Titel",
+  "email": "Geschäftliche E-Mail-Adresse",
+  "password": "Sicheres Passwort",
+  "passwordHint": "Mindestens 8 Zeichen, darunter ein Großbuchstabe und eine Zahl.",
+  "confirmPassword": "Passwort bestätigen",
+  "country": "Dienstleistungsland",
+  "selectCountry": "Land auswählen",
+  "sectionExpertise": "KLINISCHE EXPERTISE",
+  "mainCategory": "Hauptkategorie",
+  "selectMainCat": "Kategorie auswählen",
+  "catTherapy": "Klinische Therapie & Psychologie",
+  "catMediation": "Rechtliche Mediation",
+  "catFinance": "Finanzberatung",
+  "subCategory": "Sub-Spezialitäts-Tags (Mehrfachauswahl möglich)",
+  "sectionTerms": "DATENSCHUTZ & PROTOKOLLE",
+  "termsText": "Durch Ihren Beitritt zur Unity Gate-Plattform erklären Sie sich damit einverstanden, die internationale Ethik der psychologischen Beratung vollständig einzuhalten, die DSGVO-Normen zu befolgen und die Privatsphäre der Klienten unter allen Umständen zu wahren.",
+  "agreeTerms": "Ich habe die internationalen Bedingungen und das Datenschutzprotokoll gelesen und stimme zu.",
+  "btnContinue": "Sichere Bewerbung abschließen",
+  
+  "errPasswordMismatch": "Passwörter stimmen nicht überein!",
+  "errPasswordLength": "Ihr Passwort muss mindestens 8 Zeichen lang sein.",
+  "errSubCategory": "Bitte wählen Sie mindestens ein Spezialgebiet aus.",
+  
+  "footerTagline": "Entwickelt für eine sicherere Gesellschaft nach klinischen Standards.",
+  "footerCompany": "Unternehmen",
+  "footerCareers": "Karriere",
+  "footerInvestors": "Investoren",
+  "footerPlatform": "Plattform & Werkzeuge",
+  "footerCopyright": "© 2026 Aeternexus Health Technologies. Alle Rechte vorbehalten.",
+  "footerPrivacy": "Datenschutzerklärung",
+  "footerTerms": "Nutzungsbedingungen",
 
-  "heroTitle": "Wissenschaftliches soziales Matching gegen Einsamkeit",
-  "heroSubtitle": "Klinische Analyse + expertengeprüfte sichere soziale Plattform",
-
-  "feat1Title": "Wissenschaftliche Analyse",
-  "feat1Desc": "Klinische Bewertung von Einsamkeit und Verhalten",
-
-  "feat2Title": "Experten-Matching",
-  "feat2Desc": "Von Experten validiertes sicheres System",
-
-  "feat3Title": "Sicherer sozialer Raum",
-  "feat3Desc": "Kontrollierte und ethische soziale Verbindungen",
-
-  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+  "sub_therapy": ["Einzeltherapie", "Paartherapie", "EMDR", "KVT", "Jugendtherapie", "Familientherapie"],
+  "sub_mediation": ["Familienmediation", "Wirtschaftsmediation", "Arbeitsrecht", "Verbraucherstreitigkeiten"],
+  "sub_finance": ["Anlageberatung", "Schuldenmanagement", "Unternehmensfinanzierung", "Private Altersvorsorge"]
 }

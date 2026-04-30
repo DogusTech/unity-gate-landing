@@ -1,27 +1,90 @@
 {
-  "metaHomeTitle": "Unity Gate | Plateforme HealthTech",
-  "metaHomeDesc": "Plateforme d'analyse clinique et de mise en relation sociale sécurisée.",
-
-  "navUcla": "Test UCLA",
-  "navInsights": "Analyses cliniques",
-  "navAbout": "Mission",
-
-  "btnSignIn": "Connexion",
+  "metaTitle": "Unity Gate | Plateforme Clinique HealthTech & Psychologie",
+  "metaDescription": "Unity Gate est une plateforme HealthTech offrant une thérapie en ligne clinique, une mise en relation d'experts et des rencontres sécurisées.",
+  "metaExpertTitle": "Inscription Expert | Unity Gate",
+  "metaExpertDesc": "Rejoignez la plateforme Unity Gate en tant qu'expert agréé.",
+  
+  "navUcla": "Test de Solitude UCLA",
+  "navInsights": "Analyses Cliniques",
+  "navAbout": "Notre Mission",
+  
+  "btnSignIn": "Se Connecter",
   "btnSignUp": "S'inscrire",
-  "btnStart": "Commencer",
-  "btnExpert": "Devenir expert",
+  "btnSignUpUser": "Inscription Patient",
+  "btnSignUpExpert": "Candidature Expert",
+  "btnStartTest": "Commencer l'Analyse",
+  "btnDownload": "Télécharger l'App",
+  "back": "Retour à l'accueil",
+  
+  "badgePremium": "Écosystème HealthTech de Norme Clinique",
+  "heroTitle": "Mise en relation d'experts<br>sécurisée contre la solitude",
+  "heroSubtitle": "Unity Gate est une plateforme de psychologie cryptée de niveau militaire permettant des relations sécurisées sous la supervision d'experts agréés.",
+  
+  "tagArchitecture": "ARCHITECTURE",
+  "howItWorks": "L'écosystème de santé de demain",
+  "bento1Title": "Analyse des Causes",
+  "bento1Desc": "Nous cartographions votre solitude avec des données scientifiques UCLA.",
+  "bento2Title": "Experts Agréés",
+  "bento2Desc": "Un soutien fiable avec une équipe professionnelle certifiée.",
+  "bento3Title": "Sécurité Native",
+  "bento3Desc": "Confidentialité totale avec cryptage militaire de bout en bout.",
+  
+  "visionTitle": "QUI SOMMES-NOUS ? NOTRE VISION",
+  "visionDesc": "Unity Gate se dresse comme une forteresse inébranlable de confiance dans la mise en relation numérique et le conseil.",
+  
+  "tagProcess": "PROCESSUS SÉCURISÉ",
+  "processTitle": "Ensemble, Nous Sommes Plus Forts",
+  "process1Title": "Tissez de Vrais Liens",
+  "process1Desc": "Rencontrez des personnes qui partagent votre vision dans des salons dédiés.",
+  "process2Title": "Communication Sécurisée",
+  "process2Desc": "Socialisez dans des groupes cryptés sous la supervision d'experts.",
+  "process3Title": "Guérir Avec la Communauté",
+  "process3Desc": "Surmontez le sentiment de solitude grâce à la conscience collective.",
+  "process4Title": "Application Mobile",
+  "process4Desc": "Bientôt disponible sur l'App Store et Google Play.",
+  
+  "expertAuthTitle": "Rejoignez le Réseau Clinique",
+  "expertAuthSubtitle": "Unity Gate accepte exclusivement les experts agréés ayant passé avec succès nos processus de vérification.",
+  "trustManual": "Tous les experts sont vérifiés manuellement",
+  "trustVideo": "L'entretien vidéo est obligatoire",
+  "trustEthical": "Les règles éthiques internationales s'appliquent",
+  
+  "formTitle": "Candidature Expert",
+  "formSubtitle": "Veuillez saisir vos informations pour rejoindre notre réseau sécurisé.",
+  "sectionPersonal": "INFORMATIONS PERSONNELLES",
+  "fullName": "Nom Complet et Titre",
+  "email": "Adresse E-mail Professionnelle",
+  "password": "Mot de passe sécurisé",
+  "passwordHint": "Au moins 8 caractères, dont une majuscule et un chiffre.",
+  "confirmPassword": "Confirmer le mot de passe",
+  "country": "Pays de Service",
+  "selectCountry": "Sélectionner un pays",
+  "sectionExpertise": "EXPERTISE CLINIQUE",
+  "mainCategory": "Catégorie Principale",
+  "selectMainCat": "Sélectionner une catégorie",
+  "catTherapy": "Thérapie Clinique & Psychologie",
+  "catMediation": "Médiation Juridique",
+  "catFinance": "Conseil Financier",
+  "subCategory": "Étiquettes de sous-spécialité",
+  "sectionTerms": "CONFIDENTIALITÉ ET PROTOCOLES",
+  "termsText": "En rejoignant Unity Gate, vous acceptez de vous conformer pleinement à l'éthique internationale du conseil psychologique et au RGPD.",
+  "agreeTerms": "J'ai lu et j'accepte le protocole de confidentialité et les conditions.",
+  "btnContinue": "Terminer la candidature sécurisée",
+  
+  "errPasswordMismatch": "Les mots de passe ne correspondent pas !",
+  "errPasswordLength": "Votre mot de passe doit comporter au moins 8 caractères.",
+  "errSubCategory": "Veuillez sélectionner au moins une sous-spécialité.",
+  
+  "footerTagline": "Conçu pour une société plus sûre et connectée aux normes cliniques.",
+  "footerCompany": "Entreprise",
+  "footerCareers": "Carrières",
+  "footerInvestors": "Investisseurs",
+  "footerPlatform": "Plateforme",
+  "footerCopyright": "© 2026 Aeternexus Health Technologies. Tous droits réservés.",
+  "footerPrivacy": "Politique de confidentialité",
+  "footerTerms": "Conditions d'utilisation",
 
-  "heroTitle": "Correspondance sociale scientifique contre la solitude",
-  "heroSubtitle": "Analyse clinique + plateforme de connexion sécurisée validée par des experts.",
-
-  "feat1Title": "Analyse scientifique",
-  "feat1Desc": "Évaluation clinique de la solitude et du comportement",
-
-  "feat2Title": "Correspondance experte",
-  "feat2Desc": "Système validé par des experts humains",
-
-  "feat3Title": "Espace social sécurisé",
-  "feat3Desc": "Connexions sociales sécurisées et éthiques",
-
-  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+  "sub_therapy": ["Thérapie individuelle", "Thérapie de couple", "EMDR", "TCC", "Thérapie pour adolescents", "Thérapie familiale"],
+  "sub_mediation": ["Médiation familiale", "Médiation commerciale", "Droit du travail", "Litiges de consommation"],
+  "sub_finance": ["Conseil en investissement", "Gestion de la dette", "Finance d'entreprise", "Retraite privée"]
 }

@@ -1,15 +1,17 @@
-<!-- 📂 index.html (GLOBAL EN DEFAULT - SEO OPTIMIZED + PREMIUM UX) -->
+<!-- 📂 /tr/index.html (DİL KLASÖRÜ İÇİN - SEO OPTIMIZED + PREMIUM UX) -->
 <!DOCTYPE html>
-<html lang="en" id="html-tag" class="no-js">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- ================= SEO CORE ================= -->
-  <title data-i18n="metaTitle">Unity Gate | Clinical HealthTech Social Intelligence Platform</title>
-  <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate is a HealthTech platform combining clinical analysis, expert validation and safe social matching to reduce loneliness through science-driven systems.">
+  <title data-i18n="metaHomeTitle">Unity Gate | Sağlıklı Sosyal Eşleşme Platformu</title>
+  <meta name="description" data-i18n="[content]metaHomeDesc" content="Klinik analiz ve güvenli sosyal eşleşme platformu.">
   <meta name="theme-color" content="#020617">
-  <link rel="canonical" href="https://www.unity-gate.com/" />
+  
+  <!-- Canonical tag MUST point to the specific language URL -->
+  <link rel="canonical" href="https://www.unity-gate.com/tr/" />
 
   <!-- ================= ROBOTS ================= -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -18,7 +20,7 @@
   <meta property="og:title" content="Unity Gate | HealthTech Platform">
   <meta property="og:description" content="Scientific loneliness analysis, expert verification and safe social connection ecosystem.">
   <meta property="og:image" content="https://www.unity-gate.com/assets/og-image.jpg">
-  <meta property="og:url" content="https://www.unity-gate.com/">
+  <meta property="og:url" content="https://www.unity-gate.com/tr/">
   <meta property="og:type" content="website">
 
   <!-- ================= TWITTER ================= -->
@@ -33,13 +35,13 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Unity Gate",
-    "url": "https://www.unity-gate.com",
+    "url": "https://www.unity-gate.com/tr/",
     "description": "HealthTech platform for clinical analysis and safe social matching.",
     "publisher": {
       "@type": "Organization",
       "name": "Aeternexus Health Technologies"
     },
-    "inLanguage": "en"
+    "inLanguage": "tr"
   }
   </script>
 
@@ -57,36 +59,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-  <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="css/style.css?v=11.0">
+  <!-- ================= CSS (DİKKAT: Yollar ../ ile ana dizine çıkıyor) ================= -->
+  <link rel="stylesheet" href="../css/style.css?v=13.0">
 
   <!-- ================= I18N ENGINE ================= -->
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
 
-  <!-- ================= JS ================= -->
-  <script src="js/main.js?v=11.0" defer></script>
+  <!-- ================= JS (DİKKAT: Yollar ../ ile ana dizine çıkıyor) ================= -->
+  <script src="../js/main.js?v=13.0" defer></script>
 </head>
 
 <body>
 
 <header class="navbar" id="main-nav">
   <div class="nav-left">
+    <!-- Logoların yolu da ana dizine çıkarılmalı -->
     <a href="/" class="brand" aria-label="Unity Gate Home">
-      <img src="assets/logo.png" alt="Unity Gate" width="32" height="32">
+      <img src="../assets/logo.png" alt="Unity Gate" width="32" height="32">
       <span>Unity Gate</span>
     </a>
 
     <nav class="nav-links hide-mobile" aria-label="Main Navigation">
-      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
-      <a href="/insights.html" data-i18n="navInsights">Insights</a>
-      <a href="/about.html" data-i18n="navAbout">Mission</a>
+      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+      <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+      <a href="/about.html" data-i18n="navAbout">Misyon</a>
     </nav>
   </div>
 
   <div class="nav-right">
-    <a class="btn btn-glass hide-mobile" href="/login.html" data-i18n="btnSignIn">Sign In</a>
-    <a class="btn btn-primary hide-mobile" href="/register.html" data-i18n="btnSignUp">Sign Up</a>
+    <a class="btn btn-glass hide-mobile" href="/login.html" data-i18n="btnSignIn">Giriş</a>
+    <a class="btn btn-primary hide-mobile" href="/register.html" data-i18n="btnSignUp">Kayıt Ol</a>
     <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -97,12 +100,12 @@
 <!-- Mobil Menü -->
 <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <div class="mobile-nav-content">
-    <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
-    <a href="/insights.html" data-i18n="navInsights">Insights</a>
-    <a href="/about.html" data-i18n="navAbout">Mission</a>
+    <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+    <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+    <a href="/about.html" data-i18n="navAbout">Misyon</a>
     <hr class="mobile-divider">
-    <a href="/login.html" data-i18n="btnSignIn">Sign In</a>
-    <a href="/register.html" style="color: var(--primary);" data-i18n="btnSignUp">Sign Up</a>
+    <a href="/login.html" data-i18n="btnSignIn">Giriş</a>
+    <a href="/register.html" style="color: var(--primary);" data-i18n="btnSignUp">Kayıt Ol</a>
   </div>
 </nav>
 
@@ -113,18 +116,18 @@
   <div class="hero-content">
     <div class="badge-premium fade-in-up" data-i18n="badgePremium">HealthTech 2026</div>
     <h1 class="fade-in-up" data-i18n="heroTitle">
-      Scientific Social Matching Against Loneliness
+      Yalnızlığa Karşı Bilimsel Sosyal Eşleşme Sistemi
     </h1>
     <p class="fade-in-up" data-i18n="heroSubtitle" style="animation-delay: 0.1s;">
-      Clinical analysis + expert verified safe social connection system.
+      Klinik analiz + uzman destekli güvenli sosyal bağlantı platformu.
     </p>
 
     <div class="hero-actions fade-in-up" style="animation-delay: 0.2s;">
       <a href="/ucla-test.html" class="btn btn-primary" data-i18n="btnStart">
-        Start Analysis
+        Analize Başla
       </a>
       <a href="/expert-registration.html" class="btn btn-glass" data-i18n="btnExpert">
-        Become Expert
+        Uzman Ol
       </a>
     </div>
   </div>
@@ -155,18 +158,18 @@
 
     <div class="bento-grid">
       <article class="bento-card bento-main fade-in-up">
-        <h3 data-i18n="feat1Title">Scientific Analysis</h3>
-        <p data-i18n="feat1Desc">Clinical-based loneliness and behavioral evaluation system.</p>
+        <h3 data-i18n="feat1Title">Bilimsel Analiz</h3>
+        <p data-i18n="feat1Desc">Klinik temelli yalnızlık ve davranış değerlendirmesi.</p>
       </article>
 
       <article class="bento-card fade-in-up" style="animation-delay: 0.1s;">
-        <h3 data-i18n="feat2Title">Expert Matching</h3>
-        <p data-i18n="feat2Desc">Human-verified professional matching layer.</p>
+        <h3 data-i18n="feat2Title">Uzman Eşleşme</h3>
+        <p data-i18n="feat2Desc">İnsan uzmanlar tarafından doğrulanan güvenli sistem.</p>
       </article>
 
       <article class="bento-card fade-in-up" style="animation-delay: 0.2s;">
-        <h3 data-i18n="feat3Title">Secure Social Layer</h3>
-        <p data-i18n="feat3Desc">Encrypted, controlled and ethically structured interaction system.</p>
+        <h3 data-i18n="feat3Title">Güvenli Sosyal Alan</h3>
+        <p data-i18n="feat3Desc">Şifreli ve etik sosyal bağlantı sistemi.</p>
       </article>
     </div>
   </div>
@@ -246,7 +249,7 @@
     <div class="footer-top">
       <div class="footer-info">
         <div class="brand">
-          <img src="assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+          <img src="../assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
           Unity Gate
         </div>
         <p data-i18n="footerDesc">Clinical standards for a connected and safer society.</p>
@@ -267,10 +270,11 @@
     
     <div class="footer-bottom">
       <div class="copyright" data-i18n="footerCopyright">
-        © 2026 Aeternexus Health Technologies.
+        © 2026 Aeternexus Health Technologies
       </div>
       <div class="footer-legal">
-        <span id="current-language-display" style="margin-right: 1rem; color: var(--text); font-weight: 600;">EN</span>
+        <!-- JS motoru bu dili URL'den çekip otomatik gösterecektir -->
+        <span id="current-language-display" style="margin-right: 1rem; color: var(--text); font-weight: 600;">TR</span>
         <a href="/privacy.html" data-i18n="footerPrivacy">Privacy</a>
         <span style="color: var(--border);">•</span>
         <a href="/terms.html" data-i18n="footerTerms">Terms</a>

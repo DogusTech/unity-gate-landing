@@ -1,27 +1,90 @@
 {
-  "metaHomeTitle": "Unity Gate | Sağlıklı Sosyal Eşleşme Platformu",
-  "metaHomeDesc": "Klinik analiz ve güvenli sosyal eşleşme platformu.",
-
-  "navUcla": "UCLA Testi",
+  "metaTitle": "Unity Gate | Uzman Kayıt, Online Terapi ve Psikoloji Platformu",
+  "metaDescription": "Unity Gate, yalnızlık krizine karşı klinik standartlarda online terapi, uzman eşleşme ve güvenli matchmaking hizmetleri sunan HealthTech platformudur.",
+  "metaExpertTitle": "Uzman Kayıt | Unity Gate Klinik Platformu",
+  "metaExpertDesc": "Unity Gate HealthTech platformuna lisanslı uzman olarak katılın. Güvenli online terapi ve klinik eşleşme ekosisteminde yerinizi alın.",
+  
+  "navUcla": "UCLA Yalnızlık Testi",
   "navInsights": "Klinik İçgörüler",
-  "navAbout": "Misyon",
-
-  "btnSignIn": "Giriş",
+  "navAbout": "Misyonumuz",
+  
+  "btnSignIn": "Sisteme Giriş",
   "btnSignUp": "Kayıt Ol",
-  "btnStart": "Analize Başla",
-  "btnExpert": "Uzman Ol",
+  "btnSignUpUser": "Danışan Kaydı",
+  "btnSignUpExpert": "Uzman Kayıt Başvurusu",
+  "btnStartTest": "Bilimsel Analize Başla",
+  "btnDownload": "Uygulamayı İndir",
+  "back": "Ana Sayfaya Dön",
+  
+  "badgePremium": "Klinik Standartlarda HealthTech Ekosistemi",
+  "heroTitle": "Yalnızlığa Karşı Bilimsel,<br>Güvenli Uzman Eşleşme Sistemi",
+  "heroSubtitle": "Unity Gate, niyet odaklı eşleştirme ve lisanslı uzmanların gözetiminde güvenilir ilişkiler kurmanızı sağlayan, askeri düzeyde şifrelenmiş psikoloji platformudur.",
+  
+  "tagArchitecture": "MİMARİ",
+  "howItWorks": "Geleceğin Sağlık Ekosistemi",
+  "bento1Title": "Kök Neden Analizi",
+  "bento1Desc": "Bilimsel UCLA verileriyle yalnızlık haritanızı çıkarıyoruz. Size en uygun rotayı algoritmamız çizsin.",
+  "bento2Title": "Lisanslı Uzmanlar",
+  "bento2Desc": "Global standartlarda onaylanmış profesyonel kadro ile güvenilir destek.",
+  "bento3Title": "Native Güvenlik",
+  "bento3Desc": "Uçtan uca askeri düzey şifreleme protokolleri ile tam mahremiyet.",
+  
+  "visionTitle": "BİZ KİMİZ? VİZYONUMUZ",
+  "visionDesc": "Birlik Kapısı (Unity Gate), dijital eşleştirme ve profesyonel danışmanlıkta güven ve profesyonelliğin sarsılmaz kalesi olarak duruyor. Vizyonumuz, insan ilişkilerinde ve profesyonel destekte samimiyet ile güvenliği garanti eden kurumsal standartları dünyaya yaymaktır.",
+  
+  "tagProcess": "GÜVENLİ SÜREÇ",
+  "processTitle": "Birlikte Daha Güçlüyüz",
+  "process1Title": "Gerçek Bağlar Kurun",
+  "process1Desc": "İlgi odalarında sizinle aynı vizyona sahip insanlarla tanışın.",
+  "process2Title": "Güvenli İletişim",
+  "process2Desc": "Uzman eşliğinde, askeri düzeyde şifrelenmiş gruplarda sosyalleşin.",
+  "process3Title": "Toplulukla İyileşin",
+  "process3Desc": "Yalnızlık hissini kolektif bilinç ve empati ile yenin.",
+  "process4Title": "Mobil Uygulama",
+  "process4Desc": "Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.",
+  
+  "expertAuthTitle": "Klinik Ağa Katılın",
+  "expertAuthSubtitle": "Unity Gate, yalnızca lisanslı ve doğrulama süreçlerini başarıyla tamamlamış uzmanları kabul eden, yüksek güvenlikli bir HealthTech ekosistemidir.",
+  "trustManual": "Tüm uzmanlar manuel olarak doğrulanır",
+  "trustVideo": "Görüntülü mülakat zorunludur",
+  "trustEthical": "Uluslararası etik kurallar uygulanır",
+  
+  "formTitle": "Uzman Kayıt Başvurusu",
+  "formSubtitle": "Güvenli ağımıza katılmak için ön bilgilerinizi giriniz.",
+  "sectionPersonal": "KİŞİSEL VE KURUMSAL BİLGİLER",
+  "fullName": "Tam Adınız ve Unvanınız",
+  "email": "Kurumsal E-posta Adresi",
+  "password": "Güvenli Şifre",
+  "passwordHint": "En az 8 karakter, büyük harf ve rakam içermelidir.",
+  "confirmPassword": "Şifre Tekrar",
+  "country": "Hizmet Verilen Ülke",
+  "selectCountry": "Ülke Seçiniz",
+  "sectionExpertise": "KLİNİK UZMANLIK ALANI",
+  "mainCategory": "Ana Branş",
+  "selectMainCat": "Branş Seçiniz",
+  "catTherapy": "Klinik Terapi & Psikoloji",
+  "catMediation": "Hukuki Arabuluculuk",
+  "catFinance": "Finansal Danışmanlık",
+  "subCategory": "Alt Uzmanlık Etiketleri (Birden fazla seçilebilir)",
+  "sectionTerms": "GİZLİLİK VE PROTOKOLLER",
+  "termsText": "Unity Gate platformuna bir uzman olarak katıldığınızda; uluslararası psikolojik danışmanlık etik kurallarına tam uyum sağlayacağınızı, danışan görüşmelerinin mahremiyetini hiçbir şart altında ihlal etmeyeceğinizi ve KVKK/GDPR normlarına uygun hareket edeceğinizi peşinen kabul etmiş sayılırsınız. Tüm seanslar uçtan uca şifrelenecek olup, platform kurallarına aykırı davranışlar sistemden kalıcı olarak uzaklaştırılma sebebidir.",
+  "agreeTerms": "Uluslararası uzmanlık şartlarını ve gizlilik protokolünü okudum, tam yetkiyle onaylıyorum.",
+  "btnContinue": "Güvenli Başvuruyu Tamamla",
+  
+  "errPasswordMismatch": "Şifreler eşleşmiyor! Lütfen kontrol edin.",
+  "errPasswordLength": "Şifreniz en az 8 karakterden oluşmalıdır.",
+  "errSubCategory": "Lütfen en az bir alt uzmanlık alanı seçiniz.",
+  
+  "footerTagline": "Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.",
+  "footerCompany": "Kurumsal",
+  "footerCareers": "Kariyer Olanakları",
+  "footerInvestors": "Yatırımcı İlişkileri",
+  "footerPlatform": "Platform & Araçlar",
+  "footerCopyright": "© 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.",
+  "footerPrivacy": "Gizlilik ve Veri Güvenliği Politikası",
+  "footerTerms": "Hizmet Kullanım Şartları",
 
-  "heroTitle": "Yalnızlığa Karşı Bilimsel Sosyal Eşleşme Sistemi",
-  "heroSubtitle": "Klinik analiz + uzman destekli güvenli sosyal bağlantı platformu.",
-
-  "feat1Title": "Bilimsel Analiz",
-  "feat1Desc": "Klinik temelli yalnızlık ve davranış değerlendirmesi.",
-
-  "feat2Title": "Uzman Eşleşme",
-  "feat2Desc": "İnsan uzmanlar tarafından doğrulanan güvenli sistem.",
-
-  "feat3Title": "Güvenli Sosyal Alan",
-  "feat3Desc": "Şifreli ve etik sosyal bağlantı sistemi.",
-
-  "footerCopyright": "© 2026 Aeternexus Health Technologies"
+  "sub_therapy": ["Bireysel Terapi", "Çift Terapisi", "EMDR", "BDT", "Ergen Terapisi", "Aile Terapisi"],
+  "sub_mediation": ["Aile Arabuluculuğu", "Ticari Arabuluculuk", "İş Hukuku", "Tüketici Uyuşmazlıkları"],
+  "sub_finance": ["Yatırım Danışmanlığı", "Borç Yönetimi", "Kurumsal Finans", "Bireysel Emeklilik"]
 }
