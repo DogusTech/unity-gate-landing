@@ -33,14 +33,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=5.0">
+  <!-- 🔥 ÖNEMLİ: Versiyon 6.0 ile Tarayıcı Cache'i kırıldı -->
+  <link rel="stylesheet" href="css/style.css?v=6.0">
   
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-  <script src="js/main.js?v=5.0" defer></script>
+  <script src="js/main.js?v=6.0" defer></script>
 </head>
 <body>
 
+  <!-- ================= HEADER ================= -->
   <header class="navbar" id="main-nav">
     <div class="nav-left">
       <a href="/" class="brand">
@@ -62,7 +64,7 @@
           <a href="/expert-login.html" class="dropdown-item">🎓 Uzman Girişi</a>
         </div>
       </div>
-      <a href="/register.html" class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</a>
+      <a href="/register.html" class="btn btn-primary hide-mobile" data-i18n="btnSignUp">Kayıt Ol</a>
       
       <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
         <div class="bar"></div>
@@ -71,6 +73,7 @@
     </div>
   </header>
 
+  <!-- ================= MOBİL MENÜ ================= -->
   <nav class="mobile-menu" id="mobile-menu">
     <div class="mobile-nav-content">
       <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
@@ -78,16 +81,18 @@
       <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
       <hr class="mobile-divider">
       <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
+      <a href="/register.html" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
     </div>
   </nav>
 
   <main>
+    <!-- ================= HERO BÖLÜMÜ ================= -->
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content-wrapper">
         <div class="badge-premium fade-in-up">HealthTech 2026</div>
         <h1 class="hero-title fade-in-up" data-i18n="heroTitle">Bilimsel Verilerle<br>Kendinizi Keşfedin</h1>
-        <p class="hero-subtitle fade-in-up" data-i18n="heroSubtitle">Yalnızlık krizine bilimsel bir yanıt. AI destekli algoritmalarla en uygun uzmanla eşleşin.</p>
+        <p class="hero-subtitle fade-in-up" data-i18n="heroSubtitle">Yalnızlık krizine bilimsel bir yanıt. AI destekli algoritmalarla en uygun uzmanla eşleşin ve iyileşme rotanızı çizin.</p>
         <div class="hero-actions fade-in-up">
           <a href="/ucla-test.html" class="btn btn-primary btn-lg" data-i18n="btnStartTest">Testi Başlat</a>
         </div>
@@ -108,32 +113,37 @@
       </div>
     </section>
 
-    <section class="bento-section">
+    <!-- ================= MİMARİ BÖLÜMÜ ================= -->
+    <section class="bento-section section-padding">
       <div class="container">
-        <div class="section-tag">MİMARİ</div>
-        <h2 class="section-title" data-i18n="howItWorks">Geleceğin Sağlık Ekosistemi</h2>
+        <div class="section-header fade-in-up">
+          <div class="section-tag">MİMARİ</div>
+          <h2 class="section-title" data-i18n="howItWorks">Geleceğin Sağlık Ekosistemi</h2>
+        </div>
         <div class="bento-grid">
           <article class="bento-card bento-main fade-in-up">
             <div class="card-content">
               <h3 data-i18n="bento1Title">Kök Neden Analizi</h3>
-              <p data-i18n="bento1Desc">Bilimsel UCLA verileriyle yalnızlık haritanızı çıkarıyoruz.</p>
+              <p data-i18n="bento1Desc">Bilimsel UCLA verileriyle yalnızlık haritanızı çıkarıyoruz. Size en uygun rotayı algoritmamız çizsin.</p>
             </div>
-            <div class="card-visual"></div>
           </article>
           <article class="bento-card fade-in-up" style="animation-delay: 0.1s;">
-            <h3 data-i18n="bento2Title">Lisanslı Uzmanlar</h3>
-            <p data-i18n="bento2Desc">Global standartlarda onaylanmış profesyonel kadro.</p>
+            <div class="card-content">
+              <h3 data-i18n="bento2Title">Lisanslı Uzmanlar</h3>
+              <p data-i18n="bento2Desc">Global standartlarda onaylanmış profesyonel kadro ile güvenilir destek.</p>
+            </div>
           </article>
           <article class="bento-card fade-in-up" style="animation-delay: 0.2s;">
-            <h3 data-i18n="bento3Title">Native Güvenlik</h3>
-            <p data-i18n="bento3Desc">Uçtan uca askeri düzey şifreleme protokolleri.</p>
+            <div class="card-content">
+              <h3 data-i18n="bento3Title">Native Güvenlik</h3>
+              <p data-i18n="bento3Desc">Uçtan uca askeri düzey şifreleme protokolleri ile tam mahremiyet.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
-    <!-- ==========================================
-         VİZYON BÖLÜMÜ (NEFES ALAN BENTO KUTUSU)
-         ========================================== -->
+
+    <!-- ================= VİZYON BÖLÜMÜ (NEFES ALAN BENTO) ================= -->
     <section class="section-padding">
       <div class="container">
         <div class="vision-bento-box fade-in-up">
@@ -146,18 +156,14 @@
       </div>
     </section>
 
-    <!-- ==========================================
-         SÜREÇ BÖLÜMÜ (FERAH 4'LÜ IZGARA)
-         ========================================== -->
-    <section class="section-padding">
+    <!-- ================= SÜREÇ BÖLÜMÜ (FERAH 4'LÜ IZGARA) ================= -->
+    <section class="section-padding" style="padding-bottom: 8rem;">
       <div class="container">
         <div class="section-header fade-in-up">
           <h2 class="section-title" data-i18n="processTitle">Birlikte Daha Güçlüyüz</h2>
         </div>
         
-        <!-- Ferah ve geniş aralıklı grid yapısı -->
         <div class="process-bento-grid">
-          
           <article class="process-box fade-in-up" style="animation-delay: 0.1s;">
             <div class="box-image-wrapper">
               <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop" alt="Gerçek Bağlar" loading="lazy">
@@ -194,14 +200,57 @@
             </div>
             <div class="box-content">
               <h3 data-i18n="process4Title">Mobil Uygulama</h3>
-              <p data-i18n="process4Desc">Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.</p>
-              <!-- Alt kısma hizalanmış buton -->
-              <div class="box-action">
+              <p data-i18n="process4Desc" style="margin-bottom: 2rem;">Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.</p>
+              <div class="box-action" style="margin-top: auto;">
                 <button class="btn btn-primary" style="width: 100%;" onclick="alert('Mobil uygulamamız çok yakında yayında!')" data-i18n="btnDownload">Uygulamayı İndir</button>
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
+  </main>
+
+  <!-- ================= FOOTER BÖLÜMÜ ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <div class="brand">
+            <img src="assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+            Unity Gate
+          </div>
+          <p>Daha bağlı ve sağlıklı bir dünya için.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <h4 data-i18n="footerCompany">Şirket</h4>
+            <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+            <a href="/careers.html" data-i18n="footerCareers">Kariyer</a>
+            <a href="/investors.html" data-i18n="footerInvestors">Yatırımcılar</a>
+          </div>
+          <div class="footer-group">
+            <h4>Platform</h4>
+            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
+            <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-i18n="footerCopyright">
+          © 2026 Aeternexus A.Ş. Tüm hakları saklıdır.
+        </div>
+        <div class="footer-legal">
+          <span id="current-language-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">Global</span>
+          <a href="/privacy.html" data-i18n="footerPrivacy">Gizlilik Politikası</a>
+          <span class="dot-separator">•</span>
+          <a href="/terms.html" data-i18n="footerTerms">Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
