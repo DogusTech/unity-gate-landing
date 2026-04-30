@@ -325,68 +325,153 @@ a {
   .footer-top { flex-direction: column; gap: 2rem; }
   .footer-nav { flex-direction: column; gap: 2rem; }
 
-  /* --- VİZYON VE SÜREÇ BÖLÜMLERİ (PREMIUM 2026) --- */
-.section-padding { padding: 6rem 0; }
+  /* ===================================================
+   VİZYON & SÜREÇ KUTUCUKLARI (2026 SPATIAL BENTO UI)
+   =================================================== */
 
-.vision-card {
-  position: relative; border-radius: 32px; overflow: hidden; 
-  border: 1px solid var(--border-glass); 
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-  min-height: 400px; display: flex; align-items: center; 
-  padding: 5rem 4rem; transition: transform 0.5s ease;
+/* Seksiyonlar arası geniş boşluklar (Nefes alma payı) */
+.section-padding {
+  padding: 6rem 0;
+}
+
+/* --- VİZYON KUTUSU --- */
+.vision-bento-box {
+  position: relative;
+  border-radius: 32px; /* Keskin ama premium oval köşeler */
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.vision-bento-box:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(34, 211, 238, 0.1);
+}
+
+.vision-bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover;
+  filter: blur(10px) brightness(0.25);
+  transform: scale(1.05); /* Blur kenar taşmalarını önler */
+  z-index: 0;
+  transition: transform 1.5s ease;
+}
+
+.vision-bento-box:hover .vision-bg-image {
+  transform: scale(1.1); /* Hover durumunda çok hafif yavaş zoom */
+}
+
+/* İçeriği saran ve nefes aldıran cam panel */
+.vision-glass-panel {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 5rem; /* Devasa iç boşluklar = Premium his */
+  max-width: 900px;
+}
+
+.vision-tag {
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.vision-text {
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* --- 4'LÜ SÜREÇ KUTULARI (GRID) --- */
+.process-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; /* Kutular arası geniş boşluk (Nefes Alma payı) */
+}
+
+.process-box {
+  background: var(--bg-surface);
+  border-radius: 32px;
+  border: 1px solid var(--border-glass);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+}
+
+.process-box:hover {
+  transform: translateY(-12px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(34, 211, 238, 0.15);
+}
+
+.box-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.box-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.process-box:hover .box-image-wrapper img {
+  transform: scale(1.08);
+}
+
+.box-content {
+  padding: 2rem 1.5rem; /* Metinlere bolca nefes alanı */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   background: var(--bg-surface);
 }
-.vision-card:hover { transform: scale(1.01); }
 
-.vision-bg { 
-  position: absolute; inset: 0; 
-  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop') center/cover; 
-  filter: blur(8px) brightness(0.2); z-index: 0; transform: scale(1.05); 
-}
-
-.vision-content { position: relative; z-index: 1; }
-.vision-content h2 { 
-  color: var(--accent-primary); font-size: 1rem; letter-spacing: 2px; 
-  margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 800;
-}
-.vision-content p { 
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; 
-  max-width: 85%; line-height: 1.5; color: #fff;
+.box-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
-.process-grid { 
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; 
+.box-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
-.process-card { 
-  background: var(--bg-surface); border-radius: 24px; 
-  border: 1px solid var(--border-glass); overflow: hidden; 
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1); 
-  display: flex; flex-direction: column; 
-}
-.process-card:hover { 
-  transform: translateY(-8px); border-color: rgba(34, 211, 238, 0.3); 
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-.process-card img { 
-  aspect-ratio: 16/9; object-fit: cover; width: 100%; 
-  border-bottom: 1px solid var(--border-glass); transition: transform 0.5s ease;
-}
-.process-card:hover img { transform: scale(1.05); }
 
-.process-body { 
-  padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; background: var(--bg-surface); position: relative; z-index: 2;
+.box-action {
+  margin-top: 2rem;
 }
-.process-body h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff; }
-.process-body p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
 
-/* Mobil Uyumluluk Güncellemeleri */
-@media (max-width: 1024px) {
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
-  .vision-content p { max-width: 100%; }
-  .vision-card { padding: 4rem 2rem; }
+/* --- RESPONSIVE AYARLAR --- */
+@media (max-width: 1200px) {
+  .process-bento-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .vision-glass-panel { padding: 3rem; }
 }
+
 @media (max-width: 768px) {
-  .process-grid { grid-template-columns: 1fr; }
-  .vision-card { padding: 3rem 1.5rem; min-height: 300px;}
+  .process-bento-grid { grid-template-columns: 1fr; }
+  .vision-bento-box { border-radius: 24px; min-height: auto; }
+  .vision-glass-panel { padding: 2.5rem 1.5rem; }
+  .vision-text { font-size: 1.15rem; }
+  .section-padding { padding: 4rem 0; }
 }
 }
