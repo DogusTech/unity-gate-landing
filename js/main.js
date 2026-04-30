@@ -176,8 +176,9 @@
     initObservers();
     initExpertForm();
 
-    // Expert Login Flow Handler
+    // 5. Expert Login Form to Flutter App Routing
     const expertLoginForm = document.getElementById('expert-login-form');
+    
     if (expertLoginForm) {
         expertLoginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -187,38 +188,44 @@
             const btnText = btnSubmit.querySelector('.btn-text');
             const spinner = btnSubmit.querySelector('.spinner');
             
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
+            const email = document.getElementById('expert_login_email').value.trim();
+            const rawPassword = document.getElementById('expert_login_password').value;
             const rememberMe = document.getElementById('remember_me').checked;
 
             errorMsg.classList.add('hidden');
 
-            if (!email || !password) {
-                errorMsg.textContent = i18next.t('errEmptyFields') || 'Lütfen e-posta ve şifrenizi giriniz.';
+            if (!email || !rawPassword) {
+                errorMsg.textContent = typeof i18next !== 'undefined' && i18next.t('errEmptyFields') 
+                    ? i18next.t('errEmptyFields') 
+                    : 'Lütfen e-posta ve şifrenizi giriniz.';
                 errorMsg.classList.remove('hidden');
                 return;
             }
 
+            // UX Loading Effect
             btnText.classList.add('hidden');
             spinner.classList.remove('hidden');
             btnSubmit.disabled = true;
 
             try {
-                // Güvenlik simülasyonu
-                await new Promise(resolve => setTimeout(resolve, 800));
+                // Kısa bir bekleme (Animasyonun görünmesi için)
+                await new Promise(resolve => setTimeout(resolve, 600));
 
-                // Mimari Kural: Hassas veriler URL'de taşınmaz, session'a atılır.
-                sessionStorage.setItem('unity_expert_auth_state', JSON.stringify({
+                // SENİN İSTEDİĞİN GİBİ: Şifreyi maskele (Base64) ve URL'ye ekle
+                const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
+
+                const params = new URLSearchParams({
                     email: email,
-                    remember: rememberMe,
-                    timestamp: Date.now()
-                }));
+                    token: maskedPassword,
+                    remember: rememberMe
+                });
 
-                // Panelin asıl rotasına yönlendir (Sistem mimarine göre uyarla)
-                window.location.href = `https://app.unity-gate.com/expert-dashboard`;
+                // FLUTTER UYGULAMANA YÖNLENDİR (Senin eski kodunla birebir aynı mantık)
+                const targetUrl = `https://app.unity-gate.com/expert-login/auth?${params.toString()}`;
+                window.location.href = targetUrl;
                 
             } catch (err) {
-                errorMsg.textContent = "Bağlantı hatası. Lütfen tekrar deneyin.";
+                errorMsg.textContent = "Bir hata oluştu. Lütfen tekrar deneyin.";
                 errorMsg.classList.remove('hidden');
                 btnText.classList.remove('hidden');
                 spinner.classList.add('hidden');
@@ -226,7 +233,7 @@
             }
         });
     }
-
+    
     await initI18n();
   };
 
