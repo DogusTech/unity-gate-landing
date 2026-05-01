@@ -224,17 +224,20 @@
   </footer>
 
   <!-- ================= PREMIUM MODALLAR ================= -->
-  <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+  
+  <!-- GİRİŞ MODALI -->
+  <div class="modal-overlay" id="signInModal" role="dialog" aria-modal="true" aria-labelledby="signInTitle" onclick="window.uiState.closeModal('signInModal')">
     <div class="premium-modal" onclick="event.stopPropagation();">
-      <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <button class="modal-close" aria-label="Pencereyi Kapat" onclick="window.uiState.closeModal('signInModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
       <div class="modal-header">
-        <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
+        <h3 id="signInTitle" data-i18n="btnSignIn">Sisteme Giriş</h3>
+        <p>Lütfen güvenli giriş yapmak için hesap türünüzü seçin.</p>
       </div>
       <div class="modal-options">
-        <a href="/tr/login.html" class="modal-option-btn">
-          <div class="modal-option-icon">
+        <a href="/tr/login.html" class="modal-option-btn" aria-label="Danışan Girişi Ekranına Git">
+          <div class="modal-option-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </div>
           <div class="modal-option-text">
@@ -242,12 +245,12 @@
             <span>Kişisel iyileşme yolculuğunuza erişin.</span>
           </div>
         </a>
-        <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
-          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+        <a href="/tr/expert-login.html" class="modal-option-btn expert-btn" aria-label="Uzman Girişi Ekranına Git">
+          <div class="modal-option-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <div class="modal-option-text">
-            <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+            <strong>Uzman Girişi</strong>
             <span>Klinik kontrol paneline erişin.</span>
           </div>
         </a>
@@ -255,17 +258,19 @@
     </div>
   </div>
 
-  <div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+  <!-- KAYIT MODALI -->
+  <div class="modal-overlay" id="signUpModal" role="dialog" aria-modal="true" aria-labelledby="signUpTitle" onclick="window.uiState.closeModal('signUpModal')">
     <div class="premium-modal" onclick="event.stopPropagation();">
-      <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <button class="modal-close" aria-label="Pencereyi Kapat" onclick="window.uiState.closeModal('signUpModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
       <div class="modal-header">
-        <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
+        <h3 id="signUpTitle" data-i18n="btnSignUp">Kayıt Ol</h3>
+        <p>Güvenli ağımıza katılın. Kayıt türünüzü seçin.</p>
       </div>
       <div class="modal-options">
-        <a href="/tr/register.html" class="modal-option-btn">
-          <div class="modal-option-icon">
+        <a href="/tr/register.html" class="modal-option-btn" aria-label="Danışan Olarak Kayıt Ol">
+          <div class="modal-option-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
           </div>
           <div class="modal-option-text">
@@ -273,12 +278,12 @@
             <span>İyileşme yolculuğunuza başlayın.</span>
           </div>
         </a>
-        <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
-          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+        <a href="/tr/expert-registration.html" class="modal-option-btn expert-btn" aria-label="Uzman Olarak Kayıt Ol">
+          <div class="modal-option-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
           </div>
           <div class="modal-option-text">
-            <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+            <strong data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
             <span>Lisanslı profesyonel olarak katılın.</span>
           </div>
         </a>
