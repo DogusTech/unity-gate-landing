@@ -100,6 +100,13 @@
   "insightsSubtitle": "A library of deep analyses on mental health, modern loneliness crises, and scientific recovery.",
   "articlesSection": "Latest Publications",
   "minRead": "min read",
+  "metaTitleLogin": "User Login | Unity Gate",
+  "metaDescLogin": "Log in to Unity Gate to continue your healing journey.",
+  "loginTitle": "User Login",
+  "loginSubtitle": "Welcome to your secure space. Continue your healing journey from where you left off.",
+  "noAccount": "Not yet part of Unity Gate?",
+  "signUpNow": "Sign Up Now",
+  "loggingIn": "Logging in...",
   "articles": [
     {
       "slug": "anatomy-of-loneliness",

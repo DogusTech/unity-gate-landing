@@ -1,33 +1,16 @@
-<!-- 📂 /login.html (GLOBAL KÖK DİZİN - SEO OPTIMIZED + PREMIUM UX + AUTO REDIRECT) -->
+<!-- 📂 /tr/login.html (TÜRKÇE DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
 <!DOCTYPE html>
-<html lang="en" id="html-tag" class="no-js">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
-    <script>
-      (function() {
-          const userLang = navigator.language || navigator.userLanguage; 
-          const langCode = userLang.split('-')[0];
-          const currentPath = window.location.pathname;
-          const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
-
-          const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
-
-          if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
-              const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
-              window.location.replace("/" + langCode + targetPage);
-          }
-      })();
-    </script>
-
-    <title data-i18n="metaTitleLogin">User Login | Unity Gate</title>
-    <meta name="description" data-i18n="[content]metaDescLogin" content="Log in to Unity Gate to continue your healing journey.">
+    <title data-i18n="metaTitleLogin">Kullanıcı Girişi | Unity Gate</title>
+    <meta name="description" data-i18n="[content]metaDescLogin" content="Unity Gate'e giriş yaparak iyileşme yolculuğunuza kaldığınız yerden devam edin.">
     <meta name="theme-color" content="#020617">
     
     <!-- SEO & Hreflang -->
-    <link rel="canonical" href="https://www.unity-gate.com/login.html" />
+    <link rel="canonical" href="https://www.unity-gate.com/tr/login.html" />
     <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/login.html" />
     <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/login.html" />
     <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/login.html" />
@@ -40,13 +23,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- CSS & JS Yolları Kök Dizinden Çekiliyor -->
     <link rel="stylesheet" href="/css/style.css?v=19.0">
-    
     <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
     <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
     <script src="/js/main.js?v=19.0" defer></script>
 
-    <!-- Giriş Sayfasına Özel Premium Native Tasarım -->
     <style>
         .login-main {
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
@@ -139,21 +121,21 @@
     <!-- ================= ANA NAVBAR ================= -->
     <header class="navbar" id="main-nav">
         <div class="nav-left">
-            <a href="/" class="brand">
+            <a href="/tr/" class="brand">
                 <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
                 <span class="brand-text">Unity Gate</span>
             </a>
             <nav class="nav-links hide-mobile">
-                <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
-                <a href="/insights.html" data-i18n="navInsights">Insights</a>
-                <a href="/about.html" data-i18n="navAbout">Our Mission</a>
+                <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+                <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+                <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
             </nav>
         </div>
         
         <div class="nav-right">
-            <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Sign In</button>
-            <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Sign Up</button>
-            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
+            <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Giriş Yap</button>
+            <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Kayıt Ol</button>
+            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
                 <div class="bar"></div>
                 <div class="bar"></div>
             </button>
@@ -163,12 +145,12 @@
     <!-- ================= MOBİL MENÜ ================= -->
     <nav class="mobile-menu" id="mobile-menu">
         <div class="mobile-nav-content">
-            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
-            <a href="/insights.html" data-i18n="navInsights">Insights</a>
-            <a href="/about.html" data-i18n="navAbout">Our Mission</a>
+            <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+            <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
             <hr class="mobile-divider">
-            <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Sign In</a>
-            <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Sign Up</a>
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Giriş Yap</a>
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
         </div>
     </nav>
 
@@ -177,41 +159,41 @@
         <div class="ambient-glow glow-1"></div>
         <div class="ambient-glow glow-2"></div>
 
-        <a href="/" class="back-action">
+        <a href="/tr/" class="back-action">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            <span data-i18n="back">Back</span>
+            <span data-i18n="back">Geri</span>
         </a>
 
         <div class="auth-card">
             <div class="auth-header">
-                <h1 data-i18n="loginTitle">User Login</h1>
-                <p data-i18n="loginSubtitle">Welcome to your secure space. Continue your healing journey.</p>
+                <h1 data-i18n="loginTitle">Kullanıcı Girişi</h1>
+                <p data-i18n="loginSubtitle">Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza kaldığınız yerden devam edin.</p>
             </div>
 
             <form id="login-form" onsubmit="handleUserLogin(event)">
                 <div class="input-group">
-                    <label for="email" data-i18n="email">Email Address</label>
-                    <input type="email" id="email" class="native-input" required autocomplete="email" placeholder="example@mail.com">
+                    <label for="email" data-i18n="email">E-posta Adresi</label>
+                    <input type="email" id="email" class="native-input" required autocomplete="email" placeholder="ornek@mail.com">
                 </div>
 
                 <div class="input-group">
-                    <label for="password" data-i18n="password">Password</label>
+                    <label for="password" data-i18n="password">Şifre</label>
                     <input type="password" id="password" class="native-input" required autocomplete="current-password" placeholder="••••••••">
                 </div>
 
                 <div class="auth-helpers">
                     <label class="remember-wrapper">
                         <input type="checkbox" id="remember_me">
-                        <span data-i18n="rememberMe">Remember Me</span>
+                        <span data-i18n="rememberMe">Beni Hatırla</span>
                     </label>
-                    <a href="https://app.unity-gate.com/forgot-password" class="forgot-link" data-i18n="forgotPassword">Forgot Password?</a>
+                    <a href="https://app.unity-gate.com/forgot-password" class="forgot-link" data-i18n="forgotPassword">Şifremi Unuttum</a>
                 </div>
 
-                <button type="submit" class="btn-submit-full" data-i18n="btnLogin">Sign In</button>
+                <button type="submit" class="btn-submit-full" data-i18n="btnLogin">Giriş Yap</button>
 
                 <div class="auth-footer">
-                    <span data-i18n="noAccount">Not yet part of Unity Gate?</span>
-                    <a href="/register.html" data-i18n="signUpNow">Sign Up Now</a>
+                    <span data-i18n="noAccount">Henüz Birlik Kapısı'nda değil misiniz?</span>
+                    <a href="/tr/register.html" data-i18n="signUpNow">Hemen Kayıt Olun</a>
                 </div>
             </form>
         </div>
@@ -224,25 +206,25 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         <div class="modal-header">
-          <h3 data-i18n="btnSignIn">Sign In</h3>
+          <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
         </div>
         <div class="modal-options">
-          <a href="/login.html" class="modal-option-btn">
+          <a href="/tr/login.html" class="modal-option-btn">
             <div class="modal-option-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </div>
             <div class="modal-option-text">
-              <strong>User Login</strong>
-              <span>Access your personal journey.</span>
+              <strong>Danışan Girişi</strong>
+              <span>Kişisel iyileşme yolculuğunuza erişin.</span>
             </div>
           </a>
-          <a href="/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
             <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
             <div class="modal-option-text">
-              <strong style="color: var(--accent-primary);">Expert Login</strong>
-              <span>Access your clinical dashboard.</span>
+              <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+              <span>Klinik kontrol paneline erişin.</span>
             </div>
           </a>
         </div>
@@ -255,39 +237,38 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
         <div class="modal-header">
-          <h3 data-i18n="btnSignUp">Sign Up</h3>
+          <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
         </div>
         <div class="modal-options">
-          <a href="/register.html" class="modal-option-btn">
+          <a href="/tr/register.html" class="modal-option-btn">
             <div class="modal-option-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
             </div>
             <div class="modal-option-text">
-              <strong data-i18n="btnSignUpUser">User Registration</strong>
-              <span>Start your healing journey.</span>
+              <strong data-i18n="btnSignUpUser">Danışan Kaydı</strong>
+              <span>İyileşme yolculuğunuza başlayın.</span>
             </div>
           </a>
-          <a href="/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
             <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
             <div class="modal-option-text">
-              <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Expert Application</strong>
-              <span>Join as a licensed professional.</span>
+              <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+              <span>Lisanslı profesyonel olarak katılın.</span>
             </div>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Giriş İşlemi Yönlendirme Algoritması -->
+    <!-- Giriş İşlemi -->
     <script>
         function handleUserLogin(e) {
             e.preventDefault();
             
             const submitBtn = e.target.querySelector('.btn-submit-full');
-            // Buton metnini i18n'den çek, yoksa varsayılanı kullan
-            const loggingInText = i18next.t('loggingIn') || 'Logging in...';
+            const loggingInText = i18next.t('loggingIn') || 'Giriş yapılıyor...';
             submitBtn.innerHTML = `<span style="opacity:0.7">${loggingInText}</span>`;
             submitBtn.style.transform = 'scale(0.98)';
             

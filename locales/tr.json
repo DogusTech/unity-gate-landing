@@ -83,6 +83,13 @@
   "footerCopyright": "© 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.",
   "footerPrivacy": "Gizlilik ve Veri Güvenliği Politikası",
   "footerTerms": "Hizmet Kullanım Şartları",
+  "metaTitleLogin": "Kullanıcı Girişi | Unity Gate",
+  "metaDescLogin": "Unity Gate'e giriş yaparak iyileşme yolculuğunuza kaldığınız yerden devam edin.",
+  "loginTitle": "Kullanıcı Girişi",
+  "loginSubtitle": "Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza kaldığınız yerden devam edin.",
+  "noAccount": "Henüz Birlik Kapısı'nda değil misiniz?",
+  "signUpNow": "Hemen Kayıt Olun",
+  "loggingIn": "Giriş yapılıyor...",
 
   "sub_therapy": ["Bireysel Terapi", "Çift Terapisi", "EMDR", "BDT", "Ergen Terapisi", "Aile Terapisi"],
   "sub_mediation": ["Aile Arabuluculuğu", "Ticari Arabuluculuk", "İş Hukuku", "Tüketici Uyuşmazlıkları"],

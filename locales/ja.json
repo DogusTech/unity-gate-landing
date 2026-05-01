@@ -89,6 +89,13 @@
   "btnLogin": "安全なログイン",
   "expertNoAccount": "まだ専門家ネットワークに参加していませんか？",
   "expertSignUpNow": "専門家として応募する",
+  "metaTitleLogin": "ユーザーログイン | Unity Gate",
+  "metaDescLogin": "Unity Gateにログインして、癒しの旅を続けましょう。",
+  "loginTitle": "ユーザーログイン",
+  "loginSubtitle": "安全なスペースへようこそ。中断したところから癒しの旅を再開してください。",
+  "noAccount": "まだUnity Gateのメンバーではありませんか？",
+  "signUpNow": "今すぐ登録",
+  "loggingIn": "ログイン中...",
 
   "sub_therapy": ["個人療法", "カップルセラピー", "EMDR", "認知行動療法 (CBT)", "思春期セラピー", "家族療法"],
   "sub_mediation": ["家族調停", "商業調停", "労働法", "消費者紛争"],

@@ -1,38 +1,21 @@
-<!-- 📂 /ucla-test.html (GLOBAL KÖK DİZİN - SEO OPTIMIZED + PREMIUM UX + AUTO REDIRECT) -->
+<!-- 📂 /tr/ucla-test.html (TÜRKÇE DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
 <!DOCTYPE html>
-<html lang="en" id="html-tag" class="no-js">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
-  <script>
-    (function() {
-        const userLang = navigator.language || navigator.userLanguage; 
-        const langCode = userLang.split('-')[0];
-        const currentPath = window.location.pathname;
-        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
-        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
-
-        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
-            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
-            window.location.replace("/" + langCode + targetPage);
-        }
-    })();
-  </script>
-
-  <title data-i18n="metaTitleUcla">UCLA Loneliness Scale | Unity Gate</title>
-  <meta name="description" data-i18n="[content]metaDescUcla" content="Measure your loneliness level with the clinically proven UCLA scale. Your healing journey begins with awareness.">
+  <title data-i18n="metaTitleUcla">UCLA Yalnızlık Testi | Unity Gate</title>
+  <meta name="description" data-i18n="[content]metaDescUcla" content="Klinik olarak kanıtlanmış UCLA testi ile yalnızlık seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.">
   <meta name="theme-color" content="#020617">
   
-  <!-- SEO: Yapılandırılmış Veri -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
-      "name": "UCLA Loneliness Scale | Unity Gate",
-      "url": "https://www.unity-gate.com/ucla-test.html",
-      "description": "Measure your social and emotional isolation level with the clinically proven UCLA scale.",
+      "name": "UCLA Yalnızlık Testi | Unity Gate",
+      "url": "https://www.unity-gate.com/tr/ucla-test.html",
+      "description": "Klinik olarak kanıtlanmış UCLA testi ile sosyal ve duygusal izolasyon seviyenizi ölçün.",
       "publisher": {
         "@type": "Organization",
         "name": "Aeternexus Health Technologies",
@@ -42,7 +25,7 @@
   </script>
 
   <!-- SEO Hreflang Etiketleri -->
-  <link rel="canonical" href="https://www.unity-gate.com/ucla-test.html" />
+  <link rel="canonical" href="https://www.unity-gate.com/tr/ucla-test.html" />
   <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/ucla-test.html" />
   <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/ucla-test.html" />
   <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/ucla-test.html" />
@@ -53,7 +36,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css?v=19.0">
 
@@ -66,21 +49,21 @@
   <!-- ================= HEADER ================= -->
   <header class="navbar" id="main-nav">
     <div class="nav-left">
-      <a href="/" class="brand">
+      <a href="/tr/" class="brand">
         <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
         <span class="brand-text">Unity Gate</span>
       </a>
       <nav class="nav-links hide-mobile">
-        <a href="/ucla-test.html" style="color: #fff;" data-i18n="navUcla">UCLA Test</a>
-        <a href="/insights.html" data-i18n="navInsights">Insights</a>
-        <a href="/about.html" data-i18n="navAbout">Our Mission</a>
+        <a href="/tr/ucla-test.html" style="color: #fff;" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+        <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
       </nav>
     </div>
     
     <div class="nav-right">
-      <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Sign In</button>
-      <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Sign Up</button>
-      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
+      <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Giriş Yap</button>
+      <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Kayıt Ol</button>
+      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
         <div class="bar"></div>
         <div class="bar"></div>
       </button>
@@ -90,12 +73,12 @@
   <!-- ================= MOBİL MENÜ ================= -->
   <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-nav-content">
-      <a href="/ucla-test.html" style="color: var(--accent-primary);" data-i18n="navUcla">UCLA Test</a>
-      <a href="/insights.html" data-i18n="navInsights">Insights</a>
-      <a href="/about.html" data-i18n="navAbout">Our Mission</a>
+      <a href="/tr/ucla-test.html" style="color: var(--accent-primary);" data-i18n="navUcla">UCLA Testi</a>
+      <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+      <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
       <hr class="mobile-divider">
-      <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Sign In</a>
-      <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Sign Up</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Giriş Yap</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
     </div>
   </nav>
 
@@ -104,18 +87,18 @@
     <section class="hero" style="position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; padding: 0 20px;">
       <div class="hero-content" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; padding-bottom: 120px;">
         
-        <div class="badge-premium fade-in-up" style="display: inline-flex; justify-content: center; width: max-content; margin: 0 auto 1.5rem;">Clinical Scale 2026</div>
+        <div class="badge-premium fade-in-up" style="display: inline-flex; justify-content: center; width: max-content; margin: 0 auto 1.5rem;">Klinik Ölçek 2026</div>
         
         <h1 class="hero-title fade-in-up" data-i18n="uclaHeroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2;">
-          UCLA Loneliness Scale
+          UCLA Yalnızlık Testi
         </h1>
         
         <p class="hero-subtitle fade-in-up" data-i18n="uclaHeroSubtitle" style="max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: clamp(0.95rem, 3vw, 1.1rem); line-height: 1.6;">
-          Measure your social and emotional isolation level with a globally recognized clinical scale. Your healing journey begins with awareness.
+          Dünya çapında kabul görmüş klinik bir ölçekle sosyal ve duygusal izolasyon seviyenizi ölçün. İyileşme yolculuğunuz, farkındalıkla başlar.
         </p>
         
         <div class="hero-actions fade-in-up">
-          <a href="https://app.unity-gate.com/ucla-test/start" class="btn btn-primary btn-lg" data-i18n="btnStartTest">Start Test Now</a>
+          <a href="https://app.unity-gate.com/ucla-test/start" class="btn btn-primary btn-lg" data-i18n="btnStartTest">Testi Hemen Başlat</a>
         </div>
       </div>
 
@@ -141,8 +124,8 @@
         <div class="vision-bento-box fade-in-up">
           <div class="vision-bg-image" style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=1200&auto=format&fit=crop'); filter: blur(12px) brightness(0.2);"></div>
           <div class="vision-glass-panel">
-            <div class="vision-tag" data-i18n="uclaInfoTitle">WHY THE UCLA TEST?</div>
-            <p class="vision-text" data-i18n="uclaInfoDesc">Developed by researchers at the University of California in 1978, this test is considered the gold standard for measuring loneliness in the world of psychology. Unity Gate AI analyzes your answers to map out the most suitable clinical therapy or socialization route for you.</p>
+            <div class="vision-tag" data-i18n="uclaInfoTitle">NEDEN UCLA TESTİ?</div>
+            <p class="vision-text" data-i18n="uclaInfoDesc">1978 yılında Kaliforniya Üniversitesi araştırmacıları tarafından geliştirilen bu test, psikoloji dünyasında yalnızlığı ölçmek için altın standart kabul edilir. Unity Gate yapay zekası, verdiğiniz cevapları analiz ederek size en uygun klinik terapi veya sosyalleşme rotasını çıkarır.</p>
           </div>
         </div>
       </div>
@@ -155,20 +138,20 @@
           
           <article class="bento-card fade-in-up" style="animation-delay: 0.1s;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            <h3 data-i18n="uclaFeature1Title">Scientific & Proven</h3>
-            <p data-i18n="uclaFeature1Desc">It is the most trusted and referenced psychological measurement tool in global academic research.</p>
+            <h3 data-i18n="uclaFeature1Title">Bilimsel ve Kanıtlanmış</h3>
+            <p data-i18n="uclaFeature1Desc">Global akademik araştırmalarda en çok güvenilen ve referans alınan psikolojik ölçüm aracıdır.</p>
           </article>
 
           <article class="bento-card fade-in-up" style="animation-delay: 0.2s;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" style="margin-bottom: 1.5rem;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <h3 data-i18n="uclaFeature2Title">Only 3 Minutes</h3>
-            <p data-i18n="uclaFeature2Desc">Answer 20 short questions to create an instant, in-depth map of your emotional state.</p>
+            <h3 data-i18n="uclaFeature2Title">Sadece 3 Dakika</h3>
+            <p data-i18n="uclaFeature2Desc">20 kısa soruyu yanıtlayarak duygu durumunuzun anlık ve derinlemesine bir haritasını çıkarın.</p>
           </article>
 
           <article class="bento-card fade-in-up" style="animation-delay: 0.3s;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-8.21l-3.23 3.23"/></svg>
-            <h3 data-i18n="uclaFeature3Title">Personalized Route</h3>
-            <p data-i18n="uclaFeature3Desc">Based on your results, you will be directed to expert psychologists, mediators, or the right interest rooms.</p>
+            <h3 data-i18n="uclaFeature3Title">Kişiselleştirilmiş Rota</h3>
+            <p data-i18n="uclaFeature3Desc">Sonuçlarınıza göre uzman psikolog, arabulucu veya doğru ilgi odalarına yönlendirilirsiniz.</p>
           </article>
 
         </div>
@@ -184,64 +167,64 @@
             <img src="/assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
             Unity Gate
           </div>
-          <p data-i18n="footerTagline">Designed for a more connected and secure society at clinical standards.</p>
+          <p data-i18n="footerTagline">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
         </div>
         <div class="footer-nav">
           <div class="footer-group">
-            <h4 data-i18n="footerCompany">Corporate</h4>
-            <a href="/about.html" data-i18n="navAbout">Our Mission</a>
-            <a href="/careers.html" data-i18n="footerCareers">Careers</a>
-            <a href="/investors.html" data-i18n="footerInvestors">Investor Relations</a>
+            <h4 data-i18n="footerCompany">Kurumsal</h4>
+            <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
+            <a href="/tr/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
+            <a href="/tr/investors.html" data-i18n="footerInvestors">Yatırımcı İlişkileri</a>
           </div>
           <div class="footer-group">
-            <h4 data-i18n="footerPlatform">Platform & Tools</h4>
-            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Loneliness Test</a>
-            <a href="/insights.html" data-i18n="navInsights">Clinical Insights</a>
+            <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
+            <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+            <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
         <div class="copyright" data-i18n="footerCopyright">
-          © 2026 Aeternexus Health Technologies. All rights reserved.
+          © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
         </div>
         <div class="footer-legal">
-          <span id="current-language-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">EN</span>
-          <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
-          <span style="color: var(--border-glass);">•</span>
-          <a href="/terms.html" data-i18n="footerTerms">Terms of Service</a>
+          <span id="current-language-display" class="lang-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">TR</span>
+          <a href="/tr/privacy.html" data-i18n="footerPrivacy">Gizlilik ve Veri Güvenliği Politikası</a>
+          <span class="dot-separator" style="color: var(--border-glass);">•</span>
+          <a href="/tr/terms.html" data-i18n="footerTerms">Hizmet Kullanım Şartları</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ================= PREMIUM MODALLAR ================= -->
+  <!-- ================= PREMIUM MODALLAR (TÜRKÇE YÖNLENDİRMELER) ================= -->
   <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
     <div class="premium-modal" onclick="event.stopPropagation();">
       <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
       <div class="modal-header">
-        <h3 data-i18n="btnSignIn">Sign In</h3>
-        <p>Please select your account type to access the platform securely.</p>
+        <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
+        <p>Lütfen güvenli giriş yapmak için hesap türünüzü seçin.</p>
       </div>
       <div class="modal-options">
-        <a href="/login.html" class="modal-option-btn">
+        <a href="/tr/login.html" class="modal-option-btn">
           <div class="modal-option-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </div>
           <div class="modal-option-text">
-            <strong>User Login</strong>
-            <span>Access your personal journey.</span>
+            <strong>Danışan Girişi</strong>
+            <span>Kişisel iyileşme yolculuğunuza erişin.</span>
           </div>
         </a>
-        <a href="/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+        <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
           <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <div class="modal-option-text">
-            <strong style="color: var(--accent-primary);">Expert Login</strong>
-            <span>Access your clinical dashboard.</span>
+            <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+            <span>Klinik kontrol paneline erişin.</span>
           </div>
         </a>
       </div>
@@ -254,26 +237,26 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
       <div class="modal-header">
-        <h3 data-i18n="btnSignUp">Sign Up</h3>
-        <p>Join our secure network. Select your registration type.</p>
+        <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
+        <p>Güvenli ağımıza katılın. Kayıt türünüzü seçin.</p>
       </div>
       <div class="modal-options">
-        <a href="/register.html" class="modal-option-btn">
+        <a href="/tr/register.html" class="modal-option-btn">
           <div class="modal-option-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
           </div>
           <div class="modal-option-text">
-            <strong data-i18n="btnSignUpUser">User Registration</strong>
-            <span>Start your healing journey.</span>
+            <strong data-i18n="btnSignUpUser">Danışan Kaydı</strong>
+            <span>İyileşme yolculuğunuza başlayın.</span>
           </div>
         </a>
-        <a href="/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+        <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
           <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
           </div>
           <div class="modal-option-text">
-            <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Expert Application</strong>
-            <span>Join as a licensed professional.</span>
+            <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+            <span>Lisanslı profesyonel olarak katılın.</span>
           </div>
         </a>
       </div>

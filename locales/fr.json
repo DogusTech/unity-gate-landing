@@ -69,6 +69,13 @@
   "termsText": "En rejoignant Unity Gate, vous acceptez de vous conformer pleinement à l'éthique internationale du conseil psychologique et au RGPD.",
   "agreeTerms": "J'ai lu et j'accepte le protocole de confidentialité et les conditions.",
   "btnContinue": "Terminer la candidature sécurisée",
+  "metaTitleLogin": "Connexion Utilisateur | Unity Gate",
+  "metaDescLogin": "Connectez-vous à Unity Gate pour poursuivre votre parcours de guérison.",
+  "loginTitle": "Connexion Utilisateur",
+  "loginSubtitle": "Bienvenue dans votre espace sécurisé. Reprenez votre parcours de guérison là où vous l'avez laissé.",
+  "noAccount": "Pas encore membre de Unity Gate ?",
+  "signUpNow": "Inscrivez-vous maintenant",
+  "loggingIn": "Connexion en cours...",
   
   "errPasswordMismatch": "Les mots de passe ne correspondent pas !",
   "errPasswordLength": "Votre mot de passe doit comporter au moins 8 caractères.",

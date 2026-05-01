@@ -80,6 +80,13 @@
   "btnLogin": "Inicio de Sesión Seguro",
   "expertNoAccount": "¿Aún no te has unido a nuestra red de expertos?",
   "expertSignUpNow": "Postularse como Experto",
+  "metaTitleLogin": "Inicio de Sesión | Unity Gate",
+  "metaDescLogin": "Inicie sesión en Unity Gate para continuar su viaje de sanación.",
+  "loginTitle": "Inicio de Sesión",
+  "loginSubtitle": "Bienvenido a su espacio seguro. Continúe su viaje de sanación desde donde lo dejó.",
+  "noAccount": "¿Aún no eres parte de Unity Gate?",
+  "signUpNow": "Regístrate Ahora",
+  "loggingIn": "Iniciando sesión...",
   
   "footerTagline": "Diseñado para una sociedad más conectada bajo estándares clínicos.",
   "footerCompany": "Compañía",
