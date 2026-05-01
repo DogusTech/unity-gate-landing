@@ -1,4 +1,4 @@
-/* 📂 css/style.css - Production Ready V12.0 */
+/* 📂 css/style.css - Production Ready V18.0 */
 :root {
   /* High-end HealthTech Palette */
   --bg-black: #020617;
@@ -76,34 +76,14 @@ ul, ol { list-style: none; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4); }
 .btn-lg { padding: 1.25rem 2.5rem; font-size: 1.1rem; }
 
-/* Dropdowns */
-.dropdown-wrapper { position: relative; }
-.dropdown-menu {
-  position: absolute; top: 120%; right: 0;
-  background: var(--bg-surface); border: 1px solid var(--border-glass);
-  border-radius: 16px; padding: 0.5rem; min-width: 220px;
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: all 0.2s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.6); z-index: 1001;
-}
-.dropdown-wrapper:hover .dropdown-menu, .dropdown-wrapper:focus-within .dropdown-menu { 
-  opacity: 1; visibility: visible; transform: translateY(0); 
-}
-.dropdown-item { 
-  display: block; padding: 0.85rem 1rem; color: #fff; font-weight: 500; 
-  border-radius: 10px; transition: 0.2s; font-size: 0.9rem;
-}
-.dropdown-item:hover, .dropdown-item:focus-visible { 
-  background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); outline: none;
-}
-
-/* ================== HERO & TRUST BANNER ================== */
+/* ================== HERO ================== */
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   text-align: center; background: radial-gradient(circle at top, rgba(15,23,42,0.8) 0%, var(--bg-black) 80%);
-  padding-top: 5rem;
+  padding: 5rem 5% 0; overflow: hidden;
 }
-.hero-content-wrapper { position: relative; z-index: 10; max-width: 900px; padding: 0 5%; display: flex; flex-direction: column; align-items: center;}
+.hero-content { position: relative; z-index: 10; max-width: 900px; padding-bottom: 120px; display: flex; flex-direction: column; align-items: center; width: 100%;}
 .badge-premium { 
   background: rgba(56, 189, 248, 0.1); color: var(--accent-primary); 
   padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; 
@@ -111,11 +91,14 @@ ul, ol { list-style: none; }
   letter-spacing: 0.05em; text-transform: uppercase;
 }
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.04em;
+  font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em;
   background: linear-gradient(to bottom, #fff, #cbd5e1);
-  background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 1.5rem;
+  background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 1.2rem;
+  max-width: 800px;
 }
-.hero-subtitle { font-size: clamp(1.1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 680px; margin-bottom: 3.5rem; }
+.hero-subtitle { font-size: clamp(0.95rem, 3vw, 1.1rem); line-height: 1.6; color: var(--text-secondary); max-width: 650px; margin-bottom: 2.5rem; }
+
+.hero-actions { display: flex; gap: 1rem; justify-content: center; width: 100%; flex-wrap: wrap;}
 
 /* Trust Banner */
 .trust-banner {
@@ -126,8 +109,8 @@ ul, ol { list-style: none; }
 .trust-icon { width: 20px; height: 20px; stroke: var(--accent-primary); }
 
 /* Açık Renkli Premium Dalgalar */
-.ocean-frame { position: absolute; bottom: -2px; left: 0; width: 100%; height: 35vh; min-height: 250px; pointer-events: none; overflow: hidden; z-index: 1; }
-.waves { width: 100%; height: 100%; }
+.ocean-frame { position: absolute; bottom: -2px; left: 0; width: 100%; height: 35vh; min-height: 250px; pointer-events: none; z-index: 1; }
+.waves { width: 100%; height: 100%; display: block;}
 .wave-parallax > use { animation: ocean-surge 20s cubic-bezier(.55,.5,.45,.5) infinite; }
 .wave-layer.l1 { fill: rgba(56, 189, 248, 0.1); animation-delay: -2s; animation-duration: 8s; }
 .wave-layer.l2 { fill: rgba(2, 132, 199, 0.15); animation-delay: -3s; animation-duration: 12s; }
@@ -135,7 +118,58 @@ ul, ol { list-style: none; }
 .wave-layer.l4 { fill: var(--bg-black); animation-delay: -5s; animation-duration: 22s; }
 @keyframes ocean-surge { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
 
-/* ================== BENTO GRIDS (MİMARİ) ================== */
+/* ================== PREMIUM MODALS ================== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; z-index: 9999;
+  transition: opacity 0.3s ease; padding: 20px;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.premium-modal {
+  background: rgba(15, 23, 42, 0.95); border: 1px solid var(--border-glass);
+  border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 420px;
+  transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 211, 238, 0.1);
+  position: relative;
+}
+.modal-overlay.active .premium-modal { transform: translateY(0); }
+
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.05); border: none; border-radius: 50%;
+  width: 32px; height: 32px; color: var(--text-secondary); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+.modal-header { text-align: center; margin-bottom: 2rem; }
+.modal-header h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+.modal-header p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; }
+
+.modal-options { display: flex; flex-direction: column; gap: 1rem; }
+
+.modal-option-btn {
+  display: flex; align-items: center; gap: 1rem; padding: 1.25rem;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);
+  border-radius: 16px; color: #fff; text-decoration: none; transition: 0.3s;
+}
+.modal-option-btn:hover {
+  background: rgba(34, 211, 238, 0.05); border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+.modal-option-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(34, 211, 238, 0.1); color: var(--accent-primary);
+}
+.modal-option-text { text-align: left; }
+.modal-option-text strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+.modal-option-text span { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* ================== BENTO GRIDS ================== */
 .section-header { text-align: center; margin-bottom: 4rem; }
 .section-tag { color: var(--accent-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; text-transform: uppercase; }
 .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; color: #fff;}
@@ -147,7 +181,7 @@ ul, ol { list-style: none; }
 .bento-card h3 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: #fff;}
 .bento-card p { color: var(--text-secondary); font-size: 1.05rem; max-width: 80%; }
 
-/* ================== BİZ KİMİZ (VİZYON BENTO KUTUSU) ================== */
+/* ================== VİZYON ================== */
 .vision-bento-box {
   position: relative; border-radius: 32px; overflow: hidden;
   border: 1px solid var(--border-glass); box-shadow: 0 20px 60px rgba(0,0,0,0.4);
@@ -167,7 +201,7 @@ ul, ol { list-style: none; }
 .vision-tag { color: var(--accent-primary); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.15em; margin-bottom: 1.5rem; text-transform: uppercase;}
 .vision-text { font-size: clamp(1.25rem, 2.5vw, 1.8rem); font-weight: 500; line-height: 1.6; color: #fff; }
 
-/* ================== NASIL ÇALIŞIR (4'LÜ SÜREÇ KARTLARI) ================== */
+/* ================== 4'LÜ SÜREÇ KARTLARI ================== */
 .process-bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 .process-box { 
   background: var(--bg-surface); border-radius: 32px; border: 1px solid var(--border-glass); 
@@ -200,7 +234,7 @@ ul, ol { list-style: none; }
 .lang-display { margin-right: 1rem; color: #fff; font-weight: 700; font-size: 0.9rem; }
 .dot-separator { color: var(--border-glass); }
 
-/* ================== MOBİL MENÜ & ANİMASYONLAR ================== */
+/* ================== MOBİL MENÜ ================== */
 .hamburger-btn { display: none; background: transparent; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 0.5rem; z-index: 1002; }
 .hamburger-btn .bar { width: 24px; height: 2px; background: #fff; transition: 0.3s; border-radius: 2px;}
 
@@ -216,7 +250,7 @@ ul, ol { list-style: none; }
 .mobile-nav-content a:hover { color: #fff; }
 .mobile-divider { width: 40px; border: 1px solid var(--border-glass); margin: 0 auto; }
 
-/* Scroll Animasyonları & Gecikmeler (Stagger) */
+/* Scroll Animasyonları */
 .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 .stagger-1 { transition-delay: 0.1s; }
@@ -224,84 +258,7 @@ ul, ol { list-style: none; }
 .stagger-3 { transition-delay: 0.3s; }
 .stagger-4 { transition-delay: 0.4s; }
 
-/* =========================================
-   AUTH LAYOUT (LOGIN & REGISTRATION) 
-========================================= */
-.auth-layout {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.8) 0%, var(--bg-black) 100%);
-  padding: 120px 0 80px 0;
-  display: flex;
-  align-items: center;
-}
-
-.auth-layout-centered {
-  justify-content: center;
-  align-items: center;
-  padding: 120px 5% 40px 5%;
-}
-
-.ambient-glow {
-  position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none;
-}
-.glow-cyan { width: 50vw; height: 50vw; background: rgba(56, 189, 248, 0.1); }
-.glow-blue { width: 60vw; height: 60vw; background: rgba(2, 132, 199, 0.08); }
-
-.glass-form-card {
-  background: var(--bg-surface);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-glass);
-  border-radius: 32px;
-  padding: 3.5rem;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(56, 189, 248, 0.05);
-  position: relative;
-  z-index: 10;
-  width: 100%;
-}
-
-.auth-card-narrow { max-width: 520px; margin: 0 auto; }
-
-.input-group { margin-bottom: 1.5rem; }
-.input-group label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; }
-
-.form-control {
-  width: 100%; padding: 1rem 1.25rem; background: rgba(0, 0, 0, 0.25);
-  border: 1px solid var(--border-glass); border-radius: 16px;
-  color: #fff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease;
-}
-.form-control:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1); background: rgba(0, 0, 0, 0.4); }
-
-.login-helpers { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-.checkbox-wrapper { display: flex; align-items: center; gap: 0.5rem; }
-.checkbox-wrapper input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent-primary); cursor: pointer; }
-.checkbox-wrapper label { font-size: 0.9rem; color: var(--text-primary); cursor: pointer; margin: 0; }
-
-.forgot-password-link { color: var(--accent-primary); font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
-.forgot-password-link:hover { color: #fff; text-decoration: underline; }
-
-.btn-submit-full { width: 100%; padding: 1.25rem; border-radius: 16px; font-size: 1.1rem; }
-
-.register-link-box { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-glass); text-align: center; font-size: 0.95rem; color: var(--text-secondary); }
-.register-link-box a { color: #fff; font-weight: 700; transition: 0.3s; }
-.register-link-box a:hover { color: var(--accent-primary); }
-
-.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; margin-bottom: 2.5rem; transition: all 0.3s ease; }
-.back-link:hover { color: #fff; transform: translateX(-4px); }
-
-.form-alert { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #fff; padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 500; }
-.hidden { display: none !important; }
-
-.spinner {
-  display: inline-block; width: 1.25rem; height: 1.25rem; margin-left: 0.5rem; vertical-align: middle;
-  border: 2px solid rgba(255, 255, 255, 0.3); border-top-color: #fff; border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-/* ================== RESPONSIVE ================== */
+/* ================== RESPONSIVE MEDIA QUERIES ================== */
 @media (max-width: 1200px) {
   .process-bento-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .vision-glass-panel { padding: 3rem; }
@@ -311,7 +268,6 @@ ul, ol { list-style: none; }
 @media (max-width: 900px) {
   .hide-mobile { display: none !important; }
   .hamburger-btn { display: flex; }
-  .hero-title { font-size: 2.5rem; }
   .trust-banner { flex-direction: column; gap: 1.5rem; border-radius: 24px; padding: 2rem; }
   .bento-grid { grid-template-columns: 1fr; }
   .process-bento-grid { grid-template-columns: 1fr; }
@@ -320,4 +276,11 @@ ul, ol { list-style: none; }
   .section-padding { padding: 5rem 0; }
   .vision-bento-box { border-radius: 24px; min-height: auto; }
   .vision-glass-panel { padding: 2.5rem 1.5rem; }
+}
+
+/* Cep Telefonları (Hero Butonlarının Alt Alta Gelmesi İçin) */
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; width: 100%; max-width: 350px; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+  .premium-modal { padding: 2rem 1.5rem; }
 }

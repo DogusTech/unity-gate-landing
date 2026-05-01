@@ -1,9 +1,26 @@
-<!-- 📂 /index.html (GLOBAL KÖK DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
+<!-- 📂 /index.html (GLOBAL KÖK DİZİN - SEO OPTIMIZED + PREMIUM UX + AUTO REDIRECT) -->
 <!DOCTYPE html>
 <html lang="en" id="html-tag" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ) ================= -->
+  <script>
+    (function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        const langCode = userLang.split('-')[0]; // Örn: 'tr-TR' içinden 'tr'
+        const currentPath = window.location.pathname;
+
+        // Sadece kök dizindeyken yönlendirme yap (Klasör içindeyse dokunma)
+        if (currentPath === "/" || currentPath === "/index.html") {
+            const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+            if (supportedLanguages.includes(langCode)) {
+                window.location.replace("/" + langCode + "/index.html");
+            }
+        }
+    })();
+  </script>
 
   <!-- ================= SEO CORE ================= -->
   <title data-i18n="metaTitle">Unity Gate | Clinical HealthTech & Psychology Platform</title>
@@ -14,19 +31,6 @@
 
   <!-- ================= ROBOTS ================= -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-
-  <!-- ================= OPEN GRAPH ================= -->
-  <meta property="og:title" content="Unity Gate | HealthTech Platform">
-  <meta property="og:description" content="Scientific loneliness analysis, expert verification and safe social connection ecosystem.">
-  <meta property="og:image" content="https://www.unity-gate.com/assets/og-image.jpg">
-  <meta property="og:url" content="https://www.unity-gate.com/">
-  <meta property="og:type" content="website">
-
-  <!-- ================= TWITTER ================= -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Unity Gate | HealthTech Platform">
-  <meta name="twitter:description" content="Clinical + AI supported safe social matching system.">
-  <meta name="twitter:image" content="https://www.unity-gate.com/assets/og-image.jpg">
 
   <!-- ================= STRUCTURED DATA ================= -->
   <script type="application/ld+json">
@@ -45,7 +49,7 @@
   </script>
 
   <!-- ================= HREFLANG ================= -->
-  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/" />
+  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/" />
   <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/" />
   <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/" />
   <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/" />
@@ -59,14 +63,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="css/style.css?v=15.0">
+  <link rel="stylesheet" href="/css/style.css?v=18.0">
 
-  <!-- ================= I18N ENGINE ================= -->
+  <!-- ================= I18N ENGINE & JS ================= -->
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-
-  <!-- ================= JS ================= -->
-  <script src="js/main.js?v=15.0" defer></script>
+  <script src="/js/main.js?v=18.0" defer></script>
 </head>
 
 <body>
@@ -74,7 +76,7 @@
 <header class="navbar" id="main-nav">
   <div class="nav-left">
     <a href="/" class="brand" aria-label="Unity Gate Home">
-      <img src="assets/logo.png" alt="Unity Gate" width="32" height="32">
+      <img src="/assets/logo.png" alt="Unity Gate" width="32" height="32">
       <span>Unity Gate</span>
     </a>
 
@@ -86,8 +88,9 @@
   </div>
 
   <div class="nav-right">
-    <a class="btn btn-glass hide-mobile" href="/login.html" data-i18n="btnSignIn">Sign In</a>
-    <a class="btn btn-primary hide-mobile" href="/register.html" data-i18n="btnSignUp">Sign Up</a>
+    <!-- Premium Modalları tetikleyen butonlar -->
+    <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Sign In</button>
+    <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Sign Up</button>
     <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -102,39 +105,34 @@
     <a href="/insights.html" data-i18n="navInsights">Clinical Insights</a>
     <a href="/about.html" data-i18n="navAbout">Our Mission</a>
     <hr class="mobile-divider">
-    <a href="/login.html" data-i18n="btnSignIn">Sign In</a>
-    <a href="/register.html" style="color: var(--primary);" data-i18n="btnSignUp">Sign Up</a>
+    <!-- Mobilde de doğrudan modalları tetikler ve menüyü kapatır -->
+    <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Sign In</a>
+    <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Sign Up</a>
   </div>
 </nav>
 
 <main>
 
 <!-- ================= HERO ================= -->
-<!-- Dalgaların butonları yutmasını engellemek için Hero section'a relative ve overflow:hidden eklendi -->
-<section class="hero" aria-label="Hero Section" style="position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden;">
-  
-  <!-- Z-Index eklendi: Yazılar ve butonlar kesinlikle dalgaların ÜSTÜNDE olacak -->
-  <!-- Padding-bottom eklendi: İçerik dalganın içine girmeyecek, yukarıda kalacak -->
-  <div class="hero-content" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; padding-bottom: 120px;">
+<section class="hero" aria-label="Hero Section">
+  <div class="hero-content">
     
-    <div class="badge-premium fade-in-up" data-i18n="badgePremium" style="display: inline-flex; justify-content: center; width: max-content; margin: 0 auto 1.5rem;">
+    <div class="badge-premium fade-in-up" data-i18n="badgePremium">
       Clinical Standard HealthTech Ecosystem
     </div>
     
-    <!-- HATA DÜZELTİLDİ: [innerHTML] kaldırıldı, doğal data-i18n kullanıldı -->
-    <h1 class="fade-in-up" data-i18n="heroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.2;">
+    <h1 class="hero-title fade-in-up" data-i18n="heroTitle">
       Scientific, Secure Expert Matching Against Loneliness
     </h1>
     
-    <p class="fade-in-up" data-i18n="heroSubtitle" style="animation-delay: 0.1s; max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
-      Unity Gate is a military-grade encrypted psychology platform that enables intent-driven matching and secure relationships under the supervision of licensed experts.
+    <p class="hero-subtitle fade-in-up">
+      <span data-i18n="heroSubtitle">Unity Gate is a military-grade encrypted psychology platform that enables intent-driven matching and secure relationships under the supervision of licensed experts.</span>
     </p>
 
-    <div class="hero-actions fade-in-up" style="animation-delay: 0.2s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <div class="hero-actions fade-in-up">
       <a href="/ucla-test.html" class="btn btn-primary btn-lg" data-i18n="btnStartTest">
         Start Scientific Analysis
       </a>
-      <!-- Bu buton artık dalganın içinde kaybolmayacak -->
       <a href="/expert-registration.html" class="btn btn-glass btn-lg" data-i18n="btnExpert">
         Become an Expert
       </a>
@@ -142,9 +140,8 @@
   </div>
 
   <!-- AÇIK RENKLİ OKYANUS DALGALARI -->
-  <!-- Position absolute ile EN ALTA çivilendi, Z-Index 1 yapılarak butonların ALTINDA kalması sağlandı -->
-  <div class="ocean-frame" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1;">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" style="display: block; width: 100%; height: auto;">
+  <div class="ocean-frame" aria-hidden="true">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
       <defs>
         <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
       </defs>
@@ -259,7 +256,7 @@
     <div class="footer-top">
       <div class="footer-info">
         <div class="brand">
-          <img src="assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+          <img src="/assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
           Unity Gate
         </div>
         <p data-i18n="footerTagline">Designed for a more connected and secure society at clinical standards.</p>
@@ -292,6 +289,74 @@
     </div>
   </div>
 </footer>
+
+<!-- ================= PREMIUM MODALLAR (SIGN IN / SIGN UP) ================= -->
+
+<!-- Sign In Modal -->
+<div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+  <div class="premium-modal" onclick="event.stopPropagation();">
+    <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h3 data-i18n="btnSignIn">Sign In</h3>
+      <p>Please select your account type to access the platform securely.</p>
+    </div>
+    <div class="modal-options">
+      <a href="/login.html" class="modal-option-btn">
+        <div class="modal-option-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="modal-option-text">
+          <strong>User Login</strong>
+          <span>Access your personal journey.</span>
+        </div>
+      </a>
+      <a href="/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+        <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="modal-option-text">
+          <strong style="color: var(--accent-primary);">Expert Login</strong>
+          <span>Access your clinical dashboard.</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+  <div class="premium-modal" onclick="event.stopPropagation();">
+    <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h3 data-i18n="btnSignUp">Sign Up</h3>
+      <p>Join our secure network. Select your registration type.</p>
+    </div>
+    <div class="modal-options">
+      <a href="/register.html" class="modal-option-btn">
+        <div class="modal-option-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+        </div>
+        <div class="modal-option-text">
+          <strong data-i18n="btnSignUpUser">User Registration</strong>
+          <span>Start your healing journey.</span>
+        </div>
+      </a>
+      <a href="/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+        <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <div class="modal-option-text">
+          <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Expert Application</strong>
+          <span>Join as a licensed professional.</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

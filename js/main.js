@@ -1,3 +1,4 @@
+// 📂 js/main.js
 (() => {
   "use strict";
 
@@ -29,7 +30,6 @@
         });
 
       document.documentElement.lang = LANG;
-
       applyTranslations();
 
     } catch (e) {
@@ -42,12 +42,9 @@
 
     nodes.forEach((el) => {
       const key = el.getAttribute("data-i18n");
-
       if (!key) return;
-
       const value = i18next.t(key);
 
-      // SEO SAFE TEXT UPDATE (NO INNERHTML)
       if (key.startsWith("[content]")) {
         el.setAttribute("content", value);
       } else {
@@ -57,7 +54,7 @@
   };
 
   // ---------------------------
-  // 2. PERFORMANCE OBSERVER
+  // 2. PERFORMANCE OBSERVER (SCROLL ANIMATIONS)
   // ---------------------------
   const initObservers = () => {
     const observer = new IntersectionObserver(
@@ -81,8 +78,34 @@
   };
 
   // ---------------------------
-  // 3. MOBILE MENU (LIGHTWEIGHT)
+  // 3. UI STATE MANAGER (MOBILE MENU & MODALS)
   // ---------------------------
+  // HTML dosyasından kolayca çağrılabilmesi için window objesine aktarıyoruz.
+  window.uiState = {
+    openModal: (modalId) => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    },
+    closeModal: (modalId) => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    },
+    closeMobileMenu: () => {
+      const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("mobile-menu-toggle");
+      if(menu) {
+        menu.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    }
+  };
+
   const initMenu = () => {
     const btn = document.getElementById("mobile-menu-toggle");
     const menu = document.getElementById("mobile-menu");
@@ -91,10 +114,8 @@
 
     btn.addEventListener("click", () => {
       const open = menu.classList.toggle("active");
-
       btn.setAttribute("aria-expanded", open);
       menu.setAttribute("aria-hidden", !open);
-
       document.body.style.overflow = open ? "hidden" : "";
     });
 
@@ -102,141 +123,24 @@
       if (e.key === "Escape") {
         menu.classList.remove("active");
         document.body.style.overflow = "";
+        // Ayrıca açık modal varsa onu da kapat
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
       }
     });
   };
 
   // ---------------------------
-  // 4. EXPERT FORM ENGINE
-  // ---------------------------
-  const initExpertForm = () => {
-    const form = document.getElementById("expert-registration-form");
-    if (!form) return;
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const error = document.getElementById("form-error-message");
-      const btn = document.getElementById("btn-submit-expert");
-
-      const data = {
-        name: form.expert_name.value.trim(),
-        email: form.expert_email.value.trim(),
-        password: form.expert_password.value,
-        confirm: form.expert_confirm_password.value,
-        country: form.expert_country.value,
-        main: form.expert_main_category.value,
-        sub: form.selected_subcats.value,
-        terms: form.agree_terms.checked
-      };
-
-      error.classList.add("hidden");
-
-      if (data.password !== data.confirm) {
-        return showError("Passwords do not match");
-      }
-
-      if (data.password.length < 8) {
-        return showError("Password too short");
-      }
-
-      if (!data.sub) {
-        return showError("Select at least one specialization");
-      }
-
-      btn.disabled = true;
-
-      try {
-        sessionStorage.setItem(
-          "expert_state",
-          JSON.stringify({
-            ...data,
-            ts: Date.now()
-          })
-        );
-
-        window.location.href = "/expert/finalize";
-      } catch (e) {
-        showError("Network error");
-        btn.disabled = false;
-      }
-
-      function showError(msg) {
-        error.textContent = i18next?.t(msg) || msg;
-        error.classList.remove("hidden");
-      }
-    });
-  };
-
-  // ---------------------------
-  // 5. BOOTSTRAP (SEO SAFE ORDER)
+  // 4. BOOTSTRAP (SEO SAFE ORDER)
   // ---------------------------
   const bootstrap = async () => {
     initMenu();
     initObservers();
-    initExpertForm();
-
-    // 5. Expert Login Form to Flutter App Routing
-    const expertLoginForm = document.getElementById('expert-login-form');
     
-    if (expertLoginForm) {
-        expertLoginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const errorMsg = document.getElementById('login-error-message');
-            const btnSubmit = document.getElementById('btn-login-expert');
-            const btnText = btnSubmit.querySelector('.btn-text');
-            const spinner = btnSubmit.querySelector('.spinner');
-            
-            const email = document.getElementById('expert_login_email').value.trim();
-            const rawPassword = document.getElementById('expert_login_password').value;
-            const rememberMe = document.getElementById('remember_me').checked;
-
-            errorMsg.classList.add('hidden');
-
-            if (!email || !rawPassword) {
-                errorMsg.textContent = typeof i18next !== 'undefined' && i18next.t('errEmptyFields') 
-                    ? i18next.t('errEmptyFields') 
-                    : 'Lütfen e-posta ve şifrenizi giriniz.';
-                errorMsg.classList.remove('hidden');
-                return;
-            }
-
-            // UX Loading Effect
-            btnText.classList.add('hidden');
-            spinner.classList.remove('hidden');
-            btnSubmit.disabled = true;
-
-            try {
-                // Kısa bir bekleme (Animasyonun görünmesi için)
-                await new Promise(resolve => setTimeout(resolve, 600));
-
-                // SENİN İSTEDİĞİN GİBİ: Şifreyi maskele (Base64) ve URL'ye ekle
-                const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
-
-                const params = new URLSearchParams({
-                    email: email,
-                    token: maskedPassword,
-                    remember: rememberMe
-                });
-
-                // FLUTTER UYGULAMANA YÖNLENDİR (Senin eski kodunla birebir aynı mantık)
-                const targetUrl = `https://app.unity-gate.com/expert-login/auth?${params.toString()}`;
-                window.location.href = targetUrl;
-                
-            } catch (err) {
-                errorMsg.textContent = "Bir hata oluştu. Lütfen tekrar deneyin.";
-                errorMsg.classList.remove('hidden');
-                btnText.classList.remove('hidden');
-                spinner.classList.add('hidden');
-                btnSubmit.disabled = false;
-            }
-        });
-    }
+    // Auth login yönlendirme scriptleri vs.. 
+    // (Varsa bu kısıma expert-login işlemleri eklenebilir)
     
     await initI18n();
   };
 
-  // deterministic start
   bootstrap();
 })();
