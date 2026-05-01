@@ -9,10 +9,9 @@
   <script>
     (function() {
         const userLang = navigator.language || navigator.userLanguage; 
-        const langCode = userLang.split('-')[0]; // Örn: 'tr-TR' içinden 'tr'
+        const langCode = userLang.split('-')[0];
         const currentPath = window.location.pathname;
 
-        // Sadece kök dizindeyken yönlendirme yap (Klasör içindeyse dokunma)
         if (currentPath === "/" || currentPath === "/index.html") {
             const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
             if (supportedLanguages.includes(langCode)) {
@@ -29,10 +28,8 @@
   
   <link rel="canonical" href="https://www.unity-gate.com/" />
 
-  <!-- ================= ROBOTS ================= -->
+  <!-- ================= ROBOTS & STRUCTURED DATA ================= -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-
-  <!-- ================= STRUCTURED DATA ================= -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,12 +54,10 @@
   <link rel="alternate" hreflang="es" href="https://www.unity-gate.com/es/" />
   <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/" />
 
-  <!-- ================= PERFORMANCE ================= -->
+  <!-- ================= PERFORMANCE & CSS ================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-  <!-- ================= CSS ================= -->
   <link rel="stylesheet" href="/css/style.css?v=18.0">
 
   <!-- ================= I18N ENGINE & JS ================= -->
@@ -88,7 +83,7 @@
   </div>
 
   <div class="nav-right">
-    <!-- Premium Modalları tetikleyen butonlar -->
+    <!-- Premium Modalları tetikleyen temiz butonlar (Dropdown Çıkarıldı) -->
     <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Sign In</button>
     <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Sign Up</button>
     <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
@@ -105,7 +100,6 @@
     <a href="/insights.html" data-i18n="navInsights">Clinical Insights</a>
     <a href="/about.html" data-i18n="navAbout">Our Mission</a>
     <hr class="mobile-divider">
-    <!-- Mobilde de doğrudan modalları tetikler ve menüyü kapatır -->
     <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Sign In</a>
     <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Sign Up</a>
   </div>
