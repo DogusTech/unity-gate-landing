@@ -1,4 +1,4 @@
-// 📂 js/main.js
+// 📂 js/main.js - High Performance V20.0 (Zero CLS & Core Web Vitals Optimized)
 (() => {
   "use strict";
 
@@ -16,71 +16,80 @@
   // ---------------------------
   const initI18n = async () => {
     if (!window.i18next) return;
-
     try {
       await i18next
         .use(i18nextHttpBackend)
         .init({
           lng: LANG,
           fallbackLng: "en",
-          backend: {
-            loadPath: "/locales/{{lng}}.json"
-          },
+          backend: { loadPath: "/locales/{{lng}}.json" },
           initImmediate: false
         });
-
       document.documentElement.lang = LANG;
       applyTranslations();
-
     } catch (e) {
       console.warn("i18n fallback mode active");
     }
   };
 
   const applyTranslations = () => {
-    const nodes = document.querySelectorAll("[data-i18n]");
-
-    nodes.forEach((el) => {
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (!key) return;
       const value = i18next.t(key);
-
-      if (key.startsWith("[content]")) {
-        el.setAttribute("content", value);
-      } else {
-        el.textContent = value;
-      }
+      if (key.startsWith("[content]")) el.setAttribute("content", value);
+      else el.textContent = value;
     });
   };
 
   // ---------------------------
-  // 2. PERFORMANCE OBSERVER (SCROLL ANIMATIONS)
+  // 2. PREMIUM UX: Spotlight Effect & Navbar Scroll
+  // ---------------------------
+  const initPremiumUX = () => {
+    // A. Dynamic Navbar
+    const navbar = document.getElementById('main-nav');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('is-scrolled');
+        } else {
+          navbar.classList.remove('is-scrolled');
+        }
+      }, { passive: true }); // passive: true for scroll performance
+    }
+
+    // B. Spotlight/Glow Effect for Bento Cards (Apple/Vercel Trend)
+    const cards = document.querySelectorAll('.bento-card, .process-box, .article-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  };
+
+  // ---------------------------
+  // 3. PERFORMANCE OBSERVER (SCROLL ANIMATIONS)
   // ---------------------------
   const initObservers = () => {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-          }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
         }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -10% 0px"
-      }
-    );
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-    document.querySelectorAll(".fade-in-up").forEach((el) => {
-      observer.observe(el);
-    });
+    document.querySelectorAll(".fade-in-up").forEach(el => observer.observe(el));
   };
 
   // ---------------------------
-  // 3. UI STATE MANAGER (MOBILE MENU & MODALS)
+  // 4. UI STATE MANAGER (MOBILE MENU & MODALS)
   // ---------------------------
-  // HTML dosyasından kolayca çağrılabilmesi için window objesine aktarıyoruz.
   window.uiState = {
     openModal: (modalId) => {
       const modal = document.getElementById(modalId);
@@ -123,24 +132,25 @@
       if (e.key === "Escape") {
         menu.classList.remove("active");
         document.body.style.overflow = "";
-        // Ayrıca açık modal varsa onu da kapat
         document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
       }
     });
   };
 
   // ---------------------------
-  // 4. BOOTSTRAP (SEO SAFE ORDER)
+  // 5. BOOTSTRAP (SEO SAFE ORDER)
   // ---------------------------
   const bootstrap = async () => {
     initMenu();
+    initPremiumUX();
     initObservers();
-    
-    // Auth login yönlendirme scriptleri vs.. 
-    // (Varsa bu kısıma expert-login işlemleri eklenebilir)
-    
     await initI18n();
   };
 
-  bootstrap();
+  // Start execution when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  } else {
+    bootstrap();
+  }
 })();

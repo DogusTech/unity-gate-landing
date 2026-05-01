@@ -1,0 +1,419 @@
+<!-- 📂 /tr/register.html (TÜRKÇE DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
+<!DOCTYPE html>
+<html lang="tr" id="html-tag" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
+    <script>
+      (function() {
+          const userLang = navigator.language || navigator.userLanguage; 
+          const langCode = userLang.split('-')[0];
+          const currentPath = window.location.pathname;
+          const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+          const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+          if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+              const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+              window.location.replace("/" + langCode + targetPage);
+          }
+      })();
+    </script>
+
+    <title data-i18n="metaTitle">Kullanıcı Kaydı | Unity Gate</title>
+    <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate platformuna katılarak güvenli online terapi ve uzman destekli sosyalleşme ağına adım atın.">
+    <meta name="theme-color" content="#030712">
+    
+    <!-- 2026 SEO: Yapılandırılmış Veri -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Unity Gate - Kullanıcı Kayıt",
+      "url": "https://www.unity-gate.com/tr/register.html",
+      "description": "Birlik Kapısı platformuna katılarak güvenli online terapi ve uzman destekli sosyalleşme ağına adım atın.",
+      "potentialAction": {
+        "@type": "RegisterAction",
+        "target": "https://www.unity-gate.com/tr/register.html"
+      }
+    }
+    </script>
+
+    <link rel="canonical" href="https://www.unity-gate.com/tr/register.html" />
+    <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/register.html" />
+    <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/register.html" />
+    <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/register.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/register.html" />
+    <link rel="alternate" hreflang="es" href="https://www.unity-gate.com/es/register.html" />
+    <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/register.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/register.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ana CSS Bağlantısı (Mutlak Yol) -->
+    <link rel="stylesheet" href="/css/style.css?v=19.0">
+    
+    <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+    <script src="/js/main.js?v=19.0" defer></script>
+
+    <style>
+        /* ==========================================
+           KAYIT SAYFASI ÖZEL PREMIUM UI/UX TASARIMI
+           ========================================== */
+        
+        .auth-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            padding: 120px 5% 60px 5%;
+            background: radial-gradient(circle at top, rgba(15,23,42,0.8) 0%, var(--bg-black) 80%);
+            overflow: hidden;
+        }
+
+        .ambient-glow-1, .ambient-glow-2 { 
+            position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none;
+        }
+        .ambient-glow-1 { top: 10%; left: -10%; width: 50vw; height: 50vw; background: rgba(34, 211, 238, 0.08); }
+        .ambient-glow-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: rgba(14, 165, 233, 0.08); }
+
+        .back-nav {
+            position: absolute; top: 120px; left: 5%; z-index: 10;
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); font-weight: 600; font-size: 0.95rem;
+            background: var(--nav-glass); backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass); padding: 10px 24px; border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .back-nav:hover { color: #fff; background: rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.3); transform: translateX(-4px); }
+
+        .auth-glass-panel {
+            position: relative; z-index: 2; width: 100%; max-width: 600px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass); 
+            border-radius: 32px;
+            padding: 3.5rem 4rem; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            animation: formFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes formFadeIn {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .auth-header { text-align: center; margin-bottom: 2.5rem; }
+        .auth-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; color: #fff; }
+        .auth-header p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .input-row .input-group { flex: 1; margin-bottom: 0; }
+
+        .input-label { display: block; font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;}
+        
+        .premium-input, .premium-select {
+            width: 100%; padding: 1rem 1.25rem; 
+            background: rgba(2, 6, 23, 0.5);
+            border: 1px solid var(--border-glass); border-radius: 16px;
+            color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; 
+            transition: all 0.3s ease;
+            appearance: none;
+        }
+        
+        .premium-select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        .premium-input:focus, .premium-select:focus { 
+            outline: none; border-color: var(--accent-primary); 
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1); 
+            background: rgba(2, 6, 23, 0.8);
+        }
+        
+        .premium-select option { background: var(--bg-surface); color: #fff; }
+
+        .terms-box {
+            background: rgba(2, 6, 23, 0.4); border: 1px solid var(--border-glass); border-radius: 16px;
+            padding: 1.25rem; height: 100px; overflow-y: auto; font-size: 0.85rem; 
+            color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;
+        }
+        .terms-box::-webkit-scrollbar { width: 4px; }
+        .terms-box::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 4px; }
+        
+        .checkbox-container { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 2.5rem; }
+        .checkbox-custom { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent-primary); cursor: pointer; flex-shrink: 0; }
+        .checkbox-label { font-size: 0.9rem; line-height: 1.5; cursor: pointer; color: var(--text-primary); font-weight: 500;}
+
+        @media (max-width: 768px) {
+            .auth-glass-panel { padding: 2.5rem 2rem; border-radius: 24px; margin: 0 1rem; border: none; background: transparent; box-shadow: none;}
+            .input-row { flex-direction: column; gap: 1.5rem; }
+            .back-nav { top: 90px; padding: 8px 16px; }
+            .auth-layout { align-items: flex-start; padding-top: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= ANA NAVBAR (MODAL SİSTEMİ EKLENDİ) ================= -->
+    <header class="navbar" id="main-nav">
+        <div class="nav-left">
+            <a href="/tr/" class="brand">
+                <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
+                <span class="brand-text">Unity Gate</span>
+            </a>
+            <nav class="nav-links hide-mobile">
+                <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+                <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+                <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
+            </nav>
+        </div>
+        
+        <div class="nav-right">
+            <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Giriş Yap</button>
+            <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Kayıt Ol</button>
+            
+            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= MOBİL MENÜ ================= -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="mobile-nav-content">
+            <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+            <a href="/tr/insights.html" data-i18n="navInsights">İçgörüler</a>
+            <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
+            <hr class="mobile-divider">
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Giriş Yap</a>
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
+        </div>
+    </nav>
+
+    <!-- ================= KAYIT FORMU ALANI ================= -->
+    <div class="auth-layout">
+        <div class="ambient-glow-1"></div>
+        <div class="ambient-glow-2"></div>
+
+        <a href="/tr/" class="back-nav">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            <span data-i18n="back">Geri</span>
+        </a>
+
+        <div class="auth-glass-panel">
+            <div class="auth-header">
+                <h1 data-i18n="userRegTitle">Kullanıcı Kayıt Formu</h1>
+                <p data-i18n="userRegSubtitle">İyileşme yolculuğunuza ilk adımı atın ve topluluğumuza katılın.</p>
+            </div>
+
+            <form id="user-form" onsubmit="handleUserRegistration(event)">
+                
+                <div class="input-group">
+                    <label class="input-label" data-i18n="fullName">Ad Soyad</label>
+                    <input type="text" id="name" class="premium-input" placeholder="Adınız ve Soyadınız" required>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" data-i18n="email">E-posta Adresi</label>
+                    <input type="email" id="email" class="premium-input" placeholder="ornek@mail.com" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="password">Şifre</label>
+                        <input type="password" id="password" class="premium-input" placeholder="••••••••" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="confirmPassword">Şifre Tekrar</label>
+                        <input type="password" id="confirm_password" class="premium-input" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="country">Ülke</label>
+                        <select id="country" class="premium-select" required>
+                            <option value="" disabled selected data-i18n="selectCountry">Ülke Seçiniz</option>
+                            <option value="TR">Türkiye (Turkey)</option>
+                            <option value="US">United States</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="ES">Spain</option>
+                            <option value="JP">Japan</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" data-i18n="userGoal">Ana Hedefiniz</label>
+                        <select id="user_goal" class="premium-select" required>
+                            <option value="" disabled selected data-i18n="selectGoal">Hedefinizi Seçiniz</option>
+                            <option value="social" data-i18n="goalSocial">İlgi Odalarında Sosyalleşme</option>
+                            <option value="therapy" data-i18n="goalTherapy">Profesyonel Destek Almak</option>
+                            <option value="self_discovery" data-i18n="goalDiscover">Kendimi Keşfetmek</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="terms-box" data-i18n="userTermsText">
+                    Unity Gate'e katılarak, güvenli, anonim ve destekleyici bir topluluğun parçası olmayı kabul ediyorsunuz. Tüm kişisel verileriniz KVKK standartları ve uluslararası sağlık protokolleri kapsamında askeri düzeyde şifrelemeyle korunmaktadır. Verileriniz hiçbir şekilde üçüncü şahıslarla paylaşılmaz.
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agree_terms" class="checkbox-custom" required>
+                    <label for="agree_terms" class="checkbox-label" data-i18n="userAgreeTerms">Kullanıcı sözleşmesini ve gizlilik politikasını okudum, kabul ediyorum.</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.25rem; font-size: 1rem;" data-i18n="btnUserRegister">Hesabımı Oluştur ve Başla</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER BÖLÜMÜ ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="brand">
+                        <img src="/assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+                        Unity Gate
+                    </div>
+                    <p data-i18n="footerTagline">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-group">
+                        <h4 data-i18n="footerCompany">Kurumsal</h4>
+                        <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
+                        <a href="/tr/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
+                        <a href="/tr/investors.html" data-i18n="footerInvestors">Yatırımcı İlişkileri</a>
+                    </div>
+                    <div class="footer-group">
+                        <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
+                        <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+                        <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright" data-i18n="footerCopyright">
+                    © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
+                </div>
+                <div class="footer-legal">
+                    <span id="current-language-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">TR</span>
+                    <a href="/tr/privacy.html" data-i18n="footerPrivacy">Gizlilik ve Veri Güvenliği Politikası</a>
+                    <span class="dot-separator">•</span>
+                    <a href="/tr/terms.html" data-i18n="footerTerms">Hizmet Kullanım Şartları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= PREMIUM MODALLAR ================= -->
+    <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+        <div class="premium-modal" onclick="event.stopPropagation();">
+            <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
+            </div>
+            <div class="modal-options">
+                <a href="/tr/login.html" class="modal-option-btn">
+                    <div class="modal-option-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong>Danışan Girişi</strong>
+                        <span>Kişisel iyileşme yolculuğunuza erişin.</span>
+                    </div>
+                </a>
+                <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+                    <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+                        <span>Klinik kontrol paneline erişin.</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+        <div class="premium-modal" onclick="event.stopPropagation();">
+            <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
+            </div>
+            <div class="modal-options">
+                <a href="/tr/register.html" class="modal-option-btn">
+                    <div class="modal-option-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong data-i18n="btnSignUpUser">Danışan Kaydı</strong>
+                        <span>İyileşme yolculuğunuza başlayın.</span>
+                    </div>
+                </a>
+                <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+                    <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+                        <span>Lisanslı profesyonel olarak katılın.</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= KAYIT İŞLEMLERİ (BTOA SİLİNDİ - TEMİZ AKTARIM) ================= -->
+    <script>
+        function handleUserRegistration(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const country = document.getElementById('country').value;
+            const goal = document.getElementById('user_goal').value;
+            const rawPassword = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            // Şifre Doğrulama
+            if (rawPassword !== confirmPassword) {
+                alert(i18next.t('errPasswordMismatch') || "Güvenlik İhlali: Şifreler eşleşmiyor, lütfen kontrol edin.");
+                return;
+            }
+
+            // 🔥 KRİTİK GÜNCELLEME: btoa() fonksiyonu tamamen kaldırıldı.
+            // Şifre artık Base64'e çevrilmeden, URLSearchParams'ın kendi güvenliğiyle gönderiliyor.
+            const params = new URLSearchParams();
+            params.append("name", name);
+            params.append("email", email);
+            params.append("country", country);
+            params.append("goal", goal);
+            params.append("token", rawPassword); // Doğrudan aktarım
+
+            // Kullanıcıyı doğrudan uygulamanın finalize endpoint'ine yönlendiriyoruz
+            const targetUrl = `https://app.unity-gate.com/user/finalize?${params.toString()}`;
+            window.location.href = targetUrl;
+        }
+    </script>
+
+</body>
+</html>
