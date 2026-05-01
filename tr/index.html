@@ -1,3 +1,4 @@
+<!-- 📂 /tr/index.html (TÜRKÇE DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
 <!DOCTYPE html>
 <html lang="tr" id="html-tag" class="no-js">
 <head>
@@ -8,6 +9,7 @@
   <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate, yalnızlık krizine karşı klinik standartlarda online terapi, uzman eşleşme ve güvenli matchmaking hizmetleri sunan HealthTech platformudur.">
   <meta name="theme-color" content="#020617">
   
+  <!-- ================= STRUCTURED DATA ================= -->
   <script type="application/ld+json">
     [
       {
@@ -36,28 +38,33 @@
     ]
   </script>
 
-  <link rel="canonical" href="https://www.unity-gate.com/" />
+  <link rel="canonical" href="https://www.unity-gate.com/tr/" />
   <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/" />
   <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/" />
   <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/" />
   <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/" />
 
+  <!-- ================= PERFORMANCE ================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=12.0">
+  <!-- ================= CSS (Kök dizinden çekilir) ================= -->
+  <link rel="stylesheet" href="/css/style.css?v=15.0">
   
+  <!-- ================= I18N ENGINE ================= -->
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-  <script src="js/main.js?v=12.0" defer></script>
+  
+  <!-- ================= JS (Kök dizinden çekilir) ================= -->
+  <script src="/js/main.js?v=15.0" defer></script>
 </head>
 <body>
 
   <header class="navbar" id="main-nav">
     <div class="nav-left">
       <a href="/" class="brand" aria-label="Unity Gate Ana Sayfa">
-        <img src="assets/logo.png" alt="Unity Gate Logo - HealthTech Platformu" width="32" height="32" class="brand-logo">
+        <img src="/assets/logo.png" alt="Unity Gate Logo - HealthTech Platformu" width="32" height="32" class="brand-logo">
         <span class="brand-text">Unity Gate</span>
       </a>
       <nav class="nav-links hide-mobile" aria-label="Ana Menü">
@@ -103,34 +110,54 @@
   </nav>
 
   <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content-wrapper">
-        <div class="badge-premium fade-in-up" data-i18n="badgePremium">Klinik Standartlarda HealthTech Ekosistemi</div>
-        <h1 class="hero-title fade-in-up stagger-1" data-i18n="heroTitle">Yalnızlığa Karşı Bilimsel,<br>Güvenli Uzman Eşleşme Sistemi</h1>
-        <p class="hero-subtitle fade-in-up stagger-2" data-i18n="heroSubtitle">Unity Gate, niyet odaklı eşleştirme ve lisanslı uzmanların gözetiminde güvenilir ilişkiler kurmanızı sağlayan, askeri düzeyde şifrelenmiş psikoloji platformudur.</p>
-        <div class="hero-actions fade-in-up stagger-3">
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-label="Hero Section" style="position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden;">
+      
+      <!-- Z-Index eklendi: Yazılar, butonlar ve güven afişi dalgaların ÜSTÜNDE olacak -->
+      <div class="hero-content-wrapper" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; padding-bottom: 120px;">
+        
+        <!-- Rozet -->
+        <div class="badge-premium fade-in-up" data-i18n="badgePremium" style="display: inline-flex; justify-content: center; width: max-content; margin: 0 auto 1.5rem;">
+          Klinik Standartlarda HealthTech Ekosistemi
+        </div>
+        
+        <!-- Başlık: <br> kaldırıldı, CSS genişliği ile doğal alt satıra inecek -->
+        <h1 class="hero-title fade-in-up stagger-1" data-i18n="heroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.2;">
+          Yalnızlığa Karşı Bilimsel, Güvenli Uzman Eşleşme Sistemi
+        </h1>
+        
+        <!-- Alt Başlık -->
+        <p class="hero-subtitle fade-in-up stagger-2" data-i18n="heroSubtitle" style="max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
+          Unity Gate, niyet odaklı eşleştirme ve lisanslı uzmanların gözetiminde güvenilir ilişkiler kurmanızı sağlayan, askeri düzeyde şifrelenmiş psikoloji platformudur.
+        </p>
+        
+        <!-- Butonlar (İngilizce versiyonuyla eşitlendi) -->
+        <div class="hero-actions fade-in-up stagger-3" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="/ucla-test.html" class="btn btn-primary btn-lg" data-i18n="btnStartTest">Bilimsel Analize Başla</a>
+          <a href="/expert-registration.html" class="btn btn-glass btn-lg" data-i18n="btnExpert">Uzman Ol</a>
         </div>
+
+        <!-- Trust Banner: Dalgaların altında kaybolmaması için Z-Index kapsayıcısının (hero-content-wrapper) içine alındı -->
+        <div class="trust-banner fade-in-up stagger-4" style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; background: rgba(11, 17, 33, 0.4); padding: 15px 25px; border-radius: 100px; border: 1px solid var(--border-glass); backdrop-filter: blur(10px);">
+          <div class="trust-item" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span data-i18n="trustVerified">Tüm uzmanlar manuel olarak doğrulanır</span>
+          </div>
+          <div class="trust-item" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span data-i18n="trustVideo">Görüntülü mülakat zorunludur</span>
+          </div>
+          <div class="trust-item" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span data-i18n="trustEthical">Katı etik kurallar uygulanır</span>
+          </div>
+        </div>
+
       </div>
 
-      <div class="trust-banner fade-in-up stagger-4">
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span data-i18n="trustVerified">Tüm uzmanlar manuel olarak doğrulanır</span>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          <span data-i18n="trustVideo">Görüntülü mülakat zorunludur</span>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          <span data-i18n="trustEthical">Katı etik kurallar uygulanır</span>
-        </div>
-      </div>
-
-      <div class="ocean-frame" aria-hidden="true">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <!-- DALGALAR: En alta çivilendi, butonları yutmayacak -->
+      <div class="ocean-frame" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1;">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" style="display: block; width: 100%; height: auto;">
           <defs>
             <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
           </defs>
@@ -224,6 +251,9 @@
             <div class="box-content">
               <h3 data-i18n="process4Title">Mobil Uygulama</h3>
               <p data-i18n="process4Desc" style="margin-bottom: 2rem;">Birlik Kapısı her an yanınızda. Çok yakında App Store ve Google Play'de.</p>
+              <div class="box-action" style="margin-top: auto;">
+                <button class="btn btn-primary" style="width: 100%;" onclick="alert('Yakında Geliyor!')" data-i18n="btnDownload">Uygulamayı İndir</button>
+              </div>
             </div>
           </article>
         </div>
@@ -237,7 +267,7 @@
       <div class="footer-top">
         <div class="footer-info">
           <div class="brand">
-            <img src="assets/logo.png" alt="Unity Gate Footer Logo" width="28" height="28" class="brand-logo">
+            <img src="/assets/logo.png" alt="Unity Gate Footer Logo" width="28" height="28" class="brand-logo">
             Unity Gate
           </div>
           <p data-i18n="footerTagline">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
@@ -247,12 +277,12 @@
             <h4 data-i18n="footerCompany">Kurumsal</h4>
             <a href="/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
             <a href="/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
+            <a href="/investors.html" data-i18n="footerInvestors">Yatırımcı İlişkileri</a>
           </div>
           <div class="footer-group">
             <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
             <a href="/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
             <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
-            <a href="/expert-registration.html" data-i18n="btnSignUpExpert">Uzman Kayıt</a>
           </div>
         </div>
       </div>
@@ -262,9 +292,9 @@
           © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
         </div>
         <div class="footer-legal">
-          <span id="current-language-display" class="lang-display">TR</span>
+          <span id="current-language-display" class="lang-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">TR</span>
           <a href="/privacy.html" data-i18n="footerPrivacy">Gizlilik ve Veri Güvenliği Politikası</a>
-          <span class="dot-separator">•</span>
+          <span class="dot-separator" style="color: var(--border-glass);">•</span>
           <a href="/terms.html" data-i18n="footerTerms">Hizmet Kullanım Şartları</a>
         </div>
       </div>
