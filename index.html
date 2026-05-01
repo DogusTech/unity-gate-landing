@@ -10,7 +10,6 @@
   <meta name="description" data-i18n="[content]metaDescription" content="Unity Gate is a HealthTech platform providing clinical-standard online therapy, expert matching, and secure matchmaking against the loneliness crisis.">
   <meta name="theme-color" content="#020617">
   
-  <!-- Canonical tag MUST point to the root URL for the default language -->
   <link rel="canonical" href="https://www.unity-gate.com/" />
 
   <!-- ================= ROBOTS ================= -->
@@ -60,14 +59,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="css/style.css?v=14.0">
+  <link rel="stylesheet" href="css/style.css?v=15.0">
 
   <!-- ================= I18N ENGINE ================= -->
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
 
   <!-- ================= JS ================= -->
-  <script src="js/main.js?v=14.0" defer></script>
+  <script src="js/main.js?v=15.0" defer></script>
 </head>
 
 <body>
@@ -111,53 +110,41 @@
 <main>
 
 <!-- ================= HERO ================= -->
-<section class="hero" aria-label="Hero Section" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+<!-- Dalgaların butonları yutmasını engellemek için Hero section'a relative ve overflow:hidden eklendi -->
+<section class="hero" aria-label="Hero Section" style="position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden;">
+  
+  <!-- Z-Index eklendi: Yazılar ve butonlar kesinlikle dalgaların ÜSTÜNDE olacak -->
+  <!-- Padding-bottom eklendi: İçerik dalganın içine girmeyecek, yukarıda kalacak -->
+  <div class="hero-content" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; padding-bottom: 120px;">
     
-    <!-- Rozet Düzeltildi -->
     <div class="badge-premium fade-in-up" data-i18n="badgePremium" style="display: inline-flex; justify-content: center; width: max-content; margin: 0 auto 1.5rem;">
       Clinical Standard HealthTech Ecosystem
     </div>
     
-    <!-- Başlık Düzeltildi -->
-    <h1 class="fade-in-up" data-i18n="[innerHTML]heroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.2;">
+    <!-- HATA DÜZELTİLDİ: [innerHTML] kaldırıldı, doğal data-i18n kullanıldı -->
+    <h1 class="fade-in-up" data-i18n="heroTitle" style="max-width: 800px; margin: 0 auto 1.2rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.2;">
       Scientific, Secure Expert Matching Against Loneliness
     </h1>
     
-    <!-- Alt Başlık Düzeltildi -->
     <p class="fade-in-up" data-i18n="heroSubtitle" style="animation-delay: 0.1s; max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
       Unity Gate is a military-grade encrypted psychology platform that enables intent-driven matching and secure relationships under the supervision of licensed experts.
     </p>
 
-    <!-- Butonlar Düzeltildi -->
     <div class="hero-actions fade-in-up" style="animation-delay: 0.2s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
       <a href="/ucla-test.html" class="btn btn-primary btn-lg" data-i18n="btnStartTest">
         Start Scientific Analysis
       </a>
+      <!-- Bu buton artık dalganın içinde kaybolmayacak -->
       <a href="/expert-registration.html" class="btn btn-glass btn-lg" data-i18n="btnExpert">
         Become an Expert
       </a>
     </div>
   </div>
 
-  <!-- AÇIK RENKLİ OKYANUS DALGALARI (Tek ve Doğru Versiyon) -->
-  <div class="ocean-frame" aria-hidden="true">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-      <defs>
-        <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-      </defs>
-      <g class="wave-parallax">
-        <use xlink:href="#deep-wave" x="48" y="0" class="wave-layer l1" />
-        <use xlink:href="#deep-wave" x="48" y="3" class="wave-layer l2" />
-        <use xlink:href="#deep-wave" x="48" y="5" class="wave-layer l3" />
-        <use xlink:href="#deep-wave" x="48" y="7" class="wave-layer l4" />
-      </g>
-    </svg>
-  </div>
-</section>
-  <!-- LIGHT OCEAN WAVES -->
-  <div class="ocean-frame" aria-hidden="true">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+  <!-- AÇIK RENKLİ OKYANUS DALGALARI -->
+  <!-- Position absolute ile EN ALTA çivilendi, Z-Index 1 yapılarak butonların ALTINDA kalması sağlandı -->
+  <div class="ocean-frame" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1;">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" style="display: block; width: 100%; height: auto;">
       <defs>
         <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
       </defs>
