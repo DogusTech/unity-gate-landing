@@ -1,0 +1,316 @@
+<!-- 📂 /tr/insights.html (TÜRKÇE DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
+<!DOCTYPE html>
+<html lang="tr" id="html-tag" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
+  <script>
+    (function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        const langCode = userLang.split('-')[0];
+        const currentPath = window.location.pathname;
+        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+            window.location.replace("/" + langCode + targetPage);
+        }
+    })();
+  </script>
+
+  <title data-i18n="metaTitleInsights">İçgörüler | Unity Gate</title>
+  <meta name="description" data-i18n="[content]metaDescInsights" content="Yalnızlık, psikoloji ve modern ilişkiler üzerine derinlemesine bilimsel analizler.">
+  <meta name="theme-color" content="#020617">
+  
+  <!-- SEO & Yönlendirmeler -->
+  <link rel="canonical" href="https://www.unity-gate.com/tr/insights.html" />
+  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/insights.html" />
+  <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/insights.html" />
+  <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/insights.html" />
+  <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/insights.html" />
+  <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/insights.html" />
+  <link rel="alternate" hreflang="es" href="https://www.unity-gate.com/es/insights.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/insights.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- ANA CSS DOSYASI BAĞLANTISI (Versiyon 19.0) -->
+  <link rel="stylesheet" href="/css/style.css?v=19.0">
+  
+  <!-- Bu sayfaya özel ekstra stiller (Kart Yapısı) -->
+  <style>
+    .hero.insights-hero { min-height: 60vh; padding-top: 100px; }
+    
+    .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    
+    .article-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      text-decoration: none;
+      color: inherit;
+    }
+    .article-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(34, 211, 238, 0.1);
+    }
+    .article-image-wrapper {
+      position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .article-image-wrapper img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+    }
+    .article-card:hover .article-image-wrapper img { transform: scale(1.05); }
+    
+    .article-content { padding: 2rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .meta-data { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .meta-category { color: var(--accent-primary); }
+    .meta-time { color: var(--text-secondary); font-weight: 500; }
+    .article-content h3 { font-size: 1.5rem; font-weight: 800; line-height: 1.3; color: #fff; margin-bottom: 1rem; }
+  </style>
+
+  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+  <script src="/js/main.js?v=19.0" defer></script>
+</head>
+<body>
+
+  <!-- ================= HEADER (DROPDOWN YERİNE MODAL) ================= -->
+  <header class="navbar" id="main-nav">
+    <div class="nav-left">
+      <a href="/tr/" class="brand">
+        <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
+        <span class="brand-text">Unity Gate</span>
+      </a>
+      <nav class="nav-links hide-mobile">
+        <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/tr/insights.html" style="color: #fff;" data-i18n="navInsights">İçgörüler</a>
+        <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
+      </nav>
+    </div>
+    
+    <div class="nav-right">
+      <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Giriş Yap</button>
+      <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Kayıt Ol</button>
+      
+      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MOBİL MENÜ ================= -->
+  <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-nav-content">
+      <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+      <a href="/tr/insights.html" style="color: var(--accent-primary);" data-i18n="navInsights">İçgörüler</a>
+      <a href="/tr/about.html" data-i18n="navAbout">Hakkımızda</a>
+      <hr class="mobile-divider">
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Giriş Yap</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= HERO BÖLÜMÜ ================= -->
+    <section class="hero insights-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content-wrapper" style="margin-top: -5vh;">
+        <h1 class="hero-title fade-in-up" data-i18n="insightsTitle" style="font-size: clamp(2.5rem, 5vw, 4rem);">Klinik İçgörüler</h1>
+        <p class="hero-subtitle fade-in-up" data-i18n="insightsSubtitle" style="max-width: 650px; margin: 0 auto;">Ruh sağlığı, modern yalnızlık krizleri ve bilimsel iyileşme üzerine derinlemesine analizler kütüphanesi.</p>
+      </div>
+
+      <!-- ANA SAYFADAKİ DEV OKYANUS DALGALARI -->
+      <div class="ocean-frame" aria-hidden="true" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1;">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+          <defs>
+            <path id="deep-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="wave-parallax">
+            <use xlink:href="#deep-wave" x="48" y="0" class="wave-layer l1" />
+            <use xlink:href="#deep-wave" x="48" y="3" class="wave-layer l2" />
+            <use xlink:href="#deep-wave" x="48" y="5" class="wave-layer l3" />
+            <use xlink:href="#deep-wave" x="48" y="7" class="wave-layer l4" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================= MAKALELER KÜTÜPHANESİ ================= -->
+    <section class="section-padding" style="padding-top: 4rem; padding-bottom: 8rem; position: relative; z-index: 10;">
+      <div class="container">
+        <div class="section-header fade-in-up" style="text-align: left; border-bottom: 1px solid var(--border-glass); padding-bottom: 1rem; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; color: var(--text-secondary);" data-i18n="articlesSection">Son Yayınlar</h2>
+        </div>
+        
+        <!-- JavaScript ile Doldurulacak Kartlar -->
+        <div class="article-grid" id="article-container">
+          <div style="text-align: center; color: var(--text-secondary); width: 100%; grid-column: 1 / -1;">Makaleler yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER BÖLÜMÜ (LİNKLER /tr/ OLARAK GÜNCELLENDİ) ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <div class="brand">
+            <img src="/assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
+            Unity Gate
+          </div>
+          <p data-i18n="footerTagline">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-group">
+            <h4 data-i18n="footerCompany">Kurumsal</h4>
+            <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
+            <a href="/tr/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
+            <a href="/tr/investors.html" data-i18n="footerInvestors">Yatırımcı İlişkileri</a>
+          </div>
+          <div class="footer-group">
+            <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
+            <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+            <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-i18n="footerCopyright">
+          © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
+        </div>
+        <div class="footer-legal">
+          <span id="current-language-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">TR</span>
+          <a href="/tr/privacy.html" data-i18n="footerPrivacy">Gizlilik ve Veri Güvenliği Politikası</a>
+          <span class="dot-separator">•</span>
+          <a href="/tr/terms.html" data-i18n="footerTerms">Hizmet Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= PREMIUM MODALLAR (TÜRKÇE YÖNLENDİRMELER) ================= -->
+  <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-header">
+        <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
+      </div>
+      <div class="modal-options">
+        <a href="/tr/login.html" class="modal-option-btn">
+          <div class="modal-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong>Danışan Girişi</strong>
+            <span>Kişisel iyileşme yolculuğunuza erişin.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+            <span>Klinik kontrol paneline erişin.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-header">
+        <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
+      </div>
+      <div class="modal-options">
+        <a href="/tr/register.html" class="modal-option-btn">
+          <div class="modal-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong data-i18n="btnSignUpUser">Danışan Kaydı</strong>
+            <span>İyileşme yolculuğunuza başlayın.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+            <span>Lisanslı profesyonel olarak katılın.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAKALELERİ ÇEKME SCRİPTİ (Linkler Düzeltildi) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let checkReady = setInterval(() => {
+            if (window.i18next && window.i18next.isInitialized) {
+                clearInterval(checkReady);
+                renderArticles();
+            }
+        }, 100);
+
+        function renderArticles() {
+            const articles = i18next.t('articles', { returnObjects: true });
+            const minReadTxt = i18next.t('minRead') || 'dk okuma'; 
+            
+            const container = document.getElementById('article-container');
+            container.innerHTML = ''; 
+
+            if (Array.isArray(articles)) {
+                articles.forEach((art, index) => {
+                    const delay = (index * 0.1).toFixed(1);
+                    // DİKKAT: Linkler artık doğrudan /tr/article-detail.html'e gidiyor
+                    const targetUrl = `/tr/article-detail.html?slug=${art.slug}&lang=${i18next.language}`;
+                    
+                    const card = `
+                        <a href="${targetUrl}" class="article-card fade-in-up visible" style="animation-delay: ${delay}s;">
+                            <div class="article-image-wrapper">
+                                <img src="${art.img}" alt="${art.title}" loading="lazy">
+                            </div>
+                            <div class="article-content">
+                                <div class="meta-data">
+                                    <span class="meta-category">${art.cat}</span>
+                                    <span class="meta-time">${art.time} ${minReadTxt}</span>
+                                </div>
+                                <h3>${art.title}</h3>
+                            </div>
+                        </a>
+                    `;
+                    container.innerHTML += card;
+                });
+            } else {
+                container.innerHTML = `<div style="text-align: center; color: var(--text-secondary); width: 100%; grid-column: 1 / -1;">Makaleler bulunamadı veya henüz çevrilmedi.</div>`;
+            }
+        }
+    });
+  </script>
+
+</body> 
+</html>
