@@ -1,15 +1,32 @@
+<!-- 📂 /expert-registration.html (GLOBAL KÖK DİZİN - SEO OPTIMIZED + PREMIUM UX) -->
 <!DOCTYPE html>
-<html lang="tr" id="html-tag" class="no-js">
+<html lang="en" id="html-tag" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <title data-i18n="metaTitle">Uzman Kaydı | Unity Gate Premium</title>
-    <meta name="description" data-i18n="[content]metaDescription" content="Join Unity Gate as a licensed expert.">
+    <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
+    <script>
+      (function() {
+          const userLang = navigator.language || navigator.userLanguage; 
+          const langCode = userLang.split('-')[0];
+          const currentPath = window.location.pathname;
+          const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+          const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+          if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+              const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+              window.location.replace("/" + langCode + targetPage);
+          }
+      })();
+    </script>
+
+    <title data-i18n="metaExpertTitle">Expert Registration | Unity Gate</title>
+    <meta name="description" data-i18n="[content]metaExpertDesc" content="Join the Unity Gate HealthTech platform as a licensed professional.">
     <meta name="theme-color" content="#020617">
     
-    <!-- SEO & Dil Yönlendirmeleri -->
-    <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/expert-registration.html" />
+    <link rel="canonical" href="https://www.unity-gate.com/expert-registration.html" />
+    <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/expert-registration.html" />
     <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/expert-registration.html" />
     <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/expert-registration.html" />
     <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/expert-registration.html" />
@@ -21,176 +38,82 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Ana CSS dosyamızı (v6.0) çağırıyoruz -->
-    <link rel="stylesheet" href="css/style.css?v=6.0">
-
+    <link rel="stylesheet" href="/css/style.css?v=19.0">
     <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
     <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-    <script src="js/main.js?v=6.0" defer></script>
+    <script src="/js/main.js?v=19.0" defer></script>
 
-    <!-- BU SAYFAYA ÖZEL NATIVE FORM STİLLERİ -->
     <style>
-        .auth-layout {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 120px 5% 60px 5%; /* Header'ın altında kalmaması için */
-            position: relative;
-            overflow: hidden;
-            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8) 0%, var(--bg-black) 100%);
-        }
-
-        /* Derin Uzay / Okyanus Işımaları */
-        .ambient-glow {
-            position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none;
-        }
+        .auth-layout { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 120px 5% 60px 5%; position: relative; overflow: hidden; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8) 0%, var(--bg-black) 100%); }
+        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none; }
         .glow-cyan { top: 10%; right: 15%; width: 40vw; height: 40vw; background: rgba(34, 211, 238, 0.15); }
         .glow-blue { bottom: 10%; left: 10%; width: 50vw; height: 50vw; background: rgba(14, 165, 233, 0.1); }
-
-        /* Premium Form Kartı */
-        .glass-form-card {
-            position: relative; z-index: 10;
-            width: 100%; max-width: 680px;
-            background: var(--bg-surface);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--border-glass);
-            border-radius: 32px;
-            padding: 3.5rem;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.05);
-        }
-
+        .glass-form-card { position: relative; z-index: 10; width: 100%; max-width: 680px; background: var(--bg-surface); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border-glass); border-radius: 32px; padding: 3.5rem; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.05); }
         .form-header { text-align: center; margin-bottom: 3rem; }
-        .form-header h1 { 
-            font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; 
-            color: #fff;
-        }
+        .form-header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; color: #fff; }
         .form-header p { color: var(--text-secondary); font-size: 1rem; }
-
-        .form-section-title {
-            color: var(--accent-primary);
-            font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em;
-            text-transform: uppercase; margin: 2.5rem 0 1.5rem 0;
-            border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem;
-        }
-
+        .form-section-title { color: var(--accent-primary); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin: 2.5rem 0 1.5rem 0; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem; }
         .input-group { margin-bottom: 1.5rem; }
         .input-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
-        .input-group label {
-            display: block; font-size: 0.9rem; font-weight: 600;
-            color: var(--text-secondary); margin-bottom: 0.5rem;
-        }
-
-        .form-control {
-            width: 100%; padding: 1rem 1.25rem;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            color: #fff; font-size: 1rem; font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-        .form-control:focus {
-            outline: none; border-color: var(--accent-primary);
-            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
-            background: rgba(0, 0, 0, 0.4);
-        }
+        .input-group label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .form-control { width: 100%; padding: 1rem 1.25rem; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-glass); border-radius: 16px; color: #fff; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        .form-control:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1); background: rgba(0, 0, 0, 0.4); }
         .form-control option { background: var(--bg-surface); color: #fff; }
-
-        /* Native Etiketler (Chips) */
         .tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
-        .tag-chip {
-            padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer;
-            background: transparent; border: 1px solid var(--border-glass); color: var(--text-secondary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .tag-chip { padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; background: transparent; border: 1px solid var(--border-glass); color: var(--text-secondary); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .tag-chip:hover { border-color: var(--text-secondary); color: #fff; }
-        .tag-chip.active {
-            background: rgba(34, 211, 238, 0.15);
-            border-color: var(--accent-primary); color: var(--accent-primary);
-        }
-
-        /* Gizlilik & Şartlar (Native Scroll) */
-        .terms-scroll-box {
-            background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-glass);
-            border-radius: 16px; padding: 1.25rem; height: 120px; overflow-y: auto;
-            font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;
-        }
-        
+        .tag-chip.active { background: rgba(34, 211, 238, 0.15); border-color: var(--accent-primary); color: var(--accent-primary); }
+        .terms-scroll-box { background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-glass); border-radius: 16px; padding: 1.25rem; height: 120px; overflow-y: auto; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; }
         .terms-scroll-box::-webkit-scrollbar { width: 6px; }
         .terms-scroll-box::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 10px; }
-
         .checkbox-wrapper { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2.5rem; }
-        .checkbox-wrapper input[type="checkbox"] {
-            width: 22px; height: 22px; margin-top: 2px; accent-color: var(--accent-primary); cursor: pointer;
-        }
+        .checkbox-wrapper input[type="checkbox"] { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--accent-primary); cursor: pointer; }
         .checkbox-wrapper label { font-size: 0.95rem; color: var(--text-primary); cursor: pointer; line-height: 1.5; }
-
-        .btn-submit-full {
-            width: 100%; padding: 1.25rem; border-radius: 16px; font-size: 1.1rem;
-        }
-
-        .back-link {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            color: var(--text-secondary); font-weight: 600; font-size: 0.95rem;
-            margin-bottom: 2rem; transition: 0.3s;
-        }
+        .btn-submit-full { width: 100%; padding: 1.25rem; border-radius: 16px; font-size: 1.1rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; margin-bottom: 2rem; transition: 0.3s; }
         .back-link:hover { color: #fff; transform: translateX(-4px); }
-
-        @media (max-width: 768px) {
-            .glass-form-card { padding: 2.5rem 1.5rem; border-radius: 24px; }
-            .input-grid-2 { grid-template-columns: 1fr; gap: 0; }
-            .form-header h1 { font-size: 2rem; }
-        }
+        @media (max-width: 768px) { .glass-form-card { padding: 2.5rem 1.5rem; border-radius: 24px; } .input-grid-2 { grid-template-columns: 1fr; gap: 0; } .form-header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
-    <!-- ================= ANA NAVBAR (Sistemle Tam Uyumlu) ================= -->
+    <!-- ================= ANA NAVBAR ================= -->
     <header class="navbar" id="main-nav">
         <div class="nav-left">
             <a href="/" class="brand">
-                <img src="assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
+                <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
                 <span class="brand-text">Unity Gate</span>
             </a>
             <nav class="nav-links hide-mobile">
-                <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-                <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
-                <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+                <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
+                <a href="/insights.html" data-i18n="navInsights">Insights</a>
+                <a href="/about.html" data-i18n="navAbout">Our Mission</a>
             </nav>
         </div>
         <div class="nav-right">
-            <div class="dropdown-wrapper hide-mobile">
-                <button class="btn btn-glass" data-i18n="btnSignIn">Giriş Yap</button>
-                <div class="dropdown-menu">
-                    <a href="/login.html" class="dropdown-item">👤 Kullanıcı Girişi</a>
-                    <a href="/expert-login.html" class="dropdown-item">🎓 Uzman Girişi</a>
-                </div>
-            </div>
-            <a href="/register.html" class="btn btn-primary hide-mobile" data-i18n="btnSignUp">Kayıt Ol</a>
-            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Sign In</button>
+            <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Sign Up</button>
+            <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
     </header>
 
     <!-- Mobil Menü -->
-    <nav class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mobile-nav-content">
-            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-            <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
-            <a href="/about.html" data-i18n="navAbout">Hakkımızda</a>
+            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Test</a>
+            <a href="/insights.html" data-i18n="navInsights">Insights</a>
+            <a href="/about.html" data-i18n="navAbout">Our Mission</a>
             <hr class="mobile-divider">
-            <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
-            <a href="/register.html" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Sign In</a>
+            <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Sign Up</a>
         </div>
     </nav>
 
     <!-- ================= FORM ALANI ================= -->
     <main class="auth-layout">
-        <!-- Derin Işıklandırmalar -->
         <div class="ambient-glow glow-cyan"></div>
         <div class="ambient-glow glow-blue"></div>
 
@@ -198,91 +121,149 @@
             
             <a href="/" class="back-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                <span data-i18n="back">Geri Dön</span>
+                <span data-i18n="back">Back</span>
             </a>
 
             <div class="form-header">
-                <h1 data-i18n="formTitle">Uzman Kayıt Formu</h1>
-                <p data-i18n="formSubtitle">Lisanslı bir profesyonel olarak Unity Gate ekosistemine katılın.</p>
+                <h1 data-i18n="formTitle">Expert Registration Form</h1>
+                <p data-i18n="formSubtitle">Join the Unity Gate ecosystem as a licensed professional.</p>
             </div>
 
             <form id="expert-form" onsubmit="handleNextStep(event)">
                 
-                <!-- 1. Kişisel Bilgiler -->
-                <div class="form-section-title" data-i18n="sectionPersonal">KİŞİSEL BİLGİLER</div>
+                <div class="form-section-title" data-i18n="sectionPersonal">PERSONAL INFORMATION</div>
                 
                 <div class="input-group">
-                    <label data-i18n="fullName">Ad Soyad</label>
+                    <label data-i18n="fullName">Full Name</label>
                     <input type="text" id="name" class="form-control" required placeholder="Dr. John Doe">
                 </div>
                 
                 <div class="input-group">
-                    <label data-i18n="email">Kurumsal E-posta Adresi</label>
-                    <input type="email" id="email" class="form-control" required placeholder="iletisim@uzman.com">
+                    <label data-i18n="email">Corporate Email Address</label>
+                    <input type="email" id="email" class="form-control" required placeholder="contact@expert.com">
                 </div>
 
                 <div class="input-grid-2">
                     <div class="input-group">
-                        <label data-i18n="password">Güvenli Şifre</label>
+                        <label data-i18n="password">Secure Password</label>
                         <input type="password" id="password" class="form-control" required>
                     </div>
                     <div class="input-group">
-                        <label data-i18n="confirmPassword">Şifre Tekrar</label>
+                        <label data-i18n="confirmPassword">Confirm Password</label>
                         <input type="password" id="confirm_password" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label data-i18n="country">Hizmet Verilen Ülke</label>
+                    <label data-i18n="country">Country of Service</label>
                     <select id="country" class="form-control" required>
-                        <option value="" disabled selected data-i18n="selectCountry">Ülke Seçiniz</option>
-                        <option value="TR">Türkiye (Turkey)</option>
-                        <option value="US">Amerika Birleşik Devletleri (US)</option>
-                        <option value="DE">Almanya (Germany)</option>
-                        <option value="UK">Birleşik Krallık (UK)</option>
+                        <option value="" disabled selected data-i18n="selectCountry">Select Country</option>
+                        <option value="TR">Turkey</option>
+                        <option value="US">United States</option>
+                        <option value="DE">Germany</option>
+                        <option value="UK">United Kingdom</option>
                     </select>
                 </div>
 
-                <!-- 2. Uzmanlık Alanı -->
-                <div class="form-section-title" data-i18n="sectionExpertise">UZMANLIK ALANI</div>
+                <div class="form-section-title" data-i18n="sectionExpertise">AREA OF EXPERTISE</div>
                 
                 <div class="input-group">
-                    <label data-i18n="mainCategory">Ana Kategori</label>
+                    <label data-i18n="mainCategory">Main Category</label>
                     <select id="main_category" class="form-control" onchange="updateSubcategories()" required>
-                        <option value="" disabled selected data-i18n="selectMainCat">Kategori Seçiniz</option>
-                        <option value="therapy" data-i18n="catTherapy">Klinik Terapi & Psikoloji</option>
-                        <option value="mediation" data-i18n="catMediation">Hukuki Arabuluculuk</option>
-                        <option value="finance" data-i18n="catFinance">Finansal Danışmanlık</option>
+                        <option value="" disabled selected data-i18n="selectMainCat">Select Category</option>
+                        <option value="therapy" data-i18n="catTherapy">Clinical Therapy & Psychology</option>
+                        <option value="mediation" data-i18n="catMediation">Legal Mediation</option>
+                        <option value="finance" data-i18n="catFinance">Financial Consulting</option>
                     </select>
                 </div>
 
                 <div class="input-group" id="subcategory_group" style="display: none;">
-                    <label data-i18n="subCategory">Alt Uzmanlık Etiketleri (Birden fazla seçilebilir)</label>
-                    <div class="tags-container" id="tags-container">
-                        <!-- JS ile dinamik doldurulacak -->
-                    </div>
+                    <label data-i18n="subCategory">Sub-specialty Tags</label>
+                    <div class="tags-container" id="tags-container"></div>
                     <input type="hidden" id="selected_subcats" required>
                 </div>
 
-                <!-- 3. Şartlar ve Onay -->
-                <div class="form-section-title" data-i18n="sectionTerms">GİZLİLİK VE PROTOKOLLER</div>
+                <div class="form-section-title" data-i18n="sectionTerms">PRIVACY AND PROTOCOLS</div>
                 
                 <div class="terms-scroll-box" data-i18n="termsText">
-                    Unity Gate platformuna bir uzman olarak katıldığınızda; uluslararası psikolojik danışmanlık etik kurallarına tam uyum sağlayacağınızı, danışan görüşmelerinin mahremiyetini hiçbir şart altında ihlal etmeyeceğinizi ve KVKK/GDPR normlarına uygun hareket edeceğinizi peşinen kabul etmiş sayılırsınız. Tüm seanslar uçtan uca şifrelenecek olup, platform kurallarına aykırı davranışlar sistemden kalıcı olarak uzaklaştırılma sebebidir.
+                    By joining the Unity Gate platform as an expert, you agree in advance to fully comply with international psychological counseling ethics and act in accordance with GDPR/KVKK norms.
                 </div>
                 
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="agree_terms" required>
-                    <label for="agree_terms" data-i18n="agreeTerms">Uluslararası uzmanlık şartlarını ve gizlilik protokolünü okudum, onaylıyorum.</label>
+                    <label for="agree_terms" data-i18n="agreeTerms">I have read and approve the terms and privacy protocol.</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-submit-full" data-i18n="btnContinue">Belge Yüklemeye Devam Et</button>
+                <button type="submit" class="btn btn-primary btn-submit-full" data-i18n="btnContinue">Continue to Document Upload</button>
             </form>
         </div>
     </main>
 
+    <!-- ================= PREMIUM MODALLAR (KÖK DİZİN) ================= -->
+    <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+      <div class="premium-modal" onclick="event.stopPropagation();">
+        <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="modal-header">
+          <h3 data-i18n="btnSignIn">Sign In</h3>
+        </div>
+        <div class="modal-options">
+          <a href="/login.html" class="modal-option-btn">
+            <div class="modal-option-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="modal-option-text">
+              <strong>User Login</strong>
+              <span>Access your personal journey.</span>
+            </div>
+          </a>
+          <a href="/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+            <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="modal-option-text">
+              <strong style="color: var(--accent-primary);">Expert Login</strong>
+              <span>Access your clinical dashboard.</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+      <div class="premium-modal" onclick="event.stopPropagation();">
+        <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="modal-header">
+          <h3 data-i18n="btnSignUp">Sign Up</h3>
+        </div>
+        <div class="modal-options">
+          <a href="/register.html" class="modal-option-btn">
+            <div class="modal-option-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            </div>
+            <div class="modal-option-text">
+              <strong data-i18n="btnSignUpUser">User Registration</strong>
+              <span>Start your healing journey.</span>
+            </div>
+          </a>
+          <a href="/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+            <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <div class="modal-option-text">
+              <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Expert Application</strong>
+              <span>Join as a licensed professional.</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script Motoru (GÜNCELLENDİ: BTOA KALDIRILDI) -->
     <script>
-        // Form İçi Etkileşim ve Veri Aktarım Motoru
         const selectedSubcats = new Set();
         
         function updateSubcategories() {
@@ -296,15 +277,12 @@
 
             if(mainCat) {
                 group.style.display = 'block';
-                // Not: i18next aktif olduğunda bu kısım JSON'dan çevirileri çeker.
-                // Eğer çeviri hazır değilse fallback array döneriz.
                 let subCats = i18next.t('sub_' + mainCat, { returnObjects: true });
                 
-                // Fallback (i18n henüz yüklenmediyse diye manuel koruma)
                 if (!Array.isArray(subCats) || typeof subCats === 'string') {
-                    if (mainCat === 'therapy') subCats = ['Bireysel Terapi', 'Çift Terapisi', 'EMDR', 'BDT', 'Ergen Terapisi'];
-                    if (mainCat === 'mediation') subCats = ['Aile Arabuluculuğu', 'Ticari Arabuluculuk', 'İş Hukuku'];
-                    if (mainCat === 'finance') subCats = ['Yatırım', 'Borç Yönetimi', 'Kurumsal Finans'];
+                    if (mainCat === 'therapy') subCats = ['Individual Therapy', 'Couples Therapy', 'EMDR', 'CBT', 'Adolescent Therapy'];
+                    if (mainCat === 'mediation') subCats = ['Family Mediation', 'Commercial Mediation', 'Labor Law'];
+                    if (mainCat === 'finance') subCats = ['Investment', 'Debt Management', 'Corporate Finance'];
                 }
                 
                 if (Array.isArray(subCats)) {
@@ -316,7 +294,6 @@
                             this.classList.toggle('active');
                             if(selectedSubcats.has(cat)) selectedSubcats.delete(cat);
                             else selectedSubcats.add(cat);
-                            // Set'i virgülle ayrılmış string'e çevirip gizli inputa yazıyoruz
                             document.getElementById('selected_subcats').value = Array.from(selectedSubcats).join(',');
                         };
                         container.appendChild(tag);
@@ -330,41 +307,48 @@
         function handleNextStep(e) {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const country = document.getElementById('country').value;
-            const mainCat = document.getElementById('main_category').value;
-            const subCats = document.getElementById('selected_subcats').value;
-            const rawPassword = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
+            const submitBtn = e.target.querySelector('.btn-submit-full');
+            const originalText = submitBtn.innerHTML;
+            const redirectText = i18next.t('redirecting') || 'Redirecting...';
+            submitBtn.innerHTML = `<span style="opacity:0.7">${redirectText}</span>`;
+            submitBtn.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+              const name = document.getElementById('name').value;
+              const email = document.getElementById('email').value;
+              const country = document.getElementById('country').value;
+              const mainCat = document.getElementById('main_category').value;
+              const subCats = document.getElementById('selected_subcats').value;
+              const rawPassword = document.getElementById('password').value;
+              const confirmPassword = document.getElementById('confirm_password').value;
 
-            // Şifre eşleşme kontrolü
-            if (rawPassword !== confirmPassword) {
-                alert(i18next.t('errPasswordMismatch') || "Şifreler eşleşmiyor! Lütfen kontrol edin.");
-                return;
-            }
+              if (rawPassword !== confirmPassword) {
+                  alert(i18next.t('errPasswordMismatch') || "Passwords do not match!");
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.style.transform = 'scale(1)';
+                  return;
+              }
 
-            // Alt kategori kontrolü
-            if (selectedSubcats.size === 0) {
-                alert("Lütfen en az bir alt uzmanlık alanı seçiniz.");
-                return;
-            }
+              if (selectedSubcats.size === 0) {
+                  alert(i18next.t('errSubCategory') || "Please select at least one sub-specialty.");
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.style.transform = 'scale(1)';
+                  return;
+              }
 
-            // Güvenlik Önlemi: Şifreyi maskeleme (Flutter tarafının Base64 çözücüsüne uyumlu)
-            const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
+              // 🔥 YENİ GÜVENLİ YÖNTEM: btoa() silindi, URLSearchParams otomatik encode eder!
+              const params = new URLSearchParams();
+              params.append("name", name);
+              params.append("email", email);
+              params.append("country", country);
+              params.append("mainCat", mainCat);
+              params.append("subCats", subCats);
+              params.append("token", rawPassword); // Şifreyi doğrudan ekle
 
-            const params = new URLSearchParams({
-                name: name,
-                email: email,
-                country: country,
-                mainCat: mainCat,
-                subCats: subCats,
-                token: maskedPassword 
-            });
-
-            // Doğrudan Flutter uygulamasının yönlendirme endpoint'ine atıyoruz
-            const targetUrl = `https://app.unity-gate.com/expert/finalize?${params.toString()}`;
-            window.location.href = targetUrl;
+              // Yönlendirme
+              const targetUrl = `https://app.unity-gate.com/expert/finalize?${params.toString()}`;
+              window.location.href = targetUrl;
+            }, 400);
         }
     </script>
 
