@@ -5,12 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
+  <!-- ================= JS YÖNLENDİRME (TRAFİK POLİSİ V2) ================= -->
+  <script>
+    (function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        const langCode = userLang.split('-')[0];
+        const currentPath = window.location.pathname;
+        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+            window.location.replace("/" + langCode + targetPage);
+        }
+    })();
+  </script>
+
   <title data-i18n="expertLoginTitle">Uzman Girişi | Unity Gate</title>
   <meta name="description" data-i18n="[content]metaExpertLoginDesc" content="Unity Gate uzman paneline güvenli giriş yapın.">
   <meta name="theme-color" content="#020617">
 
   <link rel="canonical" href="https://www.unity-gate.com/tr/expert-login.html" />
-  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/expert-login.html" />
+  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/expert-login.html" />
   <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/expert-login.html" />
   <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/expert-login.html" />
   <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/expert-login.html" />
@@ -22,13 +38,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/style.css?v=17.0">
+  <link rel="stylesheet" href="/css/style.css?v=19.0">
   
   <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-  <script src="/js/main.js?v=17.0" defer></script>
+  <script src="/js/main.js?v=19.0" defer></script>
 
-  <!-- BU SAYFAYA ÖZEL NATIVE STİLLER (Merkezlenmiş Form İçin) -->
   <style>
       .auth-layout-centered {
           min-height: 100vh;
@@ -48,7 +63,7 @@
       
       .auth-card-narrow {
           position: relative; z-index: 10;
-          width: 100%; max-width: 480px; /* Daha dar form kutusu */
+          width: 100%; max-width: 480px; 
           background: var(--bg-surface);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
@@ -110,31 +125,20 @@
   <!-- ================= HEADER ================= -->
   <header class="navbar" id="main-nav">
     <div class="nav-left">
-      <a href="/" class="brand" aria-label="Unity Gate Ana Sayfa">
+      <a href="/tr/" class="brand" aria-label="Unity Gate Ana Sayfa">
         <img src="/assets/logo.png" alt="Unity Gate" width="32" height="32">
-        <span>Unity Gate</span>
+        <span class="brand-text">Unity Gate</span>
       </a>
       <nav class="nav-links hide-mobile">
-        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-        <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
-        <a href="/about.html" data-i18n="navAbout">Misyonumuz</a>
+        <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+        <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+        <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz</a>
       </nav>
     </div>
     <div class="nav-right">
-      <div class="dropdown-wrapper hide-mobile">
-        <button class="btn btn-glass" aria-haspopup="true" aria-expanded="false" data-i18n="btnSignIn">Sisteme Giriş</button>
-        <div class="dropdown-menu" role="menu">
-          <a href="/login.html" class="dropdown-item" role="menuitem">👤 Danışan Girişi</a>
-          <a href="/expert-login.html" class="dropdown-item color-accent" role="menuitem">🎓 Uzman Girişi</a>
-        </div>
-      </div>
-      <div class="dropdown-wrapper hide-mobile">
-        <button class="btn btn-primary" aria-haspopup="true" aria-expanded="false" data-i18n="btnSignUp">Kayıt Ol</button>
-        <div class="dropdown-menu" role="menu">
-          <a href="/register.html" class="dropdown-item" role="menuitem">👤 Danışan Kaydı</a>
-          <a href="/expert-registration.html" class="dropdown-item" role="menuitem">🎓 Uzman Kayıt Başvurusu</a>
-        </div>
-      </div>
+      <!-- DROPDOWN SİLİNDİ, MODALLAR GELDİ -->
+      <button class="btn btn-glass hide-mobile" onclick="window.uiState.openModal('signInModal')" data-i18n="btnSignIn">Giriş Yap</button>
+      <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" data-i18n="btnSignUp">Kayıt Ol</button>
       <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menüyü Aç">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -145,14 +149,12 @@
   <!-- ================= MOBİL MENÜ ================= -->
   <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-nav-content">
-      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-      <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
-      <a href="/about.html" data-i18n="navAbout">Misyonumuz</a>
+      <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
+      <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+      <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz</a>
       <hr class="mobile-divider">
-      <a href="/login.html" data-i18n="btnSignIn">Sisteme Giriş</a>
-      <a href="/expert-login.html" class="color-accent" data-i18n="expertLoginTitle">Uzman Girişi</a>
-      <a href="/register.html" data-i18n="btnSignUpUser">Danışan Kaydı</a>
-      <a href="/expert-registration.html" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Giriş Yap</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
     </div>
   </nav>
 
@@ -162,7 +164,7 @@
     <div class="ambient-glow glow-blue" style="bottom: 0; left: 0;"></div>
 
     <section class="glass-form-card auth-card-narrow fade-in-up">
-      <a href="/" class="back-link">
+      <a href="/tr/" class="back-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         <span data-i18n="back">Ana Sayfaya Dön</span>
       </a>
@@ -177,7 +179,6 @@
         <p data-i18n="expertLoginSubtitle" style="color: var(--text-secondary); font-size: 0.95rem;">Profesyonel ağınıza hoş geldiniz. Danışanlarınıza rehberlik etmeye devam edin.</p>
       </div>
 
-      <!-- FORMU GERİ GETİRDİK -->
       <form id="expert-login-form" novalidate onsubmit="handleLogin(event)">
         <div id="login-error-message" class="form-alert hidden" role="alert" style="color: #ef4444; margin-bottom: 1rem; text-align: center; font-size: 0.9rem;"></div>
 
@@ -201,13 +202,12 @@
 
         <button type="submit" class="btn btn-primary btn-submit-full" id="btn-login-expert">
           <span class="btn-text" data-i18n="btnLogin">Güvenli Giriş Yap</span>
-          <span class="spinner hidden"></span>
         </button>
 
         <div class="register-link-box" style="margin-top: 2.5rem;">
           <span data-i18n="expertNoAccount">Henüz uzman ağımıza katılmadınız mı?</span>
           <br>
-          <a href="/expert-registration.html" data-i18n="expertSignUpNow" style="display: inline-block; margin-top: 0.5rem;">Uzman Olarak Başvurun</a>
+          <a href="/tr/expert-registration.html" data-i18n="expertSignUpNow" style="display: inline-block; margin-top: 0.5rem;">Uzman Olarak Başvurun</a>
         </div>
       </form>
     </section>
@@ -223,8 +223,71 @@
     </div>
   </footer>
 
+  <!-- ================= PREMIUM MODALLAR ================= -->
+  <div class="modal-overlay" id="signInModal" onclick="window.uiState.closeModal('signInModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="window.uiState.closeModal('signInModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-header">
+        <h3 data-i18n="btnSignIn">Sisteme Giriş</h3>
+      </div>
+      <div class="modal-options">
+        <a href="/tr/login.html" class="modal-option-btn">
+          <div class="modal-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong>Danışan Girişi</strong>
+            <span>Kişisel iyileşme yolculuğunuza erişin.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-login.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong style="color: var(--accent-primary);">Uzman Girişi</strong>
+            <span>Klinik kontrol paneline erişin.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="signUpModal" onclick="window.uiState.closeModal('signUpModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="window.uiState.closeModal('signUpModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-header">
+        <h3 data-i18n="btnSignUp">Kayıt Ol</h3>
+      </div>
+      <div class="modal-options">
+        <a href="/tr/register.html" class="modal-option-btn">
+          <div class="modal-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong data-i18n="btnSignUpUser">Danışan Kaydı</strong>
+            <span>İyileşme yolculuğunuza başlayın.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-registration.html" class="modal-option-btn" style="border-color: rgba(34, 211, 238, 0.3);">
+          <div class="modal-option-icon" style="background: rgba(34, 211, 238, 0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div class="modal-option-text">
+            <strong style="color: var(--accent-primary);" data-i18n="btnSignUpExpert">Uzman Kayıt Başvurusu</strong>
+            <span>Lisanslı profesyonel olarak katılın.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Uzman Girişi Form İşleme Mantığı
+    // Uzman Girişi Form İşleme Mantığı (BTOA SİLİNDİ, DİREKT AKTARIM YAPILIYOR)
     function handleLogin(e) {
       e.preventDefault();
       const email = document.getElementById('expert_login_email').value;
@@ -232,22 +295,23 @@
       
       if (!email || !rawPassword) {
           const errMsg = document.getElementById('login-error-message');
-          errMsg.innerText = "Lütfen e-posta ve şifrenizi giriniz.";
+          errMsg.innerText = i18next.t('errEmptyFields') || "Lütfen e-posta ve şifrenizi giriniz.";
           errMsg.classList.remove('hidden');
           return;
       }
-      
-      // Güvenlik Önlemi: Şifreyi maskeleme (Flutter tarafının Base64 çözücüsüne uyumlu)
-      const maskedPassword = btoa(unescape(encodeURIComponent(rawPassword)));
-      
-      const params = new URLSearchParams({
-          email: email,
-          token: maskedPassword 
-      });
 
-      // Doğrudan Flutter uygulamasının uzman giriş endpoint'ine atıyoruz
-      const targetUrl = `https://app.unity-gate.com/expert-login/auth?${params.toString()}`;
-      window.location.href = targetUrl;
+      const btn = document.getElementById('btn-login-expert');
+      btn.innerHTML = `<span style="opacity:0.7">${i18next.t('loggingIn') || 'Giriş yapılıyor...'}</span>`;
+      btn.style.transform = 'scale(0.98)';
+      
+      setTimeout(() => {
+          const params = new URLSearchParams();
+          params.append("email", email);
+          params.append("token", rawPassword); // Güvenli URL şifreleme ile direkt aktarım
+          
+          const targetUrl = `https://app.unity-gate.com/expert-login/auth?${params.toString()}`;
+          window.location.href = targetUrl;
+      }, 400);
     }
   </script>
 </body>
