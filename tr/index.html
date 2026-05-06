@@ -1,258 +1,320 @@
-<!-- 📂 /dashboard/index.html (MATCH REQUEST & APPLICANT UI) -->
+<!-- 📂 /tr/index.html -->
 <!DOCTYPE html>
-<html lang="tr" class="no-js">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Niyet İlanları | Unity Gate Premium</title>
-  <meta name="theme-color" content="#0f172a">
+  
+  <script>
+    (function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        const langCode = userLang.split('-')[0];
+        const currentPath = window.location.pathname;
+        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+            window.location.replace("/" + langCode + targetPage);
+        }
+    })();
+  </script>
+
+  <title data-i18n="metaTitle">Unity Gate | Premium Klinik Psikoloji ve Sosyal Bağ Platformu</title>
+  <meta name="description" data-i18n="[content]metaDescription" content="Yalnızlık krizine karşı klinik standartlarda online terapi, niyet odaklı uzman eşleşme ve askeri düzeyde güvenli matchmaking hizmetleri sunan global HealthTech ekosistemi.">
+  <meta name="theme-color" content="#030014">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Aeternexus Health Technologies">
+  <meta name="format-detection" content="telephone=no">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.unity-gate.com/tr/">
+  <meta property="og:title" content="Unity Gate | Premium Klinik Psikoloji ve Sosyal Bağ Platformu">
+  <meta property="og:description" content="Lisanslı uzmanlar eşliğinde klinik standartlarda online terapi ve güvenli eşleşme ağı. İyileşme yolculuğunuza bugün başlayın.">
+  <meta property="og:image" content="https://www.unity-gate.com/assets/og-image.jpg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.unity-gate.com/tr/">
+  <meta property="twitter:title" content="Unity Gate | Premium HealthTech Ekosistemi">
+  <meta property="twitter:description" content="Yalnızlık krizine bilimsel çözüm. Lisanslı uzmanlar ve güvenli odalarla ruh sağlığınızı koruyun.">
+  <meta property="twitter:image" content="https://www.unity-gate.com/assets/og-image.jpg">
   
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalOrganization",
+          "@id": "https://www.unity-gate.com/#organization",
+          "name": "Unity Gate",
+          "url": "https://www.unity-gate.com",
+          "logo": "https://www.unity-gate.com/assets/logo.png",
+          "legalName": "Aeternexus Health Technologies A.Ş.",
+          "medicalSpecialty": ["Psychiatric", "MentalHealth"],
+          "isAcceptingNewPatients": true
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.unity-gate.com/tr/#website",
+          "url": "https://www.unity-gate.com/tr/",
+          "name": "Unity Gate Türkiye",
+          "publisher": {"@id": "https://www.unity-gate.com/#organization"},
+          "inLanguage": "tr"
+        }
+      ]
+    }
+  </script>
+
+  <link rel="canonical" href="https://www.unity-gate.com/tr/" />
+  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/" />
+  <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/" />
+  <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/" />
+  <link rel="alternate" hreflang="fr" href="https://www.unity-gate.com/fr/" />
+  <link rel="alternate" hreflang="de" href="https://www.unity-gate.com/de/" />
+  <link rel="alternate" hreflang="es" href="https://www.unity-gate.com/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/" />
+
+  <link rel="stylesheet" href="/css/style.css?v=21.0">
+  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+  <script src="/js/main.js?v=21.0" defer></script>
 </head>
-<body class="app-body">
+<body>
 
-  <!-- ================= SIDEBAR NAVIGATION ================= -->
-  <aside class="sidebar" aria-label="Ana Menü">
-    <div class="sidebar-brand">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      <span>Unity Gate</span>
+  <header class="navbar" id="main-nav" role="banner">
+    <div class="nav-left">
+      <a href="/tr/" class="brand" aria-label="Unity Gate Ana Sayfa">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#brand-gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="brand-logo"><defs><linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#6366f1" /></linearGradient></defs><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+        <span class="brand-text">Unity Gate</span>
+      </a>
+      <nav class="nav-links hide-mobile" aria-label="Ana Menü">
+        <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+        <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+        <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz</a>
+      </nav>
     </div>
     
-    <nav class="sidebar-nav">
-      <a href="#" class="nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-        Genel Bakış
-      </a>
-      <a href="#" class="nav-item active" aria-current="page">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-        Niyet İlanlarım
-      </a>
-      <a href="#" class="nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        Uzman Oturumları
-      </a>
-      <a href="#" class="nav-item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        Klinik Profil
-      </a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <button class="nav-item btn-logout">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-        Güvenli Çıkış
+    <div class="nav-right">
+      <button class="btn btn-ghost hide-mobile" onclick="window.uiState.openModal('signInModal')" aria-haspopup="dialog" data-i18n="btnSignIn">Log in</button>
+      <button class="btn btn-primary hide-mobile" onclick="window.uiState.openModal('signUpModal')" aria-haspopup="dialog" data-i18n="btnSignUp">Try it for free</button>
+      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Mobil Menüyü Aç" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
-  </aside>
+  </header>
 
-  <!-- ================= MAIN DASHBOARD CONTENT ================= -->
-  <main class="main-content" role="main">
-    
-    <header class="content-header">
-      <div>
-        <h1 class="page-title">Niyet İlanlarım</h1>
-        <p class="page-subtitle">Beklentilerinizi açıkça belirtin ve uzman gözetiminde doğru insanlarla eşleşin.</p>
-      </div>
-      <button class="btn btn-primary" onclick="app.openModal('createIntentModal')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-        Yeni Niyet İlanı
-      </button>
-    </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation">
+    <div class="mobile-nav-content">
+      <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
+      <a href="/tr/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
+      <a href="/tr/about.html" data-i18n="navAbout">Misyonumuz</a>
+      <hr class="mobile-divider">
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signInModal'); window.uiState.closeMobileMenu();" data-i18n="btnSignIn">Log in</a>
+      <a href="javascript:void(0);" onclick="window.uiState.openModal('signUpModal'); window.uiState.closeMobileMenu();" class="text-gradient" data-i18n="btnSignUp">Try it for free</a>
+    </div>
+  </nav>
 
-    <section class="requests-grid" aria-label="Aktif İlanlarınız">
+  <main role="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-rays" aria-hidden="true"></div>
+      <div class="hero-glow-blob" aria-hidden="true"></div>
       
-      <!-- AKTİF İLAN KARTI -->
-      <article class="request-card active-card">
-        <div class="card-header">
-          <div class="request-meta">
-            <span class="badge badge-success">Aktif İlan</span>
-            <span class="date-posted">4 gün önce yayınlandı</span>
-          </div>
-          <button class="icon-btn" aria-label="Seçenekler">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-          </button>
+      <div class="hero-content">
+        
+        <div class="badge-premium fade-in-up" data-i18n="badgePremium" role="text">
+          <span class="badge-dot"></span>
+          Latest release: Introducing AI-Powered Matching <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 4px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
         
-        <div class="card-body">
-          <h2 class="intent-title">Ciddi ve Derinlikli Bir İlişki</h2>
-          <p class="intent-desc">Yüzeysel sohbetlerden uzak, felsefe, sanat ve teknoloji üzerine saatlerce konuşabileceğim, sadakat ve güven temelinde uzun vadeli bir bağ arıyorum.</p>
-          
-          <div class="tags-container">
-            <span class="tag">Stoacılık</span>
-            <span class="tag">Yazılım</span>
-            <span class="tag">Klasik Müzik</span>
-            <span class="tag">İstanbul</span>
-          </div>
-        </div>
-
-        <div class="card-footer">
-          <div class="applicant-stats">
-            <div class="avatars-group">
-              <div class="avatar-placeholder">A</div>
-              <div class="avatar-placeholder">K</div>
-              <div class="avatar-placeholder">+1</div>
-            </div>
-            <span class="stats-text"><strong>3 başvuru</strong> incelenmeyi bekliyor</span>
-          </div>
-          <button class="btn btn-glass btn-sm" onclick="app.toggleApplicants('app-list-1')">
-            Başvuruları İncele
-          </button>
-        </div>
-
-        <!-- BAŞVURANLAR LİSTESİ (GİZLİ BÖLÜM) -->
-        <div class="applicants-panel" id="app-list-1">
-          <h3 class="panel-title">Başvurular (3)</h3>
-          
-          <div class="applicant-list">
-            <!-- Başvuran 1 -->
-            <div class="applicant-item">
-              <div class="applicant-info">
-                <div class="applicant-avatar">A</div>
-                <div class="applicant-details">
-                  <span class="applicant-name">Anonim Kullanıcı #4092</span>
-                  <span class="applicant-match-rate">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    Sistem Uyumu: Yüksek (%85)
-                  </span>
-                </div>
-              </div>
-              <div class="applicant-actions">
-                <button class="btn btn-outline btn-icon" aria-label="Profili İncele">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                </button>
-                <button class="btn btn-primary btn-sm" onclick="app.openModal('expertSelectModal')">Uzman Ata & Görüş</button>
-              </div>
-            </div>
-            
-            <!-- Başvuran 2 -->
-            <div class="applicant-item">
-              <div class="applicant-info">
-                <div class="applicant-avatar" style="background: rgba(14, 165, 233, 0.1); color: var(--accent-secondary);">K</div>
-                <div class="applicant-details">
-                  <span class="applicant-name">Anonim Kullanıcı #8812</span>
-                  <span class="applicant-match-rate" style="color: var(--text-secondary);">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    Sistem Uyumu: Orta (%60)
-                  </span>
-                </div>
-              </div>
-              <div class="applicant-actions">
-                <button class="btn btn-outline btn-icon" aria-label="Profili İncele">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                </button>
-                <button class="btn btn-primary btn-sm" onclick="app.openModal('expertSelectModal')">Uzman Ata & Görüş</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- BEKLEYEN İLAN KARTI -->
-      <article class="request-card inactive-card">
-        <div class="card-header">
-          <div class="request-meta">
-            <span class="badge badge-warning">Taslak / Gizli</span>
-            <span class="date-posted">Son düzenleme: 1 hafta önce</span>
-          </div>
-          <button class="icon-btn" aria-label="Seçenekler">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-          </button>
-        </div>
+        <h1 id="hero-heading" class="hero-title fade-in-up" data-i18n="heroTitle">
+          Turn your <span class="text-gradient">loneliness</span> into<br/>a thriving ecosystem
+        </h1>
         
-        <div class="card-body">
-          <h2 class="intent-title">Oyun Geliştirme Arkadaşlığı</h2>
-          <p class="intent-desc">Psikolojik korku türünde oyunlar geliştiren, Unity ve C# kullanan vizyoner çalışma arkadaşları arıyorum.</p>
-          <div class="tags-container">
-            <span class="tag">Unity 3D</span>
-            <span class="tag">Game Dev</span>
+        <p class="hero-subtitle fade-in-up" data-i18n="heroSubtitle">
+          Effortlessly build authentic connections with lightning-fast AI matching,<br/>top-notch clinical support, and military-grade privacy.
+        </p>
+        
+        <form action="/tr/ucla-test.html" class="hero-prompt-bar fade-in-up" style="animation-delay: 0.2s;">
+          <div class="prompt-prefix">/Generate:</div>
+          <input type="text" class="prompt-input" placeholder="Type your intent or mental state..." aria-label="Niyetinizi girin" required>
+          <button type="submit" class="btn btn-primary prompt-submit">Build &rarr;</button>
+        </form>
+
+        <div class="trust-strip fade-in-up" style="animation-delay: 0.3s;" aria-label="Güvenlik Sertifikaları">
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            No credit card required
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            End-to-End Encrypted
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Clinical Standards
           </div>
         </div>
-      </article>
-
+      </div>
     </section>
+
+    <section class="stats-section" aria-label="Platform İstatistikleri">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item fade-in-up">
+            <div class="stat-number">100<span>%</span></div>
+            <div class="stat-label">Anonymity & Privacy</div>
+          </div>
+          <div class="stat-item fade-in-up" style="animation-delay: 0.1s;">
+            <div class="stat-number">AI</div>
+            <div class="stat-label">Powered Matching</div>
+          </div>
+          <div class="stat-item fade-in-up" style="animation-delay: 0.2s;">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Continuous Support</div>
+          </div>
+          <div class="stat-item fade-in-up" style="animation-delay: 0.3s;">
+            <div class="stat-number">P2P</div>
+            <div class="stat-label">Decentralized Rooms</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section-padding" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tag" data-i18n="tagArchitecture">Architecture</span>
+          <h2 id="architecture-title" class="section-title" data-i18n="howItWorks">The Next Generation of Healing</h2>
+          <p class="section-desc">Engineered for emotional resilience. The foundational blocks that keep you secure and thriving.</p>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card bento-main fade-in-up">
+            <div class="bento-glow-hover" aria-hidden="true"></div>
+            <div class="bento-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3 data-i18n="bento1Title">Root Cause Analysis</h3>
+            <p data-i18n="bento1Desc">We map your emotional landscape using globally recognized UCLA scientific data. Our advanced algorithm determines the most accurate and permanent route for your healing process.</p>
+          </article>
+          <article class="bento-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="bento-glow-hover" aria-hidden="true"></div>
+            <div class="bento-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 data-i18n="bento2Title">Licensed Experts</h3>
+            <p data-i18n="bento2Desc">Unwavering clinical-grade support at every step with our rigorously vetted professional staff approved at global standards.</p>
+          </article>
+          <article class="bento-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="bento-glow-hover" aria-hidden="true"></div>
+            <div class="bento-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3 data-i18n="bento3Title">Native Security</h3>
+            <p data-i18n="bento3Desc">Your conversations and personal data are protected by military-grade end-to-end encryption protocols. Total privacy, zero compromise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- ================= MODALS ================= -->
-  
-  <!-- YENİ NİYET İLANI OLUŞTURMA MODALI -->
-  <div class="modal-overlay" id="createIntentModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="app.closeModal('createIntentModal')">
-    <div class="premium-modal modal-lg" onclick="event.stopPropagation();">
-      <button class="modal-close" aria-label="Kapat" onclick="app.closeModal('createIntentModal')">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-      
-      <div class="modal-header-left">
-        <h3 id="modalTitle">Yeni Niyet İlanı Oluştur</h3>
-        <p>Ne aradığınızı şeffafça ifade edin. Sistem sizi doğru kişilerle eşleştirecektir.</p>
-      </div>
-
-      <form class="intent-form" onsubmit="event.preventDefault(); app.closeModal('createIntentModal');">
-        
-        <div class="form-group">
-          <label for="intentType">İlişki Niyeti <span class="required">*</span></label>
-          <div class="custom-select-wrapper">
-            <select id="intentType" class="premium-input premium-select" required>
-              <option value="" disabled selected>Lütfen bir niyet seçin...</option>
-              <option value="serious">Ciddi ve Uzun Vadeli İlişki</option>
-              <option value="friend">Derinlikli Dostluk & Sohbet</option>
-              <option value="mentor">Profesyonel Mentorluk / Networking</option>
-              <option value="activity">Ortak İlgi Alanı (Aktivite Partneri)</option>
-            </select>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <div class="brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#brand-gradient-footer)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="brand-logo"><defs><linearGradient id="brand-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#6366f1" /></linearGradient></defs><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            Unity Gate
+          </div>
+          <p data-i18n="footerTagline">Designed for a more connected and secure society at clinical standards.</p>
+        </div>
+        <div class="footer-nav" aria-label="Alt Menü">
+          <div class="footer-group">
+            <h4 data-i18n="footerCompany">Company</h4>
+            <a href="/tr/about.html" data-i18n="navAbout">Mission & Vision</a>
+            <a href="/tr/careers.html" data-i18n="footerCareers">Careers</a>
+            <a href="/tr/investors.html" data-i18n="footerInvestors">Investors</a>
+          </div>
+          <div class="footer-group">
+            <h4 data-i18n="footerPlatform">Platform</h4>
+            <a href="/tr/ucla-test.html" data-i18n="navUcla">UCLA Loneliness Test</a>
+            <a href="/tr/insights.html" data-i18n="navInsights">Clinical Insights</a>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="intentDesc">Açıklama (Beklentileriniz) <span class="required">*</span></label>
-          <textarea id="intentDesc" class="premium-input textarea-tall" placeholder="Kimi arıyorsunuz? Sizin için hangi değerler önemli? (Örn: Sadakat, entelektüel sohbet, müzik zevki...)" required></textarea>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-i18n="footerCopyright">
+          © 2026 Aeternexus Health Technologies A.Ş. All rights reserved.
         </div>
-
-        <div class="form-group">
-          <label>Kritik İlgi Alanları (Maks. 5)</label>
-          <input type="text" class="premium-input" placeholder="Virgül ile ayırarak yazın (Örn: Felsefe, Flutter, Klasik Müzik)">
+        <div class="footer-legal">
+          <span id="current-language-display" class="lang-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;" aria-label="Geçerli Dil">EN</span>
+          <a href="/tr/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+          <span class="dot-separator" aria-hidden="true" style="color: var(--border-subtle);">•</span>
+          <a href="/tr/terms.html" data-i18n="footerTerms">Terms of Service</a>
         </div>
+      </div>
+    </div>
+  </footer>
 
-        <div class="form-group privacy-notice">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          <p>İlanınız anonim olarak yayınlanır. İletişim bilgileriniz sadece bir uzman görüşmesi sonrası karşılıklı onay ile, geçici bir numara üzerinden paylaşılır.</p>
-        </div>
-
-        <div class="modal-actions">
-          <button type="button" class="btn btn-glass" onclick="app.closeModal('createIntentModal')">İptal Et</button>
-          <button type="submit" class="btn btn-primary">İlanı Güvenle Yayınla</button>
-        </div>
-      </form>
+  <div class="modal-overlay" id="signInModal" role="dialog" aria-modal="true" aria-labelledby="signInTitle" onclick="window.uiState.closeModal('signInModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" aria-label="Pencereyi Kapat" onclick="window.uiState.closeModal('signInModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-header">
+        <h3 id="signInTitle" data-i18n="btnSignIn">Welcome Back</h3>
+        <p>Select your account type to securely log in.</p>
+      </div>
+      <div class="modal-options">
+        <a href="/tr/login.html" class="modal-option-btn">
+          <div class="modal-option-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+          <div class="modal-option-text">
+            <strong>Client Access</strong>
+            <span>Continue your healing journey.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-login.html" class="modal-option-btn expert-btn">
+          <div class="modal-option-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="modal-option-text">
+            <strong>Expert Portal</strong>
+            <span>Access your clinical dashboard.</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- UZMAN SEÇİM & VİDEO GÖRÜŞME ONAY MODALI -->
-  <div class="modal-overlay" id="expertSelectModal" role="dialog" aria-modal="true" aria-labelledby="expertModalTitle" onclick="app.closeModal('expertSelectModal')">
+  <div class="modal-overlay" id="signUpModal" role="dialog" aria-modal="true" aria-labelledby="signUpTitle" onclick="window.uiState.closeModal('signUpModal')">
     <div class="premium-modal" onclick="event.stopPropagation();">
-      <button class="modal-close" aria-label="Kapat" onclick="app.closeModal('expertSelectModal')">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <button class="modal-close" aria-label="Pencereyi Kapat" onclick="window.uiState.closeModal('signUpModal')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-      
-      <div class="modal-icon-header">
-        <div class="shield-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
-        <h3 id="expertModalTitle">Uzman Arabuluculuğu Gerekiyor</h3>
+      <div class="modal-header">
+        <h3 id="signUpTitle" data-i18n="btnSignUp">Get Started</h3>
+        <p>Join our secure network. Select your registration type.</p>
       </div>
-      
-      <div class="modal-body-text">
-        <p>Anonim Kullanıcı #4092 ile güvenli bir şekilde tanışmak için sistemimiz bir uzman atayacaktır. Görüşme 3 kişilik, uçtan uca şifreli bir WebRTC odasında gerçekleşecektir.</p>
-        <ul class="feature-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Uzman onayına kadar kimliğiniz gizli kalır.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Olumlu sonuçta sadece geçici sanal numara iletilir.</li>
-        </ul>
-      </div>
-
-      <div class="modal-actions full-width">
-        <button class="btn btn-primary btn-block" onclick="app.closeModal('expertSelectModal')">Süreci Başlat ve Uzman Bekle</button>
+      <div class="modal-options">
+        <a href="/tr/register.html" class="modal-option-btn">
+          <div class="modal-option-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg></div>
+          <div class="modal-option-text">
+            <strong>Client Registration</strong>
+            <span>Start your path to connection.</span>
+          </div>
+        </a>
+        <a href="/tr/expert-registration.html" class="modal-option-btn expert-btn">
+          <div class="modal-option-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="modal-option-text">
+            <strong>Apply as an Expert</strong>
+            <span>Join as a licensed professional.</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
