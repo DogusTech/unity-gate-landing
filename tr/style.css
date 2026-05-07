@@ -15,13 +15,20 @@ body {
     overflow: hidden;
     line-height: 0;
     z-index: 0;
+    pointer-events: none; /* Dalganın buton tıklamalarını engellememesi için */
 }
 
 .wave-bg svg {
-    position: relative;
     display: block;
-    width: calc(100% + 1.3px);
-    height: 250px;
+    width: 100%;
+    height: 200px; /* Mobil ve küçük ekranlar için zarif yükseklik */
+}
+
+/* Büyük ekranlarda dalga oranını korumak için */
+@media (min-width: 1024px) {
+    .wave-bg svg {
+        height: 280px;
+    }
 }
 
 /* Glassmorphism (Buzlu Cam) Menü Efekti */
