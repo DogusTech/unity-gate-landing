@@ -1,101 +1,118 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Gate (Birlik Kapısı) | Yalnız Değilsiniz</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity Gate | Sosyal Sağlık ve Nitelikli Topluluk Ağı</title>
+  <meta name="description" content="Uzman rehberliğinde şekillenen, ilgi alanlarınıza odaklı ve yüksek güvenlikli sosyal etkileşim ekosistemi.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo">Unity Gate</div>
-        <nav class="nav-links">
-            <a href="#nasil-calisir">Nasıl Çalışır?</a>
-            <a href="#goruntulu-gorusme">Güvenli Görüşme</a>
-            <a href="#uzmanlar">Rehberlerimiz</a>
-        </nav>
-        <div class="nav-actions">
-            <a href="#" class="btn btn-outline">Giriş Yap</a>
-            <a href="#" class="btn btn-primary">Hemen Katıl</a>
+  <header class="navbar" role="banner">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32">
+        <span>Unity Gate</span>
+      </a>
+      <nav class="nav-links hide-mobile">
+        <a href="#ekosistem">Ekosistem</a>
+        <a href="#surec">Süreç</a>
+        <a href="/tr/insights.html">İçgörüler</a>
+      </nav>
+      <div class="nav-right">
+        <button class="btn btn-glass hide-mobile">Giriş Yap</button>
+        <button class="btn btn-primary" style="background: var(--accent-primary); color: #020617;">Topluluğa Katıl</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content fade-in-up">
+        <div class="badge-premium">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Geleceğin Sosyal Sağlık Standartları
         </div>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="trust-badge">
-                    <span class="dot"></span> KVKK Uyumlu Güvenli Platform
-                </div>
-                <h1>Yalnızlığa Karşı <span class="highlight">Güvenli ve Sıcak</span> Bir Ağ.</h1>
-                <p>Karmaşık terimler, soğuk hastane odaları veya yapay zeka botları yok. Unity Gate (Birlik Kapısı); sizi anlayan insanlarla, güvende hissederek sosyalleşebileceğiniz ve uzman rehberliğinde yeni dostluklar kurabileceğiniz bir topluluktur.</p>
-                <div class="hero-btns">
-                    <a href="#" class="btn btn-primary">Ücretsiz Kayıt Ol</a>
-                    <a href="#nasil-calisir" class="btn btn-outline">Nasıl Çalışır?</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1200" alt="Birlikte gülen mutlu insanlar">
-            </div>
-        </section>
-
-        <section id="nasil-calisir" class="features-section">
-            <div class="section-title">
-                <h2>İçiniz Rahat Olsun, Süreç Çok Basit</h2>
-                <p>Amacımız sizi yormadan, en doğru kişilerle en güvenli şekilde bir araya getirmek.</p>
-            </div>
-
-            <div class="bento-grid">
-                <div class="bento-card">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800" alt="Sohbet eden insanlar">
-                    <div class="card-content">
-                        <h3>1. Sizi Anlayanları Buluyoruz</h3>
-                        <p>Kısa ve bilimsel bir test çözerek sürece başlarsınız. İlgi alanlarınıza, hayata bakış açınıza ve ihtiyaçlarınıza göre sizinle en iyi anlaşabilecek insanları eşleştiriyoruz.</p>
-                    </div>
-                </div>
-
-                <div id="goruntulu-gorusme" class="bento-card highlight-card">
-                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=800" alt="Güvenli Görüntülü Görüşme">
-                    <div class="card-content">
-                        <h3>2. Güvenli Görüntülü Odalar</h3>
-                        <p>Eşleştiğiniz kişilerle platformumuz üzerinden görüntülü görüşebilirsiniz. <strong>Telefon numaranız veya kişisel bilgileriniz asla paylaşılmaz.</strong></p>
-                        <ul>
-                            <li>Görüşmeler tamamen sizin kontrolünüzdedir. İstediğiniz an kameranızı veya sesinizi kapatabilirsiniz.</li>
-                            <li>Görüşmeler uzman moderatörlerimizin gözetimi altındadır. Rahatsız edici bir durumda tek tuşla görüşmeyi sonlandırabilir ve engelleme yapabilirsiniz.</li>
-                            <li>Her şey saygı ve güvenlik çerçevesinde ilerler.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="uzmanlar" class="bento-card">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="Sıcakkanlı Eşleştirme Uzmanı">
-                    <div class="card-content">
-                        <h3>3. Yanınızda Bir Rehber Var</h3>
-                        <p>Süreci tek başınıza yönetmek zorunda değilsiniz. Tıbbi teşhisler koyan soğuk doktorlar değil; iletişiminizi güçlendirecek, odalardaki uyumu sağlayacak ve size dostça tavsiyeler verecek "Topluluk Rehberlerimiz" (Eşleştirme Uzmanları) her zaman yanınızdadır.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Yeni Bir Başlangıç Yapmaya Hazır mısınız?</h2>
-            <p>Bugün adım atın, sizinle aynı hisleri paylaşan insanlarla tanışın ve hayatınızdaki yalnızlık hissini birlikte aşalım.</p>
-            <a href="#" class="btn btn-primary">Aramıza Katılın</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="brand">Unity Gate</div>
-            <div class="footer-links">
-                <a href="#">Gizlilik Politikası</a>
-                <a href="#">Kullanım Şartları</a>
-                <a href="#">KVKK Aydınlatma Metni</a>
-            </div>
-            <p class="copyright">© 2026 Unity Gate | Birlik Kapısı Projesi. Tüm hakları saklıdır.</p>
+        
+        <h1 class="hero-title">Sosyal Esenliğin Geleceği: <br> <span style="color: var(--accent-primary);">Nitelikli Topluluk Ağı</span></h1>
+        
+        <p class="hero-subtitle">
+          Birlik Kapısı, karmaşık algoritmalar veya rastgele etkileşimler yerine; uzman rehberliğinde şekillenen, ortak değerlere odaklı ve yüksek güvenlikli bir sosyal ekosistem sunar. Sosyal hayatınızı profesyonel bir güvenceyle yapılandırın.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="/tr/register.html" class="btn btn-primary btn-lg">Katılım Başvurusu Yap</a>
+          <a href="#ekosistem" class="btn btn-glass btn-lg">Sistemi Keşfet</a>
         </div>
-    </footer>
+      </div>
+
+      <div class="ocean-frame" aria-hidden="true">
+        <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
+          <use xlink:href="#wave-path" x="48" y="0" fill="rgba(212, 163, 115, 0.05)" />
+          <use xlink:href="#wave-path" x="48" y="3" fill="rgba(212, 163, 115, 0.1)" />
+          <use xlink:href="#wave-path" x="48" y="5" fill="rgba(212, 163, 115, 0.15)" />
+          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="ekosistem" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">MİMARİ & YAKLAŞIM</span>
+          <h2 class="section-title">Kurumsal Standartlarda Sosyal Bağlar</h2>
+        </div>
+        
+        <div class="bento-grid">
+          <article class="bento-card bento-main">
+            <h3>İlgi ve Değer Analizi</h3>
+            <p>Sosyal tercihleriniz ve entelektüel ilgi alanlarınız profesyonel bir çerçevede analiz edilir. En doğru topluluk dinamiklerine dahil olmanız için bilimsel verilerle hareket ediyoruz.</p>
+          </article>
+          
+          <article class="bento-card">
+            <div class="bento-icon">🛡️</div>
+            <h3>İzole Güvenli Odalar</h3>
+            <p>Etkileşimleriniz, uçtan uca askeri düzey şifreleme protokolleri ile korunur. Mahremiyetiniz bizim için bir seçenek değil, temel bir zorunluluktur.</p>
+          </article>
+          
+          <article class="bento-card">
+            <div class="bento-icon">🎓</div>
+            <h3>Uzman Moderasyonu</h3>
+            <p>Tüm topluluk odaları ve bireysel rehberlik süreçleri, sosyal dinamikler konusunda uzman profesyoneller tarafından yönetilir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="vision-bento-box">
+          <div class="vision-glass-panel">
+            <span class="vision-tag">VİZYONUMUZ</span>
+            <p class="vision-text">Birlik Kapısı, dijital eşleştirme ve topluluk yönetiminde prestij ve profesyonelliğin sarsılmaz kalesi olarak duruyor. Hedefimiz, insan ilişkilerinde samimiyet ile güvenliği garanti eden küresel standartlar inşa etmektir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Aeternexus Health Technologies A.Ş. | Güvenli Sosyal Sağlık Ekosistemi</p>
+        <div class="footer-legal">
+          <a href="/tr/privacy.html">Veri Güvenliği</a>
+          <a href="/tr/terms.html">Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
