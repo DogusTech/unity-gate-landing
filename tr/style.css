@@ -36,3 +36,45 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(230, 214, 204, 0.05);
 }
+/* Genel Vücut Ayarları */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Katmanlı Dalga (Wave) Ayırıcı */
+.wave-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 120px; /* Mobilde biraz daha ince */
+}
+
+/* Büyük ekranlarda dalga oranını korumak için */
+@media (min-width: 1024px) {
+    .wave-divider svg {
+        height: 200px; 
+    }
+}
+
+/* Glassmorphism (Buzlu Cam) Menü Efekti */
+.glass-nav {
+    background: rgba(26, 41, 47, 0.6); 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Yumuşak kaydırma (Smooth Scroll) */
+html {
+    scroll-behavior: smooth;
+}
