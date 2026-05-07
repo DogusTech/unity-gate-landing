@@ -1,192 +1,77 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matchmaking Platform | Unity Gate System</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity Gate | Yaşam Kalitesi ve İnsan Dönüşüm Platformu</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- =========================
-        NAVIGATION
-========================= -->
-<header>
-  <div class="logo">Unity Gate</div>
+  <header style="padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border);">
+    <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">
+      Unity Gate
+    </div>
+    <nav style="display: flex; gap: 2rem; align-items: center;">
+      <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Çözümler</a>
+      <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Klinik Yaklaşım</a>
+      <a href="#" class="btn btn-primary">Platformu Keşfedin</a>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="#feed">Keşfet</a>
-    <a href="#create">İlan Oluştur</a>
-    <a href="#expert">Uzman Paneli</a>
-    <a href="#meetings">Görüşmeler</a>
-  </nav>
+  <main style="padding: 6rem 5%; max-width: 1200px; margin: 0 auto;">
+    
+    <section style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
+      <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">
+        Yaşam Alanınızın Psikolojisini Şansa Değil, <span style="color: var(--color-accent-warm);">Veriye Bırakın.</span>
+      </h1>
+      <p style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-tertiary);">
+        Dünyanın en iyi klinik uzmanlarıyla saniyeler içinde bağlantı kurun. Zaman alan iletişim krizlerini değil, topluluğunuzun gerçek iyileşme sürecini yönetin.
+      </p>
+      
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
+        <a href="#" class="btn btn-primary">Ücretsiz Demo Talep Edin</a>
+        <a href="#" class="btn btn-outline">UCLA Testine Başla</a>
+      </div>
 
-  <div class="auth">
-    <button>Giriş Yap</button>
-    <button>Kayıt Ol</button>
-  </div>
-</header>
+      <div class="trust-badge-container" style="justify-content: center;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sıfır-Erişim Şifrelemesi
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1.5rem;">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          KVKK & HIPAA Uyumlu
+        </div>
+      </div>
+    </section>
 
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      
+      <div class="glass-panel">
+        <div class="role-badge role-expert" style="margin-bottom: 1.5rem;">Kurum & Uzman Ağı</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Klinik Verimliliği %21 Artırın</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-tertiary);">
+          Topluluğunuzun psikolojik biyobelirteçlerini ve iletişim sağlığını klinik geçerliliği olan gösterge panellerinden güvenle izleyin.
+        </p>
+        <a href="#" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+          Yönetici Panelini İncele &rarr;
+        </a>
+      </div>
 
-<!-- =========================
-        HERO / INTRO
-========================= -->
-<section id="hero">
-  <h1>Güvenli, uzman kontrollü insan eşleşme sistemi</h1>
-  <p>
-    Niyet odaklı matchmaking, uzman değerlendirmesi ve gerçek dünya buluşma doğrulaması.
-  </p>
+      <div class="glass-panel">
+        <div class="role-badge role-user" style="margin-bottom: 1.5rem;">Bireysel Yolculuk</div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Güvenli Bir Alan Bulun</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-tertiary);">
+          Askeri düzeyde şifrelenmiş odalarda, sizinle aynı vizyonu paylaşan insanlarla ve lisanslı uzmanlarla güven bağları kurun.
+        </p>
+        <a href="#" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+          İyileşme Sürecine Katıl &rarr;
+        </a>
+      </div>
 
-  <div class="cta">
-    <button>İlan Oluştur</button>
-    <button>Uzman Olarak Katıl</button>
-  </div>
-</section>
+    </section>
 
-
-<!-- =========================
-        MATCHMAKING FEED
-========================= -->
-<section id="feed">
-
-  <h2>Aktif İlanlar</h2>
-
-  <article>
-    <h3>Kullanıcı İlanı</h3>
-    <p>Niyet: Sosyalleşme / Yeni çevre</p>
-    <p>İlgi Alanları: Psikoloji, müzik, yürüyüş</p>
-    <button>Başvur</button>
-  </article>
-
-  <article>
-    <h3>Kullanıcı İlanı</h3>
-    <p>Niyet: Anlamlı ilişki</p>
-    <p>İlgi Alanları: Felsefe, sanat, teknoloji</p>
-    <button>Başvur</button>
-  </article>
-
-</section>
-
-
-<!-- =========================
-        CREATE LISTING FLOW
-========================= -->
-<section id="create">
-
-  <h2>İlan Oluştur</h2>
-
-  <form>
-
-    <label>Niyet</label>
-    <input type="text" placeholder="Ne arıyorsun?" />
-
-    <label>İlgi Alanları</label>
-    <input type="text" placeholder="örn: müzik, spor, psikoloji" />
-
-    <label>Hedef</label>
-    <select>
-      <option>Sosyal bağlantı</option>
-      <option>Arkadaşlık</option>
-      <option>Romantik (kontrollü)</option>
-    </select>
-
-    <button type="submit">Yayınla</button>
-
-  </form>
-
-</section>
-
-
-<!-- =========================
-        EXPERT PANEL
-========================= -->
-<section id="expert">
-
-  <h2>Uzman Değerlendirme Paneli</h2>
-
-  <div class="card">
-    <h3>Eşleşme Adayı</h3>
-    <p>Uyum skoru: %87</p>
-
-    <button>Kabul Et</button>
-    <button>Reddet</button>
-  </div>
-
-</section>
-
-
-<!-- =========================
-        VIDEO MEETING FLOW
-========================= -->
-<section id="meeting">
-
-  <h2>Görüşme Sistemi</h2>
-
-  <div class="video-box">
-    <p>Uzman moderasyonunda güvenli görüşme</p>
-  </div>
-
-  <button>Görüşmeyi Başlat</button>
-
-</section>
-
-
-<!-- =========================
-        SAFE ZONE (REAL WORLD)
-========================= -->
-<section id="safe-zone">
-
-  <h2>Gerçek Dünya Buluşması</h2>
-
-  <p>
-    Sistem tarafından oluşturulan geçici kimlik ve numara ile buluşma aktif.
-  </p>
-
-  <div class="info-box">
-    <p>Geçici Numara: +90 XXX XXX XX</p>
-    <p>Aktif Süre: 1 saat önce / 1 saat sonra</p>
-  </div>
-
-</section>
-
-
-<!-- =========================
-        SYSTEM TRUST BLOCK
-========================= -->
-<section id="trust">
-
-  <h2>Güven Sistemi</h2>
-
-  <ul>
-    <li>Uzman kontrolü zorunlu</li>
-    <li>Video doğrulama</li>
-    <li>Şeffaf eşleşme sistemi</li>
-    <li>Geçici iletişim altyapısı</li>
-  </ul>
-
-</section>
-
-
-<!-- =========================
-        FOOTER
-========================= -->
-<footer>
-
-  <div>
-    <h3>Unity Gate</h3>
-    <p>HealthTech matchmaking platform</p>
-  </div>
-
-  <div>
-    <a href="#">Gizlilik</a>
-    <a href="#">Şartlar</a>
-    <a href="#">İletişim</a>
-  </div>
-
-</footer>
-
+  </main>
 </body>
 </html>

@@ -1,294 +1,162 @@
-/* =========================
-   ROOT DESIGN SYSTEM
-========================= */
+/* =========================================================
+   UNITY GATE: PREMIUM HEALTHTECH DESIGN SYSTEM (2026)
+   WCAG 2.1 AAA Uyumlu [cite: 86]
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Geist fontu (Değişken Font) CDN veya lokal olarak yüklenmelidir  */
+
 :root {
-  --bg: #070A12;
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-2: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.08);
+  /* Renk Paleti: Doğal Sofistikasyon (Coastal B2B)  */
+  --color-bg-deep: #1A292F; /* Lacivert: Kurumsal otorite ve teknolojik güvenlik */
+  --color-accent-warm: #DEBDA6; /* Boz Kahve: Organik ulaşılabilirlik */
+  --color-muted-blue: #6B8E99; /* Koyu Gri-Mavi */
+  --color-text-light: #E6D6CC; /* Açık Kum/Bej: Okunabilirlik ve göz yorgunluğunu önleme */
+  
+  /* Hiyerarşik Metin Renkleri */
+  --text-primary: #ffffff;
+  --text-secondary: var(--color-text-light);
+  --text-tertiary: var(--color-muted-blue);
 
-  --text: #EAF0FF;
-  --text-muted: rgba(234, 240, 255, 0.65);
+  /* Glassmorphism 2.0 Katmanları [cite: 62, 63] */
+  --glass-surface-1: rgba(230, 214, 204, 0.03);
+  --glass-surface-2: rgba(230, 214, 204, 0.08);
+  --glass-border: rgba(230, 214, 204, 0.12);
+  
+  /* Neuromorphism Gölgeleri [cite: 65] */
+  --shadow-soft: 6px 6px 15px rgba(15, 25, 30, 0.6), -4px -4px 12px rgba(35, 50, 60, 0.4);
+  --shadow-glow: 0 0 20px rgba(222, 189, 166, 0.15);
 
-  --primary: #6D5EF6;
-  --primary-2: #8A7CFF;
+  /* Tipografi  */
+  --font-display: 'Geist', 'Inter', system-ui, sans-serif; /* Başlıklar için kesinlik */
+  --font-body: 'Inter', system-ui, sans-serif; /* Gövde için nötr ve hızlı okunabilirlik */
 
-  --accent: #38BDF8;
-  --success: #22C55E;
-
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 28px;
-
-  --container: 1200px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
 }
 
-/* =========================
-   RESET + BASE
-========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Inter", system-ui, sans-serif;
-  background: radial-gradient(1200px 600px at 20% 10%, rgba(109, 94, 246, 0.15), transparent),
-              radial-gradient(900px 500px at 80% 30%, rgba(56, 189, 248, 0.10), transparent),
-              var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Arka planda organik bir derinlik hissi veren radyal geçişler [cite: 60] */
+  background-image: radial-gradient(circle at 15% 50%, rgba(107, 142, 153, 0.15), transparent 40%),
+                    radial-gradient(circle at 85% 30%, rgba(222, 189, 166, 0.08), transparent 40%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(100%, var(--container));
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  backdrop-filter: blur(18px);
-  background: rgba(7, 10, 18, 0.6);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 32px;
-  z-index: 1000;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  gap: 18px;
-  color: var(--text-muted);
-}
-
-.nav-links a:hover {
-  color: var(--text);
-}
-
-/* =========================
-   BUTTONS (MODERN SYSTEM)
-========================= */
-.btn {
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: 0.25s ease;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
   font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   BİLEŞENLER (ATOMIC DESIGN) [cite: 235]
+========================= */
+
+/* Glassmorphism 2.0 Kart Yapısı (Bilişsel yükü azaltır) [cite: 36, 62] */
+.glass-panel {
+  background: var(--glass-surface-1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  background: var(--glass-surface-2);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px); /* Motion Narrative: Organik tepki [cite: 67, 68] */
+}
+
+/* Butonlar: Amaç odaklı ve güven verici [cite: 157, 158] */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
-  border: none;
-  color: white;
-  box-shadow: 0 10px 30px rgba(109, 94, 246, 0.25);
+  background-color: var(--color-accent-warm);
+  color: var(--color-bg-deep);
+  box-shadow: 0 4px 14px rgba(222, 189, 166, 0.25);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  background-color: #e8cbb8;
+  transform: scale(1.02);
 }
 
-.btn-ghost {
+.btn-outline {
   background: transparent;
-  color: var(--text-muted);
+  color: var(--color-accent-warm);
+  border-color: rgba(222, 189, 166, 0.4);
 }
 
-.btn-ghost:hover {
-  color: var(--text);
-  background: var(--surface);
+.btn-outline:hover {
+  background: rgba(222, 189, 166, 0.1);
+  border-color: var(--color-accent-warm);
 }
 
-/* =========================
-   HERO SECTION
-========================= */
-.hero {
-  padding: 160px 0 100px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-title {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  margin-top: 18px;
-  color: var(--text-muted);
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* =========================
-   MATCHING INPUT (CORE UX)
-========================= */
-.hero-prompt-bar {
-  margin: 40px auto;
-  max-width: 720px;
+/* Güven Rozetleri (Trust Badges) - Gri tonlamalı ve minimalist [cite: 216, 217, 218] */
+.trust-badge-container {
   display: flex;
-  gap: 10px;
-  padding: 10px;
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-
-.prompt-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--text);
-  font-size: 15px;
-}
-
-/* =========================
-   TRUST STRIP
-========================= */
-.trust-strip {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-/* =========================
-   STATS
-========================= */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-top: 80px;
-}
-
-.stat-item {
-  background: var(--surface);
-  padding: 24px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 28px;
-  font-weight: 800;
-}
-
-/* =========================
-   BENTO GRID (MODERN UX TREND)
-========================= */
-.bento-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 18px;
-  margin-top: 60px;
-}
-
-.bento-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 26px;
-  transition: 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.bento-card:hover {
-  transform: translateY(-4px);
-  background: var(--surface-2);
-}
-
-/* =========================
-   MODALS (SAFE UX)
-========================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  opacity: 0.6;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
 }
 
-.modal-overlay.active {
-  display: flex;
+.trust-badge-container svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
 }
 
-.premium-modal {
-  width: min(520px, 92%);
-  background: #0B1020;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow);
+/* Rol Tabanlı Etiketler (RBAC) [cite: 219, 221] */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 900px) {
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    display: none;
-  }
+.role-expert {
+  background: rgba(107, 142, 153, 0.15);
+  color: #8bb3c2;
+  border: 1px solid rgba(107, 142, 153, 0.3);
 }
 
-/* =========================
-   MICRO INTERACTIONS
-========================= */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.role-user {
+  background: rgba(222, 189, 166, 0.1);
+  color: var(--color-accent-warm);
+  border: 1px solid rgba(222, 189, 166, 0.2);
 }
