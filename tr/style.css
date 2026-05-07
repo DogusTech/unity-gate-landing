@@ -1,90 +1,229 @@
+/* 📂 css/style.css - UNITY GATE: PREMIUM WHITE & FLUENT DESIGN */
+
 :root {
-  --bg-black: #050505;
-  --text-white: #FFFFFF;
-  --text-dim: #A1A1A1;
-  --accent-gold: #D4A373; /* Prestij rengi */
-  --acrylic-bg: rgba(255, 255, 255, 0.03);
-  --acrylic-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: 24px;
+    /* --- Renk Paleti --- */
+    --bg-dark: #020617;          /* Hero Bölümü: Derin Lacivert/Siyah */
+    --bg-light: #F9FAFB;         /* İçerik Bölümü: Kurumsal Beyaz (Off-White) */
+    --accent-gold: #D4A373;      /* Prestij ve Sıcaklık Rengi */
+    --accent-glow: rgba(212, 163, 115, 0.3);
+    
+    /* Metin Renkleri */
+    --text-white: #FFFFFF;
+    --text-dark: #111827;
+    --text-muted: #6B7280;
+    
+    /* Fluent Design Bileşenleri */
+    --acrylic-bg: rgba(255, 255, 255, 0.03);
+    --acrylic-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    --glass-blur: 25px;
+    
+    /* Geçiş Eğrileri */
+    --ease-fluent: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ================== TEMEL AYARLAR ================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-black);
-  color: var(--text-white);
-  line-height: 1.5;
-  overflow-x: hidden;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-light); /* Ana arka plan artık beyaz */
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 
-/* FLUENT NAVBAR */
-.fluent-nav {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
-  padding: 20px 0;
-  background: rgba(5, 5, 5, 0.6);
-  backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid var(--acrylic-border);
+/* ================== FLUENT HEADER (ACRYLIC) ================== */
+.fluent-header {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 1.25rem 0;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--acrylic-border);
+    transition: all 0.4s var(--ease-fluent);
 }
 
 .nav-content { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 800; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: -1px; }
-.links a { text-decoration: none; color: var(--text-dim); margin-right: 30px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-.links a:hover { color: #fff; }
 
-/* HERO SECTION - FLUENT DEPTH */
+.brand-logo {
+    font-size: 1.4rem; font-weight: 800; color: #fff;
+    text-decoration: none; letter-spacing: -0.03em;
+}
+
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; transition: 0.3s;
+}
+.nav-links a:hover { color: var(--accent-gold); }
+
+/* ================== HERO SECTION (DARK TO LIGHT TRANSITION) ================== */
 .hero-fluent {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  background: radial-gradient(circle at 50% 30%, rgba(212, 163, 115, 0.08) 0%, transparent 50%);
-  overflow: hidden;
+    position: relative; min-height: 100vh;
+    background: radial-gradient(circle at 50% 30%, #0f172a 0%, var(--bg-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: #fff;
+    padding-top: 100px; overflow: hidden;
 }
 
-.hero-wrapper { max-width: 700px; padding-bottom: 150px; }
+.hero-content { position: relative; z-index: 10; max-width: 850px; padding-bottom: 180px; }
 
-h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.05; letter-spacing: -3px; margin-bottom: 25px; }
-.text-gradient { background: linear-gradient(to right, #fff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-p { font-size: 1.25rem; color: var(--text-dim); max-width: 550px; margin-bottom: 40px; }
-
-/* BUTTONS */
-.btn { border: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; }
-.btn-main { background: #fff; color: #000; }
-.btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
-.btn-accent { background: rgba(212, 163, 115, 0.1); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
-.btn-accent:hover { background: var(--accent-gold); color: #000; }
-.btn-lg { padding: 18px 45px; font-size: 1.1rem; }
-
-/* ACRYLIC CARDS */
-.fluent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: -100px; position: relative; z-index: 2; }
-.acrylic-card {
-  background: var(--acrylic-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--acrylic-border);
-  border-radius: 20px;
-  padding: 40px;
-  transition: 0.5s var(--ease-spring);
+.badge-premium {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212, 163, 115, 0.1);
+    color: var(--accent-gold); border: 1px solid var(--accent-glow);
+    padding: 0.6rem 1.2rem; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 2rem; letter-spacing: 0.05em;
 }
-.acrylic-card:hover { transform: translateY(-10px); border-color: var(--accent-gold); background: rgba(255,255,255,0.05); }
-.acrylic-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
-.acrylic-card p { font-size: 0.95rem; color: var(--text-dim); }
 
-/* WAVE SYSTEM - FIXED & SMOOTH */
-.wave-container { position: absolute; bottom: 0; width: 100%; height: 200px; overflow: hidden; }
-.waves-svg { width: 100%; height: 100%; min-height: 100px; max-height: 150px; }
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900;
+    line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 1.5rem;
+}
 
-.parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
+.text-gradient {
+    background: linear-gradient(to right, #fff, var(--accent-gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem; color: #94a3b8; max-width: 650px;
+    margin: 0 auto 3rem auto; font-weight: 400;
+}
+
+.hero-cta { display: flex; gap: 1.5rem; justify-content: center; }
+
+/* ================== DALGA GEÇİŞİ (THE MAGIC) ================== */
+.wave-wrapper {
+    position: absolute; bottom: -1px; left: 0; width: 100%;
+    line-height: 0; z-index: 5;
+}
+
+.waves-svg { width: 100%; height: 120px; min-height: 100px; }
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
 .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
 .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
 .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
 .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
 
-@keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
+@keyframes move-forever {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
 
-/* ANIMATIONS */
-.fade-in { animation: fadeIn 1.2s ease-out forwards; opacity: 0; transform: translateY(20px); }
-@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+/* ================== SECTION LIGHT (CORPORATE WHITE) ================== */
+.section-light { padding: 10rem 0; background: var(--bg-light); }
+
+.section-header { text-align: center; margin-bottom: 6rem; }
+.section-title { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; }
+.section-desc { color: var(--text-muted); font-size: 1.1rem; margin-top: 1rem; }
+
+.fluent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+
+/* Kurumsal Beyaz Kartlar */
+.card-fluent {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 24px; padding: 3.5rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.5s var(--ease-fluent);
+}
+
+.card-fluent:hover {
+    transform: translateY(-12px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+.card-fluent h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-dark); }
+.card-fluent p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
+
+/* ================== PHILOSOPHY SECTION ================== */
+.section-philosophy { padding-bottom: 10rem; background: var(--bg-light); }
+
+.philosophy-content {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+
+.text-block .tag {
+    color: var(--accent-gold); font-weight: 800; letter-spacing: 0.2em;
+    font-size: 0.8rem; display: block; margin-bottom: 1.5rem;
+}
+
+.text-block h2 { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 2rem; }
+
+.check-list { list-style: none; margin-top: 2.5rem; }
+.check-list li {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.2rem; font-weight: 600; color: var(--text-dark);
+}
+.check-list li::before {
+    content: "✓"; color: var(--accent-gold); font-weight: 900;
+}
+
+/* Fluent Visual Box (Acrylic on Light) */
+.fluent-visual-box {
+    width: 100%; aspect-ratio: 1/1;
+    background: linear-gradient(135deg, #fff 0%, #f3f4f6 100%);
+    border-radius: 40px; border: 1px solid #fff;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+/* ================== BUTONLAR ================== */
+.btn {
+    padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700;
+    cursor: pointer; border: none; font-family: inherit;
+    transition: all 0.4s var(--ease-fluent);
+    display: inline-flex; align-items: center; justify-content: center;
+}
+
+.btn-accent { background: var(--accent-gold); color: #fff; }
+.btn-accent:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+.btn-primary { background: #FFFFFF; color: #020617; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255,255,255,0.2); }
+
+.btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+.btn-lg { padding: 1.2rem 3rem; font-size: 1.05rem; }
+
+/* ================== FOOTER ================== */
+.corporate-footer {
+    background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 6rem 0 3rem 0;
+}
+
+.footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4rem; margin-bottom: 4rem; }
+.footer-brand h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem; }
+.footer-links { display: flex; gap: 5rem; }
+.link-group h4 { font-size: 0.9rem; color: var(--text-dark); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.link-group a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 0.8rem; font-size: 0.95rem; transition: 0.3s; }
+.link-group a:hover { color: var(--accent-gold); }
+
+.footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.03); color: var(--text-muted); font-size: 0.85rem; }
+
+/* ================== ANIMASYONLAR ================== */
+.fade-in { animation: fadeInUp 1.2s var(--ease-fluent) forwards; opacity: 0; }
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 900px) {
+    .philosophy-content { grid-template-columns: 1fr; text-align: center; }
+    .hero-cta { flex-direction: column; width: 100%; max-width: 350px; margin: 0 auto; }
+    .footer-links { gap: 2rem; }
+}
