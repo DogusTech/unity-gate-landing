@@ -1,235 +1,33 @@
-/* 📂 css/style.css - UNITY GATE: DOĞAL SOFİSTİKASYON & KURUMSAL BEYAZ */
-
-:root {
-    /* --- Araştırma Raporu Özel Renk Paleti --- */
-    --bg-hero: #1A292F;          /* Lacivert - Derinlik ve Kurumsal Otorite */
-    --bg-light: #F9FAFB;         /* Alt kısımlar için Kurumsal Beyaz (Off-White) */
-    --accent-warm: #DEBDA6;      /* Boz Kahve - Lüks, Ulaşılabilirlik ve Sıcaklık */
-    --accent-glow: rgba(222, 189, 166, 0.2);
-    
-    /* Metin Renkleri */
-    --text-cream: #E6D6CC;       /* Açık Kum/Bej - Yumuşak ve premium okunabilirlik */
-    --text-dark: #1A292F;        /* Beyaz zemin üzerinde markanın laciverti */
-    --text-muted: #6B8E99;       /* Koyu Gri-Mavi - Yumuşak bilgi hiyerarşisi */
-    
-    /* Fluent Design Bileşenleri */
-    --acrylic-nav: rgba(26, 41, 47, 0.85); /* Navbar için lacivert akrilik */
-    --acrylic-border: rgba(222, 189, 166, 0.15); /* Boz kahve ince kenarlıklar */
-    --card-shadow: 0 20px 40px rgba(26, 41, 47, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
-    --glass-blur: 24px;
-    
-    /* Apple/Microsoft Fluent Geçiş Eğrileri */
-    --ease-fluent: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ================== TEMEL AYARLAR ================== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
+/* Genel Vücut Ayarları */
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-light); /* Tüm sitenin zemininde kurumsal beyaz hakim */
-    color: var(--text-dark);
-    line-height: 1.6;
+    background-color: #1A292F; /* unity-navy */
+    color: #E6D6CC; /* unity-sand */
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-
-/* ================== FLUENT HEADER ================== */
-.fluent-header {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-    padding: 1.25rem 0;
-    background: var(--acrylic-nav);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-bottom: 1px solid var(--acrylic-border);
-    transition: all 0.4s var(--ease-fluent);
+/* Katmanlı Dalga (Wave) Efekti Konumlandırması */
+.wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 0;
 }
 
-.nav-content { display: flex; justify-content: space-between; align-items: center; }
-
-.brand-logo {
-    font-size: 1.4rem; font-weight: 800; color: #FFFFFF;
-    text-decoration: none; letter-spacing: -0.03em;
+.wave-bg svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 250px;
 }
 
-.nav-links { display: flex; gap: 2.5rem; }
-.nav-links a {
-    color: var(--text-cream); text-decoration: none;
-    font-size: 0.95rem; font-weight: 500; transition: 0.3s;
-}
-.nav-links a:hover { color: #FFFFFF; }
-
-.nav-actions { display: flex; gap: 1rem; }
-
-/* ================== HERO SECTION (LACİVERT DERİNLİK) ================== */
-.hero-fluent {
-    position: relative; min-height: 100vh;
-    background: radial-gradient(circle at 50% 20%, #20353E 0%, var(--bg-hero) 100%);
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; color: #FFFFFF;
-    padding-top: 100px; overflow: hidden;
-}
-
-.hero-content { position: relative; z-index: 10; max-width: 850px; padding-bottom: 200px; }
-
-.badge-premium {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(222, 189, 166, 0.1);
-    color: var(--accent-warm); border: 1px solid var(--accent-glow);
-    padding: 0.6rem 1.2rem; border-radius: 100px;
-    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-    margin-bottom: 2rem; letter-spacing: 0.05em;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900;
-    line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 1.5rem;
-}
-
-/* Boz Kahve Gradient Yansıma */
-.text-gradient {
-    background: linear-gradient(to right, #FFFFFF, var(--accent-warm));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem; color: var(--text-cream); max-width: 650px;
-    margin: 0 auto 3rem auto; font-weight: 400; opacity: 0.9;
-}
-
-.hero-cta { display: flex; gap: 1.5rem; justify-content: center; }
-
-/* ================== KUSURSUZ DALGA GEÇİŞİ ================== */
-.wave-wrapper {
-    position: absolute; bottom: -1px; left: 0; width: 100%;
-    line-height: 0; z-index: 5;
-    background: transparent;
-}
-
-.waves-svg { width: 100%; height: 140px; min-height: 100px; }
-
-.parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-}
-.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 8s; }
-.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 12s; }
-.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 16s; }
-.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 22s; }
-
-@keyframes move-forever {
-    0% { transform: translate3d(-90px,0,0); }
-    100% { transform: translate3d(85px,0,0); }
-}
-
-/* ================== İÇERİK: KURUMSAL BEYAZ ZEMİN ================== */
-.section-light { padding: 8rem 0; background: var(--bg-light); }
-
-.section-header { text-align: center; margin-bottom: 5rem; }
-.section-title { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; }
-.section-desc { color: var(--text-muted); font-size: 1.1rem; margin-top: 1rem; }
-
-.fluent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-
-.card-fluent {
-    background: #FFFFFF;
-    border: 1px solid rgba(26, 41, 47, 0.06); 
-    border-radius: 24px; padding: 3.5rem;
-    box-shadow: var(--card-shadow);
-    transition: all 0.5s var(--ease-fluent);
-}
-
-.card-fluent:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-warm);
-    box-shadow: 0 30px 60px rgba(26, 41, 47, 0.08);
-}
-
-.card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
-.card-fluent h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-dark); }
-.card-fluent p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
-
-/* ================== FELSEFE BÖLÜMÜ ================== */
-.section-philosophy { padding-bottom: 10rem; background: var(--bg-light); }
-
-.philosophy-content {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-}
-
-.text-block .tag {
-    color: var(--text-muted); font-weight: 800; letter-spacing: 0.2em;
-    font-size: 0.8rem; display: block; margin-bottom: 1.5rem;
-}
-
-.text-block h2 { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 2rem; color: var(--text-dark); }
-.text-block p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
-
-.check-list { list-style: none; margin-top: 2rem; }
-.check-list li {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 1.2rem; font-weight: 600; color: var(--text-dark);
-}
-.check-list li::before {
-    content: "✓"; color: var(--accent-warm); font-weight: 900; font-size: 1.2rem;
-}
-
-.fluent-visual-box {
-    width: 100%; aspect-ratio: 1/1;
-    background: linear-gradient(135deg, #ffffff 0%, #E6D6CC 100%);
-    border-radius: 40px; border: 1px solid #fff;
-    box-shadow: 0 40px 80px rgba(26, 41, 47, 0.06);
-}
-
-/* ================== BUTONLAR ================== */
-.btn {
-    padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700;
-    cursor: pointer; border: none; font-family: inherit;
-    transition: all 0.4s var(--ease-fluent);
-    display: inline-flex; align-items: center; justify-content: center;
-}
-
-.btn-accent { background: var(--accent-warm); color: var(--text-dark); }
-.btn-accent:hover { filter: brightness(1.05); transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-glow); }
-
-.btn-primary { background: #FFFFFF; color: var(--text-dark); }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255,255,255,0.15); }
-
-.btn-secondary { background: rgba(222, 189, 166, 0.1); color: #FFFFFF; border: 1px solid rgba(222, 189, 166, 0.2); }
-.btn-secondary:hover { background: rgba(222, 189, 166, 0.2); }
-
-.btn-ghost { background: transparent; color: #FFFFFF; }
-.btn-ghost:hover { color: var(--accent-warm); }
-
-.btn-lg { padding: 1.2rem 3rem; font-size: 1.05rem; }
-
-/* ================== FOOTER ================== */
-.corporate-footer {
-    background: #FFFFFF; border-top: 1px solid rgba(26, 41, 47, 0.05);
-    padding: 6rem 0 3rem 0;
-}
-
-.footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4rem; margin-bottom: 4rem; }
-.footer-brand h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem; color: var(--text-dark); }
-.footer-brand p { color: var(--text-muted); }
-.footer-links { display: flex; gap: 5rem; }
-.link-group h4 { font-size: 0.9rem; color: var(--text-dark); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
-.link-group a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 0.8rem; font-size: 0.95rem; transition: 0.3s; }
-.link-group a:hover { color: var(--accent-warm); }
-
-.footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(26, 41, 47, 0.05); color: var(--text-muted); font-size: 0.85rem; }
-
-/* ================== ANIMASYONLAR ================== */
-.fade-in { animation: fadeInUp 1.2s var(--ease-fluent) forwards; opacity: 0; }
-@keyframes fadeInUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Mobil Uyumluluk */
-@media (max-width: 900px) {
-    .philosophy-content { grid-template-columns: 1fr; text-align: center; }
-    .hero-cta { flex-direction: column; width: 100%; max-width: 350px; margin: 0 auto; }
-    .footer-links { gap: 2rem; }
-    .nav-links, .nav-actions { display: none; }
+/* Glassmorphism (Buzlu Cam) Menü Efekti */
+.glass-nav {
+    background: rgba(26, 41, 47, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(230, 214, 204, 0.05);
 }

@@ -3,145 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Gate | Sosyal Esenlik ve Nitelikli Etkileşim Platformu</title>
-    <meta name="description" content="Uzman rehberliğinde şekillenen, güven odaklı ve seçkin bir sosyal ekosistem.">
+    <title>Unity Gate - Sosyal Esenliğin Geleceği</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'unity-navy': '#1A292F',
+                        'unity-taupe': '#DEBDA6',
+                        'unity-bluegrey': '#6B8E99',
+                        'unity-sand': '#E6D6CC',
+                        'unity-dark': '#080C0E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        // Geist fontu için yedek olarak sistem sans-serif kullanıyoruz
+                        display: ['system-ui', '-apple-system', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+    </script>
 
-    <header class="fluent-header">
-        <div class="container">
-            <nav class="nav-content">
-                <a href="/" class="brand-logo">Unity Gate</a>
-                <div class="nav-links">
-                    <a href="#deneyim">Deneyim</a>
-                    <a href="#felsefe">Felsefemiz</a>
-                    <a href="#topluluk">Topluluk</a>
+    <style>
+        body {
+            background-color: #1A292F; /* unity-navy */
+            color: #E6D6CC; /* unity-sand */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 0;
+        }
+
+        .wave-bg svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 250px;
+        }
+
+        /* Glassmorphism menü efekti */
+        .glass-nav {
+            background: rgba(26, 41, 47, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(230, 214, 204, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col font-sans selection:bg-unity-taupe selection:text-unity-navy">
+
+    <header class="fixed w-full top-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <nav class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 rounded bg-gradient-to-br from-unity-taupe to-unity-bluegrey flex items-center justify-center">
+                        <svg class="w-5 h-5 text-unity-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-medium tracking-wide text-white">Unity Gate</span>
                 </div>
-                <div class="nav-actions">
-                    <button class="btn btn-ghost">Giriş</button>
-                    <button class="btn btn-accent">Topluluğa Katılın</button>
+
+                <div class="hidden md:flex items-center gap-10">
+                    <a href="#" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">Ekosistem</a>
+                    <a href="#" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">Süreç</a>
+                    <a href="#" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">İçgörüler</a>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-sm font-medium text-white hover:text-unity-taupe transition-colors duration-300">Topluluğa Katıl</a>
+                    <a href="#" class="bg-white text-unity-navy px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-unity-sand transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg">
+                        Giriş Yap
+                    </a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero-fluent">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="badge-premium fade-in">
-                        <span class="icon">✨</span> Sosyal Sağlıkta Yeni Standartlar
-                    </div>
-                    <h1 class="hero-title fade-in">
-                        Yaşamın Sosyal Dokusunu <br>
-                        <span class="text-gradient">Seçkinlikle Yeniden Örün</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in">
-                        Modern yaşamın gürültüsü içinde kaybolan samimiyeti; profesyonel rehberlik ve güvenli topluluklarla geri kazanın. Nitelikli bağlar, huzurlu bir zihin için en temel ihtiyaçtır.
-                    </p>
-                    <div class="hero-cta fade-in">
-                        <button class="btn btn-primary btn-lg">Deneyimi Başlatın</button>
-                        <button class="btn btn-secondary btn-lg">Süreci Keşfedin</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wave-wrapper">
-                <svg class="waves-svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(222, 189, 166, 0.1)" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 255, 255, 0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 255, 255, 0.6)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#F9FAFB" /> 
-                    </g>
-                </svg>
-            </div>
-        </section>
-
-        <section class="section-light" id="deneyim">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nitelikli Bir Yaşamın Temelleri</h2>
-                    <p class="section-desc">Sosyal esenlik, rastlantılara bırakılmayacak kadar değerlidir.</p>
-                </div>
+    <main class="flex-grow flex items-center relative z-10 pt-32 pb-48">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+            <div class="max-w-3xl">
                 
-                <div class="fluent-grid">
-                    <div class="card-fluent">
-                        <div class="card-icon">🎯</div>
-                        <h3>Bilinçli Topluluk</h3>
-                        <p>Ortak değerlere ve benzer vizyona sahip bireylerle, uzman rehberliğinde bir araya gelin.</p>
-                    </div>
-                    <div class="card-fluent">
-                        <div class="card-icon">🛡️</div>
-                        <h3>Mutlak Güven</h3>
-                        <p>Tüm etkileşimleriniz kurumsal bir mahremiyet ve yüksek saygınlık çerçevesinde korunur.</p>
-                    </div>
-                    <div class="card-fluent">
-                        <div class="card-icon">🌿</div>
-                        <h3>Ruhsal Dinginlik</h3>
-                        <p>Samimi diyalogların ve güvenli bağların zihninizde yarattığı sosyal konforu hissedin.</p>
-                    </div>
+                <div class="flex items-center gap-2 mb-6">
+                    <svg class="w-5 h-5 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="text-sm font-medium tracking-wider text-unity-taupe uppercase">Geleceğin Sosyal Sağlık Standartları</span>
                 </div>
-            </div>
-        </section>
 
-        <section class="section-philosophy" id="felsefe">
-            <div class="container">
-                <div class="philosophy-content">
-                    <div class="text-block">
-                        <span class="tag">FELSEFEMİZ</span>
-                        <h2>İnsanı Merkeze Alan Bir Ekosistem</h2>
-                        <p>Teknolojiyi sadece bir araç, insan bağını ise nihai amaç olarak görüyoruz. Modern dünyanın hızını dışarıda bırakıp, samimiyetin ve güvenin konuşulduğu bir sığınak inşa ediyoruz.</p>
-                        <ul class="check-list">
-                            <li>Seçkin ve Doğrulanmış Üye Profilleri</li>
-                            <li>Uzman Moderasyon Eşliğinde Görüşmeler</li>
-                            <li>Kişiselleştirilmiş Sosyal Gelişim Rotası</li>
-                        </ul>
-                    </div>
-                    <div class="image-block">
-                        <div class="fluent-visual-box"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+                <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 font-display tracking-tight">
+                    Sosyal Esenliğin<br>
+                    Geleceği: <span class="text-unity-taupe opacity-90">Nitelikli Topluluk Ağı</span>
+                </h1>
 
-    <footer class="corporate-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>Unity Gate</h3>
-                    <p>Sosyal sağlığın kurumsal ve güvenilir yüzü.</p>
+                <p class="text-lg lg:text-xl text-unity-sand/80 leading-relaxed mb-12 max-w-2xl font-light">
+                    Birlik Kapısı, karmaşık algoritmalar veya rastgele etkileşimler yerine; uzman rehberliğinde şekillenen, ortak değerlere odaklı ve yüksek güvenlikli bir sosyal ekosistem sunar. Sosyal hayatınızı profesyonel bir güvenceyle yapılandırın.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <a href="#" class="bg-unity-taupe text-unity-navy px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-1 shadow-[0_4px_14px_0_rgba(222,189,166,0.39)]">
+                        Katılım Başvurusu Yap
+                    </a>
+                    
+                    <a href="#" class="group flex items-center gap-2 text-unity-sand hover:text-white font-medium text-lg px-4 py-2 transition-colors duration-300">
+                        Sistemi Keşfet
+                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Platform</h4>
-                        <a href="#">Deneyim</a>
-                        <a href="#">Uzmanlar</a>
-                        <a href="#">İçgörüler</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Kurumsal</h4>
-                        <a href="#">Misyonumuz</a>
-                        <a href="#">Mahremiyet</a>
-                        <a href="#">İletişim</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Aeternexus Health Technologies. Tüm hakları saklıdır.</p>
             </div>
         </div>
-    </footer>
+    </main>
+
+    <div class="wave-bg">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".15" fill="#DEBDA6"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z" opacity=".3" fill="#080C0E"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" transform="translate(0 120) scale(1 -1)" fill="#080C0E"></path>
+        </svg>
+    </div>
 
 </body>
 </html>
