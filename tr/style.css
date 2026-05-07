@@ -1,0 +1,325 @@
+/* =========================================================
+   UNITY GATE: MODERN, SICAK VE GÜVENİLİR TASARIM SİSTEMİ
+   Tüm eksik iskelet (layout) kodları eklenmiştir.
+========================================================= */
+
+:root {
+    /* Renk Paleti: Kurumsal otorite ve sıcak insan dokunuşu */
+    --color-bg-deep: #1A292F; /* Koyu Lacivert Arka Plan */
+    --color-accent-warm: #DEBDA6; /* Sıcak Bej / Boz Kahve */
+    --color-card-bg: #23353D; /* Kart Rengi */
+    --color-text-light: #E6D6CC; /* Açık Bej Metinler */
+    --color-white: #ffffff;
+    
+    --font-main: 'Inter', sans-serif;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-deep);
+    color: var(--color-text-light);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    color: var(--color-white);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: var(--color-accent-warm);
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* ================= BUTONLAR ================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-accent-warm);
+    color: var(--color-bg-deep);
+}
+
+.btn-primary:hover {
+    background-color: #f0d0b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(222, 189, 166, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-accent-warm);
+    border-color: rgba(222, 189, 166, 0.5);
+}
+
+.btn-outline:hover {
+    background: rgba(222, 189, 166, 0.1);
+}
+
+/* ================= HEADER (ÜST MENÜ) ================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(26, 41, 47, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.nav-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent-warm);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* ================= HERO (ANA EKRAN) ================= */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 5% 100px 5%;
+    min-height: 100vh;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+}
+
+.hero-btns {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    object-fit: cover;
+}
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-badge .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50; /* Güven veren yeşil nokta */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* ================= NASIL ÇALIŞIR (BENTO GRID) ================= */
+.features-section {
+    padding: 80px 5%;
+    background-color: #142126; /* Hafif daha koyu bir ton */
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.bento-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+}
+
+.bento-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
+    color: var(--color-text-light);
+}
+
+.card-content li {
+    margin-bottom: 10px;
+}
+
+/* Görüntülü Görüşme kartını öne çıkarmak için */
+.highlight-card {
+    grid-column: span 2; /* İki sütunu da kaplar, uzun ve yatay olur */
+    display: flex;
+}
+
+.highlight-card img {
+    width: 40%;
+    height: auto;
+}
+
+/* ================= HAREKETE GEÇİRİCİ MESAJ (CTA) ================= */
+.cta-section {
+    padding: 100px 5%;
+    text-align: center;
+    background: radial-gradient(circle at center, #23353D 0%, var(--color-bg-deep) 100%);
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+}
+
+.cta-section p {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #0F181C;
+    padding: 50px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content .brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent-warm);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: rgba(230, 214, 204, 0.5);
+}
+
+/* ================= MOBİL UYUM (RESPONSIVE) ================= */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .highlight-card {
+        flex-direction: column;
+        grid-column: span 1;
+    }
+
+    .highlight-card img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none; /* Mobilde menüyü gizle (Hamburger menü eklenebilir) */
+    }
+}
