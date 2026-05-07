@@ -1,37 +1,85 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" id="html-tag" class="no-js">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Gate | Yaşam Kalitesi ve İnsan Dönüşüm Platformu</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <script>
+    (function() {
+        const userLang = navigator.language || navigator.userLanguage; 
+        const langCode = userLang.split('-')[0];
+        const currentPath = window.location.pathname;
+        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
+        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
+
+        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
+            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
+            window.location.replace("/" + langCode + targetPage);
+        }
+    })();
+  </script>
+
+  <title data-i18n="metaTitle">Unity Gate | Premium Klinik Psikoloji & Sosyal Bağlantı Platformu</title>
+  <meta name="description" content="Klinik psikoloji ve veriye dayalı yaklaşımlarla yalnızlık krizini çözen premium sosyal bağlantı platformu.">
+  <meta name="theme-color" content="#1A292F">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
+  
+  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
+  <style>
+    /* Ana sayfaya özgü küçük yerleşim ayarları */
+    .hero-section {
+      text-align: center; max-width: 900px; margin: 0 auto 5rem; position: relative; z-index: 10;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;
+    }
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10;
+    }
+  </style>
 </head>
 <body>
 
-  <header style="padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border);">
-    <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">
+  <header style="padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); position: relative; z-index: 50; background: rgba(26, 41, 47, 0.8); backdrop-filter: blur(16px);">
+    <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-warm)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       Unity Gate
     </div>
+    
     <nav style="display: flex; gap: 2rem; align-items: center;">
-      <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Çözümler</a>
-      <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Klinik Yaklaşım</a>
-      <a href="#" class="btn btn-primary">Platformu Keşfedin</a>
+      <a href="/tr/ucla-test.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">UCLA Testi</a>
+      <a href="/tr/insights.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">Klinik İçgörüler</a>
+      <a href="/tr/about.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">Hakkımızda</a>
+      
+      <button class="btn btn-outline" onclick="openModal('signInModal')" style="padding: 0.6rem 1.5rem;">Giriş Yap</button>
+      <button class="btn btn-primary" onclick="openModal('signUpModal')" style="padding: 0.6rem 1.5rem;">Kayıt Ol</button>
     </nav>
   </header>
 
-  <main style="padding: 6rem 5%; max-width: 1200px; margin: 0 auto;">
+  <main style="padding: 8rem 5% 6rem; position: relative; min-height: 100vh;">
     
-    <section style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
-      <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">
+    <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(107, 142, 153, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
+
+    <section class="hero-section">
+      <div class="role-badge role-expert" style="margin-bottom: 1.5rem; justify-content: center; display: inline-flex;">Yeni Nesil B2B HealthTech</div>
+      
+      <h1 class="hero-title">
         Yaşam Alanınızın Psikolojisini Şansa Değil, <span style="color: var(--color-accent-warm);">Veriye Bırakın.</span>
       </h1>
-      <p style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-tertiary);">
+      
+      <p style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-tertiary); max-width: 700px; margin-left: auto; margin-right: auto;">
         Dünyanın en iyi klinik uzmanlarıyla saniyeler içinde bağlantı kurun. Zaman alan iletişim krizlerini değil, topluluğunuzun gerçek iyileşme sürecini yönetin.
       </p>
       
-      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
-        <a href="#" class="btn btn-primary">Ücretsiz Demo Talep Edin</a>
-        <a href="#" class="btn btn-outline">UCLA Testine Başla</a>
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3.5rem;">
+        <button onclick="openModal('signUpModal')" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">Ücretsiz Demo Talep Edin</button>
+        <a href="/tr/ucla-test.html" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.05rem;">UCLA Testine Başla</a>
       </div>
 
       <div class="trust-badge-container" style="justify-content: center;">
@@ -46,32 +94,142 @@
       </div>
     </section>
 
-    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <section class="cards-grid">
       
-      <div class="glass-panel">
-        <div class="role-badge role-expert" style="margin-bottom: 1.5rem;">Kurum & Uzman Ağı</div>
-        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Klinik Verimliliği %21 Artırın</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-tertiary);">
+      <div class="glass-panel" style="display: flex; flex-direction: column;">
+        <div class="role-badge role-expert" style="margin-bottom: 1.5rem; width: max-content;">Kurum & Uzman Ağı</div>
+        <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Klinik Verimliliği %21 Artırın</h3>
+        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--text-tertiary); flex-grow: 1;">
           Topluluğunuzun psikolojik biyobelirteçlerini ve iletişim sağlığını klinik geçerliliği olan gösterge panellerinden güvenle izleyin.
         </p>
-        <a href="#" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
-          Yönetici Panelini İncele &rarr;
+        <a href="/tr/expert-login.html" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; transition: 0.3s;">
+          Yönetici Panelini İncele <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <div class="glass-panel">
-        <div class="role-badge role-user" style="margin-bottom: 1.5rem;">Bireysel Yolculuk</div>
-        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Güvenli Bir Alan Bulun</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-tertiary);">
+      <div class="glass-panel" style="display: flex; flex-direction: column;">
+        <div class="role-badge role-user" style="margin-bottom: 1.5rem; width: max-content;">Bireysel Yolculuk</div>
+        <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Güvenli Bir Alan Bulun</h3>
+        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--text-tertiary); flex-grow: 1;">
           Askeri düzeyde şifrelenmiş odalarda, sizinle aynı vizyonu paylaşan insanlarla ve lisanslı uzmanlarla güven bağları kurun.
         </p>
-        <a href="#" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
-          İyileşme Sürecine Katıl &rarr;
+        <a href="/tr/register.html" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; transition: 0.3s;">
+          İyileşme Sürecine Katıl <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
     </section>
 
   </main>
+
+  <footer style="border-top: 1px solid var(--glass-border); padding: 4rem 5% 2rem; background: rgba(0,0,0,0.2);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 3rem;">
+      <div style="max-width: 300px;">
+        <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Unity Gate</div>
+        <p style="color: var(--text-tertiary); font-size: 0.95rem;">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
+      </div>
+      <div style="display: flex; gap: 4rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 0.5rem;">Kurumsal</h4>
+          <a href="/tr/about.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Misyonumuz</a>
+          <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Kariyer</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 0.5rem;">Platform</h4>
+          <a href="/tr/ucla-test.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">UCLA Testi</a>
+          <a href="/tr/insights.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">İçgörüler</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-tertiary); font-size: 0.85rem;">
+      <div>© 2026 Aeternexus Health Technologies. Tüm hakları saklıdır.</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Gizlilik Politikası</a>
+        <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Hizmet Şartları</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); 
+      backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .premium-modal {
+      background: var(--color-bg-deep); border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      padding: 2.5rem; width: 90%; max-width: 500px; position: relative; transform: translateY(20px); transition: 0.3s;
+    }
+    .modal-overlay.active .premium-modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--text-secondary); cursor: pointer; transition: 0.2s;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-option-btn {
+      display: flex; align-items: center; gap: 1rem; padding: 1.25rem; border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md); text-decoration: none; color: #fff; margin-bottom: 1rem; transition: 0.3s;
+      background: rgba(0,0,0,0.2);
+    }
+    .modal-option-btn:hover { border-color: var(--color-accent-warm); background: rgba(222, 189, 166, 0.05); }
+    .modal-option-icon {
+      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(222, 189, 166, 0.1); color: var(--color-accent-warm);
+    }
+    .modal-option-text strong { display: block; font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .modal-option-text span { font-size: 0.85rem; color: var(--text-secondary); }
+  </style>
+
+  <div class="modal-overlay" id="signInModal" onclick="closeModal('signInModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="closeModal('signInModal')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      <div style="margin-bottom: 2rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Sisteme Giriş</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Lütfen giriş yapmak istediğiniz hesabı seçin.</p>
+      </div>
+      <a href="/tr/login.html" class="modal-option-btn">
+        <div class="modal-option-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <div class="modal-option-text"><strong>Danışan Girişi</strong><span>Kişisel iyileşme yolculuğunuza erişin.</span></div>
+      </a>
+      <a href="/tr/expert-login.html" class="modal-option-btn">
+        <div class="modal-option-icon" style="background: rgba(107, 142, 153, 0.2); color: #8bb3c2;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <div class="modal-option-text"><strong>Uzman Girişi</strong><span>Klinik kontrol paneline erişin.</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="signUpModal" onclick="closeModal('signUpModal')">
+    <div class="premium-modal" onclick="event.stopPropagation();">
+      <button class="modal-close" onclick="closeModal('signUpModal')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      <div style="margin-bottom: 2rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Kayıt Ol</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Güvenli ağımıza katılın. Kayıt türünüzü seçin.</p>
+      </div>
+      <a href="/tr/register.html" class="modal-option-btn">
+        <div class="modal-option-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg></div>
+        <div class="modal-option-text"><strong>Danışan Kaydı</strong><span>İyileşme yolculuğunuza başlayın.</span></div>
+      </a>
+      <a href="/tr/expert-registration.html" class="modal-option-btn">
+        <div class="modal-option-icon" style="background: rgba(107, 142, 153, 0.2); color: #8bb3c2;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+        <div class="modal-option-text"><strong>Uzman Kayıt Başvurusu</strong><span>Lisanslı profesyonel olarak katılın.</span></div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+    // ESC tuşu ile modalları kapatma
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll('.modal-overlay').forEach(modal => modal.classList.remove('active'));
+      }
+    });
+  </script>
+
 </body>
 </html>

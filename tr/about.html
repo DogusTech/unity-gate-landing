@@ -1,252 +1,48 @@
-<!-- 📂 /tr/about.html (TÜRKÇE DİZİN - PREMIUM BENTO DESIGN) -->
 <!DOCTYPE html>
-<html lang="tr" id="html-tag" class="no-js">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
-  <title data-i18n="metaTitleAbout">Hakkımızda | Unity Gate</title>
-  <meta name="description" data-i18n="[content]metaDescAbout" content="Aeternexus A.Ş. tarafından kurulan Unity Gate'in vizyonu, misyonu ve hikayesi.">
-  <meta name="theme-color" content="#0B1121">
-  
-  <link rel="canonical" href="https://www.unity-gate.com/tr/about.html" />
-  <link rel="alternate" hreflang="en" href="https://www.unity-gate.com/en/about.html" />
-  <link rel="alternate" hreflang="tr" href="https://www.unity-gate.com/tr/about.html" />
-  <link rel="alternate" hreflang="ja" href="https://www.unity-gate.com/ja/about.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.unity-gate.com/about.html" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/css/style.css?v=18.0">
-  
-  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
-  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-  <script src="/js/main.js?v=18.0" defer></script>
-
-  <!-- BU SAYFAYA ÖZEL PREMIUM BENTO STİLLERİ -->
-  <style>
-    .about-premium-hero {
-      position: relative; padding: 160px 5% 80px; text-align: center; overflow: hidden;
-    }
-    .premium-glow {
-      position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none;
-    }
-    .glow-1 { top: -10%; left: 20%; width: 40vw; height: 40vw; background: rgba(34, 211, 238, 0.1); }
-    .glow-2 { bottom: -20%; right: 10%; width: 50vw; height: 50vw; background: rgba(14, 165, 233, 0.08); }
-    
-    .premium-bento-layout { display: flex; flex-direction: column; gap: 4rem; position: relative; z-index: 10; }
-    
-    .premium-bento-split {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch;
-    }
-    .premium-bento-split.reverse { direction: rtl; }
-    .premium-bento-split.reverse > * { direction: ltr; }
-
-    .premium-img-box {
-      position: relative; border-radius: 32px; overflow: hidden; 
-      border: 1px solid var(--border-glass); 
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      min-height: 400px;
-    }
-    .premium-img-box img {
-      width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;
-      transition: transform 0.7s ease;
-    }
-    .premium-img-box:hover img { transform: scale(1.05); }
-
-    .premium-text-box {
-      background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-glass); border-radius: 32px; padding: 3.5rem;
-      display: flex; flex-direction: column; justify-content: center;
-      transition: all 0.4s ease;
-    }
-    .premium-text-box:hover { border-color: var(--accent-primary); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.05); }
-    
-    .premium-text-box h2 { color: #fff; font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
-    .premium-text-box p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem; }
-    
-    .values-bento-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .premium-bento-split { grid-template-columns: 1fr; }
-      .premium-img-box { min-height: 300px; }
-      .premium-text-box { padding: 2.5rem; }
-      .premium-text-box h2 { font-size: 1.8rem; }
-    }
-  </style>
+  <title>Hakkımızda | Unity Gate</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-  <header class="navbar" id="main-nav">
-    <div class="nav-left">
-      <a href="/" class="brand">
-        <img src="/assets/logo.png" alt="Unity Gate Logo" width="32" height="32" class="brand-logo">
-        <span class="brand-text">Unity Gate</span>
-      </a>
-      <nav class="nav-links hide-mobile">
-        <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-        <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
-        <a href="/about.html" style="color: #fff;" data-i18n="navAbout">Hakkımızda</a>
-      </nav>
-    </div>
-    <div class="nav-right">
-      <div class="dropdown-wrapper hide-mobile">
-        <button class="btn btn-glass" data-i18n="btnSignIn">Giriş Yap</button>
-        <div class="dropdown-menu">
-          <a href="/login.html" class="dropdown-item">👤 Kullanıcı Girişi</a>
-          <a href="/expert-login.html" class="dropdown-item">🎓 Uzman Girişi</a>
-        </div>
-      </div>
-      <div class="dropdown-wrapper hide-mobile">
-        <button class="btn btn-primary" data-i18n="btnSignUp">Kayıt Ol</button>
-        <div class="dropdown-menu">
-          <a href="/register.html" class="dropdown-item">👤 Danışan Kaydı</a>
-          <a href="/expert-registration.html" class="dropdown-item">🎓 Uzman Kayıt Başvurusu</a>
-        </div>
-      </div>
-      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Menü">
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </button>
-    </div>
+  <header style="padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border);">
+    <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">Unity Gate</div>
+    <nav style="display: flex; gap: 2rem; align-items: center;">
+      <a href="/tr/index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Ana Sayfa</a>
+      <a href="/tr/about.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">Hakkımızda</a>
+    </nav>
   </header>
 
-  <nav class="mobile-menu" id="mobile-menu">
-    <div class="mobile-nav-content">
-      <a href="/ucla-test.html" data-i18n="navUcla">UCLA Testi</a>
-      <a href="/insights.html" data-i18n="navInsights">İçgörüler</a>
-      <a href="/about.html" style="color: var(--accent-primary);" data-i18n="navAbout">Hakkımızda</a>
-      <hr class="mobile-divider">
-      <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
-      <a href="/register.html" style="color: var(--accent-primary);" data-i18n="btnSignUp">Kayıt Ol</a>
-    </div>
-  </nav>
-
   <main>
-    <!-- HERO -->
-    <section class="about-premium-hero">
-      <div class="premium-glow glow-1"></div>
-      <div class="premium-glow glow-2"></div>
-      <div class="container" style="position: relative; z-index: 10;">
-        <div class="badge-premium fade-in-up" data-i18n="footerCompany" style="display: inline-flex; margin-bottom: 1.5rem;">Kurumsal</div>
-        <h1 class="hero-title fade-in-up" data-i18n="[innerHTML]heroTitleAbout" style="max-width: 800px; margin: 0 auto 1.5rem; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;">
-          Yalnızlığa Karşı <span style="color: var(--accent-primary);">Bilimsel Bir Köprü</span>
+    <section style="padding: 8rem 5% 4rem; text-align: center; position: relative;">
+      <div style="position: absolute; top: 0; left: 20%; width: 40vw; height: 40vw; background: rgba(107, 142, 153, 0.1); filter: blur(120px); z-index: 0;"></div>
+      <div style="position: relative; z-index: 10;">
+        <div class="role-badge role-expert" style="margin-bottom: 1.5rem;">Kurumsal</div>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 800px; margin: 0 auto 1.5rem;">
+          Yalnızlığa Karşı <span style="color: var(--color-accent-warm);">Bilimsel Bir Köprü</span>
         </h1>
-        <p class="hero-subtitle fade-in-up" data-i18n="heroSubtitleAbout" style="max-width: 650px; margin: 0 auto; color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6; animation-delay: 0.1s;">
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto;">
           Aeternexus A.Ş. olarak, dijital çağın en büyük krizini çözmek için teknolojiyi empati ve bilimle birleştiriyoruz.
         </p>
       </div>
     </section>
 
-    <section class="section-padding" style="padding-top: 2rem;">
-      <div class="container premium-bento-layout">
-        
-        <!-- MİSYON (MISSION) -->
-        <div class="premium-bento-split fade-in-up">
-          <div class="premium-text-box">
-            <h2 data-i18n="missionTitle">Misyonumuz</h2>
-            <p data-i18n="missionText1">Günümüzde sürekli çevrimiçi olmamıza rağmen, tarihte hiç olmadığı kadar kopuk ve yalnız hissediyoruz. Birlik Kapısı (Unity Gate), bu paradoksu kırmak için doğdu.</p>
-            <p data-i18n="missionText2">Amacımız; yüzeysel kaydırmalar veya anlık mesajlaşmalar yerine, klinik psikoloji ve yapay zeka algoritmalarını kullanarak insanların gerçekten anlaşılacağı bağlar kurmasını sağlamaktır.</p>
-          </div>
-          <div class="premium-img-box">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="Misyonumuz" loading="lazy">
-          </div>
+    <section style="padding: 4rem 5%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem;">
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
+        <div class="glass-panel">
+          <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Misyonumuz</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Sürekli çevrimiçi olmamıza rağmen tarihte hiç olmadığı kadar kopuk ve yalnız hissediyoruz. Amacımız klinik psikoloji ile insanları gerçekten bağlamaktır.</p>
         </div>
-
-        <!-- VİZYON (VISION) -->
-        <div class="premium-bento-split reverse fade-in-up" style="animation-delay: 0.1s;">
-          <div class="premium-text-box">
-            <h2 data-i18n="visionTitleGlobal">Global Vizyonumuz</h2>
-            <p data-i18n="visionText1">Aeternexus A.Ş. bünyesinde geliştirilen Unity Gate, sadece bir uygulama değil, global bir HealthTech (Sağlık Teknolojisi) hareketidir.</p>
-            <p data-i18n="visionText2">Uzman psikologlar, arabulucular ve finansal danışmanları tek bir güvenli çatı altında toplayarak, psikolojik desteği herkes için erişilebilir, güvenli ve şeffaf hale getirmeyi hedefliyoruz.</p>
-          </div>
-          <div class="premium-img-box">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" alt="Vizyonumuz" loading="lazy">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TEMEL DEĞERLER (CORE VALUES) -->
-    <section class="section-padding" style="padding-bottom: 8rem;">
-      <div class="container">
-        <div class="section-header fade-in-up" style="text-align: center; margin-bottom: 3rem;">
-          <h2 class="section-title" data-i18n="valuesTitle" style="font-size: 2.5rem;">Temel Değerlerimiz</h2>
-        </div>
-        
-        <div class="values-bento-grid">
-          <article class="premium-text-box fade-in-up" style="padding: 2.5rem; text-align: center; border-radius: 24px; animation-delay: 0.1s;">
-            <div style="background: rgba(34, 211, 238, 0.1); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-primary);">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12L2.5 7.5"/></svg>
-            </div>
-            <h3 data-i18n="val1Title" style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Bilimsel Temel</h3>
-            <p data-i18n="val1Desc" style="color: var(--text-secondary); margin: 0;">UCLA Yalnızlık Ölçeği gibi klinik olarak kanıtlanmış metotlarla hareket ederiz.</p>
-          </article>
-
-          <article class="premium-text-box fade-in-up" style="padding: 2.5rem; text-align: center; border-radius: 24px; animation-delay: 0.2s;">
-            <div style="background: rgba(34, 211, 238, 0.1); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-primary);">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 data-i18n="val2Title" style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Askeri Düzey Gizlilik</h3>
-            <p data-i18n="val2Desc" style="color: var(--text-secondary); margin: 0;">Tüm görüşmeleriniz ve verileriniz E2EE (Uçtan Uca Şifreleme) ile korunur.</p>
-          </article>
-
-          <article class="premium-text-box fade-in-up" style="padding: 2.5rem; text-align: center; border-radius: 24px; animation-delay: 0.3s;">
-            <div style="background: rgba(34, 211, 238, 0.1); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-primary);">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 data-i18n="val3Title" style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Gerçek İnsan Bağı</h3>
-            <p data-i18n="val3Desc" style="color: var(--text-secondary); margin: 0;">Algoritmalarımız bizi ekrana bağlamak için değil, insanlara bağlamak için çalışır.</p>
-          </article>
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); aspect-ratio: 16/9;">
+           <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="Misyon">
         </div>
       </div>
+
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-info">
-          <div class="brand">
-            <img src="/assets/logo.png" alt="Logo" width="28" height="28" style="object-fit: contain;">
-            Unity Gate
-          </div>
-          <p>Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
-        </div>
-        <div class="footer-nav">
-          <div class="footer-group">
-            <h4 data-i18n="footerCompany">Kurumsal</h4>
-            <a href="/about.html" data-i18n="navAbout">Misyonumuz ve Vizyonumuz</a>
-            <a href="/careers.html" data-i18n="footerCareers">Kariyer Olanakları</a>
-            <a href="/investors.html" data-i18n="footerInvestors">Yatırımcı İlişkileri</a>
-          </div>
-          <div class="footer-group">
-            <h4 data-i18n="footerPlatform">Platform & Araçlar</h4>
-            <a href="/ucla-test.html" data-i18n="navUcla">UCLA Yalnızlık Testi</a>
-            <a href="/insights.html" data-i18n="navInsights">Klinik İçgörüler</a>
-            <a href="/login.html" data-i18n="btnSignIn">Giriş Yap</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="copyright" data-i18n="footerCopyright">
-          © 2026 Aeternexus Health Technologies A.Ş. Tüm hakları saklıdır.
-        </div>
-        <div class="footer-legal">
-          <span id="current-language-display" class="lang-display" style="margin-right: 1rem; color: var(--text-primary); font-weight: 600;">TR</span>
-          <a href="/privacy.html" data-i18n="footerPrivacy">Gizlilik ve Veri Güvenliği Politikası</a>
-          <span class="dot-separator" style="color: var(--border-glass);">•</span>
-          <a href="/terms.html" data-i18n="footerTerms">Hizmet Kullanım Şartları</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 </body>
 </html>
