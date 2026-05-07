@@ -1,41 +1,50 @@
 /* =========================================================
-   UNITY GATE: PREMIUM HEALTHTECH DESIGN SYSTEM (2026)
-   WCAG 2.1 AAA Uyumlu [cite: 86]
+   UNITY GATE: FLUENT DESIGN & BENTO ARCHITECTURE (2026)
+   Global CSS Architecture - Aeternexus Health Technologies
 ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-/* Geist fontu (Değişken Font) CDN veya lokal olarak yüklenmelidir  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  /* Renk Paleti: Doğal Sofistikasyon (Coastal B2B)  */
-  --color-bg-deep: #1A292F; /* Lacivert: Kurumsal otorite ve teknolojik güvenlik */
-  --color-accent-warm: #DEBDA6; /* Boz Kahve: Organik ulaşılabilirlik */
-  --color-muted-blue: #6B8E99; /* Koyu Gri-Mavi */
-  --color-text-light: #E6D6CC; /* Açık Kum/Bej: Okunabilirlik ve göz yorgunluğunu önleme */
+  /* ================= RENK PALETİ (Deep Premium Space) ================= */
+  --bg-void: #050505; /* Sonsuz siyah arka plan */
+  --bg-black: #020617; /* Slate tabanlı derin karanlık */
   
-  /* Hiyerarşik Metin Renkleri */
+  /* Yüzey Renkleri (Fluent Acrylic) */
+  --bg-surface: rgba(20, 20, 22, 0.6);
+  --bg-surface-hover: rgba(30, 30, 34, 0.8);
+  --nav-glass: rgba(5, 5, 5, 0.75);
+  
+  /* Marka & Vurgu Renkleri */
+  --accent-stoic: #DEBDA6; /* Doğal Sofistikasyon (Boz Kahve) */
+  --accent-tech: #6B8E99;  /* Kurumsal Güven (Gri-Mavi) */
+  --accent-primary: #22D3EE; /* Modern Cyan (Dönüşüm odaklı butonlar için) */
+  --accent-secondary: #0EA5E9; /* Okyanus Mavisi */
+  
+  /* Metin Renkleri */
   --text-primary: #ffffff;
-  --text-secondary: var(--color-text-light);
-  --text-tertiary: var(--color-muted-blue);
-
-  /* Glassmorphism 2.0 Katmanları [cite: 62, 63] */
-  --glass-surface-1: rgba(230, 214, 204, 0.03);
-  --glass-surface-2: rgba(230, 214, 204, 0.08);
-  --glass-border: rgba(230, 214, 204, 0.12);
+  --text-secondary: #A1A1AA; /* Muted - Göz yormayan okuma */
+  --text-tertiary: #64748B;
   
-  /* Neuromorphism Gölgeleri [cite: 65] */
-  --shadow-soft: 6px 6px 15px rgba(15, 25, 30, 0.6), -4px -4px 12px rgba(35, 50, 60, 0.4);
-  --shadow-glow: 0 0 20px rgba(222, 189, 166, 0.15);
-
-  /* Tipografi  */
-  --font-display: 'Geist', 'Inter', system-ui, sans-serif; /* Başlıklar için kesinlik */
-  --font-body: 'Inter', system-ui, sans-serif; /* Gövde için nötr ve hızlı okunabilirlik */
-
-  --radius-md: 16px;
+  /* Kenarlık ve Parlamalar */
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(34, 211, 238, 0.2);
+  --fluent-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  
+  /* ================= TİPOGRAFİ & ANİMASYON ================= */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif; /* İleride Geist eklenebilir */
+  
+  --transition-snappy: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.6s ease-in-out;
+  
+  --radius-md: 12px;
   --radius-lg: 24px;
+  --radius-xl: 32px;
   --radius-pill: 9999px;
 }
 
+/* ================= GENEL SIFIRLAMA (RESET) ================= */
 * {
   margin: 0;
   padding: 0;
@@ -43,120 +52,352 @@
 }
 
 body {
-  background-color: var(--color-bg-deep);
-  color: var(--text-secondary);
+  background-color: var(--bg-void);
+  color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* Arka planda organik bir derinlik hissi veren radyal geçişler [cite: 60] */
-  background-image: radial-gradient(circle at 15% 50%, rgba(107, 142, 153, 0.15), transparent 40%),
-                    radial-gradient(circle at 85% 30%, rgba(222, 189, 166, 0.08), transparent 40%);
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-/* =========================
-   BİLEŞENLER (ATOMIC DESIGN) [cite: 235]
-========================= */
+/* ================= ORTAK BİLEŞENLER (COMPONENTS) ================= */
 
-/* Glassmorphism 2.0 Kart Yapısı (Bilişsel yükü azaltır) [cite: 36, 62] */
-.glass-panel {
-  background: var(--glass-surface-1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-panel:hover {
-  background: var(--glass-surface-2);
-  box-shadow: var(--shadow-glow);
-  transform: translateY(-2px); /* Motion Narrative: Organik tepki [cite: 67, 68] */
-}
-
-/* Butonlar: Amaç odaklı ve güven verici [cite: 157, 158] */
+/* Premium Butonlar */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  font-family: var(--font-display);
+  padding: 0.8rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
   font-size: 0.95rem;
-  font-weight: 500;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition-snappy);
+  cursor: pointer;
   border: 1px solid transparent;
 }
 
 .btn-primary {
-  background-color: var(--color-accent-warm);
-  color: var(--color-bg-deep);
-  box-shadow: 0 4px 14px rgba(222, 189, 166, 0.25);
+  background: var(--text-primary);
+  color: var(--bg-void);
+  border-color: var(--text-primary);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
-  background-color: #e8cbb8;
-  transform: scale(1.02);
+  background: var(--accent-stoic);
+  border-color: var(--accent-stoic);
+  transform: translateY(-2px);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--color-accent-warm);
-  border-color: rgba(222, 189, 166, 0.4);
+.btn-glass {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-glass);
+  backdrop-filter: blur(12px);
 }
 
-.btn-outline:hover {
-  background: rgba(222, 189, 166, 0.1);
-  border-color: var(--color-accent-warm);
+.btn-glass:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-glow);
+  color: #fff;
 }
 
-/* Güven Rozetleri (Trust Badges) - Gri tonlamalı ve minimalist [cite: 216, 217, 218] */
-.trust-badge-container {
+/* Form Submit Butonu (Gradient) */
+.btn-submit-full {
+  width: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #020617;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
+  transition: all var(--transition-snappy);
+}
+
+.btn-submit-full:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(34, 211, 238, 0.4);
+}
+
+/* ================= NAVİGASYON (HEADER) ================= */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  background: var(--nav-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 1rem 5%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  opacity: 0.6;
-  font-size: 0.85rem;
-  font-family: var(--font-body);
+  transition: all 0.3s ease;
 }
 
-.trust-badge-container svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
+.nav-left { display: flex; align-items: center; gap: 3rem; }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--text-primary);
+  font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;
 }
 
-/* Rol Tabanlı Etiketler (RBAC) [cite: 219, 221] */
-.role-badge {
-  display: inline-flex;
-  align-items: center;
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--text-primary); }
+
+/* Mobil Menü Hamburger */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
   gap: 6px;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  background: none; border: none; cursor: pointer;
+}
+.hamburger-btn .bar {
+  width: 24px; height: 2px; background: var(--text-primary);
+  transition: 0.3s;
 }
 
-.role-expert {
-  background: rgba(107, 142, 153, 0.15);
-  color: #8bb3c2;
-  border: 1px solid rgba(107, 142, 153, 0.3);
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+  .hamburger-btn { display: flex; }
 }
 
-.role-user {
+/* ================= FORMLAR VE GİRDİLER ================= */
+.form-control, .premium-input, .premium-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(2, 6, 23, 0.5);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .premium-input:focus, .premium-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: rgba(2, 6, 23, 0.8);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+}
+
+/* Form Panel Mimarisi (Kayıt/Giriş) */
+.glass-form-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--fluent-shadow);
+}
+
+/* ================= AMBİANS IŞIKLARI (Ambient Glows) ================= */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  animation: pulse-glow 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.9) translate(0, 0); opacity: 0.4; }
+  100% { transform: scale(1.1) translate(20px, -20px); opacity: 0.7; }
+}
+
+/* ================= BENTO GRID MİMARİSİ ================= */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-snappy), border-color var(--transition-snappy);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+}
+
+.bento-large { grid-column: span 2; grid-row: span 2; min-height: 450px;}
+.bento-wide { grid-column: span 2; grid-row: span 1; }
+.bento-small { grid-column: span 1; grid-row: span 1; }
+
+@media (max-width: 1024px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-large, .bento-wide, .bento-small { grid-column: span 2; grid-row: auto; min-height: auto;}
+}
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-large, .bento-wide, .bento-small { grid-column: span 1; }
+}
+
+/* ================= MODAL SİSTEMİ (Safe UX) ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.premium-modal {
+  width: 90%;
+  max-width: 520px;
+  background: var(--bg-black);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: all var(--transition-snappy);
+  box-shadow: var(--fluent-shadow);
+}
+
+.modal-overlay.active .premium-modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none; border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text-primary); }
+
+.modal-option-btn {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.25rem; margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  text-decoration: none; color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.modal-option-btn:hover {
+  background: rgba(34, 211, 238, 0.05);
+  border-color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+.modal-option-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
   background: rgba(222, 189, 166, 0.1);
-  color: var(--color-accent-warm);
-  border: 1px solid rgba(222, 189, 166, 0.2);
+  color: var(--accent-stoic);
 }
+
+/* ================= ROZETLER (BADGES & TAGS) ================= */
+.badge-premium {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid var(--border-glass);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-secondary);
+  font-size: 0.85rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  border-top: 1px solid var(--border-glass);
+  padding: 4rem 0 2rem;
+  background: rgba(2, 6, 23, 0.4);
+  margin-top: 4rem;
+}
+
+.footer-top {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem;
+}
+
+.footer-info { max-width: 300px; }
+.footer-info p { color: var(--text-secondary); font-size: 0.95rem; margin-top: 1rem; }
+
+.footer-nav { display: flex; gap: 4rem; }
+.footer-group h4 { color: var(--text-primary); font-size: 1rem; margin-bottom: 1rem; }
+.footer-group a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.75rem; transition: 0.2s; }
+.footer-group a:hover { color: var(--accent-primary); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border-glass);
+  padding-top: 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text-tertiary); font-size: 0.85rem; flex-wrap: wrap; gap: 1rem;
+}
+
+.footer-legal a { color: var(--text-tertiary); text-decoration: none; transition: 0.2s; }
+.footer-legal a:hover { color: var(--text-primary); }
+
+/* ================= ANİMASYON SINIFLARI ================= */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUpAnim {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }

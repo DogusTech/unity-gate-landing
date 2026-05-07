@@ -1,235 +1,324 @@
 <!DOCTYPE html>
-<html lang="tr" id="html-tag" class="no-js">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
-  <script>
-    (function() {
-        const userLang = navigator.language || navigator.userLanguage; 
-        const langCode = userLang.split('-')[0];
-        const currentPath = window.location.pathname;
-        const supportedLanguages = ['tr', 'ja', 'de', 'fr', 'es'];
-        const isAlreadyInLangFolder = supportedLanguages.some(lang => currentPath.startsWith('/' + lang + '/'));
-
-        if (!isAlreadyInLangFolder && supportedLanguages.includes(langCode)) {
-            const targetPage = (currentPath === '/' || currentPath === '') ? '/index.html' : currentPath;
-            window.location.replace("/" + langCode + targetPage);
-        }
-    })();
-  </script>
-
-  <title data-i18n="metaTitle">Unity Gate | Premium Klinik Psikoloji & Sosyal Bağlantı Platformu</title>
-  <meta name="description" content="Klinik psikoloji ve veriye dayalı yaklaşımlarla yalnızlık krizini çözen premium sosyal bağlantı platformu.">
-  <meta name="theme-color" content="#1A292F">
+  <title>Unity Gate | Aeternexus Sağlık Teknolojileri A.Ş.</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/style.css">
-  
-  <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
-  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
   <style>
-    /* Ana sayfaya özgü küçük yerleşim ayarları */
-    .hero-section {
-      text-align: center; max-width: 900px; margin: 0 auto 5rem; position: relative; z-index: 10;
+    /* =========================================================
+       UNITY GATE: FLUENT DESIGN & BENTO ARCHITECTURE (2026)
+       ========================================================= */
+    :root {
+      /* Deep Premium Space Palette */
+      --bg-void: #050505;
+      --bg-surface: rgba(20, 20, 22, 0.6);
+      --bg-surface-hover: rgba(30, 30, 34, 0.8);
+      
+      --accent-stoic: #DEBDA6; /* Rapor: Doğal Sofistikasyon [cite: 472] */
+      --accent-tech: #6B8E99;  /* Rapor: Güven veren Koyu Gri-Mavi [cite: 472] */
+      
+      --text-pure: #ffffff;
+      --text-muted: #A1A1AA;
+      
+      --border-glass: rgba(255, 255, 255, 0.06);
+      --border-glow: rgba(222, 189, 166, 0.15);
+      
+      --fluent-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      --transition-snappy: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-title {
-      font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-pure);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    .cards-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10;
+
+    /* Arka Plan Ambient Işıkları (Microsoft Fluent Acrylic effect) */
+    .ambient-glow {
+      position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; pointer-events: none;
     }
+    .glow-1 { top: -10%; left: -5%; width: 50vw; height: 50vw; background: rgba(107, 142, 153, 0.15); }
+    .glow-2 { bottom: 20%; right: -10%; width: 40vw; height: 40vw; background: rgba(222, 189, 166, 0.08); }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+    /* ================= NAVBAR ================= */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glass); padding: 1.25rem 0;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+    .logo svg { width: 24px; height: 24px; color: var(--accent-stoic); }
+    
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color var(--transition-snappy); }
+    .nav-links a:hover { color: var(--text-pure); }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.8rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all var(--transition-snappy); cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--text-pure); color: var(--bg-void); border: 1px solid var(--text-pure);
+    }
+    .btn-primary:hover {
+      background: var(--accent-stoic); border-color: var(--accent-stoic); transform: translateY(-2px);
+    }
+    .btn-glass {
+      background: var(--bg-surface); color: var(--text-pure); border: 1px solid var(--border-glass);
+      backdrop-filter: blur(10px);
+    }
+    .btn-glass:hover { background: var(--bg-surface-hover); border-color: var(--border-glow); }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: 12rem 0 6rem; text-align: left; position: relative;
+    }
+    .company-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 100px; border: 1px solid var(--border-glass);
+      background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
+      margin-bottom: 2rem; letter-spacing: 0.02em;
+    }
+    .company-badge span { width: 8px; height: 8px; background: var(--accent-tech); border-radius: 50%; box-shadow: 0 0 10px var(--accent-tech); }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 1.5rem; max-width: 900px;
+    }
+    .hero h1 span { color: var(--text-muted); }
+    
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-muted); line-height: 1.6;
+      max-width: 700px; margin-bottom: 3rem; font-weight: 400;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
+    /* ================= BENTO GRID ARCHITECTURE ================= */
+    .bento-section { padding: 4rem 0 8rem; }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 350px);
+      gap: 1.5rem;
+    }
+
+    .bento-card {
+      background: var(--bg-surface); border: 1px solid var(--border-glass);
+      border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; transition: transform var(--transition-snappy), border-color var(--transition-snappy);
+    }
+    .bento-card:hover {
+      transform: translateY(-4px); border-color: var(--border-glow);
+    }
+
+    /* Bento Sizing */
+    .bento-large { grid-column: span 2; grid-row: span 2; } /* Sol büyük kart */
+    .bento-wide { grid-column: span 2; grid-row: span 1; }  /* Sağ üst uzun kart */
+    .bento-small { grid-column: span 1; grid-row: span 1; } /* Sağ alt kareler */
+
+    /* Bento İçerikleri */
+    .bento-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; z-index: 2; }
+    .bento-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; z-index: 2; }
+    
+    .bento-img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.4; mix-blend-mode: luminosity; transition: opacity var(--transition-snappy), transform 4s ease;
+    }
+    .bento-card:hover .bento-img { opacity: 0.6; transform: scale(1.05); }
+    
+    .bento-overlay {
+      position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.2) 100%); z-index: 1;
+    }
+
+    .status-indicator {
+      display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+      background: rgba(107, 142, 153, 0.2); color: var(--accent-tech); border: 1px solid rgba(107, 142, 153, 0.3);
+      margin-bottom: 1rem; width: max-content; z-index: 2; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    /* ================= TRUST METRICS BAR ================= */
+    .trust-bar {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
+      padding: 3rem 0; border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass);
+      margin: 4rem 0;
+    }
+    .trust-item { display: flex; flex-direction: column; gap: 4px; }
+    .trust-value { font-size: 2rem; font-weight: 800; color: var(--text-pure); letter-spacing: -0.03em; }
+    .trust-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Yetkinlik (Expertise) Tagleri */
+    .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; z-index: 2; }
+    .tech-tag { padding: 4px 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 6px; font-size: 0.8rem; color: var(--text-muted); }
+
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .bento-large, .bento-wide, .bento-small { grid-column: span 2; grid-row: auto; min-height: 300px; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .nav-links { display: none; }
+      .trust-bar { flex-direction: column; align-items: flex-start; }
+    }
+    
+    /* Yüklenme Animasyonları */
+    .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUpAnim 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1); }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    @keyframes fadeUpAnim { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
 
-  <header style="padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); position: relative; z-index: 50; background: rgba(26, 41, 47, 0.8); backdrop-filter: blur(16px);">
-    <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-warm)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      Unity Gate
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <header>
+    <div class="container nav-inner">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Unity Gate
+      </div>
+      <nav class="nav-links">
+        <a href="#">Platform Mimarisi</a>
+        <a href="#">Klinik Çerçeve</a>
+        <a href="#">Güvenlik Protokolleri</a>
+      </nav>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/login.html" class="btn btn-glass">Giriş Yap</a>
+      </div>
     </div>
-    
-    <nav style="display: flex; gap: 2rem; align-items: center;">
-      <a href="/tr/ucla-test.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">UCLA Testi</a>
-      <a href="/tr/insights.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">Klinik İçgörüler</a>
-      <a href="/tr/about.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s;">Hakkımızda</a>
-      
-      <button class="btn btn-outline" onclick="openModal('signInModal')" style="padding: 0.6rem 1.5rem;">Giriş Yap</button>
-      <button class="btn btn-primary" onclick="openModal('signUpModal')" style="padding: 0.6rem 1.5rem;">Kayıt Ol</button>
-    </nav>
   </header>
 
-  <main style="padding: 8rem 5% 6rem; position: relative; min-height: 100vh;">
+  <main class="container">
     
-    <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(107, 142, 153, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
-
-    <section class="hero-section">
-      <div class="role-badge role-expert" style="margin-bottom: 1.5rem; justify-content: center; display: inline-flex;">Yeni Nesil B2B HealthTech</div>
+    <section class="hero">
+      <div class="company-badge fade-up">
+        <span></span> Aeternexus Sağlık Teknolojileri A.Ş. Güvencesiyle
+      </div>
       
-      <h1 class="hero-title">
-        Yaşam Alanınızın Psikolojisini Şansa Değil, <span style="color: var(--color-accent-warm);">Veriye Bırakın.</span>
+      <h1 class="fade-up delay-1">
+        Yalnızlığı psikolojiyle, <br>
+        <span>topluluğu veriyle yönetin.</span>
       </h1>
       
-      <p style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-tertiary); max-width: 700px; margin-left: auto; margin-right: auto;">
-        Dünyanın en iyi klinik uzmanlarıyla saniyeler içinde bağlantı kurun. Zaman alan iletişim krizlerini değil, topluluğunuzun gerçek iyileşme sürecini yönetin.
+      <p class="fade-up delay-2">
+        Süslü vaatler değil, klinik geçerliliği kanıtlanmış metrikler sunuyoruz. Unity Gate; askeri düzeyde şifrelemeye sahip, global ölçekte tasarlanmış premium bir insan ve mekan dönüşüm platformudur.
       </p>
       
-      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3.5rem;">
-        <button onclick="openModal('signUpModal')" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">Ücretsiz Demo Talep Edin</button>
-        <a href="/tr/ucla-test.html" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.05rem;">UCLA Testine Başla</a>
-      </div>
-
-      <div class="trust-badge-container" style="justify-content: center;">
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Sıfır-Erişim Şifrelemesi
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1.5rem;">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          KVKK & HIPAA Uyumlu
-        </div>
+      <div class="hero-actions fade-up delay-3">
+        <a href="/register.html" class="btn btn-primary">UCLA Testi ile Başlayın</a>
+        <a href="#architecture" class="btn btn-glass">Platform Mimarisini İncele</a>
       </div>
     </section>
 
-    <section class="cards-grid">
-      
-      <div class="glass-panel" style="display: flex; flex-direction: column;">
-        <div class="role-badge role-expert" style="margin-bottom: 1.5rem; width: max-content;">Kurum & Uzman Ağı</div>
-        <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Klinik Verimliliği %21 Artırın</h3>
-        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--text-tertiary); flex-grow: 1;">
-          Topluluğunuzun psikolojik biyobelirteçlerini ve iletişim sağlığını klinik geçerliliği olan gösterge panellerinden güvenle izleyin.
-        </p>
-        <a href="/tr/expert-login.html" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; transition: 0.3s;">
-          Yönetici Panelini İncele <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+    <section class="trust-bar fade-up delay-3">
+      <div class="trust-item">
+        <span class="trust-value">Canlı</span>
+        <span class="trust-label">Google Play Açık Test</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-value">AES-256</span>
+        <span class="trust-label">Sıfır-Erişim Şifrelemesi [cite: 605]</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-value">%100</span>
+        <span class="trust-label">KVKK / GDPR Uyumluluğu [cite: 587]</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-value">A.Ş.</span>
+        <span class="trust-label">Resmi Tescilli HealthTech</span>
+      </div>
+    </section>
+
+    <section id="architecture" class="bento-section">
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Sınırları Zorlayan Mimari.</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">Geleneksel apartman yönetimini geride bıraktık. İşte yeni nesil sistemimiz.</p>
       </div>
 
-      <div class="glass-panel" style="display: flex; flex-direction: column;">
-        <div class="role-badge role-user" style="margin-bottom: 1.5rem; width: max-content;">Bireysel Yolculuk</div>
-        <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Güvenli Bir Alan Bulun</h3>
-        <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--text-tertiary); flex-grow: 1;">
-          Askeri düzeyde şifrelenmiş odalarda, sizinle aynı vizyonu paylaşan insanlarla ve lisanslı uzmanlarla güven bağları kurun.
-        </p>
-        <a href="/tr/register.html" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; transition: 0.3s;">
-          İyileşme Sürecine Katıl <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+      <div class="bento-grid">
+        
+        <div class="bento-card bento-large fade-up">
+          <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="Klinik Analiz" class="bento-img">
+          <div class="bento-overlay"></div>
+          
+          <div class="status-indicator">Global Hızlandırma Vizyonu</div>
+          <h3>Psikolojik Biyobelirteçler ve <br> Klinik Hassasiyet</h3>
+          <p style="max-width: 400px;">
+            Yüzeyde bir yönetim aracı, derinde bir sağlık teknolojisi. UCLA Yalnızlık Ölçeği gibi altın standart [cite: 564] klinik metotları, günlük kullanıcı deneyimine entegre ettik. Sonuçları sadece uzmanlar, uçtan uca şifreli olarak görebilir.
+          </p>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">C# .NET 8</span>
+            <span class="tech-tag">Rol Tabanlı Erişim (RBAC) [cite: 610]</span>
+            <span class="tech-tag">Klinik Veri Analizi</span>
+          </div>
+        </div>
 
+        <div class="bento-card bento-wide fade-up delay-1">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Mobil Ekosistem" class="bento-img" style="opacity: 0.2;">
+          <div class="bento-overlay"></div>
+          
+          <div class="status-indicator" style="background: rgba(222, 189, 166, 0.15); color: var(--accent-stoic); border-color: rgba(222, 189, 166, 0.3);">Uygulama Yayında</div>
+          <h3>Cebinizdeki Güvenli Alan</h3>
+          <p style="max-width: 350px;">
+            Sistemin kalbi mobil cihazınızda atıyor. Google Play'de canlı test aşamasında olan uygulamamız, pürüzsüz animasyonlar ve hataya yer vermeyen mimariyle tasarlandı.
+          </p>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Flutter & Dart Engine</span>
+            <span class="tech-tag">Sıfır Gecikme</span>
+          </div>
+        </div>
+
+        <div class="bento-card bento-small fade-up delay-2" style="justify-content: center; align-items: center; text-align: center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 48px; height: 48px; color: var(--text-pure); margin-bottom: 1rem;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Askeri Düzey Gizlilik</h3>
+          <p style="font-size: 0.85rem;">Verileriniz şifrelenir ve 3. şahıslara asla satılmaz.</p>
+        </div>
+
+        <div class="bento-card bento-small fade-up delay-3" style="background: var(--text-pure); color: var(--bg-void);">
+          <h3 style="font-size: 1.1rem; color: var(--bg-void); margin-bottom: 0.5rem;">Amaçlı Sadelik [cite: 427]</h3>
+          <p style="color: rgba(0,0,0,0.7); font-size: 0.85rem; margin-bottom: 1rem;">
+            Microsoft Fluent Design prensipleriyle kodlanmış, bilişsel yükü sıfıra indiren arayüzler. Estetik, güvenin ta kendisidir.
+          </p>
+          <div style="margin-top: auto;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M12 2L2 22h20L12 2z"/></svg>
+          </div>
+        </div>
+
+      </div>
     </section>
 
   </main>
 
-  <footer style="border-top: 1px solid var(--glass-border); padding: 4rem 5% 2rem; background: rgba(0,0,0,0.2);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 3rem;">
-      <div style="max-width: 300px;">
-        <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Unity Gate</div>
-        <p style="color: var(--text-tertiary); font-size: 0.95rem;">Klinik standartlarda daha bağlı ve güvenli bir toplum için tasarlandı.</p>
+  <footer style="border-top: 1px solid var(--border-glass); padding: 3rem 5%; margin-top: 4rem;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+      <div style="font-size: 0.85rem; color: var(--text-muted);">
+        © 2026 Aeternexus Sağlık Teknolojileri ve Sosyal İnovasyon A.Ş. <br>
+        Tüm hakları saklıdır.
       </div>
-      <div style="display: flex; gap: 4rem;">
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 0.5rem;">Kurumsal</h4>
-          <a href="/tr/about.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Misyonumuz</a>
-          <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Kariyer</a>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 0.5rem;">Platform</h4>
-          <a href="/tr/ucla-test.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">UCLA Testi</a>
-          <a href="/tr/insights.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">İçgörüler</a>
-        </div>
-      </div>
-    </div>
-    <div style="max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-tertiary); font-size: 0.85rem;">
-      <div>© 2026 Aeternexus Health Technologies. Tüm hakları saklıdır.</div>
-      <div style="display: flex; gap: 1rem;">
-        <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Gizlilik Politikası</a>
-        <a href="#" style="color: var(--text-tertiary); text-decoration: none;">Hizmet Şartları</a>
+      <div style="display: flex; gap: 1.5rem; font-size: 0.85rem;">
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">Gizlilik Politikası</a>
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">KVKK Metni</a>
       </div>
     </div>
   </footer>
-
-  <style>
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); 
-      backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000;
-      opacity: 0; transition: opacity 0.3s ease;
-    }
-    .modal-overlay.active { display: flex; opacity: 1; }
-    .premium-modal {
-      background: var(--color-bg-deep); border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
-      padding: 2.5rem; width: 90%; max-width: 500px; position: relative; transform: translateY(20px); transition: 0.3s;
-    }
-    .modal-overlay.active .premium-modal { transform: translateY(0); }
-    .modal-close {
-      position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--text-secondary); cursor: pointer; transition: 0.2s;
-    }
-    .modal-close:hover { color: #fff; }
-    .modal-option-btn {
-      display: flex; align-items: center; gap: 1rem; padding: 1.25rem; border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md); text-decoration: none; color: #fff; margin-bottom: 1rem; transition: 0.3s;
-      background: rgba(0,0,0,0.2);
-    }
-    .modal-option-btn:hover { border-color: var(--color-accent-warm); background: rgba(222, 189, 166, 0.05); }
-    .modal-option-icon {
-      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      background: rgba(222, 189, 166, 0.1); color: var(--color-accent-warm);
-    }
-    .modal-option-text strong { display: block; font-size: 1.05rem; margin-bottom: 0.25rem; }
-    .modal-option-text span { font-size: 0.85rem; color: var(--text-secondary); }
-  </style>
-
-  <div class="modal-overlay" id="signInModal" onclick="closeModal('signInModal')">
-    <div class="premium-modal" onclick="event.stopPropagation();">
-      <button class="modal-close" onclick="closeModal('signInModal')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-      <div style="margin-bottom: 2rem; text-align: center;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Sisteme Giriş</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">Lütfen giriş yapmak istediğiniz hesabı seçin.</p>
-      </div>
-      <a href="/tr/login.html" class="modal-option-btn">
-        <div class="modal-option-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-        <div class="modal-option-text"><strong>Danışan Girişi</strong><span>Kişisel iyileşme yolculuğunuza erişin.</span></div>
-      </a>
-      <a href="/tr/expert-login.html" class="modal-option-btn">
-        <div class="modal-option-icon" style="background: rgba(107, 142, 153, 0.2); color: #8bb3c2;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-        <div class="modal-option-text"><strong>Uzman Girişi</strong><span>Klinik kontrol paneline erişin.</span></div>
-      </a>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="signUpModal" onclick="closeModal('signUpModal')">
-    <div class="premium-modal" onclick="event.stopPropagation();">
-      <button class="modal-close" onclick="closeModal('signUpModal')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-      <div style="margin-bottom: 2rem; text-align: center;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Kayıt Ol</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">Güvenli ağımıza katılın. Kayıt türünüzü seçin.</p>
-      </div>
-      <a href="/tr/register.html" class="modal-option-btn">
-        <div class="modal-option-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg></div>
-        <div class="modal-option-text"><strong>Danışan Kaydı</strong><span>İyileşme yolculuğunuza başlayın.</span></div>
-      </a>
-      <a href="/tr/expert-registration.html" class="modal-option-btn">
-        <div class="modal-option-icon" style="background: rgba(107, 142, 153, 0.2); color: #8bb3c2;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-        <div class="modal-option-text"><strong>Uzman Kayıt Başvurusu</strong><span>Lisanslı profesyonel olarak katılın.</span></div>
-      </a>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById(id).classList.add('active');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('active');
-    }
-    // ESC tuşu ile modalları kapatma
-    document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") {
-        document.querySelectorAll('.modal-overlay').forEach(modal => modal.classList.remove('active'));
-      }
-    });
-  </script>
 
 </body>
 </html>
