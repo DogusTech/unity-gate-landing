@@ -98,6 +98,7 @@ body {
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding-top: 80px;
   background: radial-gradient(circle at center, rgba(212, 163, 115, 0.03) 0%, var(--bg-black) 100%);
+  overflow: hidden;
 }
 
 .badge-premium {
