@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Gate - Sosyal Esenliğin Geleceği</title>
     
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,49 +25,14 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        // Geist fontu için yedek olarak sistem sans-serif kullanıyoruz
                         display: ['system-ui', '-apple-system', 'sans-serif'], 
                     }
                 }
             }
         }
     </script>
-
-    <style>
-        body {
-            background-color: #1A292F; /* unity-navy */
-            color: #E6D6CC; /* unity-sand */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .wave-bg {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 0;
-        }
-
-        .wave-bg svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 250px;
-        }
-
-        /* Glassmorphism menü efekti */
-        .glass-nav {
-            background: rgba(26, 41, 47, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(230, 214, 204, 0.05);
-        }
-    </style>
 </head>
-<body class="min-h-screen relative flex flex-col font-sans selection:bg-unity-taupe selection:text-unity-navy">
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-navy">
 
     <header class="fixed w-full top-0 z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -96,8 +62,8 @@
         </div>
     </header>
 
-    <main class="flex-grow flex items-center relative z-10 pt-32 pb-48">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+    <main class="relative bg-unity-navy text-unity-sand min-h-screen flex items-center pt-32 pb-56">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10">
             <div class="max-w-3xl">
                 
                 <div class="flex items-center gap-2 mb-6">
@@ -130,17 +96,56 @@
                 </div>
             </div>
         </div>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,180 C300,280 600,60 1000,20 C1200,0 1350,40 1440,80 L1440,400 L0,400 Z" fill="rgba(222, 189, 166, 0.15)"></path>
+                
+                <path d="M0,200 C300,300 600,80 1000,40 C1200,20 1350,60 1440,100 L1440,400 L0,400 Z" fill="rgba(255, 255, 255, 0.1)"></path>
+                
+                <path d="M0,220 C300,320 600,100 1000,60 C1200,40 1350,80 1440,120 L1440,400 L0,400 Z" fill="#FFFFFF"></path>
+            </svg>
+        </div>
     </main>
 
-    <div class="wave-bg">
-        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,180 C300,280 600,60 1000,20 C1200,0 1350,40 1440,80 L1440,400 L0,400 Z" fill="rgba(222, 189, 166, 0.1)"></path>
+    <section class="bg-white py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
-            <path d="M0,200 C300,300 600,80 1000,40 C1200,20 1350,60 1440,100 L1440,400 L0,400 Z" fill="rgba(8, 12, 14, 0.4)"></path>
-            
-            <path d="M0,220 C300,320 600,100 1000,60 C1200,40 1350,80 1440,120 L1440,400 L0,400 Z" fill="#080C0E"></path>
-        </svg>
-    </div>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-unity-navy mb-6 font-display">Kurumsal Ekosisteme Geçiş</h2>
+                <p class="text-lg text-gray-600">
+                    Koyu temanın otoriter ve premium etkisinden çıkıp, sistemin şeffaflığını ve analizlerini göreceğiniz aydınlık alana hoş geldiniz. Bu bölümde özellikler, istatistikler ve klinik veriler yer alabilir.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-unity-navy/5 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-unity-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-unity-navy mb-3">Sarsılmaz Güvenlik</h3>
+                    <p class="text-gray-600">Askeri düzeyde veri güvenliği altyapısı ile KVKK ve GDPR süreçlerine tam uyum.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-unity-taupe/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-unity-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-unity-navy mb-3">Veri Odaklı Kararlar</h3>
+                    <p class="text-gray-600">Yapay zeka destekli klinik dashboard'lar ile yönetimi şansa değil analizlere bırakın.</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-unity-bluegrey/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-unity-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-unity-navy mb-3">Topluluk Yönetimi</h3>
+                    <p class="text-gray-600">Bireyleri ve mekanları birbirine bağlayan şeffaf, rol tabanlı erişim kontrolü.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 </body>
 </html>
