@@ -1,172 +1,69 @@
-// 📂 js/main.js
-(() => {
-  "use strict";
+// main.js - Sıfırdan Premium Etkileşimler Ve Smart Scroll
 
-  /******************************************************************
-   * MATCHMAKING STATE MACHINE
-   ******************************************************************/
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Yumuşak Kaydırma (Smart Scroll)
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === "#") return;
 
-  const STATES = {
-    IDLE: "idle",
-    POSTING_INTENT: "posting_intent",
-    MATCHING: "matching",
-    APPLICANTS: "applicants",
-    EXPERT_REVIEW: "expert_review",
-    VIDEO_CALL: "video_call",
-    EXPERT_APPROVED: "expert_approved",
-    SAFE_ZONE: "safe_zone",
-    COMPLETED: "completed",
-    REJECTED: "rejected",
-  };
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Header yüksekliğini dikkate al (fixed header)
+                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
-  const EVENTS = {
-    CREATE_POST: "CREATE_POST",
-    APPLY: "APPLY",
-    SELECT_APPLICANT: "SELECT_APPLICANT",
-    START_EXPERT_REVIEW: "START_EXPERT_REVIEW",
-    APPROVE_VIDEO: "APPROVE_VIDEO",
-    REJECT_VIDEO: "REJECT_VIDEO",
-    START_VIDEO: "START_VIDEO",
-    EXPERT_CONFIRM: "EXPERT_CONFIRM",
-    GENERATE_SAFE_ZONE: "GENERATE_SAFE_ZONE",
-    COMPLETE: "COMPLETE",
-  };
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-  /******************************************************************
-   * CORE STATE
-   ******************************************************************/
-
-  const state = {
-    current: STATES.IDLE,
-    post: null,
-    applicants: [],
-    selectedApplicant: null,
-    expertApproved: false,
-    safeZone: null,
-  };
-
-  /******************************************************************
-   * TRANSITION ENGINE
-   ******************************************************************/
-
-  function transition(event, payload = {}) {
-    switch (state.current) {
-      case STATES.IDLE:
-        if (event === EVENTS.CREATE_POST) {
-          state.post = payload;
-          state.current = STATES.POSTING_INTENT;
+    // 2. Scroll Efekti - Header Küçülmesi
+    const header = document.querySelector('.main-header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.background = '#090e11'; // Biraz daha koyu bir zemin
+            header.querySelector('.site-nav').style.paddingTop = '10px';
+            header.querySelector('.site-nav').style.paddingBottom = '10px';
+        } else {
+            header.style.background = '#0d151a';
+            header.querySelector('.site-nav').style.paddingTop = ''; 
+            header.querySelector('.site-nav').style.paddingBottom = '';
         }
-        break;
+    });
 
-      case STATES.POSTING_INTENT:
-        if (event === EVENTS.APPLY) {
-          state.applicants.push(payload);
-          state.current = STATES.MATCHING;
-        }
-        break;
-
-      case STATES.MATCHING:
-        if (event === EVENTS.SELECT_APPLICANT) {
-          state.selectedApplicant = payload;
-          state.current = STATES.APPLICANTS;
-        }
-        break;
-
-      case STATES.APPLICANTS:
-        if (event === EVENTS.START_EXPERT_REVIEW) {
-          state.current = STATES.EXPERT_REVIEW;
-        }
-        break;
-
-      case STATES.EXPERT_REVIEW:
-        if (event === EVENTS.APPROVE_VIDEO) {
-          state.current = STATES.VIDEO_CALL;
-        }
-
-        if (event === EVENTS.REJECT_VIDEO) {
-          state.current = STATES.REJECTED;
-        }
-        break;
-
-      case STATES.VIDEO_CALL:
-        if (event === EVENTS.EXPERT_CONFIRM) {
-          state.expertApproved = true;
-          state.current = STATES.EXPERT_APPROVED;
-        }
-        break;
-
-      case STATES.EXPERT_APPROVED:
-        if (event === EVENTS.GENERATE_SAFE_ZONE) {
-          state.safeZone = generateSafeZone(payload.city);
-          state.current = STATES.SAFE_ZONE;
-        }
-        break;
-
-      case STATES.SAFE_ZONE:
-        if (event === EVENTS.COMPLETE) {
-          state.current = STATES.COMPLETED;
-        }
-        break;
-    }
-
-    renderDebug();
-  }
-
-  /******************************************************************
-   * SAFE ZONE GENERATOR (temporary anonymized contact logic)
-   ******************************************************************/
-
-  function generateSafeZone(city) {
-    const code = Math.floor(1000 + Math.random() * 9000);
-    const expiresAt = Date.now() + 1000 * 60 * 60 * 2; // 2 hours window
-
-    return {
-      city,
-      tempNumber: `+90-5XX-${code}`,
-      expiresAt,
-      active: true,
+    // 3. Kart Scroll Efekti (Subtle Fade-in Ve Premium Hissi İçin)
+    const cards = document.querySelectorAll('.extended-card');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px' // Görünmeden biraz önce başla
     };
-  }
 
-  /******************************************************************
-   * UI HELPERS (minimal but functional)
-   ******************************************************************/
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                cardObserver.unobserve(entry.target); // Sadece bir kez çalışması için
+            }
+        });
+    }, observerOptions);
 
-  function renderDebug() {
-    console.log("STATE:", state.current);
-    console.log("DATA:", state);
-  }
-
-  /******************************************************************
-   * PUBLIC API (UI hooks)
-   ******************************************************************/
-
-  window.matchmaking = {
-    createPost: (data) => transition(EVENTS.CREATE_POST, data),
-    apply: (user) => transition(EVENTS.APPLY, user),
-    selectApplicant: (user) => transition(EVENTS.SELECT_APPLICANT, user),
-    startExpertReview: () => transition(EVENTS.START_EXPERT_REVIEW),
-    approveVideo: () => transition(EVENTS.APPROVE_VIDEO),
-    rejectVideo: () => transition(EVENTS.REJECT_VIDEO),
-    startVideo: () => transition(EVENTS.START_VIDEO),
-    expertConfirm: () => transition(EVENTS.EXPERT_CONFIRM),
-    generateSafeZone: (city) =>
-      transition(EVENTS.GENERATE_SAFE_ZONE, { city }),
-    complete: () => transition(EVENTS.COMPLETE),
-
-    getState: () => state,
-  };
-
-  /******************************************************************
-   * UX INIT
-   ******************************************************************/
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      console.log("system reset to IDLE");
-      state.current = STATES.IDLE;
-      renderDebug();
-    }
-  });
-
-})();
+    cards.forEach(card => {
+        // Başlangıç stilleri (görünmez)
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+        
+        cardObserver.observe(card);
+    });
+});
