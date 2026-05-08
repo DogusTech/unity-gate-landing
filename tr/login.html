@@ -3,98 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
     <title>Kullanıcı Girişi | Unity Gate</title>
-    <meta name="description" content="Unity Gate'e güvenli giriş yaparak iyileşme yolculuğunuza kaldığınız yerden devam edin.">
     
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
-    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-
-    <style>
-        /* Sadece bu sayfaya özel yerleşim (Layout) stilleri */
-        .auth-layout {
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            position: relative; padding: 100px 5% 60px 5%; overflow: hidden;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'unity-base': '#1A292F',    
+                        'unity-surface': '#23353D', 
+                        'unity-taupe': '#DEBDA6',   
+                        'unity-sand': '#B8C5CB',    
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['system-ui', '-apple-system', 'sans-serif'], 
+                    }
+                }
+            }
         }
-        .form-control {
-            width: 100%; padding: 1rem 1.25rem; background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border); border-radius: var(--radius-md); 
-            color: #fff; font-family: var(--font-body); transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-        .form-control:focus {
-            outline: none; border-color: var(--color-accent-warm);
-            box-shadow: 0 0 0 4px rgba(222, 189, 166, 0.15); background: rgba(0, 0, 0, 0.4);
-        }
-        .auth-helpers { 
-            display: flex; justify-content: space-between; align-items: center; 
-            margin: 1.5rem 0; font-size: 0.9rem; 
-        }
-        .back-link {
-            position: absolute; top: 40px; left: 5%; display: inline-flex; align-items: center; gap: 8px;
-            color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: 0.3s;
-        }
-        .back-link:hover { color: #fff; transform: translateX(-5px); }
-    </style>
+    </script>
 </head>
-<body>
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex items-center justify-center relative overflow-hidden">
 
-    <main class="auth-layout">
-        <div style="position: absolute; top: 10%; left: 15%; width: 50vw; height: 50vw; background: rgba(107, 142, 153, 0.15); filter: blur(120px); z-index: 0; pointer-events: none; border-radius: 50%;"></div>
+    <div class="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] bg-[#6B8E99]/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <a href="/tr/index.html" class="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            Ana Sayfa
-        </a>
+    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium z-20">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
+    </a>
 
-        <div class="glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 480px; padding: 3rem;">
-            
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Kullanıcı Girişi</h1>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza devam edin.</p>
+    <div class="relative z-10 w-full max-w-md bg-unity-surface/80 backdrop-blur-xl p-10 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
+        
+        <div class="text-center mb-10">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-unity-taupe to-white flex items-center justify-center shadow-lg mb-6">
+                <svg class="w-6 h-6 text-unity-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
             </div>
-
-            <form id="login-form" onsubmit="handleUserLogin(event)">
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="email" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">E-posta Adresi</label>
-                    <input type="email" id="email" class="form-control" required placeholder="ornek@mail.com">
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="password" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Şifre</label>
-                    <input type="password" id="password" class="form-control" required placeholder="••••••••">
-                </div>
-
-                <div class="auth-helpers">
-                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-secondary);">
-                        <input type="checkbox" id="remember_me" style="width: 16px; height: 16px; accent-color: var(--color-accent-warm);">
-                        Beni Hatırla
-                    </label>
-                    <a href="https://app.unity-gate.com/forgot-password" style="color: var(--color-accent-warm); text-decoration: none; font-weight: 500;">Şifremi Unuttum</a>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem;">Giriş Yap</button>
-
-                <div style="text-align: center; font-size: 0.9rem; color: var(--text-secondary);">
-                    Hesabınız yok mu? <a href="/tr/register.html" style="color: #fff; font-weight: 600; text-decoration: none; margin-left: 5px;">Kayıt Olun</a>
-                </div>
-            </form>
-
-            <div class="trust-badge-container" style="justify-content: center; margin-top: 2.5rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Bağlantınız Uçtan Uca Şifrelenmiştir</span>
-            </div>
+            <h1 class="text-3xl font-bold text-white mb-2 font-display" data-i18n="loginTitle">Kullanıcı Girişi</h1>
+            <p class="font-light text-unity-sand/80" data-i18n="loginDesc">Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza devam edin.</p>
         </div>
-    </main>
+
+        <form id="login-form" onsubmit="handleUserLogin(event)">
+            <div class="mb-6">
+                <label for="email" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblEmail">E-POSTA ADRESİ</label>
+                <input type="email" id="email" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="ornek@mail.com">
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblPassword">ŞİFRE</label>
+                <input type="password" id="password" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="••••••••">
+            </div>
+
+            <div class="flex items-center justify-between mb-8">
+                <label class="flex items-center gap-2 cursor-pointer group">
+                    <input type="checkbox" id="remember_me" class="w-4 h-4 rounded border-white/20 bg-unity-base/50 text-unity-taupe focus:ring-unity-taupe focus:ring-offset-unity-surface">
+                    <span class="text-sm font-medium text-unity-sand group-hover:text-white transition-colors" data-i18n="lblRemember">Beni Hatırla</span>
+                </label>
+                <a href="forgot-password.html" class="text-sm font-medium text-unity-taupe hover:text-white transition-colors" data-i18n="lblForgotPwd">Şifrenizi mi unuttunuz?</a>
+            </div>
+
+            <button type="submit" class="w-full bg-unity-taupe text-unity-base py-4 rounded-full font-bold text-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg" data-i18n="btnLoginSubmit">
+                Güvenli Giriş Yap
+            </button>
+
+            <div class="mt-8 text-center text-sm font-medium">
+                <span class="text-unity-sand/60" data-i18n="loginNoAccount">Hesabınız yok mu?</span> 
+                <a href="register.html" class="text-white hover:text-unity-taupe transition-colors ml-1" data-i18n="loginGoRegister">Hemen Kayıt Olun</a>
+            </div>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-center gap-2 text-xs font-medium text-unity-sand/50">
+            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span data-i18n="authSecureBadge">Bağlantınız Askeri Düzeyde Uçtan Uca Şifrelenmiştir</span>
+        </div>
+    </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('tr.json')
+                .then(response => response.json())
+                .then(translations => {
+                    document.querySelectorAll('[data-i18n]').forEach(element => {
+                        const key = element.getAttribute('data-i18n');
+                        if (translations[key]) element.innerHTML = translations[key];
+                    });
+                });
+        });
+
         function handleUserLogin(e) {
             e.preventDefault();
-            const submitBtn = e.target.querySelector('.btn-primary');
-            submitBtn.innerHTML = 'Güvenli Giriş Yapılıyor...';
-            submitBtn.style.opacity = '0.8';
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = 'Şifreleniyor...';
+            submitBtn.style.opacity = '0.7';
             
             setTimeout(() => {
                 const email = document.getElementById('email').value;
@@ -107,7 +113,7 @@
                 params.append("remember", rememberMe);
 
                 window.location.href = `https://app.unity-gate.com/user-login/auth?${params.toString()}`;
-            }, 500); 
+            }, 600); 
         }
     </script>
 </body>

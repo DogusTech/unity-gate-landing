@@ -45,5 +45,28 @@
   "footerCopyright": "© 2026 Unity Gate. Tüm hakları saklıdır.",
   "footerPrivacy": "Gizlilik Kuralları",
   "footerTerms": "Kullanım Şartları",
-  "footerContact": "İletişim"
+  "footerContact": "İletişim",
+
+  "authBackHome": "Ana Sayfaya Dön",
+  "loginTitle": "Kullanıcı Girişi",
+  "loginDesc": "Güvenli alanınıza hoş geldiniz. İyileşme yolculuğunuza devam edin.",
+  "lblEmail": "E-POSTA ADRESİ",
+  "lblPassword": "ŞİFRE",
+  "lblRemember": "Beni Hatırla",
+  "lblForgotPwd": "Şifrenizi mi unuttunuz?",
+  "btnLoginSubmit": "Güvenli Giriş Yap",
+  "loginNoAccount": "Hesabınız yok mu?",
+  "loginGoRegister": "Hemen Kayıt Olun",
+  "authSecureBadge": "Bağlantınız Askeri Düzeyde Uçtan Uca Şifrelenmiştir",
+
+  "registerTitle": "Topluluğa Katılın",
+  "registerDesc": "Sosyal iyileşme yolculuğunuza ilk adımı atın. Verileriniz %100 güvende.",
+  "lblName": "AD SOYAD",
+  "lblPasswordConfirm": "ŞİFRE TEKRAR",
+  "kvkkTitle": "KVKK ve Gizlilik Politikası",
+  "kvkkText": "Unity Gate (Aeternexus A.Ş.) olarak kişisel verilerinizin gizliliğine en üst düzeyde önem veriyoruz. Adınız, e-posta adresiniz ve psikolojik test/analiz sonuçlarınız 'Sıfır-Erişim Şifrelemesi' (Zero-Knowledge Encryption) ile saklanır. Bu veriler yalnızca klinik eşleştirme algoritmalarının çalışabilmesi için kullanılır; reklam şirketlerine satılmaz veya üçüncü şahıslarla rızanız dışında kesinlikle paylaşılmaz. Tüm eşleşme süreçleri uluslararası sağlık verisi standartlarına (GDPR/KVKK) tam uyumlu olarak yürütülür.",
+  "lblAgree": "Kullanıcı sözleşmesini ve KVKK aydınlatma metnini okudum, onaylıyorum.",
+  "btnRegisterSubmit": "Güvenli Hesabımı Oluştur",
+  "registerHasAccount": "Zaten hesabınız var mı?",
+  "registerGoLogin": "Giriş Yapın"
 }

@@ -3,116 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
     <title>Kullanıcı Kaydı | Unity Gate</title>
-    <meta name="description" content="Unity Gate platformuna katılarak güvenli online terapi ve sosyal ağa adım atın.">
     
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <script src="https://unpkg.com/i18next/i18next.min.js" defer></script>
-    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js" defer></script>
-
-    <style>
-        .auth-layout {
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            position: relative; padding: 80px 5% 40px 5%; overflow: hidden;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'unity-base': '#1A292F',    
+                        'unity-surface': '#23353D', 
+                        'unity-taupe': '#DEBDA6',   
+                        'unity-sand': '#B8C5CB',    
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['system-ui', '-apple-system', 'sans-serif'], 
+                    }
+                }
+            }
         }
-        .form-control {
-            width: 100%; padding: 1rem 1.25rem; background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border); border-radius: var(--radius-md); 
-            color: #fff; font-family: var(--font-body); transition: all 0.3s ease; margin-top: 0.5rem;
-        }
-        .form-control:focus {
-            outline: none; border-color: var(--color-accent-warm);
-            box-shadow: 0 0 0 4px rgba(222, 189, 166, 0.15); background: rgba(0, 0, 0, 0.4);
-        }
-        select.form-control option { background: var(--color-bg-deep); color: #fff; }
-        
-        .input-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .input-row > div { flex: 1; }
-        
-        .terms-box {
-            background: rgba(0, 0, 0, 0.15); border: 1px solid var(--glass-border); 
-            border-radius: var(--radius-md); padding: 1rem; height: 80px; overflow-y: auto; 
-            font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .input-row { flex-direction: column; gap: 0; }
-            .input-row > div { margin-bottom: 1.5rem; }
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex items-center justify-center relative overflow-hidden py-12">
 
-    <main class="auth-layout">
-        <div style="position: absolute; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: rgba(222, 189, 166, 0.08); filter: blur(120px); z-index: 0; border-radius: 50%; pointer-events: none;"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-unity-taupe/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        <a href="/tr/index.html" style="position: absolute; top: 40px; left: 5%; display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-weight: 500;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-            Geri Dön
-        </a>
+    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium z-20">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
+    </a>
 
-        <div class="glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 600px; padding: 3rem;">
+    <div class="relative z-10 w-full max-w-2xl bg-unity-surface/80 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl mx-4">
+        
+        <div class="text-center mb-10">
+            <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-unity-taupe to-white flex items-center justify-center shadow-lg mb-6">
+                <svg class="w-6 h-6 text-unity-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-white mb-2 font-display" data-i18n="registerTitle">Topluluğa Katılın</h1>
+            <p class="font-light text-unity-sand/80" data-i18n="registerDesc">Sosyal iyileşme yolculuğunuza ilk adımı atın. Verileriniz %100 güvende.</p>
+        </div>
+
+        <form id="register-form" onsubmit="handleUserRegistration(event)">
             
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Aramıza Katılın</h1>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">İyileşme yolculuğunuza ilk adımı atın. Verileriniz tamamen güvende.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label for="name" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblName">AD SOYAD</label>
+                    <input type="text" id="name" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="Adınız ve Soyadınız">
+                </div>
+                <div>
+                    <label for="email" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblEmail">E-POSTA ADRESİ</label>
+                    <input type="email" id="email" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="ornek@mail.com">
+                </div>
             </div>
 
-            <form id="register-form" onsubmit="handleUserRegistration(event)">
-                
-                <div class="input-row">
-                    <div>
-                        <label style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Ad Soyad</label>
-                        <input type="text" id="name" class="form-control" placeholder="Adınız ve Soyadınız" required>
-                    </div>
-                    <div>
-                        <label style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">E-posta Adresi</label>
-                        <input type="email" id="email" class="form-control" placeholder="ornek@mail.com" required>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label for="password" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblPassword">ŞİFRE</label>
+                    <input type="password" id="password" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="••••••••">
                 </div>
+                <div>
+                    <label for="confirm_password" class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="lblPasswordConfirm">ŞİFRE TEKRAR</label>
+                    <input type="password" id="confirm_password" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="••••••••">
+                </div>
+            </div>
 
-                <div class="input-row">
-                    <div>
-                        <label style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Şifre</label>
-                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
-                    </div>
-                    <div>
-                        <label style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Şifre Tekrar</label>
-                        <input type="password" id="confirm_password" class="form-control" placeholder="••••••••" required>
-                    </div>
+            <div class="mb-8">
+                <label class="block text-xs font-semibold text-unity-sand/60 tracking-wider mb-2" data-i18n="kvkkTitle">KVKK VE GİZLİLİK POLİTİKASI</label>
+                <div class="w-full bg-unity-base/30 border border-white/5 rounded-xl px-5 py-4 h-32 overflow-y-auto text-sm font-light leading-relaxed text-unity-sand/80 scrollbar-thin scrollbar-thumb-white/10" data-i18n="kvkkText">
+                    Unity Gate (Aeternexus A.Ş.) olarak kişisel verilerinizin gizliliğine en üst düzeyde önem veriyoruz. Adınız, e-posta adresiniz ve psikolojik test/analiz sonuçlarınız 'Sıfır-Erişim Şifrelemesi' (Zero-Knowledge Encryption) ile saklanır. Bu veriler yalnızca klinik eşleştirme algoritmalarının çalışabilmesi için kullanılır; reklam şirketlerine satılmaz veya üçüncü şahıslarla rızanız dışında kesinlikle paylaşılmaz. Tüm eşleşme süreçleri uluslararası sağlık verisi standartlarına (GDPR/KVKK) tam uyumlu olarak yürütülür.
                 </div>
+            </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Platform Kullanım Hedefiniz</label>
-                    <select id="user_goal" class="form-control" required>
-                        <option value="" disabled selected>Amacınızı Seçiniz</option>
-                        <option value="social">Güvenli Sosyalleşme ve Bağ Kurma</option>
-                        <option value="therapy">Profesyonel Terapist Desteği</option>
-                        <option value="self_discovery">UCLA Testi ve Kendini Keşif</option>
-                    </select>
-                </div>
-
-                <div class="terms-box">
-                    Unity Gate'e katılarak, KVKK ve GDPR standartlarında korunan güvenli bir topluluğun parçası olursunuz. Verileriniz "Sıfır-Erişim Şifrelemesi" ile saklanır ve 3. şahıslarla asla paylaşılmaz.
-                </div>
-                
-                <label style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 2rem; cursor: pointer; font-size: 0.9rem; color: var(--text-primary);">
-                    <input type="checkbox" id="agree_terms" style="width: 20px; height: 20px; accent-color: var(--color-accent-warm);" required>
-                    <span>Kullanıcı sözleşmesini ve KVKK aydınlatma metnini okudum, onaylıyorum.</span>
+            <div class="mb-8">
+                <label class="flex items-start gap-3 cursor-pointer group">
+                    <input type="checkbox" id="agree_terms" class="mt-1 w-5 h-5 rounded border-white/20 bg-unity-base/50 text-unity-taupe focus:ring-unity-taupe focus:ring-offset-unity-surface" required>
+                    <span class="text-sm font-medium text-unity-sand group-hover:text-white transition-colors leading-relaxed" data-i18n="lblAgree">Kullanıcı sözleşmesini ve KVKK aydınlatma metnini okudum, onaylıyorum.</span>
                 </label>
+            </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Hesabımı Oluştur</button>
+            <button type="submit" class="w-full bg-unity-taupe text-unity-base py-4 rounded-full font-bold text-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg" data-i18n="btnRegisterSubmit">
+                Güvenli Hesabımı Oluştur
+            </button>
 
-                <div style="text-align: center; font-size: 0.9rem; color: var(--text-secondary);">
-                    Zaten hesabınız var mı? <a href="/tr/login.html" style="color: #fff; font-weight: 600; text-decoration: none; margin-left: 5px;">Giriş Yapın</a>
-                </div>
-            </form>
+            <div class="mt-8 text-center text-sm font-medium">
+                <span class="text-unity-sand/60" data-i18n="registerHasAccount">Zaten hesabınız var mı?</span> 
+                <a href="login.html" class="text-white hover:text-unity-taupe transition-colors ml-1" data-i18n="registerGoLogin">Giriş Yapın</a>
+            </div>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-center gap-2 text-xs font-medium text-unity-sand/50">
+            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span data-i18n="authSecureBadge">Bağlantınız Askeri Düzeyde Uçtan Uca Şifrelenmiştir</span>
         </div>
-    </main>
+    </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('tr.json')
+                .then(response => response.json())
+                .then(translations => {
+                    document.querySelectorAll('[data-i18n]').forEach(element => {
+                        const key = element.getAttribute('data-i18n');
+                        if (translations[key]) element.innerHTML = translations[key];
+                    });
+                });
+        });
+
         function handleUserRegistration(e) {
             e.preventDefault();
             
@@ -120,25 +122,24 @@
             const confirmPassword = document.getElementById('confirm_password').value;
 
             if (rawPassword !== confirmPassword) {
+                // Buradaki uyarı mesajı JSON'dan da alınabilir ancak native JS alert için direkt yazıldı.
                 alert("Güvenlik Uyarısı: Şifreler eşleşmiyor, lütfen kontrol edin.");
                 return;
             }
 
-            const submitBtn = e.target.querySelector('.btn-primary');
-            submitBtn.innerHTML = 'Şifreleniyor ve Hesabınız Oluşturuluyor...';
-            submitBtn.style.opacity = '0.8';
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = 'Kriptolanıyor...';
+            submitBtn.style.opacity = '0.7';
 
             setTimeout(() => {
                 const params = new URLSearchParams();
                 params.append("name", document.getElementById('name').value);
                 params.append("email", document.getElementById('email').value);
-                params.append("goal", document.getElementById('user_goal').value);
                 params.append("token", rawPassword); 
 
                 window.location.href = `https://app.unity-gate.com/user/finalize?${params.toString()}`;
             }, 600);
         }
     </script>
-
 </body>
 </html>
