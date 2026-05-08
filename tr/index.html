@@ -17,11 +17,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'unity-base': '#11181C',    /* 103331 Görselindeki Ana Antrasit Arka Plan */
-                        'unity-surface': '#1C262B', /* Kartlar ve yükseltilmiş alanlar için bir ton açığı */
+                        'unity-base': '#11181C',    /* Tüm sayfanın TEK ve ORTAK arka plan rengi */
+                        'unity-surface': '#1C262B', /* Sadece kartların arka planı için */
                         'unity-taupe': '#DEBDA6',   /* Vurgu rengi (Vizon) */
                         'unity-sand': '#B8C5CB',    /* Okunabilir alt metinler (Soft Gri/Kum) */
-                        'unity-dark': '#0A0F12',    /* Footer ve derin gölgeler */
+                        'unity-dark': '#0A0F12',    /* Derin gölgeler için */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -121,7 +121,7 @@
         </div>
     </main>
 
-    <section class="bg-unity-base py-24 md:py-32 relative z-10">
+    <section class="py-24 md:py-32 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24">
@@ -222,7 +222,7 @@
         </div>
     </section>
 
-    <section class="py-24 md:py-32 bg-unity-surface/50 border-t border-white/5">
+    <section class="py-24 md:py-32 relative border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="text-center max-w-2xl mx-auto mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-display tracking-tight">Sistem Nasıl İşler?</h2>
@@ -260,7 +260,6 @@
     </section>
 
     <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-unity-base to-unity-dark"></div>
         <div class="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
             <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 font-display">Değişime Hazır Mısınız?</h2>
             <p class="text-xl text-unity-sand mb-12 max-w-2xl mx-auto font-light">Yalnızlık kader değildir, çözülebilir bir parametredir. Unity Gate dünyasına bugün adım atın.</p>
@@ -272,7 +271,7 @@
         </div>
     </section>
 
-    <footer class="bg-unity-dark py-12 border-t border-white/5">
+    <footer class="py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
                 <span class="text-xl font-semibold text-white font-display">Unity Gate</span>
@@ -287,7 +286,6 @@
     </footer>
 
     <script>
-        // Mobil Menü Aç/Kapat
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         let isMenuOpen = false;
@@ -305,7 +303,6 @@
             }
         });
 
-        // Navbar Scroll Efekti (Renkler unity-base ile güncellendi)
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
