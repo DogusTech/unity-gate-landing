@@ -2,50 +2,13 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #FFFFFF; /* Alt sayfalar için taban rengini beyaz yapıyoruz */
+    /* Arka plan rengi artık index.html içerisindeki bg-unity-base sınıfı ile yönetiliyor */
 }
 
 /* Katmanlı Dalga (Wave) Ayırıcı */
 .wave-divider {
     position: absolute;
-    bottom: -1px; /* Bazı tarayıcılarda oluşan ince beyaz çizgiyi yok etmek için 1px aşağı çekilir */
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    pointer-events: none; /* Dalganın altındaki olası içeriklere tıklanmasını engeller */
-}
-
-.wave-divider svg {
-    display: block;
-    width: 100%;
-    height: 150px; /* Mobil ve küçük ekranlar için zarif yükseklik */
-}
-
-/* Büyük ekranlarda dalga oranını korumak için */
-@media (min-width: 1024px) {
-    .wave-divider svg {
-        height: 240px; 
-    }
-}
-
-/* Glassmorphism (Buzlu Cam) Menü Efekti */
-.glass-nav {
-    background: rgba(26, 41, 47, 0.85); /* Koyu alanda biraz daha tok durması için opaklık artırıldı */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(230, 214, 204, 0.05);
-}
-/* Genel Vücut Ayarları */
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Katmanlı Dalga (Wave) Ayırıcı */
-.wave-divider {
-    position: absolute;
-    bottom: -1px;
+    bottom: -1px; /* Beyaz çizgi hatalarını önler */
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -56,22 +19,23 @@ body {
 .wave-divider svg {
     display: block;
     width: 100%;
-    height: 120px; /* Mobilde biraz daha ince */
+    height: 120px; 
 }
 
-/* Büyük ekranlarda dalga oranını korumak için */
+/* Büyük ekranlarda dalga oranı */
 @media (min-width: 1024px) {
     .wave-divider svg {
         height: 200px; 
     }
 }
 
-/* Glassmorphism (Buzlu Cam) Menü Efekti */
+/* Glassmorphism (Buzlu Cam) Menü Efekti - Koyu Temaya Uyarlandı */
 .glass-nav {
-    background: rgba(26, 41, 47, 0.6); 
+    /* 103331 Antrasit Renginin (RGB 17, 24, 28) Şeffaf Hali */
+    background: rgba(17, 24, 28, 0.7); 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 /* Yumuşak kaydırma (Smooth Scroll) */

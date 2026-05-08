@@ -17,12 +17,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'unity-navy': '#1A292F',
-                        'unity-taupe': '#DEBDA6',
-                        'unity-bluegrey': '#6B8E99',
-                        'unity-sand': '#E6D6CC',
-                        'unity-dark': '#080C0E',
-                        'unity-offwhite': '#F8F6F3',
+                        'unity-base': '#11181C',    /* 103331 Görselindeki Ana Antrasit Arka Plan */
+                        'unity-surface': '#1C262B', /* Kartlar ve yükseltilmiş alanlar için bir ton açığı */
+                        'unity-taupe': '#DEBDA6',   /* Vurgu rengi (Vizon) */
+                        'unity-sand': '#B8C5CB',    /* Okunabilir alt metinler (Soft Gri/Kum) */
+                        'unity-dark': '#0A0F12',    /* Footer ve derin gölgeler */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -33,14 +32,14 @@
         }
     </script>
 </head>
-<body class="font-sans selection:bg-unity-taupe selection:text-unity-navy bg-unity-navy">
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base">
 
     <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <nav class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3 cursor-pointer z-50">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-unity-taupe to-unity-bluegrey flex items-center justify-center shadow-lg">
-                        <svg class="w-5 h-5 text-unity-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-unity-taupe to-white flex items-center justify-center shadow-lg">
+                        <svg class="w-5 h-5 text-unity-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                     </div>
@@ -48,19 +47,19 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-10">
-                    <a href="ucla-test.html" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">UCLA Testi</a>
-                    <a href="about.html" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">Hakkımızda</a>
-                    <a href="insights.html" class="text-sm font-medium text-unity-sand hover:text-white transition-colors duration-300">İçgörüler</a>
+                    <a href="ucla-test.html" class="text-sm font-medium text-unity-sand hover:text-unity-taupe transition-colors duration-300">UCLA Testi</a>
+                    <a href="about.html" class="text-sm font-medium text-unity-sand hover:text-unity-taupe transition-colors duration-300">Hakkımızda</a>
+                    <a href="insights.html" class="text-sm font-medium text-unity-sand hover:text-unity-taupe transition-colors duration-300">İçgörüler</a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#" class="text-sm font-medium text-white hover:text-unity-taupe transition-colors duration-300">Giriş Yap</a>
-                    <a href="#" class="bg-white text-unity-navy px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-unity-sand transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg">
+                    <a href="#" class="bg-white text-unity-base px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-unity-taupe transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg">
                         Kayıt Ol
                     </a>
                 </div>
 
-                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 hover:text-unity-taupe transition-colors">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -68,13 +67,13 @@
             </nav>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-unity-navy/95 backdrop-blur-xl z-40 hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300">
+        <div id="mobile-menu" class="fixed inset-0 bg-unity-base/95 backdrop-blur-xl z-40 hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300">
             <a href="ucla-test.html" class="text-2xl font-medium text-white hover:text-unity-taupe transition-colors">UCLA Testi</a>
             <a href="about.html" class="text-2xl font-medium text-white hover:text-unity-taupe transition-colors">Hakkımızda</a>
             <a href="insights.html" class="text-2xl font-medium text-white hover:text-unity-taupe transition-colors">İçgörüler</a>
-            <div class="w-16 h-[1px] bg-white/20 my-4"></div>
+            <div class="w-16 h-[1px] bg-white/10 my-4"></div>
             <a href="#" class="text-xl font-medium text-white hover:text-unity-taupe transition-colors">Giriş Yap</a>
-            <a href="#" class="bg-unity-taupe text-unity-navy px-8 py-3 rounded-full text-lg font-semibold mt-2">Kayıt Ol</a>
+            <a href="#" class="bg-unity-taupe text-unity-base px-8 py-3 rounded-full text-lg font-semibold mt-2 hover:bg-white transition-colors">Kayıt Ol</a>
         </div>
     </header>
 
@@ -82,7 +81,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10">
             <div class="max-w-3xl mt-12 md:mt-0">
                 
-                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-unity-taupe/30 bg-unity-taupe/5 backdrop-blur-sm">
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-unity-taupe/20 bg-unity-taupe/5 backdrop-blur-sm">
                     <svg class="w-4 h-4 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
@@ -94,18 +93,18 @@
                     Geleceği: <span class="text-unity-taupe opacity-90">Nitelikli Topluluk Ağı</span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-unity-sand/80 leading-relaxed mb-12 max-w-2xl font-light">
+                <p class="text-lg md:text-xl text-unity-sand/90 leading-relaxed mb-12 max-w-2xl font-light">
                     Birlik Kapısı, karmaşık algoritmalar veya rastgele etkileşimler yerine; uzman rehberliğinde şekillenen, ortak değerlere odaklı ve yüksek güvenlikli bir sosyal ekosistem sunar. Sosyal hayatınızı profesyonel bir güvenceyle yapılandırın.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
-                    <a href="#" class="text-center bg-unity-taupe text-unity-navy px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-1 shadow-[0_4px_20px_0_rgba(222,189,166,0.25)]">
+                    <a href="#" class="text-center bg-unity-taupe text-unity-base px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-all duration-300 transform hover:-translate-y-1 shadow-[0_4px_20px_0_rgba(222,189,166,0.2)]">
                         Topluluğa Katıl
                     </a>
                     
-                    <a href="ucla-test.html" class="group flex justify-center items-center gap-3 text-unity-sand hover:text-white font-medium text-lg px-6 py-4 rounded-full border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300">
+                    <a href="ucla-test.html" class="group flex justify-center items-center gap-3 text-unity-sand hover:text-white font-medium text-lg px-6 py-4 rounded-full border border-white/10 hover:border-unity-taupe/50 hover:bg-white/5 transition-all duration-300">
                         Sosyal Farkındalık Testi
-                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -115,46 +114,46 @@
 
         <div class="wave-divider">
             <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,180 C300,280 600,60 1000,20 C1200,0 1350,40 1440,80 L1440,400 L0,400 Z" fill="rgba(222, 189, 166, 0.05)"></path>
-                <path d="M0,200 C300,300 600,80 1000,40 C1200,20 1350,60 1440,100 L1440,400 L0,400 Z" fill="rgba(230, 214, 204, 0.1)"></path>
-                <path d="M0,220 C300,320 600,100 1000,60 C1200,40 1350,80 1440,120 L1440,400 L0,400 Z" fill="#1A292F"></path>
+                <path d="M0,180 C300,280 600,60 1000,20 C1200,0 1350,40 1440,80 L1440,400 L0,400 Z" fill="rgba(222, 189, 166, 0.03)"></path>
+                <path d="M0,200 C300,300 600,80 1000,40 C1200,20 1350,60 1440,100 L1440,400 L0,400 Z" fill="rgba(222, 189, 166, 0.05)"></path>
+                <path d="M0,220 C300,320 600,100 1000,60 C1200,40 1350,80 1440,120 L1440,400 L0,400 Z" fill="#11181C"></path>
             </svg>
         </div>
     </main>
 
-    <section class="bg-unity-navy py-24 md:py-32 relative z-10">
+    <section class="bg-unity-base py-24 md:py-32 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-display tracking-tight">Kurumsal Ekosisteme Geçiş</h2>
-                <p class="text-lg text-unity-sand/70 leading-relaxed font-light">
+                <p class="text-lg text-unity-sand leading-relaxed font-light">
                     Sistemin şeffaflığını ve analizlerini göreceğiniz klinik, güvenli ve elit alana hoş geldiniz. Güven, estetikle harmanlandığında kalıcı olur.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <div class="bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] border border-white/[0.05] group">
+                <div class="bg-unity-surface backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-[#1f2a30] border border-white/5 hover:border-unity-taupe/30 group">
                     <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 transition-all duration-500 border border-white/10 group-hover:border-unity-taupe/50">
                         <svg class="w-7 h-7 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4 font-display tracking-wide">Sarsılmaz Güvenlik</h3>
-                    <p class="text-unity-sand/60 leading-relaxed font-light">Askeri düzeyde veri güvenliği altyapısı ile KVKK ve GDPR süreçlerine tam uyum.</p>
+                    <p class="text-unity-sand leading-relaxed font-light">Askeri düzeyde veri güvenliği altyapısı ile KVKK ve GDPR süreçlerine tam uyum.</p>
                 </div>
 
-                <div class="bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] border border-white/[0.05] group">
+                <div class="bg-unity-surface backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-[#1f2a30] border border-white/5 hover:border-unity-taupe/30 group">
                     <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 transition-all duration-500 border border-white/10 group-hover:border-unity-taupe/50">
                         <svg class="w-7 h-7 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4 font-display tracking-wide">Veri Odaklı Kararlar</h3>
-                    <p class="text-unity-sand/60 leading-relaxed font-light">Yapay zeka destekli klinik dashboard'lar ile yönetimi şansa değil analizlere bırakın.</p>
+                    <p class="text-unity-sand leading-relaxed font-light">Yapay zeka destekli klinik dashboard'lar ile yönetimi şansa değil analizlere bırakın.</p>
                 </div>
 
-                <div class="bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] border border-white/[0.05] group">
+                <div class="bg-unity-surface backdrop-blur-sm p-8 md:p-10 rounded-[2rem] shadow-lg transition-all duration-500 hover:-translate-y-2 hover:bg-[#1f2a30] border border-white/5 hover:border-unity-taupe/30 group">
                     <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 transition-all duration-500 border border-white/10 group-hover:border-unity-taupe/50">
                         <svg class="w-7 h-7 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4 font-display tracking-wide">Topluluk Yönetimi</h3>
-                    <p class="text-unity-sand/60 leading-relaxed font-light">Bireyleri ve mekanları birbirine bağlayan şeffaf, rol tabanlı erişim kontrolü.</p>
+                    <p class="text-unity-sand leading-relaxed font-light">Bireyleri ve mekanları birbirine bağlayan şeffaf, rol tabanlı erişim kontrolü.</p>
                 </div>
             </div>
         </div>
@@ -169,21 +168,21 @@
                         <span class="text-sm font-semibold tracking-widest uppercase">Klinik Doğruluk</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-display leading-tight">UCLA Ölçeği ile <br><span class="text-unity-taupe">Bilimsel Eşleşme</span></h2>
-                    <p class="text-lg text-unity-sand/70 leading-relaxed font-light mb-8">
+                    <p class="text-lg text-unity-sand leading-relaxed font-light mb-8">
                         Rastgele bağlantılar hayal kırıklığı yaratır. Unity Gate, kullanıcı profilini dünyaca kabul görmüş UCLA Yalnızlık Ölçeği ve psikolojik eşleşme algoritmaları üzerinden analiz eder. Amacımız sadece insanları bir araya getirmek değil; doğru, besleyici ve güvenli zeminlerde kalıcı bağlar kurmaktır.
                     </p>
                     <ul class="space-y-4 mb-10">
                         <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-unity-taupe/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-unity-taupe/10 flex items-center justify-center flex-shrink-0 mt-1 border border-unity-taupe/20">
                                 <svg class="w-3.5 h-3.5 text-unity-taupe" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <p class="text-white font-medium">Uzman Onaylı Analizler <span class="block text-sm text-unity-sand/60 font-light mt-1">Gelişmiş duygu durum haritalandırması.</span></p>
+                            <p class="text-white font-medium">Uzman Onaylı Analizler <span class="block text-sm text-unity-sand font-light mt-1">Gelişmiş duygu durum haritalandırması.</span></p>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-unity-taupe/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-unity-taupe/10 flex items-center justify-center flex-shrink-0 mt-1 border border-unity-taupe/20">
                                 <svg class="w-3.5 h-3.5 text-unity-taupe" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <p class="text-white font-medium">Niyet Odaklı Filtreleme <span class="block text-sm text-unity-sand/60 font-light mt-1">Ortak ilgi alanları ve değer yapılarına göre eşleştirme.</span></p>
+                            <p class="text-white font-medium">Niyet Odaklı Filtreleme <span class="block text-sm text-unity-sand font-light mt-1">Ortak ilgi alanları ve değer yapılarına göre eşleştirme.</span></p>
                         </li>
                     </ul>
                     <a href="ucla-test.html" class="inline-flex items-center gap-2 text-unity-taupe hover:text-white font-semibold transition-colors duration-300">
@@ -192,28 +191,27 @@
                 </div>
                 
                 <div class="w-full lg:w-1/2 relative">
-                    <div class="aspect-square md:aspect-[4/3] rounded-[2rem] bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-8 flex flex-col justify-between relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-unity-taupe/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-unity-bluegrey/10 rounded-full blur-3xl -ml-10 -mb-10"></div>
+                    <div class="aspect-square md:aspect-[4/3] rounded-[2rem] bg-unity-surface border border-white/5 p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-unity-taupe/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
                         
                         <div class="relative z-10 flex justify-between items-start">
-                            <div class="w-12 h-12 rounded-xl bg-unity-taupe/20 border border-unity-taupe/30 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-xl bg-unity-base border border-white/10 flex items-center justify-center">
                                 <svg class="w-6 h-6 text-unity-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             </div>
                             <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-semibold border border-green-500/20">Aktif Analiz</span>
                         </div>
                         
                         <div class="relative z-10">
-                            <div class="h-2 w-full bg-white/5 rounded-full mb-4 overflow-hidden">
+                            <div class="h-2 w-full bg-unity-base rounded-full mb-4 overflow-hidden">
                                 <div class="h-full bg-unity-taupe w-3/4 rounded-full"></div>
                             </div>
                             <div class="flex justify-between items-end">
                                 <div>
-                                    <p class="text-sm text-unity-sand/60 mb-1">Eşleşme Oranı</p>
+                                    <p class="text-sm text-unity-sand mb-1">Eşleşme Oranı</p>
                                     <p class="text-3xl font-bold text-white">%94.2</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm text-unity-sand/60 mb-1">Klinik Doğruluk</p>
+                                    <p class="text-sm text-unity-sand mb-1">Klinik Doğruluk</p>
                                     <p class="text-lg font-medium text-white">Yüksek Standart</p>
                                 </div>
                             </div>
@@ -224,66 +222,66 @@
         </div>
     </section>
 
-    <section class="py-24 md:py-32 bg-black/20">
+    <section class="py-24 md:py-32 bg-unity-surface/50 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="text-center max-w-2xl mx-auto mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-display tracking-tight">Sistem Nasıl İşler?</h2>
-                <p class="text-lg text-unity-sand/70 font-light">Üç basit ama klinik olarak tasarlanmış adımla sosyal sağlığınızı kontrol altına alın.</p>
+                <p class="text-lg text-unity-sand font-light">Üç basit ama klinik olarak tasarlanmış adımla sosyal sağlığınızı kontrol altına alın.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
                 <div class="relative text-center group">
-                    <div class="w-24 h-24 mx-auto bg-unity-navy rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="w-24 h-24 mx-auto bg-unity-surface rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 shadow-lg">
                         <span class="text-3xl font-display font-bold text-unity-taupe">1</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Analiz ve Test</h3>
-                    <p class="text-unity-sand/60 font-light px-4">Kısa ama etkili UCLA tabanlı testimizi çözerek sosyal ihtiyaç profilinizi oluşturun.</p>
+                    <p class="text-unity-sand font-light px-4">Kısa ama etkili UCLA tabanlı testimizi çözerek sosyal ihtiyaç profilinizi oluşturun.</p>
                 </div>
 
                 <div class="relative text-center group">
-                    <div class="w-24 h-24 mx-auto bg-unity-navy rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="w-24 h-24 mx-auto bg-unity-surface rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 shadow-lg">
                         <span class="text-3xl font-display font-bold text-unity-taupe">2</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Klinik Eşleşme</h3>
-                    <p class="text-unity-sand/60 font-light px-4">Algoritmalarımız, değerlerinizle en uyumlu toplulukları ve bireyleri tespit eder.</p>
+                    <p class="text-unity-sand font-light px-4">Algoritmalarımız, değerlerinizle en uyumlu toplulukları ve bireyleri tespit eder.</p>
                 </div>
 
                 <div class="relative text-center group">
-                    <div class="w-24 h-24 mx-auto bg-unity-navy rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="w-24 h-24 mx-auto bg-unity-surface rounded-full border border-white/10 flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 shadow-lg">
                         <span class="text-3xl font-display font-bold text-unity-taupe">3</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Güvenli Etkileşim</h3>
-                    <p class="text-unity-sand/60 font-light px-4">Şifrelenmiş, denetlenen ve profesyonel standartlarda kurulan yeni ilişkilerinize başlayın.</p>
+                    <p class="text-unity-sand font-light px-4">Şifrelenmiş, denetlenen ve profesyonel standartlarda kurulan yeni ilişkilerinize başlayın.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-unity-navy to-[#0c1417]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-unity-base to-unity-dark"></div>
         <div class="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
             <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 font-display">Değişime Hazır Mısınız?</h2>
-            <p class="text-xl text-unity-sand/80 mb-12 max-w-2xl mx-auto font-light">Yalnızlık kader değildir, çözülebilir bir parametredir. Unity Gate dünyasına bugün adım atın.</p>
+            <p class="text-xl text-unity-sand mb-12 max-w-2xl mx-auto font-light">Yalnızlık kader değildir, çözülebilir bir parametredir. Unity Gate dünyasına bugün adım atın.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                <a href="#" class="w-full sm:w-auto bg-white text-unity-navy px-10 py-4 rounded-full font-bold text-lg hover:bg-unity-taupe transition-colors duration-300">
+                <a href="#" class="w-full sm:w-auto bg-white text-unity-base px-10 py-4 rounded-full font-bold text-lg hover:bg-unity-taupe hover:text-unity-base transition-colors duration-300 shadow-lg shadow-white/5">
                     Kayıt Ol ve Başla
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#080C0E] py-12 border-t border-white/5">
+    <footer class="bg-unity-dark py-12 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
                 <span class="text-xl font-semibold text-white font-display">Unity Gate</span>
                 <span class="text-unity-sand/40 text-sm">© 2026</span>
             </div>
             <div class="flex gap-6">
-                <a href="#" class="text-sm text-unity-sand/60 hover:text-white transition-colors">KVKK & Gizlilik</a>
-                <a href="#" class="text-sm text-unity-sand/60 hover:text-white transition-colors">Kullanım Koşulları</a>
-                <a href="about.html" class="text-sm text-unity-sand/60 hover:text-white transition-colors">İletişim</a>
+                <a href="#" class="text-sm text-unity-sand hover:text-unity-taupe transition-colors">KVKK & Gizlilik</a>
+                <a href="#" class="text-sm text-unity-sand hover:text-unity-taupe transition-colors">Kullanım Koşulları</a>
+                <a href="about.html" class="text-sm text-unity-sand hover:text-unity-taupe transition-colors">İletişim</a>
             </div>
         </div>
     </footer>
@@ -298,27 +296,27 @@
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
                 menu.classList.remove('hidden');
-                // Kısa bir gecikme ile opacity vererek animasyonlu açılmasını sağlıyoruz
                 setTimeout(() => menu.classList.remove('opacity-0'), 10);
-                document.body.style.overflow = 'hidden'; // Scroll'u kilitle
+                document.body.style.overflow = 'hidden'; 
             } else {
                 menu.classList.add('opacity-0');
                 setTimeout(() => menu.classList.add('hidden'), 300);
-                document.body.style.overflow = 'auto'; // Scroll'u aç
+                document.body.style.overflow = 'auto'; 
             }
         });
 
-        // Sayfa kaydırıldığında Navbar zeminini koyulaştırma
+        // Navbar Scroll Efekti (Renkler unity-base ile güncellendi)
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                nav.classList.add('bg-unity-navy/95', 'shadow-md');
+                nav.classList.add('bg-[#11181C]/95', 'shadow-md', 'backdrop-blur-xl');
                 nav.classList.remove('glass-nav');
             } else {
                 nav.classList.add('glass-nav');
-                nav.classList.remove('bg-unity-navy/95', 'shadow-md');
+                nav.classList.remove('bg-[#11181C]/95', 'shadow-md', 'backdrop-blur-xl');
             }
         });
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

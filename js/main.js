@@ -3,7 +3,7 @@
   "use strict";
 
   /******************************************************************
-   * 1. ARAYÜZ (UI) ETKİLEŞİMLERİ VE ANİMASYONLAR (YENİ EKLENEN)
+   * 1. ARAYÜZ (UI) ETKİLEŞİMLERİ VE ANİMASYONLAR
    ******************************************************************/
   document.addEventListener('DOMContentLoaded', () => {
     
@@ -17,7 +17,9 @@
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                // Header varlığını kontrol et
+                const header = document.querySelector('.main-header') || document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
@@ -50,7 +52,7 @@
   });
 
   /******************************************************************
-   * 2. MATCHMAKING STATE MACHINE (SENİN MEVCUT KODUN - KORUNDU)
+   * 2. MATCHMAKING STATE MACHINE
    ******************************************************************/
 
   const STATES = {
