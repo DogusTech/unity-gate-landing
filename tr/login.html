@@ -28,16 +28,18 @@
         }
     </script>
 </head>
-<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex items-center justify-center relative overflow-hidden">
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex flex-col items-center justify-center py-16 px-6 relative overflow-x-hidden">
 
-    <div class="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] bg-[#6B8E99]/10 blur-[100px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#6B8E99]/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium z-20">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
-    </a>
+    <div class="w-full max-w-md mb-8 relative z-20">
+        <a href="index.html" class="inline-flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
+        </a>
+    </div>
 
-    <div class="relative z-10 w-full max-w-md bg-unity-surface/80 backdrop-blur-xl p-10 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
+    <div class="relative z-10 w-full max-w-md bg-unity-surface/80 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
         
         <div class="text-center mb-10">
             <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-unity-taupe to-white flex items-center justify-center shadow-lg mb-6">
@@ -60,7 +62,7 @@
                 <input type="password" id="password" class="w-full bg-unity-base/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-unity-sand/30 focus:outline-none focus:border-unity-taupe focus:ring-1 focus:ring-unity-taupe transition-all duration-300" required placeholder="••••••••">
             </div>
 
-            <div class="flex items-center justify-between mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                 <label class="flex items-center gap-2 cursor-pointer group">
                     <input type="checkbox" id="remember_me" class="w-4 h-4 rounded border-white/20 bg-unity-base/50 text-unity-taupe focus:ring-unity-taupe focus:ring-offset-unity-surface">
                     <span class="text-sm font-medium text-unity-sand group-hover:text-white transition-colors" data-i18n="lblRemember">Beni Hatırla</span>
@@ -99,21 +101,13 @@
         function handleUserLogin(e) {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = 'Şifreleniyor...';
+            submitBtn.innerHTML = 'Doğrulanıyor...';
             submitBtn.style.opacity = '0.7';
             
             setTimeout(() => {
-                const email = document.getElementById('email').value;
-                const rawPassword = document.getElementById('password').value; 
-                const rememberMe = document.getElementById('remember_me').checked;
-
-                const params = new URLSearchParams();
-                params.append("email", email);
-                params.append("token", rawPassword); 
-                params.append("remember", rememberMe);
-
-                window.location.href = `https://app.unity-gate.com/user-login/auth?${params.toString()}`;
-            }, 600); 
+                // Giriş başarılı varsayılarak Dashboard'a yönlendiriliyor
+                window.location.href = 'dashboard.html';
+            }, 800); 
         }
     </script>
 </body>

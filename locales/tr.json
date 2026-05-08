@@ -68,5 +68,17 @@
   "lblAgree": "Kullanıcı sözleşmesini ve KVKK aydınlatma metnini okudum, onaylıyorum.",
   "btnRegisterSubmit": "Güvenli Hesabımı Oluştur",
   "registerHasAccount": "Zaten hesabınız var mı?",
-  "registerGoLogin": "Giriş Yapın"
+  "registerGoLogin": "Giriş Yapın",
+
+  "dashMenuOverview": "Genel Bakış",
+  "dashMenuInsights": "Klinik Analizler",
+  "dashMenuRooms": "Güvenli Odalar",
+  "dashMenuSettings": "Hesap Ayarları",
+  "dashRoleUnverified": "Hesap Onayı Bekleniyor",
+  "dashTitle": "Kontrol Paneli",
+  "dashWelcomeDesc": "Sosyal esenlik durumunuz ve güvenli bağlantılarınız.",
+  "verifyAlertTitle": "E-posta Doğrulaması Gerekiyor",
+  "verifyAlertDesc": "Topluluğa tam erişim sağlamak, ilanlara başvurmak ve uzman eşleşme sistemini kullanabilmek için lütfen e-posta adresinize gönderdiğimiz doğrulama bağlantısına tıklayın. Hesabınızı onaylamadan işlem yapamazsınız.",
+  "btnVerifyResend": "Doğrulama E-postasını Tekrar Gönder",
+  "msgVerifySuccess": "Doğrulama e-postası başarıyla tekrar gönderildi! Lütfen gelen kutunuzu (ve spam klasörünü) kontrol edin."
 }

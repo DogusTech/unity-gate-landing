@@ -28,16 +28,18 @@
         }
     </script>
 </head>
-<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex items-center justify-center relative overflow-hidden py-12">
+<body class="font-sans selection:bg-unity-taupe selection:text-unity-base bg-unity-base text-unity-sand min-h-screen flex flex-col items-center justify-center py-16 px-6 relative overflow-x-hidden">
 
-    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-unity-taupe/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-unity-taupe/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium z-20">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
-    </a>
+    <div class="w-full max-w-2xl mb-8 relative z-20">
+        <a href="index.html" class="inline-flex items-center gap-2 text-unity-sand hover:text-white transition-transform transform hover:-translate-x-1 duration-300 font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span data-i18n="authBackHome">Ana Sayfaya Dön</span>
+        </a>
+    </div>
 
-    <div class="relative z-10 w-full max-w-2xl bg-unity-surface/80 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl mx-4">
+    <div class="relative z-10 w-full max-w-2xl bg-unity-surface/80 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
         
         <div class="text-center mb-10">
             <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-unity-taupe to-white flex items-center justify-center shadow-lg mb-6">
@@ -82,7 +84,7 @@
 
             <div class="mb-8">
                 <label class="flex items-start gap-3 cursor-pointer group">
-                    <input type="checkbox" id="agree_terms" class="mt-1 w-5 h-5 rounded border-white/20 bg-unity-base/50 text-unity-taupe focus:ring-unity-taupe focus:ring-offset-unity-surface" required>
+                    <input type="checkbox" id="agree_terms" class="mt-1 w-5 h-5 rounded border-white/20 bg-unity-base/50 text-unity-taupe focus:ring-unity-taupe focus:ring-offset-unity-surface flex-shrink-0" required>
                     <span class="text-sm font-medium text-unity-sand group-hover:text-white transition-colors leading-relaxed" data-i18n="lblAgree">Kullanıcı sözleşmesini ve KVKK aydınlatma metnini okudum, onaylıyorum.</span>
                 </label>
             </div>
@@ -122,7 +124,6 @@
             const confirmPassword = document.getElementById('confirm_password').value;
 
             if (rawPassword !== confirmPassword) {
-                // Buradaki uyarı mesajı JSON'dan da alınabilir ancak native JS alert için direkt yazıldı.
                 alert("Güvenlik Uyarısı: Şifreler eşleşmiyor, lütfen kontrol edin.");
                 return;
             }
@@ -132,13 +133,9 @@
             submitBtn.style.opacity = '0.7';
 
             setTimeout(() => {
-                const params = new URLSearchParams();
-                params.append("name", document.getElementById('name').value);
-                params.append("email", document.getElementById('email').value);
-                params.append("token", rawPassword); 
-
-                window.location.href = `https://app.unity-gate.com/user/finalize?${params.toString()}`;
-            }, 600);
+                // Kayıt başarılı, Dashboard'a yönlendir (Yeni kullanıcı olduğunu simüle etmek için URL parametresiyle)
+                window.location.href = 'dashboard.html?status=new';
+            }, 800);
         }
     </script>
 </body>
